@@ -55,7 +55,7 @@
     <link href="http://blog.qnight.cn/hexo_install_error.html"/>
     <id>http://blog.qnight.cn/hexo_install_error.html</id>
     <published>2017-08-31T14:43:03.000Z</published>
-    <updated>2017-09-01T02:54:05.346Z</updated>
+    <updated>2017-09-01T06:21:48.167Z</updated>
     
     <content type="html"><![CDATA[<h3 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h3><blockquote>
 <p>最近跳槽换公司后，又要重新在公司电脑上搭个hexo blog环境，从github上拷贝下自己的源码后，执行<strong>npm install hexo</strong> 突然报错了<br>node -v8.4.0x64</p>
@@ -97,7 +97,7 @@
     
     </summary>
     
-      <category term="测试" scheme="http://blog.qnight.cn/categories/%E6%B5%8B%E8%AF%95/"/>
+      <category term="学习笔记" scheme="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="hexo" scheme="http://blog.qnight.cn/tags/hexo/"/>
