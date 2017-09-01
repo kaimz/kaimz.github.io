@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.qnight.cn/hexo_install_error.html</loc>
+    
+    <lastmod>2017-09-01T02:54:05.346Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.qnight.cn/vsftpd.html</loc>
     
     <lastmod>2017-09-01T01:28:45.821Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://blog.qnight.cn/linux_user_default_path.html</loc>
     
     <lastmod>2017-09-01T01:28:45.806Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.qnight.cn/hexo_install_error.html</loc>
-    
-    <lastmod>2017-09-01T01:28:45.803Z</lastmod>
     
   </url>
   
