@@ -17,8 +17,8 @@
   
   <entry>
     <title>Linux下如何修改用户默认目录</title>
-    <link href="http://blog.qnight.cn/2017/09/01/linux_user_default_path/"/>
-    <id>http://blog.qnight.cn/2017/09/01/linux_user_default_path/</id>
+    <link href="http://blog.qnight.cn/linux_user_default_path.html"/>
+    <id>http://blog.qnight.cn/linux_user_default_path.html</id>
     <published>2017-09-01T01:28:45.806Z</published>
     <updated>2017-09-01T01:28:45.806Z</updated>
     
@@ -52,8 +52,8 @@
   
   <entry>
     <title>关于npm install hexo出错</title>
-    <link href="http://blog.qnight.cn/2017/08/31/hexo_install_error/"/>
-    <id>http://blog.qnight.cn/2017/08/31/hexo_install_error/</id>
+    <link href="http://blog.qnight.cn/hexo_install_error.html"/>
+    <id>http://blog.qnight.cn/hexo_install_error.html</id>
     <published>2017-08-31T14:43:03.000Z</published>
     <updated>2017-09-01T01:28:45.803Z</updated>
     
@@ -108,8 +108,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://blog.qnight.cn/2017/08/31/hello-world/"/>
-    <id>http://blog.qnight.cn/2017/08/31/hello-world/</id>
+    <link href="http://blog.qnight.cn/hello-world.html"/>
+    <id>http://blog.qnight.cn/hello-world.html</id>
     <published>2017-08-31T07:04:17.729Z</published>
     <updated>2017-08-31T07:04:17.729Z</updated>
     
@@ -135,8 +135,8 @@
   
   <entry>
     <title>linux上搭建ftp服务器</title>
-    <link href="http://blog.qnight.cn/2017/08/30/vsftpd/"/>
-    <id>http://blog.qnight.cn/2017/08/30/vsftpd/</id>
+    <link href="http://blog.qnight.cn/vsftpd.html"/>
+    <id>http://blog.qnight.cn/vsftpd.html</id>
     <published>2017-08-30T14:08:03.000Z</published>
     <updated>2017-09-01T01:28:45.821Z</updated>
     
@@ -214,8 +214,8 @@
   
   <entry>
     <title>CentOS 7 静态IP设置</title>
-    <link href="http://blog.qnight.cn/2017/08/29/setting_static_ip/"/>
-    <id>http://blog.qnight.cn/2017/08/29/setting_static_ip/</id>
+    <link href="http://blog.qnight.cn/setting_static_ip.html"/>
+    <id>http://blog.qnight.cn/setting_static_ip.html</id>
     <published>2017-08-29T11:35:03.000Z</published>
     <updated>2017-09-01T01:28:45.813Z</updated>
     
@@ -247,8 +247,8 @@
   
   <entry>
     <title>SAMBA共享</title>
-    <link href="http://blog.qnight.cn/2017/08/28/samba/"/>
-    <id>http://blog.qnight.cn/2017/08/28/samba/</id>
+    <link href="http://blog.qnight.cn/samba.html"/>
+    <id>http://blog.qnight.cn/samba.html</id>
     <published>2017-08-28T14:49:03.000Z</published>
     <updated>2017-09-01T01:28:45.810Z</updated>
     
@@ -275,8 +275,8 @@
   
   <entry>
     <title>Java中位运算符</title>
-    <link href="http://blog.qnight.cn/2017/08/27/JAVA_Bitwise_Operators%20/"/>
-    <id>http://blog.qnight.cn/2017/08/27/JAVA_Bitwise_Operators /</id>
+    <link href="http://blog.qnight.cn/JAVA_Bitwise_Operators%20.html"/>
+    <id>http://blog.qnight.cn/JAVA_Bitwise_Operators .html</id>
     <published>2017-08-27T14:21:36.000Z</published>
     <updated>2017-09-01T01:28:45.800Z</updated>
     
@@ -332,8 +332,8 @@
   
   <entry>
     <title>测试</title>
-    <link href="http://blog.qnight.cn/2017/07/27/test/"/>
-    <id>http://blog.qnight.cn/2017/07/27/test/</id>
+    <link href="http://blog.qnight.cn/test.html"/>
+    <id>http://blog.qnight.cn/test.html</id>
     <published>2017-07-27T02:08:03.000Z</published>
     <updated>2017-09-01T01:28:45.817Z</updated>
     
