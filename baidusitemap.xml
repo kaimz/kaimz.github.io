@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/vsftpd.html</loc>
+    <lastmod>2017-09-05T05:59:17.226Z</lastmod>
+    <data>
+        <display>
+        <title>linux上搭建ftp服务器</title>
+        <pubTime>2017-08-30T14:08:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>ftp</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/setting_static_ip.html</loc>
     <lastmod>2017-09-05T03:58:04.042Z</lastmod>
     <data>
@@ -52,28 +74,6 @@
         <pubTime>2017-08-27T14:21:36.000Z</pubTime>
         
         <tag>java</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/vsftpd.html</loc>
-    <lastmod>2017-09-05T01:17:56.793Z</lastmod>
-    <data>
-        <display>
-        <title>linux上搭建ftp服务器</title>
-        <pubTime>2017-08-30T14:08:03.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>ftp</tag>
          
          
            

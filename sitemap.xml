@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/vsftpd.html</loc>
+    
+    <lastmod>2017-09-05T05:59:17.226Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/setting_static_ip.html</loc>
     
     <lastmod>2017-09-05T03:58:04.042Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://blog.wuwii.com/JAVA_Bitwise_Operators.html</loc>
     
     <lastmod>2017-09-05T01:20:27.641Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/vsftpd.html</loc>
-    
-    <lastmod>2017-09-05T01:17:56.793Z</lastmod>
     
   </url>
   
