@@ -1,8 +1,10 @@
-http://blog.qnight.cn/linux_user_default_path.html
-http://blog.qnight.cn/hexo_install_error.html
-http://blog.qnight.cn/hello-world.html
-http://blog.qnight.cn/vsftpd.html
-http://blog.qnight.cn/setting_static_ip.html
-http://blog.qnight.cn/samba.html
-http://blog.qnight.cn/JAVA_Bitwise_Operators .html
-http://blog.qnight.cn/test.html
+http://blog.wuwii.com/enumeration-package-design .html
+http://blog.wuwii.com/kaifu-love-story.html
+http://blog.wuwii.com/hexo_install_error.html
+http://blog.wuwii.com/linux_user_default_path.html
+http://blog.wuwii.com/vsftpd.html
+http://blog.wuwii.com/setting_static_ip.html
+http://blog.wuwii.com/samba.html
+http://blog.wuwii.com/JAVA_Bitwise_Operators.html
+http://blog.wuwii.com/test.html
+http://blog.wuwii.com/hello-world.html

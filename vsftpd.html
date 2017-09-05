@@ -11,7 +11,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('不好意思，这篇文章需要密码！') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -106,27 +123,27 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="http://a2.qpic.cn/psb?/V13OsJkp4Tukgx/tz6NvLOC9ofq**fbgt2Qj5rb4sbYlx4Zqni3wtdPYvA!/b/dDwBAAAAAAAA&bo=EAAQAAAAAAADByI!&rf=viewer_4?v=5.1.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
 
 
 
 
 
 
-<meta name="description" content="主要参考博客 http://www.cnblogs.com/wolf-sun/p/6058501.html  摘要vsftpd 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务">
+<meta name="description" content="摘要 vsftpd 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务器软件，支持很多其他的 FTP 服务器所不支持的特征。比如：非常高的安全性需求、带宽限制、良好的可伸缩性、可">
 <meta name="keywords" content="linux,ftp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux上搭建ftp服务器">
-<meta property="og:url" content="http://blog.qnight.cn/vsftpd.html">
+<meta property="og:url" content="http://blog.wuwii.com/vsftpd.html">
 <meta property="og:site_name" content="我想说点什么">
-<meta property="og:description" content="主要参考博客 http://www.cnblogs.com/wolf-sun/p/6058501.html  摘要vsftpd 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务">
+<meta property="og:description" content="摘要 vsftpd 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务器软件，支持很多其他的 FTP 服务器所不支持的特征。比如：非常高的安全性需求、带宽限制、良好的可伸缩性、可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830155115.png">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830160616.png">
-<meta property="og:updated_time" content="2017-09-01T01:28:45.821Z">
+<meta property="og:updated_time" content="2017-09-05T01:17:56.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux上搭建ftp服务器">
-<meta name="twitter:description" content="主要参考博客 http://www.cnblogs.com/wolf-sun/p/6058501.html  摘要vsftpd 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务">
+<meta name="twitter:description" content="摘要 vsftpd 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务器软件，支持很多其他的 FTP 服务器所不支持的特征。比如：非常高的安全性需求、带宽限制、良好的可伸缩性、可">
 <meta name="twitter:image" content="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830155115.png">
 
 
@@ -155,7 +172,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.qnight.cn/vsftpd.html"/>
+  <link rel="canonical" href="http://blog.wuwii.com/vsftpd.html"/>
 
 
 
@@ -281,21 +298,45 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            站点地图
+            搜索
           </a>
         </li>
-      
-
       
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -320,7 +361,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.qnight.cn/vsftpd.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/vsftpd.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张 凯">
@@ -385,6 +426,18 @@
 
           
             
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/vsftpd.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="vsftpd.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
           
 
           
@@ -392,6 +445,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,643
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
           
 
           
@@ -406,61 +490,64 @@
       
 
       
-        <p>主要参考博客 <a href="http://www.cnblogs.com/wolf-sun/p/6058501.html" target="_blank" rel="external">http://www.cnblogs.com/wolf-sun/p/6058501.html</a> </p>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>vsftpd 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务器软件，支持很多其他的 FTP 服务器所不支持的特征。比如：非常高的安全性需求、带宽限制、良好的可伸缩性、可创建虚拟用户、支持IPv6、速率高等。</p>
-<p>vsftpd是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。（来自百度百科）</p>
+        <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><blockquote>
+<p><code>vsftpd</code> 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务器软件，支持很多其他的 FTP 服务器所不支持的特征。比如：非常高的安全性需求、带宽限制、良好的可伸缩性、可创建虚拟用户、支持IPv6、速率高等。</p>
+<p><code>vsftpd</code>是一款在<code>Linux</code>发行版中最受推崇的<code>FTP</code>服务器程序。特点是小巧轻快，安全易用。（来自百度百科）</p>
+</blockquote>
+<a id="more"></a>  
 <h3 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h3><ol>
-<li>检测是否已经安装vsftpd。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# rpm -qa | grep vsftpd</div><div class="line">[root@localhost ~]#</div></pre></td></tr></table></figure>
+<li>检测是否已经安装vsftpd。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># rpm -qa | grep vsftpd</span></div><div class="line">[root@localhost ~]<span class="comment">#</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>什么都不显示就没有安装</p>
 <ol>
-<li>安装vsftpd<br>2.1 使用yum安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# yum -y install vsftpd</div></pre></td></tr></table></figure>
+<li>安装vsftpd<br>2.1 使用yum安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># yum -y install vsftpd</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>2.2 使用rpm安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost local]# rpm -ivh vsftpd-3.0.2-21.el7.x86_64.rpm</div></pre></td></tr></table></figure></p>
+<p>2.2 使用rpm安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">local</span>]<span class="comment"># rpm -ivh vsftpd-3.0.2-21.el7.x86_64.rpm</span></div></pre></td></tr></table></figure></p>
 <ol>
 <li><p>启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost local]# service vsftpd start</div><div class="line">Redirecting to /bin/systemctl start  vsftpd.service</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">local</span>]<span class="comment"># service vsftpd start</span></div><div class="line">Redirecting to /bin/systemctl start  vsftpd.service</div></pre></td></tr></table></figure>
 </li>
 <li><p>查看服务状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@localhost local]# service vsftpd status</div><div class="line">Redirecting to /bin/systemctl status  vsftpd.service</div><div class="line">● vsftpd.service - Vsftpd ftp daemon</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/vsftpd.service; disabled; vendor preset: disabled)</div><div class="line">   Active: active (running) since 三 2017-08-30 15:28:18 CST; 15min ago</div><div class="line">  Process: 4295 ExecStart=/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf (code=exited, status=0/SUCCESS)</div><div class="line"> Main PID: 4296 (vsftpd)</div><div class="line">   CGroup: /system.slice/vsftpd.service</div><div class="line">           └─4296 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf</div><div class="line"></div><div class="line">8月 30 15:28:18 localhost.localdomain systemd[1]: Starting Vsftpd ftp daemon...</div><div class="line">8月 30 15:28:18 localhost.localdomain systemd[1]: Started Vsftpd ftp daemon.</div><div class="line">Hint: Some lines were ellipsized, use -l to show in full.</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">local</span>]<span class="comment"># service vsftpd status</span></div><div class="line">Redirecting to /bin/systemctl status  vsftpd.service</div><div class="line">● vsftpd.service - Vsftpd ftp daemon</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/vsftpd.service; disabled; vendor preset: disabled)</div><div class="line">   Active: active (running) since 三 2017-08-30 15:28:18 CST; 15min ago</div><div class="line">  Process: 4295 ExecStart=/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf (code=exited, status=0/SUCCESS)</div><div class="line"> Main PID: 4296 (vsftpd)</div><div class="line">   CGroup: /system.slice/vsftpd.service</div><div class="line">           └─4296 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf</div><div class="line"></div><div class="line">8月 30 15:28:18 localhost.localdomain systemd[1]: Starting Vsftpd ftp daemon...</div><div class="line">8月 30 15:28:18 localhost.localdomain systemd[1]: Started Vsftpd ftp daemon.</div><div class="line">Hint: Some lines were ellipsized, use -l to show <span class="keyword">in</span> full.</div></pre></td></tr></table></figure>
 <p>Active: active (running)  启动状态，可以使用</p>
 </li>
 <li>现在我们就可以匿名访问了<h3 id="vsftpd添加用户"><a href="#vsftpd添加用户" class="headerlink" title="vsftpd添加用户"></a>vsftpd添加用户</h3></li>
 <li>vsftpd添加用户<br>FTP用户一般是不能登录系统的,只能进入FTP服务器自己的目录中,这是为了安全.这样的用户就叫做虚拟用户了.实际上并不是真正的虚拟用户,只是不能登录SHELL了而已,没能力登录系统.</li>
 </ol>
-<p>添加用户命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/sbin/adduser -d /opt/test_ftp -g ftp -s /sbin/nologin test2</div></pre></td></tr></table></figure></p>
+<p>添加用户命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/sbin/adduser -d /opt/test_ftp -g ftp -s /sbin/nologin test2</div></pre></td></tr></table></figure></p>
 <p>上面的命令是添加一个 名称为 test2的用户。</p>
 <p>命令解析：使用命令(adduser)添加test2用户,不能登录系统(-s /sbin/nologin),自己的文件夹在(-d /opt/test_ftp)),属于组ftp(-g ftp).</p>
-<p>为该用户设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost local]# passwd test2</div></pre></td></tr></table></figure></p>
+<p>为该用户设置密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">local</span>]<span class="comment"># passwd test2</span></div></pre></td></tr></table></figure></p>
 <p>现在重启服务我们就可以使用test2直接访问我们的 /opttest_ftp目录了<br><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830155115.png" alt="ftp1"></p>
 <h3 id="给用户权限上传下载，修改"><a href="#给用户权限上传下载，修改" class="headerlink" title="给用户权限上传下载，修改"></a>给用户权限上传下载，修改</h3><p>虽然用户能够进行查看，但是还没有权限上传、下载和修改</p>
 <ol>
 <li><p>授权</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost local]# chmod 755 /opt/test_ftp</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">local</span>]<span class="comment"># chmod 755 /opt/test_ftp</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>编辑配置文件<br>一般创建一个ftp 用户，作为管理员只希望它只能访问其自己的所属目录的，是不会让他选择其他目录的。</p>
 </li>
 </ol>
 <p>设置ftp用户的权限</p>
-<p>在安装好ftp时，在 /etc/vsftpd目录下可以看到vsftpd的配置文件vsftpd.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]# vim vsftpd.conf       </div><div class="line"># Example config file /etc/vsftpd/vsftpd.conf</div><div class="line">#</div><div class="line"># The default compiled in settings are fairly paranoid. This sample file</div><div class="line"># loosens things up a bit, to make the ftp daemon more usable.</div><div class="line"># Please see vsftpd.conf.5 for all compiled in defaults.</div><div class="line">#</div><div class="line"># READ THIS: This example file is NOT an exhaustive list of vsftpd options.</div><div class="line"># Please read the vsftpd.conf.5 manual page to get a full idea of vsftpd&apos;s</div><div class="line"># capabilities.</div><div class="line">#</div><div class="line"># Allow anonymous FTP? (Beware - allowed by default if you comment this out).</div><div class="line">anonymous_enable=YES</div><div class="line">#</div><div class="line"># Uncomment this to allow local users to log in.</div><div class="line"># When SELinux is enforcing check for SE bool ftp_home_dir</div><div class="line">local_enable=YES</div><div class="line">#</div><div class="line"># Uncomment this to enable any form of FTP write command.</div><div class="line">write_enable=YES</div><div class="line">#</div><div class="line"># Default umask for local users is 077. You may wish to change this to 022,</div><div class="line"># if your users expect that (022 is used by most other ftpd&apos;s)</div><div class="line">local_umask=022</div><div class="line">#</div><div class="line"># Uncomment this to allow the anonymous FTP user to upload files. This only</div><div class="line"># has an effect if the above global write enable is activated. Also, you will</div><div class="line"># obviously need to create a directory writable by the FTP user.</div><div class="line"># When SELinux is enforcing check for SE bool allow_ftpd_anon_write, allow_ftpd_full_access</div><div class="line">anon_upload_enable=YES</div><div class="line">#</div><div class="line"># Uncomment this if you want the anonymous FTP user to be able to create</div><div class="line"># new directories.</div><div class="line">anon_mkdir_write_enable=YES</div><div class="line">#</div><div class="line"># Activate directory messages - messages given to remote users when they</div><div class="line"># go into a certain directory.</div><div class="line">dirmessage_enable=YES</div><div class="line">#</div><div class="line"># Activate logging of uploads/downloads.</div><div class="line">xferlog_enable=YES</div><div class="line">#</div><div class="line"># Make sure PORT transfer connections originate from port 20 (ftp-data).</div><div class="line">connect_from_port_20=YES</div><div class="line">#</div><div class="line"># If you want, you can arrange for uploaded anonymous files to be owned by</div><div class="line"># a different user. Note! Using &quot;root&quot; for uploaded files is not</div><div class="line"># recommended!</div><div class="line">#chown_uploads=YES</div><div class="line">#chown_username=whoever</div><div class="line">#</div><div class="line"># You may override where the log file goes if you like. The default is shown</div><div class="line"># below.</div><div class="line">#xferlog_file=/var/log/xferlog</div><div class="line">#</div><div class="line"># If you want, you can have your log file in standard ftpd xferlog format.</div><div class="line"># Note that the default log file location is /var/log/xferlog in this case.</div><div class="line">xferlog_std_format=YES</div><div class="line">#</div><div class="line"># You may change the default value for timing out an idle session.</div><div class="line">idle_session_timeout=600</div><div class="line">#</div><div class="line"># You may change the default value for timing out a data connection.</div><div class="line">data_connection_timeout=120</div><div class="line">#</div><div class="line"># It is recommended that you define on your system a unique user which the</div><div class="line"># ftp server can use as a totally isolated and unprivileged user.</div><div class="line">#nopriv_user=ftpsecure</div><div class="line">#</div><div class="line"># Enable this and the server will recognise asynchronous ABOR requests. Not</div><div class="line"># recommended for security (the code is non-trivial). Not enabling it,</div><div class="line"># however, may confuse older FTP clients.</div><div class="line">#async_abor_enable=YES</div><div class="line">#</div><div class="line"># By default the server will pretend to allow ASCII mode but in fact ignore</div><div class="line"># the request. Turn on the below options to have the server actually do ASCII</div><div class="line"># mangling on files when in ASCII mode.</div><div class="line"># Beware that on some FTP servers, ASCII support allows a denial of service</div><div class="line"># attack (DoS) via the command &quot;SIZE /big/file&quot; in ASCII mode. vsftpd</div><div class="line"># predicted this attack and has always been safe, reporting the size of the</div><div class="line"># raw file.</div><div class="line"># ASCII mangling is a horrible feature of the protocol.</div><div class="line">ascii_upload_enable=YES</div><div class="line">ascii_download_enable=YES</div><div class="line">#</div><div class="line"># You may fully customise the login banner string:</div><div class="line">ftpd_banner=Welcome to blah FTP service.</div><div class="line">#</div><div class="line"># You may specify a file of disallowed anonymous e-mail addresses. Apparently</div><div class="line"># useful for combatting certain DoS attacks.</div><div class="line">#deny_email_enable=YES</div><div class="line"># (default follows)</div><div class="line">#banned_email_file=/etc/vsftpd/banned_emails</div><div class="line">#</div><div class="line"># You may specify an explicit list of local users to chroot() to their home</div><div class="line"># directory. If chroot_local_user is YES, then this list becomes a list of</div><div class="line"># users to NOT chroot().</div><div class="line"># (Warning! chroot&apos;ing can be very dangerous. If using chroot, make sure that</div><div class="line"># the user does not have write access to the top level directory within the</div><div class="line"># chroot)</div><div class="line">chroot_local_user=YES</div><div class="line">chroot_list_enable=YES</div><div class="line"># (default follows)</div><div class="line">chroot_list_file=/etc/vsftpd/chroot_list</div><div class="line">#</div><div class="line"># You may activate the &quot;-R&quot; option to the builtin ls. This is disabled by</div><div class="line"># default to avoid remote users being able to cause excessive I/O on large</div><div class="line"># sites. However, some broken FTP clients such as &quot;ncftp&quot; and &quot;mirror&quot; assume</div><div class="line"># the presence of the &quot;-R&quot; option, so there is a strong case for enabling it.</div><div class="line">#ls_recurse_enable=YES</div><div class="line">#</div><div class="line">  When &quot;listen&quot; directive is enabled, vsftpd runs in standalone mode and</div><div class="line">▽ listens on IPv4 sockets. This directive cannot be used in conjunction</div><div class="line"># with the listen_ipv6 directive.</div><div class="line">listen=YES</div><div class="line">#</div><div class="line"># This directive enables listening on IPv6 sockets. By default, listening</div><div class="line"># on the IPv6 &quot;any&quot; address (::) will accept connections from both IPv6</div><div class="line"># and IPv4 clients. It is not necessary to listen on *both* IPv4 and IPv6</div><div class="line"># sockets. If you want that (perhaps because you want to listen on specific</div><div class="line"># addresses) then you must run two copies of vsftpd with two configuration</div><div class="line"># files.</div><div class="line"># Make sure, that one of the listen options is commented !!</div><div class="line"># listen_ipv6=YES</div><div class="line"></div><div class="line">pam_service_name=vsftpd</div><div class="line">userlist_enable=YES</div><div class="line">tcp_wrappers=YES</div><div class="line">anon_other_write_enable=YES</div><div class="line">anon_root=/opt/test_ftp</div><div class="line">guest_enable=YES</div><div class="line">guest_username=test2</div><div class="line">virtual_use_local_privs=YES</div></pre></td></tr></table></figure></p>
+<p>在安装好ftp时，在 /etc/vsftpd目录下可以看到vsftpd的配置文件vsftpd.conf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]<span class="comment"># vim vsftpd.conf       </span></div><div class="line"><span class="comment"># Example config file /etc/vsftpd/vsftpd.conf</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># The default compiled in settings are fairly paranoid. This sample file</span></div><div class="line"><span class="comment"># loosens things up a bit, to make the ftp daemon more usable.</span></div><div class="line"><span class="comment"># Please see vsftpd.conf.5 for all compiled in defaults.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># READ THIS: This example file is NOT an exhaustive list of vsftpd options.</span></div><div class="line"><span class="comment"># Please read the vsftpd.conf.5 manual page to get a full idea of vsftpd's</span></div><div class="line"><span class="comment"># capabilities.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Allow anonymous FTP? (Beware - allowed by default if you comment this out).</span></div><div class="line">anonymous_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Uncomment this to allow local users to log in.</span></div><div class="line"><span class="comment"># When SELinux is enforcing check for SE bool ftp_home_dir</span></div><div class="line">local_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Uncomment this to enable any form of FTP write command.</span></div><div class="line">write_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Default umask for local users is 077. You may wish to change this to 022,</span></div><div class="line"><span class="comment"># if your users expect that (022 is used by most other ftpd's)</span></div><div class="line">local_umask=022</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Uncomment this to allow the anonymous FTP user to upload files. This only</span></div><div class="line"><span class="comment"># has an effect if the above global write enable is activated. Also, you will</span></div><div class="line"><span class="comment"># obviously need to create a directory writable by the FTP user.</span></div><div class="line"><span class="comment"># When SELinux is enforcing check for SE bool allow_ftpd_anon_write, allow_ftpd_full_access</span></div><div class="line">anon_upload_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Uncomment this if you want the anonymous FTP user to be able to create</span></div><div class="line"><span class="comment"># new directories.</span></div><div class="line">anon_mkdir_write_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Activate directory messages - messages given to remote users when they</span></div><div class="line"><span class="comment"># go into a certain directory.</span></div><div class="line">dirmessage_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Activate logging of uploads/downloads.</span></div><div class="line">xferlog_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Make sure PORT transfer connections originate from port 20 (ftp-data).</span></div><div class="line">connect_from_port_20=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># If you want, you can arrange for uploaded anonymous files to be owned by</span></div><div class="line"><span class="comment"># a different user. Note! Using "root" for uploaded files is not</span></div><div class="line"><span class="comment"># recommended!</span></div><div class="line"><span class="comment">#chown_uploads=YES</span></div><div class="line"><span class="comment">#chown_username=whoever</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may override where the log file goes if you like. The default is shown</span></div><div class="line"><span class="comment"># below.</span></div><div class="line"><span class="comment">#xferlog_file=/var/log/xferlog</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># If you want, you can have your log file in standard ftpd xferlog format.</span></div><div class="line"><span class="comment"># Note that the default log file location is /var/log/xferlog in this case.</span></div><div class="line">xferlog_std_format=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may change the default value for timing out an idle session.</span></div><div class="line">idle_session_timeout=600</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may change the default value for timing out a data connection.</span></div><div class="line">data_connection_timeout=120</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># It is recommended that you define on your system a unique user which the</span></div><div class="line"><span class="comment"># ftp server can use as a totally isolated and unprivileged user.</span></div><div class="line"><span class="comment">#nopriv_user=ftpsecure</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Enable this and the server will recognise asynchronous ABOR requests. Not</span></div><div class="line"><span class="comment"># recommended for security (the code is non-trivial). Not enabling it,</span></div><div class="line"><span class="comment"># however, may confuse older FTP clients.</span></div><div class="line"><span class="comment">#async_abor_enable=YES</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># By default the server will pretend to allow ASCII mode but in fact ignore</span></div><div class="line"><span class="comment"># the request. Turn on the below options to have the server actually do ASCII</span></div><div class="line"><span class="comment"># mangling on files when in ASCII mode.</span></div><div class="line"><span class="comment"># Beware that on some FTP servers, ASCII support allows a denial of service</span></div><div class="line"><span class="comment"># attack (DoS) via the command "SIZE /big/file" in ASCII mode. vsftpd</span></div><div class="line"><span class="comment"># predicted this attack and has always been safe, reporting the size of the</span></div><div class="line"><span class="comment"># raw file.</span></div><div class="line"><span class="comment"># ASCII mangling is a horrible feature of the protocol.</span></div><div class="line">ascii_upload_enable=YES</div><div class="line">ascii_download_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may fully customise the login banner string:</span></div><div class="line">ftpd_banner=Welcome to blah FTP service.</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may specify a file of disallowed anonymous e-mail addresses. Apparently</span></div><div class="line"><span class="comment"># useful for combatting certain DoS attacks.</span></div><div class="line"><span class="comment">#deny_email_enable=YES</span></div><div class="line"><span class="comment"># (default follows)</span></div><div class="line"><span class="comment">#banned_email_file=/etc/vsftpd/banned_emails</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may specify an explicit list of local users to chroot() to their home</span></div><div class="line"><span class="comment"># directory. If chroot_local_user is YES, then this list becomes a list of</span></div><div class="line"><span class="comment"># users to NOT chroot().</span></div><div class="line"><span class="comment"># (Warning! chroot'ing can be very dangerous. If using chroot, make sure that</span></div><div class="line"><span class="comment"># the user does not have write access to the top level directory within the</span></div><div class="line"><span class="comment"># chroot)</span></div><div class="line">chroot_local_user=YES</div><div class="line">chroot_list_enable=YES</div><div class="line"><span class="comment"># (default follows)</span></div><div class="line">chroot_list_file=/etc/vsftpd/chroot_list</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may activate the "-R" option to the builtin ls. This is disabled by</span></div><div class="line"><span class="comment"># default to avoid remote users being able to cause excessive I/O on large</span></div><div class="line"><span class="comment"># sites. However, some broken FTP clients such as "ncftp" and "mirror" assume</span></div><div class="line"><span class="comment"># the presence of the "-R" option, so there is a strong case for enabling it.</span></div><div class="line"><span class="comment">#ls_recurse_enable=YES</span></div><div class="line"><span class="comment">#</span></div><div class="line">  When <span class="string">"listen"</span> directive is enabled, vsftpd runs <span class="keyword">in</span> standalone mode and</div><div class="line">▽ listens on IPv4 sockets. This directive cannot be used <span class="keyword">in</span> conjunction</div><div class="line"><span class="comment"># with the listen_ipv6 directive.</span></div><div class="line">listen=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># This directive enables listening on IPv6 sockets. By default, listening</span></div><div class="line"><span class="comment"># on the IPv6 "any" address (::) will accept connections from both IPv6</span></div><div class="line"><span class="comment"># and IPv4 clients. It is not necessary to listen on *both* IPv4 and IPv6</span></div><div class="line"><span class="comment"># sockets. If you want that (perhaps because you want to listen on specific</span></div><div class="line"><span class="comment"># addresses) then you must run two copies of vsftpd with two configuration</span></div><div class="line"><span class="comment"># files.</span></div><div class="line"><span class="comment"># Make sure, that one of the listen options is commented !!</span></div><div class="line"><span class="comment"># listen_ipv6=YES</span></div><div class="line"></div><div class="line">pam_service_name=vsftpd</div><div class="line">userlist_enable=YES</div><div class="line">tcp_wrappers=YES</div><div class="line">anon_other_write_enable=YES</div><div class="line">anon_root=/opt/test_ftp</div><div class="line">guest_enable=YES</div><div class="line">guest_username=test2</div><div class="line">virtual_use_local_privs=YES</div></pre></td></tr></table></figure></p>
 <ol>
-<li>创建用户文件/etc/vsftpd/chroot_list<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/vsftpd/chroot_list</div></pre></td></tr></table></figure>
+<li>创建用户文件/etc/vsftpd/chroot_list<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/vsftpd/chroot_list</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>将需要的用户添加进去，我们只有一个test2，一行一个用户名</p>
 <ol>
-<li>设置权限<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]# getsebool -a|grep ftp</div><div class="line">ftpd_anon_write --&gt; off</div><div class="line">ftpd_connect_all_unreserved --&gt; off</div><div class="line">  pd_connect_db --&gt; off</div><div class="line">▽tpd_full_access --&gt; off</div><div class="line">ftpd_use_cifs --&gt; off</div><div class="line">ftpd_use_fusefs --&gt; off</div><div class="line">ftpd_use_nfs --&gt; off</div><div class="line">ftpd_use_passive_mode --&gt; off</div><div class="line">httpd_can_connect_ftp --&gt; off</div><div class="line">httpd_enable_ftp_server --&gt; off</div><div class="line">tftp_anon_write --&gt; off</div><div class="line">tftp_home_dir --&gt; off</div></pre></td></tr></table></figure>
+<li>设置权限<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]<span class="comment"># getsebool -a|grep ftp</span></div><div class="line">ftpd_anon_write --&gt; off</div><div class="line">ftpd_connect_all_unreserved --&gt; off</div><div class="line">  pd_connect_db --&gt; off</div><div class="line">▽tpd_full_access --&gt; off</div><div class="line">ftpd_use_cifs --&gt; off</div><div class="line">ftpd_use_fusefs --&gt; off</div><div class="line">ftpd_use_nfs --&gt; off</div><div class="line">ftpd_use_passive_mode --&gt; off</div><div class="line">httpd_can_connect_ftp --&gt; off</div><div class="line">httpd_enable_ftp_server --&gt; off</div><div class="line">tftp_anon_write --&gt; off</div><div class="line">tftp_home_dir --&gt; off</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>4.1 开启 anon_write 和full_access<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]# setsebool allow_ftpd_anon_write  1</div><div class="line">[root@localhost vsftpd]# setsebool allow_ftpd_full_access 1</div></pre></td></tr></table></figure></p>
+<p>4.1 开启 anon_write 和full_access<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]<span class="comment"># setsebool allow_ftpd_anon_write  1</span></div><div class="line">[root@localhost vsftpd]<span class="comment"># setsebool allow_ftpd_full_access 1</span></div></pre></td></tr></table></figure></p>
 <ol>
-<li>重启ftp服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]# service vsftpd restart</div></pre></td></tr></table></figure>
+<li>重启ftp服务<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]<span class="comment"># service vsftpd restart</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830160616.png" alt="ftp2"></p>
-<p>注：测试连接软件是FileZilla，windows访问 ftp://[ip]</p>
+<p>注：测试连接软件是<code>FileZilla</code>，windows访问 ftp://[ip]</p>
+<p>主要参考博客 <a href="http://www.cnblogs.com/wolf-sun/p/6058501.html" target="_blank" rel="external">http://www.cnblogs.com/wolf-sun/p/6058501.html</a> </p>
 
       
     </div>
@@ -525,8 +612,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hello-world.html" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/linux_user_default_path.html" rel="prev" title="Linux下如何修改用户默认目录">
+                Linux下如何修改用户默认目录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -590,6 +677,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="hypercomments_widget"></div>
+    
   </div>
 
 
@@ -637,7 +726,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -648,7 +737,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -659,7 +748,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -793,6 +882,25 @@
 </div>
 
 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共4.9k字</span>
+</div>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
         
 
         
@@ -896,32 +1004,378 @@
 
 	
 
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 95150, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 95150, xid: "vsftpd.html"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/95150/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
 
 
 
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
 
   
 
-
-
-
-
-
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 
-
-
-
-
-  
-
-  
 
   
 

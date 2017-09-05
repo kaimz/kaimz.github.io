@@ -4,88 +4,111 @@
   <subtitle>开始</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.qnight.cn/"/>
-  <updated>2017-09-01T01:28:45.806Z</updated>
-  <id>http://blog.qnight.cn/</id>
+  <link href="http://blog.wuwii.com/"/>
+  <updated>2017-09-05T01:13:52.946Z</updated>
+  <id>http://blog.wuwii.com/</id>
   
   <author>
     <name>张 凯</name>
-    <email>kaim@qnight.cn</email>
+    <email>k@wuwii.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Linux下如何修改用户默认目录</title>
-    <link href="http://blog.qnight.cn/linux_user_default_path.html"/>
-    <id>http://blog.qnight.cn/linux_user_default_path.html</id>
-    <published>2017-09-01T01:28:45.806Z</published>
-    <updated>2017-09-01T01:28:45.806Z</updated>
+    <title>枚举的封装设计</title>
+    <link href="http://blog.wuwii.com/enumeration-package-design%20.html"/>
+    <id>http://blog.wuwii.com/enumeration-package-design .html</id>
+    <published>2017-09-04T15:08:03.000Z</published>
+    <updated>2017-09-05T01:13:52.946Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="提出问题"><a href="#提出问题" class="headerlink" title="提出问题"></a>提出问题</h3><blockquote>
-<p>在ftp服务器中，ftp登陆的用户只能在自己的文件夹下活动，现在我需要改这个用户的所属文件位置。  </p>
+    <content type="html"><![CDATA[<blockquote>
+<p><code>enum</code> 的全称为 <code>enumeration</code>， 是 <code>JDK 1.5</code>  中引入的新特性，存放在 <code>java.lang</code> 包中。虽然功能少，但是实际开发中还是非常方便的。</p>
 </blockquote>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><ul>
-<li><p>使用root用户，执行命令</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# cat /etc/passwd</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</div><div class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</div><div class="line">lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin</div><div class="line">sync:x:5:0:sync:/sbin:/bin/sync</div><div class="line">shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown</div><div class="line">halt:x:7:0:halt:/sbin:/sbin/halt</div><div class="line">mail:x:8:12:mail:/var/spool/mail:/sbin/nologin</div><div class="line">operator:x:11:0:operator:/root:/sbin/nologin</div><div class="line">games:x:12:100:games:/usr/games:/sbin/nologin</div><div class="line">ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin</div><div class="line">nobody:x:99:99:Nobody:/:/sbin/nologin</div><div class="line">systemd-bus-proxy:x:999:997:systemd Bus Proxy:/:/sbin/nologin</div><div class="line">systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin</div><div class="line">dbus:x:81:81:System message bus:/:/sbin/nologin</div><div class="line">polkitd:x:998:996:User for polkitd:/:/sbin/nologin</div><div class="line">tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin</div><div class="line">postfix:x:89:89::/var/spool/postfix:/sbin/nologin</div><div class="line">sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin</div><div class="line">kaim:x:1000:1000:kaim:/home/kaim:/bin/bash</div><div class="line">user1:x:1001:1001::/home/user1:/bin/bash</div><div class="line">rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin</div><div class="line">rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin</div><div class="line">nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin</div><div class="line">test2:x:1002:50::/opt/test_ftp:/sbin/nologin</div><div class="line">test1:x:1003:50::/opt/test_ftp:/sbin/nologin</div><div class="line">test3:x:1004:50::/opt/test_ftp:/sbin/nologin</div><div class="line">test4:x:1005:50::/opt/test_ftp:/sbin/nologin</div><div class="line">test5:x:1006:50::/opt/test5_ftp:/sbin/nologin</div></pre></td></tr></table></figure>
-</li>
-<li><p>直接修改目录名保存就可以，记得分配权限。</p>
-</li>
-</ul>
-<hr>
-<h3 id="附：添加，修改用户参数"><a href="#附：添加，修改用户参数" class="headerlink" title="附：添加，修改用户参数"></a>附：添加，修改用户参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/usr/sbin/adduser -d /opt/test_ftp -g ftp -s /sbin/nologin test2</div><div class="line">上面的命令是添加一个 名称为 test2的用户。</div><div class="line"></div><div class="line">命令解析：使用命令(adduser)添加test2用户,不能登录系统(-s /sbin/nologin),自己的文件夹在(-d /opt/test_ftp)),属于组ftp(-g ftp).</div><div class="line"></div><div class="line">usermod -s /sbin/nologin test //限定用户test不能telnet</div><div class="line">usermod -s /sbin/bash test //用户test恢复正常</div><div class="line">usermod -d /test test //更改用户test的主目录为/test</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> MenuType &#123;</div><div class="line"><span class="comment">// 注意：枚举成员命名，请使用英文大写形式  </span></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 目录</span></div><div class="line"><span class="comment">     */</span></div><div class="line">	CATALOG(<span class="number">0</span>),</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 菜单</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    MENU(<span class="number">1</span>),</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 按钮</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    BUTTON(<span class="number">2</span>);</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> value;</div><div class="line">    <span class="comment">// 私有的构造方法</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MenuType</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.value = value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">enum</span> Operation &#123;</div><div class="line">        GETCAPABILITIES &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        DESCRIBEFEATURETYPE &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        GETFEATURE&#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; ,</div><div class="line">        LOCKFEATURE&#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; ,</div><div class="line">        TRANSACTION_INSERT &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">4</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        TRANSACTION_UPDATE &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">8</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        TRANSACTION_DELETE &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">16</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;, </div><div class="line">        TRANSACTION_REPLACE &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">32</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        </div><div class="line">        <span class="function"><span class="keyword">abstract</span> <span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span></span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    	System.out.println(Operation.TRANSACTION_INSERT.getCode());</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;提出问题&quot;&gt;&lt;a href=&quot;#提出问题&quot; class=&quot;headerlink&quot; title=&quot;提出问题&quot;&gt;&lt;/a&gt;提出问题&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;在ftp服务器中，ftp登陆的用户只能在自己的文件夹下活动，现在我需要改这个用户的所属文件位置。 
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;enum&lt;/code&gt; 的全称为 &lt;code&gt;enumeration&lt;/code&gt;， 是 &lt;code&gt;JDK 1.5&lt;/code&gt;  中引入的新特性，存放在 &lt;code&gt;java.lang&lt;/code&gt; 包中。虽然功能少，但是实际开发中还是非常方便的。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
-      <category term="学习笔记" scheme="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="linux" scheme="http://blog.qnight.cn/tags/linux/"/>
+      <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
+    
+      <category term="枚举" scheme="http://blog.wuwii.com/tags/%E6%9E%9A%E4%B8%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分享：李开复：我的爱情故事</title>
+    <link href="http://blog.wuwii.com/kaifu-love-story.html"/>
+    <id>http://blog.wuwii.com/kaifu-love-story.html</id>
+    <published>2017-09-03T14:38:03.000Z</published>
+    <updated>2017-09-05T01:14:23.393Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p><strong>最好的爱情，并不是终日互相对视，而是共同眺望远方，相伴而行。他们眺望着的，始终是同一个方向。</strong> </p>
+</blockquote>
+<a id="more"></a> 
+<p><a href="http://weibo.com/ttarticle/p/show?id=2309404145816167164260" target="_blank" rel="external">李开复：我的爱情故事</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;最好的爱情，并不是终日互相对视，而是共同眺望远方，相伴而行。他们眺望着的，始终是同一个方向。&lt;/strong&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="分享" scheme="http://blog.wuwii.com/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="李开复" scheme="http://blog.wuwii.com/tags/%E6%9D%8E%E5%BC%80%E5%A4%8D/"/>
+    
+      <category term="感情" scheme="http://blog.wuwii.com/tags/%E6%84%9F%E6%83%85/"/>
     
   </entry>
   
   <entry>
     <title>关于npm install hexo出错</title>
-    <link href="http://blog.qnight.cn/hexo_install_error.html"/>
-    <id>http://blog.qnight.cn/hexo_install_error.html</id>
+    <link href="http://blog.wuwii.com/hexo_install_error.html"/>
+    <id>http://blog.wuwii.com/hexo_install_error.html</id>
     <published>2017-08-31T14:43:03.000Z</published>
-    <updated>2017-09-01T06:21:48.167Z</updated>
+    <updated>2017-09-05T01:14:59.665Z</updated>
     
     <content type="html"><![CDATA[<h3 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h3><blockquote>
-<p>最近跳槽换公司后，又要重新在公司电脑上搭个hexo blog环境，从github上拷贝下自己的源码后，执行<strong>npm install hexo</strong> 突然报错了<br>node -v8.4.0x64</p>
+<p>最近跳槽换公司后，又要重新在公司电脑上搭个hexo blog环境，从github上拷贝下自己的源码后，执行<strong>npm install hexo</strong> 突然报错了。  </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">PS D:\zhangkai\WorkSpace\Git\hexo&gt; npm install hexo</div><div class="line"></div><div class="line">&gt; dtrace-provider@0.8.3 install D:\zhangkai\WorkSpace\Git\hexo\node_modules\dtrace-provider</div><div class="line">&gt; node scripts/install.js</div><div class="line"></div><div class="line">npm ERR! path D:\zhangkai\WorkSpace\Git\hexo\node_modules\fsevents\node_modules</div><div class="line">npm ERR! code EPERM</div><div class="line">npm ERR! errno -4048</div><div class="line">npm ERR! syscall scandir</div><div class="line">npm ERR! Error: EPERM: operation not permitted, scandir &apos;D:\zhangkai\WorkSpace\Git\hexo\node_mod</div><div class="line">es&apos;</div><div class="line">npm ERR!  &#123; Error: EPERM: operation not permitted, scandir &apos;D:\zhangkai\WorkSpace\Git\hexo\node_</div><div class="line">dules&apos;</div><div class="line">npm ERR!   stack: &apos;Error: EPERM: operation not permitted, scandir \&apos;D:\\zhangkai\\WorkSpace\\Git</div><div class="line">events\\node_modules\&apos;&apos;,</div><div class="line">npm ERR!   errno: -4048,</div><div class="line">npm ERR!   code: &apos;EPERM&apos;,</div><div class="line">npm ERR!   syscall: &apos;scandir&apos;,</div><div class="line">npm ERR!   path: &apos;D:\\zhangkai\\WorkSpace\\Git\\hexo\\node_modules\\fsevents\\node_modules&apos; &#125;</div><div class="line">npm ERR!</div><div class="line">npm ERR! Please try running this command again as root/Administrator.</div><div class="line"></div><div class="line">npm ERR! A complete log of this run can be found in:</div><div class="line">npm ERR!     C:\Users\server\AppData\Roaming\npm-cache\_logs\2017-08-31T02_56_34_677Z-debug.log</div></pre></td></tr></table></figure>
+<a id="more"></a>  
+<blockquote>
+<p>node -v8.4.0x64</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">PS D:\zhangkai\WorkSpace\Git\hexo&gt; npm install hexo</div><div class="line"></div><div class="line">&gt; dtrace-provider@0.8.3 install D:\zhangkai\WorkSpace\Git\hexo\node_modules\dtrace-provider</div><div class="line">&gt; node scripts/install.js</div><div class="line"></div><div class="line">npm ERR! path D:\zhangkai\WorkSpace\Git\hexo\node_modules\fsevents\node_modules</div><div class="line">npm ERR! code EPERM</div><div class="line">npm ERR! errno -4048</div><div class="line">npm ERR! syscall scandir</div><div class="line">npm ERR! Error: EPERM: operation not permitted, scandir <span class="string">'D:\zhangkai\WorkSpace\Git\hexo\node_mod</span></div><div class="line"><span class="string">es'</span></div><div class="line">npm ERR!  &#123; Error: EPERM: operation not permitted, scandir <span class="string">'D:\zhangkai\WorkSpace\Git\hexo\node_</span></div><div class="line"><span class="string">dules'</span></div><div class="line">npm ERR!   stack: <span class="string">'Error: EPERM: operation not permitted, scandir \'</span>D:\\zhangkai\\WorkSpace\\Git</div><div class="line">events\\node_modules\<span class="string">''</span>,</div><div class="line">npm ERR!   errno: -4048,</div><div class="line">npm ERR!   code: <span class="string">'EPERM'</span>,</div><div class="line">npm ERR!   syscall: <span class="string">'scandir'</span>,</div><div class="line">npm ERR!   path: <span class="string">'D:\\zhangkai\\WorkSpace\\Git\\hexo\\node_modules\\fsevents\\node_modules'</span> &#125;</div><div class="line">npm ERR!</div><div class="line">npm ERR! Please try running this <span class="built_in">command</span> again as root/Administrator.</div><div class="line"></div><div class="line">npm ERR! A complete <span class="built_in">log</span> of this run can be found <span class="keyword">in</span>:</div><div class="line">npm ERR!     C:\Users\server\AppData\Roaming\npm-cache\_logs\2017-08-31T02_56_34_677Z-debug.log</div></pre></td></tr></table></figure>
 <ul>
 <li>看上面的问题就是path有问题，去电脑找这个目录找啊找，完全没有，坑爹啊。由于我目前完全不懂node.js和npm只好问候百度大爷。</li>
 <li>找到问题<img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170831111112.png" alt="图片"></li>
 </ul>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><ul>
-<li><p>查看当前的npm版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PS D:\zhangkai\WorkSpace\Git\hexo&gt; npm -v</div><div class="line">5.3.0</div></pre></td></tr></table></figure>
-</li>
-<li><p>更新到最新版，使用taobao镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PS D:\zhangkai\WorkSpace\Git\hexo&gt; npm install -g cnpm --registry=http://registry.npm.taobao.org</div><div class="line">C:\Users\server\AppData\Roaming\npm\cnpm -&gt; C:\Users\server\AppData\Roaming\npm\node_modules\cnpm\bin\cnpm</div><div class="line">+ cnpm@5.1.1</div><div class="line">added 643 packages in 84.276s</div></pre></td></tr></table></figure>
-</li>
-</ul>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>查看当前的npm版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PS D:\zhangkai\WorkSpace\Git\hexo&gt; npm -v</div><div class="line">5.3.0</div></pre></td></tr></table></figure></p>
+<p>更新到最新版，使用taobao镜像<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PS D:\zhangkai\WorkSpace\Git\hexo&gt; npm install -g cnpm --registry=http://registry.npm.taobao.org</div><div class="line">C:\Users\server\AppData\Roaming\npm\cnpm -&gt; C:\Users\server\AppData\Roaming\npm\node_modules\cnpm\bin\cnpm</div><div class="line">+ cnpm@5.1.1</div><div class="line">added 643 packages <span class="keyword">in</span> 84.276s</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>如果想更新到指定版本，运行指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -g install npm@2.9.1</div></pre></td></tr></table></figure></p>
+<p>如果想更新到指定版本，运行指令</p>
 </blockquote>
-<ul>
-<li>重新查看npm版本号<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PS D:\zhangkai\WorkSpace\Git\hexo&gt; npm -v</div><div class="line">5.3.0</div></pre></td></tr></table></figure>
-</li>
-</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm -g install npm@2.9.1</div></pre></td></tr></table></figure>
+<p>重新查看npm版本号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PS D:\zhangkai\WorkSpace\Git\hexo&gt; npm -v</div><div class="line">5.3.0</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>ps:版本完全没变化，心凉了，还是试试吧。</p>
-<ul>
-<li>重新执行，成功解决<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">PS D:\zhangkai\WorkSpace\Git\hexo&gt; npm install hexo</div><div class="line"></div><div class="line">&gt; dtrace-provider@0.8.5 install D:\zhangkai\WorkSpace\Git\hexo\node_modules\dtrace-provider</div><div class="line">&gt; node scripts/install.js</div><div class="line"></div><div class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.1.2 (node_modules\fsevents):</div><div class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.1.2: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any</div><div class="line">&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</div><div class="line"></div><div class="line">+ hexo@3.3.8</div><div class="line">added 122 packages and updated 9 packages in 40.962s</div></pre></td></tr></table></figure>
-</li>
-</ul>
+<p>ps:版本完全没变化，心凉了，还是试试吧。<br>重新执行，成功解决</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">PS D:\zhangkai\WorkSpace\Git\hexo&gt; npm install hexo</div><div class="line"></div><div class="line">&gt; dtrace-provider@0.8.5 install D:\zhangkai\WorkSpace\Git\hexo\node_modules\dtrace-provider</div><div class="line">&gt; node scripts/install.js</div><div class="line"></div><div class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.1.2 (node_modules\fsevents):</div><div class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform <span class="keyword">for</span> fsevents@1.1.2: wanted &#123;<span class="string">"os"</span>:<span class="string">"darwin"</span>,<span class="string">"arch"</span>:<span class="string">"any</span></div><div class="line"><span class="string">"</span>&#125; (current: &#123;<span class="string">"os"</span>:<span class="string">"win32"</span>,<span class="string">"arch"</span>:<span class="string">"x64"</span>&#125;)</div><div class="line"></div><div class="line">+ hexo@3.3.8</div><div class="line">added 122 packages and updated 9 packages <span class="keyword">in</span> 40.962s</div></pre></td></tr></table></figure>
+<blockquote>
 <p>ps:虽然版本号没变，但是起码解决了问题，ok，又可以愉快玩耍了（警告什么的都不是事）。</p>
 </blockquote>
 ]]></content>
@@ -93,25 +116,298 @@
     <summary type="html">
     
       &lt;h3 id=&quot;出现问题&quot;&gt;&lt;a href=&quot;#出现问题&quot; class=&quot;headerlink&quot; title=&quot;出现问题&quot;&gt;&lt;/a&gt;出现问题&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;最近跳槽换公司后，又要重新在公司电脑上搭个hexo blog环境，从github上拷贝下自己的源码
+&lt;p&gt;最近跳槽换公司后，又要重新在公司电脑上搭个hexo blog环境，从github上拷贝下自己的源码后，执行&lt;strong&gt;npm install hexo&lt;/strong&gt; 突然报错了。  &lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
-      <category term="学习笔记" scheme="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="hexo" scheme="http://blog.qnight.cn/tags/hexo/"/>
+      <category term="hexo" scheme="http://blog.wuwii.com/tags/hexo/"/>
     
-      <category term="npm" scheme="http://blog.qnight.cn/tags/npm/"/>
+      <category term="npm" scheme="http://blog.wuwii.com/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下如何修改用户默认目录</title>
+    <link href="http://blog.wuwii.com/linux_user_default_path.html"/>
+    <id>http://blog.wuwii.com/linux_user_default_path.html</id>
+    <published>2017-08-31T14:16:03.000Z</published>
+    <updated>2017-09-05T01:15:59.057Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="提出问题"><a href="#提出问题" class="headerlink" title="提出问题"></a>提出问题</h3><blockquote>
+<p>在<code>ftp</code>服务器中，ftp登陆的用户只能在自己的文件夹下活动，现在我需要改这个用户的所属文件位置。 </p>
+</blockquote>
+<a id="more"></a>  
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><ul>
+<li><p>使用root用户，执行命令</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># cat /etc/passwd</span></div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</div><div class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</div><div class="line">lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin</div><div class="line">sync:x:5:0:sync:/sbin:/bin/sync</div><div class="line">shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown</div><div class="line">halt:x:7:0:halt:/sbin:/sbin/halt</div><div class="line">mail:x:8:12:mail:/var/spool/mail:/sbin/nologin</div><div class="line">operator:x:11:0:operator:/root:/sbin/nologin</div><div class="line">games:x:12:100:games:/usr/games:/sbin/nologin</div><div class="line">ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin</div><div class="line">nobody:x:99:99:Nobody:/:/sbin/nologin</div><div class="line">systemd-bus-proxy:x:999:997:systemd Bus Proxy:/:/sbin/nologin</div><div class="line">systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin</div><div class="line">dbus:x:81:81:System message bus:/:/sbin/nologin</div><div class="line">polkitd:x:998:996:User <span class="keyword">for</span> polkitd:/:/sbin/nologin</div><div class="line">tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin</div><div class="line">postfix:x:89:89::/var/spool/postfix:/sbin/nologin</div><div class="line">sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin</div><div class="line">kaim:x:1000:1000:kaim:/home/kaim:/bin/bash</div><div class="line">user1:x:1001:1001::/home/user1:/bin/bash</div><div class="line">rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin</div><div class="line">rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin</div><div class="line">nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin</div><div class="line">test2:x:1002:50::/opt/test_ftp:/sbin/nologin</div><div class="line">test1:x:1003:50::/opt/test_ftp:/sbin/nologin</div><div class="line">test3:x:1004:50::/opt/test_ftp:/sbin/nologin</div><div class="line">test4:x:1005:50::/opt/test_ftp:/sbin/nologin</div><div class="line">test5:x:1006:50::/opt/test5_ftp:/sbin/nologin</div></pre></td></tr></table></figure>
+</li>
+<li><p>直接修改目录名保存就可以，记得分配权限。</p>
+</li>
+</ul>
+<hr>
+<h3 id="附：添加，修改用户参数"><a href="#附：添加，修改用户参数" class="headerlink" title="附：添加，修改用户参数"></a>附：添加，修改用户参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/usr/sbin/adduser -d /opt/test_ftp -g ftp -s /sbin/nologin test2</div><div class="line">上面的命令是添加一个 名称为 test2的用户。</div><div class="line"></div><div class="line">命令解析：使用命令(adduser)添加test2用户,不能登录系统(-s /sbin/nologin),自己的文件夹在(-d /opt/test_ftp)),属于组ftp(-g ftp).</div><div class="line"></div><div class="line">usermod -s /sbin/nologin <span class="built_in">test</span> //限定用户<span class="built_in">test</span>不能telnet</div><div class="line">usermod -s /sbin/bash <span class="built_in">test</span> //用户<span class="built_in">test</span>恢复正常</div><div class="line">usermod -d /<span class="built_in">test</span> <span class="built_in">test</span> //更改用户<span class="built_in">test</span>的主目录为/<span class="built_in">test</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;提出问题&quot;&gt;&lt;a href=&quot;#提出问题&quot; class=&quot;headerlink&quot; title=&quot;提出问题&quot;&gt;&lt;/a&gt;提出问题&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;在&lt;code&gt;ftp&lt;/code&gt;服务器中，ftp登陆的用户只能在自己的文件夹下活动，现在我需要改这个用户的所属文件位置。 &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux上搭建ftp服务器</title>
+    <link href="http://blog.wuwii.com/vsftpd.html"/>
+    <id>http://blog.wuwii.com/vsftpd.html</id>
+    <published>2017-08-30T14:08:03.000Z</published>
+    <updated>2017-09-05T01:17:56.793Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><blockquote>
+<p><code>vsftpd</code> 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务器软件，支持很多其他的 FTP 服务器所不支持的特征。比如：非常高的安全性需求、带宽限制、良好的可伸缩性、可创建虚拟用户、支持IPv6、速率高等。</p>
+<p><code>vsftpd</code>是一款在<code>Linux</code>发行版中最受推崇的<code>FTP</code>服务器程序。特点是小巧轻快，安全易用。（来自百度百科）</p>
+</blockquote>
+<a id="more"></a>  
+<h3 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h3><ol>
+<li>检测是否已经安装vsftpd。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># rpm -qa | grep vsftpd</span></div><div class="line">[root@localhost ~]<span class="comment">#</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>什么都不显示就没有安装</p>
+<ol>
+<li>安装vsftpd<br>2.1 使用yum安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># yum -y install vsftpd</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.2 使用rpm安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">local</span>]<span class="comment"># rpm -ivh vsftpd-3.0.2-21.el7.x86_64.rpm</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>启动服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">local</span>]<span class="comment"># service vsftpd start</span></div><div class="line">Redirecting to /bin/systemctl start  vsftpd.service</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看服务状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">local</span>]<span class="comment"># service vsftpd status</span></div><div class="line">Redirecting to /bin/systemctl status  vsftpd.service</div><div class="line">● vsftpd.service - Vsftpd ftp daemon</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/vsftpd.service; disabled; vendor preset: disabled)</div><div class="line">   Active: active (running) since 三 2017-08-30 15:28:18 CST; 15min ago</div><div class="line">  Process: 4295 ExecStart=/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf (code=exited, status=0/SUCCESS)</div><div class="line"> Main PID: 4296 (vsftpd)</div><div class="line">   CGroup: /system.slice/vsftpd.service</div><div class="line">           └─4296 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf</div><div class="line"></div><div class="line">8月 30 15:28:18 localhost.localdomain systemd[1]: Starting Vsftpd ftp daemon...</div><div class="line">8月 30 15:28:18 localhost.localdomain systemd[1]: Started Vsftpd ftp daemon.</div><div class="line">Hint: Some lines were ellipsized, use -l to show <span class="keyword">in</span> full.</div></pre></td></tr></table></figure>
+<p>Active: active (running)  启动状态，可以使用</p>
+</li>
+<li>现在我们就可以匿名访问了<h3 id="vsftpd添加用户"><a href="#vsftpd添加用户" class="headerlink" title="vsftpd添加用户"></a>vsftpd添加用户</h3></li>
+<li>vsftpd添加用户<br>FTP用户一般是不能登录系统的,只能进入FTP服务器自己的目录中,这是为了安全.这样的用户就叫做虚拟用户了.实际上并不是真正的虚拟用户,只是不能登录SHELL了而已,没能力登录系统.</li>
+</ol>
+<p>添加用户命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/sbin/adduser -d /opt/test_ftp -g ftp -s /sbin/nologin test2</div></pre></td></tr></table></figure></p>
+<p>上面的命令是添加一个 名称为 test2的用户。</p>
+<p>命令解析：使用命令(adduser)添加test2用户,不能登录系统(-s /sbin/nologin),自己的文件夹在(-d /opt/test_ftp)),属于组ftp(-g ftp).</p>
+<p>为该用户设置密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">local</span>]<span class="comment"># passwd test2</span></div></pre></td></tr></table></figure></p>
+<p>现在重启服务我们就可以使用test2直接访问我们的 /opttest_ftp目录了<br><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830155115.png" alt="ftp1"></p>
+<h3 id="给用户权限上传下载，修改"><a href="#给用户权限上传下载，修改" class="headerlink" title="给用户权限上传下载，修改"></a>给用户权限上传下载，修改</h3><p>虽然用户能够进行查看，但是还没有权限上传、下载和修改</p>
+<ol>
+<li><p>授权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">local</span>]<span class="comment"># chmod 755 /opt/test_ftp</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>编辑配置文件<br>一般创建一个ftp 用户，作为管理员只希望它只能访问其自己的所属目录的，是不会让他选择其他目录的。</p>
+</li>
+</ol>
+<p>设置ftp用户的权限</p>
+<p>在安装好ftp时，在 /etc/vsftpd目录下可以看到vsftpd的配置文件vsftpd.conf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]<span class="comment"># vim vsftpd.conf       </span></div><div class="line"><span class="comment"># Example config file /etc/vsftpd/vsftpd.conf</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># The default compiled in settings are fairly paranoid. This sample file</span></div><div class="line"><span class="comment"># loosens things up a bit, to make the ftp daemon more usable.</span></div><div class="line"><span class="comment"># Please see vsftpd.conf.5 for all compiled in defaults.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># READ THIS: This example file is NOT an exhaustive list of vsftpd options.</span></div><div class="line"><span class="comment"># Please read the vsftpd.conf.5 manual page to get a full idea of vsftpd's</span></div><div class="line"><span class="comment"># capabilities.</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Allow anonymous FTP? (Beware - allowed by default if you comment this out).</span></div><div class="line">anonymous_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Uncomment this to allow local users to log in.</span></div><div class="line"><span class="comment"># When SELinux is enforcing check for SE bool ftp_home_dir</span></div><div class="line">local_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Uncomment this to enable any form of FTP write command.</span></div><div class="line">write_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Default umask for local users is 077. You may wish to change this to 022,</span></div><div class="line"><span class="comment"># if your users expect that (022 is used by most other ftpd's)</span></div><div class="line">local_umask=022</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Uncomment this to allow the anonymous FTP user to upload files. This only</span></div><div class="line"><span class="comment"># has an effect if the above global write enable is activated. Also, you will</span></div><div class="line"><span class="comment"># obviously need to create a directory writable by the FTP user.</span></div><div class="line"><span class="comment"># When SELinux is enforcing check for SE bool allow_ftpd_anon_write, allow_ftpd_full_access</span></div><div class="line">anon_upload_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Uncomment this if you want the anonymous FTP user to be able to create</span></div><div class="line"><span class="comment"># new directories.</span></div><div class="line">anon_mkdir_write_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Activate directory messages - messages given to remote users when they</span></div><div class="line"><span class="comment"># go into a certain directory.</span></div><div class="line">dirmessage_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Activate logging of uploads/downloads.</span></div><div class="line">xferlog_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Make sure PORT transfer connections originate from port 20 (ftp-data).</span></div><div class="line">connect_from_port_20=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># If you want, you can arrange for uploaded anonymous files to be owned by</span></div><div class="line"><span class="comment"># a different user. Note! Using "root" for uploaded files is not</span></div><div class="line"><span class="comment"># recommended!</span></div><div class="line"><span class="comment">#chown_uploads=YES</span></div><div class="line"><span class="comment">#chown_username=whoever</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may override where the log file goes if you like. The default is shown</span></div><div class="line"><span class="comment"># below.</span></div><div class="line"><span class="comment">#xferlog_file=/var/log/xferlog</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># If you want, you can have your log file in standard ftpd xferlog format.</span></div><div class="line"><span class="comment"># Note that the default log file location is /var/log/xferlog in this case.</span></div><div class="line">xferlog_std_format=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may change the default value for timing out an idle session.</span></div><div class="line">idle_session_timeout=600</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may change the default value for timing out a data connection.</span></div><div class="line">data_connection_timeout=120</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># It is recommended that you define on your system a unique user which the</span></div><div class="line"><span class="comment"># ftp server can use as a totally isolated and unprivileged user.</span></div><div class="line"><span class="comment">#nopriv_user=ftpsecure</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Enable this and the server will recognise asynchronous ABOR requests. Not</span></div><div class="line"><span class="comment"># recommended for security (the code is non-trivial). Not enabling it,</span></div><div class="line"><span class="comment"># however, may confuse older FTP clients.</span></div><div class="line"><span class="comment">#async_abor_enable=YES</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># By default the server will pretend to allow ASCII mode but in fact ignore</span></div><div class="line"><span class="comment"># the request. Turn on the below options to have the server actually do ASCII</span></div><div class="line"><span class="comment"># mangling on files when in ASCII mode.</span></div><div class="line"><span class="comment"># Beware that on some FTP servers, ASCII support allows a denial of service</span></div><div class="line"><span class="comment"># attack (DoS) via the command "SIZE /big/file" in ASCII mode. vsftpd</span></div><div class="line"><span class="comment"># predicted this attack and has always been safe, reporting the size of the</span></div><div class="line"><span class="comment"># raw file.</span></div><div class="line"><span class="comment"># ASCII mangling is a horrible feature of the protocol.</span></div><div class="line">ascii_upload_enable=YES</div><div class="line">ascii_download_enable=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may fully customise the login banner string:</span></div><div class="line">ftpd_banner=Welcome to blah FTP service.</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may specify a file of disallowed anonymous e-mail addresses. Apparently</span></div><div class="line"><span class="comment"># useful for combatting certain DoS attacks.</span></div><div class="line"><span class="comment">#deny_email_enable=YES</span></div><div class="line"><span class="comment"># (default follows)</span></div><div class="line"><span class="comment">#banned_email_file=/etc/vsftpd/banned_emails</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may specify an explicit list of local users to chroot() to their home</span></div><div class="line"><span class="comment"># directory. If chroot_local_user is YES, then this list becomes a list of</span></div><div class="line"><span class="comment"># users to NOT chroot().</span></div><div class="line"><span class="comment"># (Warning! chroot'ing can be very dangerous. If using chroot, make sure that</span></div><div class="line"><span class="comment"># the user does not have write access to the top level directory within the</span></div><div class="line"><span class="comment"># chroot)</span></div><div class="line">chroot_local_user=YES</div><div class="line">chroot_list_enable=YES</div><div class="line"><span class="comment"># (default follows)</span></div><div class="line">chroot_list_file=/etc/vsftpd/chroot_list</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may activate the "-R" option to the builtin ls. This is disabled by</span></div><div class="line"><span class="comment"># default to avoid remote users being able to cause excessive I/O on large</span></div><div class="line"><span class="comment"># sites. However, some broken FTP clients such as "ncftp" and "mirror" assume</span></div><div class="line"><span class="comment"># the presence of the "-R" option, so there is a strong case for enabling it.</span></div><div class="line"><span class="comment">#ls_recurse_enable=YES</span></div><div class="line"><span class="comment">#</span></div><div class="line">  When <span class="string">"listen"</span> directive is enabled, vsftpd runs <span class="keyword">in</span> standalone mode and</div><div class="line">▽ listens on IPv4 sockets. This directive cannot be used <span class="keyword">in</span> conjunction</div><div class="line"><span class="comment"># with the listen_ipv6 directive.</span></div><div class="line">listen=YES</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># This directive enables listening on IPv6 sockets. By default, listening</span></div><div class="line"><span class="comment"># on the IPv6 "any" address (::) will accept connections from both IPv6</span></div><div class="line"><span class="comment"># and IPv4 clients. It is not necessary to listen on *both* IPv4 and IPv6</span></div><div class="line"><span class="comment"># sockets. If you want that (perhaps because you want to listen on specific</span></div><div class="line"><span class="comment"># addresses) then you must run two copies of vsftpd with two configuration</span></div><div class="line"><span class="comment"># files.</span></div><div class="line"><span class="comment"># Make sure, that one of the listen options is commented !!</span></div><div class="line"><span class="comment"># listen_ipv6=YES</span></div><div class="line"></div><div class="line">pam_service_name=vsftpd</div><div class="line">userlist_enable=YES</div><div class="line">tcp_wrappers=YES</div><div class="line">anon_other_write_enable=YES</div><div class="line">anon_root=/opt/test_ftp</div><div class="line">guest_enable=YES</div><div class="line">guest_username=test2</div><div class="line">virtual_use_local_privs=YES</div></pre></td></tr></table></figure></p>
+<ol>
+<li>创建用户文件/etc/vsftpd/chroot_list<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/vsftpd/chroot_list</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>将需要的用户添加进去，我们只有一个test2，一行一个用户名</p>
+<ol>
+<li>设置权限<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]<span class="comment"># getsebool -a|grep ftp</span></div><div class="line">ftpd_anon_write --&gt; off</div><div class="line">ftpd_connect_all_unreserved --&gt; off</div><div class="line">  pd_connect_db --&gt; off</div><div class="line">▽tpd_full_access --&gt; off</div><div class="line">ftpd_use_cifs --&gt; off</div><div class="line">ftpd_use_fusefs --&gt; off</div><div class="line">ftpd_use_nfs --&gt; off</div><div class="line">ftpd_use_passive_mode --&gt; off</div><div class="line">httpd_can_connect_ftp --&gt; off</div><div class="line">httpd_enable_ftp_server --&gt; off</div><div class="line">tftp_anon_write --&gt; off</div><div class="line">tftp_home_dir --&gt; off</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>4.1 开启 anon_write 和full_access<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]<span class="comment"># setsebool allow_ftpd_anon_write  1</span></div><div class="line">[root@localhost vsftpd]<span class="comment"># setsebool allow_ftpd_full_access 1</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li>重启ftp服务<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]<span class="comment"># service vsftpd restart</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830160616.png" alt="ftp2"></p>
+<p>注：测试连接软件是<code>FileZilla</code>，windows访问 ftp://[ip]</p>
+<p>主要参考博客 <a href="http://www.cnblogs.com/wolf-sun/p/6058501.html" target="_blank" rel="external">http://www.cnblogs.com/wolf-sun/p/6058501.html</a> </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;vsftpd&lt;/code&gt; 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务器软件，支持很多其他的 FTP 服务器所不支持的特征。比如：非常高的安全性需求、带宽限制、良好的可伸缩性、可创建虚拟用户、支持IPv6、速率高等。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vsftpd&lt;/code&gt;是一款在&lt;code&gt;Linux&lt;/code&gt;发行版中最受推崇的&lt;code&gt;FTP&lt;/code&gt;服务器程序。特点是小巧轻快，安全易用。（来自百度百科）&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
+    
+      <category term="ftp" scheme="http://blog.wuwii.com/tags/ftp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 静态IP设置</title>
+    <link href="http://blog.wuwii.com/setting_static_ip.html"/>
+    <id>http://blog.wuwii.com/setting_static_ip.html</id>
+    <published>2017-08-29T11:35:03.000Z</published>
+    <updated>2017-09-05T00:48:03.188Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>最近使用linux做服务器共享，需要设置静态IP，整理了一下。</strong>  <a id="more"></a><br>1、编辑 ifcfg-eth0 文件，vim 最小化安装时没有被安装，需要自行安装不描述。<br>这里注意自己的网卡名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</div></pre></td></tr></table></figure></p>
+<p>2、修改如下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">BOOTPROTO=<span class="string">"static"</span> <span class="comment">#dhcp改为static   </span></div><div class="line">ONBOOT=<span class="string">"yes"</span> <span class="comment">#开机启用本配置  </span></div><div class="line">IPADDR=192.168.7.106 <span class="comment">#静态IP  </span></div><div class="line">GATEWAY=192.168.7.1 <span class="comment">#默认网关  </span></div><div class="line">NETMASK=255.255.255.0 <span class="comment">#子网掩码  </span></div><div class="line">DNS1=192.168.7.1 <span class="comment">#DNS 配置</span></div></pre></td></tr></table></figure></p>
+<p>3、修改后效果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ]# cat /etc/sysconfig/network-scripts/ifcfg-eth0  </span></div><div class="line">HWADDR=<span class="string">"00:15:5D:07:F1:02"</span>  </div><div class="line">TYPE=<span class="string">"Ethernet"</span>  </div><div class="line">BOOTPROTO=<span class="string">"static"</span> <span class="comment">#dhcp改为static   </span></div><div class="line">DEFROUTE=<span class="string">"yes"</span>  </div><div class="line">PEERDNS=<span class="string">"yes"</span>  </div><div class="line">PEERROUTES=<span class="string">"yes"</span>  </div><div class="line">IPV4_FAILURE_FATAL=<span class="string">"no"</span>  </div><div class="line">IPV6INIT=<span class="string">"yes"</span>  </div><div class="line">IPV6_AUTOCONF=<span class="string">"yes"</span>  </div><div class="line">IPV6_DEFROUTE=<span class="string">"yes"</span>  </div><div class="line">IPV6_PEERDNS=<span class="string">"yes"</span>  </div><div class="line">IPV6_PEERROUTES=<span class="string">"yes"</span>  </div><div class="line">IPV6_FAILURE_FATAL=<span class="string">"no"</span>  </div><div class="line">NAME=<span class="string">"eth0"</span>  </div><div class="line">UUID=<span class="string">"bb3a302d-dc46-461a-881e-d46cafd0eb71"</span>  </div><div class="line">ONBOOT=<span class="string">"yes"</span> <span class="comment">#开机启用本配置  </span></div><div class="line">IPADDR=192.168.7.106 <span class="comment">#静态IP  </span></div><div class="line">GATEWAY=192.168.7.1 <span class="comment">#默认网关  </span></div><div class="line">NETMASK=255.255.255.0 <span class="comment">#子网掩码  </span></div><div class="line">DNS1=192.168.7.1 <span class="comment">#DNS 配置</span></div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>重启下网络服务<br>注意需要成功，faile是有问题的配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># service network restart  </span></div><div class="line">Restarting network (via systemctl):                        [  OK  ]</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看改动后的效果，Centois 7 不再使用 ifconfig 而是用 ip 命令查看网络信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ip addr  </span></div><div class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN   </div><div class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00  </div><div class="line">    inet 127.0.0.1/8 scope host lo  </div><div class="line">       valid_lft forever preferred_lft forever  </div><div class="line">    inet6 ::1/128 scope host   </div><div class="line">       valid_lft forever preferred_lft forever  </div><div class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN qlen 1000  </div><div class="line">    link/ether 00:15:5d:07:f1:02 brd ff:ff:ff:ff:ff:ff  </div><div class="line">    inet 192.168.7.106/24 brd 192.168.7.255 scope global eth0  </div><div class="line">       valid_lft forever preferred_lft forever  </div><div class="line">    inet6 fe80::215:5dff:fe07:f102/64 scope link   </div><div class="line">       valid_lft forever preferred_lft forever</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>原文链接：<a href="http://blog.csdn.net/johnnycode/article/details/40624403" target="_blank" rel="external">http://blog.csdn.net/johnnycode/article/details/40624403</a>  </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;最近使用linux做服务器共享，需要设置静态IP，整理了一下。&lt;/strong&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SAMBA共享</title>
+    <link href="http://blog.wuwii.com/samba.html"/>
+    <id>http://blog.wuwii.com/samba.html</id>
+    <published>2017-08-28T14:49:03.000Z</published>
+    <updated>2017-09-05T01:40:08.343Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p><code>Samba</code>是在<code>Linux</code>和<code>UNIX</code>系统上实现<code>SMB协议</code>的一个免费软件，由服务器及客户端程序构成。<code>SMB</code>（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置<code>NetBIOS over TCP/IP</code>使得Samba不但能与局域网络主机分享资源，还能与全世界的电脑分享资源。  </p>
+</blockquote>
+<h3 id="安装samba"><a href="#安装samba" class="headerlink" title="安装samba"></a>安装samba</h3><ul>
+<li>可以先检查下是否已经安装：<code>rpm -qa | grep samba</code><br>这里使用yum安装，可以不用担心一些依赖包的问题：<code>yum install samba</code>  </li>
+<li>创建共享文件夹，这里就是<code>mkdir -m 777 /home/user1/share</code>  </li>
+<li>修改<code>/etc/samba/smb.conf</code>，这里面的参数就比较多，主要是<br><code>workgroup = WORKGROUP</code>（这个就是windows工作组模式，还有一种是域模式，可以不改使用<code>MYGROUP</code>）<br><code>hosts allow = 192.168.19.207</code>（可以放问的IP地址，这里写的时windows地址，一般不填写）<br>然后在文件的结尾加上<br>[public]（共享名，就是windows访问时会显示的名称）<br>comment = Public Stuff（注释）<br>path = /home/user1/share（共享名）<br>public = yes（公开）<br>writable = yes（可写）<br>当然这里只是些基础的参数，还有其他的参数根据情况设置，比如会出现乱码，还要指定编码格式。  </li>
+<li>重启smb服务：<code>service smb restart</code>、   <code>service smb status</code>  查看状态  </li>
+<li>创建samba客户：<code>smbpasswd -a   user1</code>,回车后会提示输入密码。这个就是将来远程主机登录时需要的密码，这里的<code>user1</code>帐号必须是系统已经有的<br>帐号，没有的话会报错，然后新输的密码就是远程登录密码，这样做的好处就是自己的密码和远程登录的密码分开。  </li>
+<li>windows下连接，启动运行，输入<code>\\192.168.19.185</code>,输入smb帐号密码就可以了  </li>
+</ul>
+<p>由于暂时还不会防火墙和SELINUX配置，而下面有些方法中的操作会受到他们的限制，因此先关闭这俩。<br>关闭防火墙的命令：service iptables stop<br>关闭SELINUX命令：setenforce 0  </p>
+<p>window下关闭网络共享连接  cmd &gt;&gt;<br>net use * /del /y</p>
+<p>如果访问的是当前用户下的文件，不需要配置</p>
+<p>如果访问的不是当前用户下的文件或者文件夹，需要配置<code>/etc/samba/smb.conf</code>，加入：  [Share] 为在共享中显示的文件夹名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[Share]</div><div class="line"></div><div class="line">comment = Shared Folder with username and password</div><div class="line"></div><div class="line">path = /data</div><div class="line"></div><div class="line">public = yes</div><div class="line"></div><div class="line">writable = yes</div><div class="line"></div><div class="line">valid users = user1</div><div class="line"></div><div class="line">available = yes</div><div class="line"></div><div class="line">browseable = yes</div></pre></td></tr></table></figure></p>
+<p>启动 samba 服务<br><code>systemctl start smb.service</code>  </p>
+<h3 id="测试服务"><a href="#测试服务" class="headerlink" title="测试服务"></a>测试服务</h3><p>我是用的是windows客户端连接，输入Ip <code>\\192.168.19.185</code><br>我使用的是user1账户</p>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170905093409.png" alt="samba"></p>
+<p><strong>账户有权限可以正常进入到文件中</strong>  </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Samba&lt;/code&gt;是在&lt;code&gt;Linux&lt;/code&gt;和&lt;code&gt;UNIX&lt;/code&gt;系
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java中位运算符</title>
+    <link href="http://blog.wuwii.com/JAVA_Bitwise_Operators.html"/>
+    <id>http://blog.wuwii.com/JAVA_Bitwise_Operators.html</id>
+    <published>2017-08-27T14:21:36.000Z</published>
+    <updated>2017-09-05T01:20:27.641Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、 今天在读<code>ConcurrentHashMap</code>的源码中突然发现一段很好玩的代码，大概理解它的意思。不多说上代码：<a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Returns a power of two table size for the given desired capacity.</span></div><div class="line"><span class="comment"> * See Hackers Delight, sec 3.2</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">tableSizeFor</span><span class="params">(<span class="keyword">int</span> c)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n = c - <span class="number">1</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">1</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">2</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">4</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">8</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">16</span>;</div><div class="line">    <span class="keyword">return</span> (n &lt; <span class="number">0</span>) ? <span class="number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> <em>在 ConcurrentHashMap 源码的第688~700  line</em></p>
+<ol>
+<li>疑问<ol>
+<li>见过<code>&gt;&gt;</code>、<code>&lt;&lt;</code>的位运算符，但没见过<code>&gt;&gt;&gt;</code>估计意思差不多；</li>
+<li><code>|=</code>运算符，目测是或；</li>
+</ol>
+</li>
+<li><p>不知道写段代码测试吧</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"15的二进制数是   "</span>+ Integer.toBinaryString(<span class="number">15</span>));</div><div class="line">		System.out.println(<span class="string">"-15的二进制数是   "</span>+ Integer.toBinaryString(-<span class="number">15</span>));</div><div class="line">		System.out.println(<span class="string">"15 &gt;&gt; 2 的运算结果是    "</span> + (<span class="number">15</span> &gt;&gt; <span class="number">2</span>));</div><div class="line">		System.out.println(<span class="string">"15 &lt;&lt; 2 的运算结果是    "</span> + (<span class="number">15</span> &lt;&lt; <span class="number">2</span>));</div><div class="line">		System.out.println(<span class="string">"15 &gt;&gt;&gt; 2 的运算结果是    "</span> + (<span class="number">15</span> &gt;&gt;&gt; <span class="number">2</span>));</div><div class="line">		<span class="comment">//遗憾的是没有&lt;&lt;&lt;运算符,我的jdk是jdk1.8.0_144</span></div><div class="line">		<span class="comment">//System.out.println(15 &lt;&lt;&lt; 2);</span></div><div class="line">		System.out.println(<span class="string">"-15 &gt;&gt; 2 的运算结果是    "</span> + (-<span class="number">15</span> &gt;&gt; <span class="number">2</span>));</div><div class="line">		System.out.println(<span class="string">"-15 &lt;&lt; 2 的运算结果是    "</span> + (-<span class="number">15</span> &lt;&lt; <span class="number">2</span>));</div><div class="line">		System.out.println(<span class="string">"-15 &gt;&gt;&gt; 2 的运算结果是    "</span> + (-<span class="number">15</span> &gt;&gt;&gt; <span class="number">2</span>));</div><div class="line">		<span class="keyword">int</span> index = <span class="number">8</span>;</div><div class="line">		System.out.println(index + <span class="string">" | 15 &gt;&gt;&gt; 2的运算结果是   "</span> + (index | <span class="number">15</span> &gt;&gt;&gt; <span class="number">2</span>));</div><div class="line">		System.out.println(index + <span class="string">" |= 15 &gt;&gt;&gt; 2 的运算结果是    "</span> + (index |= <span class="number">15</span> &gt;&gt;&gt; <span class="number">2</span>));</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">15的二进制数是   1111</div><div class="line">-15的二进制数是   11111111111111111111111111110001</div><div class="line">15 &gt;&gt; 2 的运算结果是    3</div><div class="line">15 &lt;&lt; 2 的运算结果是    60</div><div class="line">15 &gt;&gt;&gt; 2 的运算结果是    3</div><div class="line">-15 &gt;&gt; 2 的运算结果是    -4</div><div class="line">-15 &lt;&lt; 2 的运算结果是    -60</div><div class="line">-15 &gt;&gt;&gt; 2 的运算结果是    1073741820</div><div class="line">8 | 3的运算结果是   11</div><div class="line">8 |= 15 &gt;&gt;&gt; 2 的运算结果是    11</div></pre></td></tr></table></figure>
+</li>
+<li><p>分析</p>
+<ol>
+<li><code>15 &gt;&gt; 2</code><br>15 的 二 进 制 表 示 00000000 00000000 00000000 00001111  正数补码反码都一样<br>得 -15的补码表示 11111111 11111111 11111111 11110001<br>将 15右移2位 00000000 00000000 00000000 00000011 得3  </li>
+<li><code>-15 &gt;&gt; 2</code><br>将-15右移2位 11111111 11111111 11111111 11111100<br>在高位补1<br>保留符号位，然后按位取反<br>10000000 00000000 00000000 00000011<br>然后加1，即为所求数的原码：<br>10000000 00000000 00000000 00000100<br>所以 -15&gt;&gt;2 右移两位结果是 -4</li>
+<li><code>&gt;&gt;&gt;</code> 符号结果是无符号规则右移  主要区别是在负数上面<br>-15的二进制表示 11111111 11111111 11111111 11110001<br>将-15右移2位， 在高位补0， 00111111 11111111 11111111 11111100<br>所得结果 1073741820  </li>
+<li>从上面的结果可以看出 8|=15就是 8|15 就是或运算符，唯一的区别的就是temp = temp | temp1 等于 temp |= temp1，重新复习下与或非运算符：<ol>
+<li><code>与运算</code>符用符号“&amp;”表示，其使用规律如下：<br>两个操作数中位都为1，结果才为1，否则结果为0，</li>
+<li><code>或运算</code>符用符号“|”表示，其运算规律如下：<br>两个位只要有一个为1，那么结果就是1，否则就为0， </li>
+<li><code>非运算</code>符用符号“~”表示，其运算规律如下：<br>如果位为0，结果是1，如果位为1，结果是0， </li>
+<li><code>异或运算</code>是用符号“^”表示的，其运算规律是：<br>两个操作数的位中，相同则结果为0，不同则结果为1。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1、 今天在读&lt;code&gt;ConcurrentHashMap&lt;/code&gt;的源码中突然发现一段很好玩的代码，大概理解它的意思。不多说上代码：
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试</title>
+    <link href="http://blog.wuwii.com/test.html"/>
+    <id>http://blog.wuwii.com/test.html</id>
+    <published>2017-07-27T02:08:03.000Z</published>
+    <updated>2017-09-05T00:48:03.196Z</updated>
+    
+    <content type="html"><![CDATA[<p>来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉<br><a id="more"></a></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="测试1"><a href="#测试1" class="headerlink" title="测试1"></a>测试1</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉&lt;br&gt;
+    
+    </summary>
+    
+      <category term="测试" scheme="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="测试下" scheme="http://blog.wuwii.com/tags/%E6%B5%8B%E8%AF%95%E4%B8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://blog.qnight.cn/hello-world.html"/>
-    <id>http://blog.qnight.cn/hello-world.html</id>
-    <published>2017-08-31T07:04:17.729Z</published>
-    <updated>2017-08-31T07:04:17.729Z</updated>
+    <link href="http://blog.wuwii.com/hello-world.html"/>
+    <id>http://blog.wuwii.com/hello-world.html</id>
+    <published>2017-07-03T02:08:03.000Z</published>
+    <updated>2017-09-05T00:56:13.720Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
@@ -130,226 +426,10 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>linux上搭建ftp服务器</title>
-    <link href="http://blog.qnight.cn/vsftpd.html"/>
-    <id>http://blog.qnight.cn/vsftpd.html</id>
-    <published>2017-08-30T14:08:03.000Z</published>
-    <updated>2017-09-01T01:28:45.821Z</updated>
-    
-    <content type="html"><![CDATA[<p>主要参考博客 <a href="http://www.cnblogs.com/wolf-sun/p/6058501.html" target="_blank" rel="external">http://www.cnblogs.com/wolf-sun/p/6058501.html</a> </p>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>vsftpd 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务器软件，支持很多其他的 FTP 服务器所不支持的特征。比如：非常高的安全性需求、带宽限制、良好的可伸缩性、可创建虚拟用户、支持IPv6、速率高等。</p>
-<p>vsftpd是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。（来自百度百科）</p>
-<h3 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h3><ol>
-<li>检测是否已经安装vsftpd。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# rpm -qa | grep vsftpd</div><div class="line">[root@localhost ~]#</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>什么都不显示就没有安装</p>
-<ol>
-<li>安装vsftpd<br>2.1 使用yum安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# yum -y install vsftpd</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>2.2 使用rpm安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost local]# rpm -ivh vsftpd-3.0.2-21.el7.x86_64.rpm</div></pre></td></tr></table></figure></p>
-<ol>
-<li><p>启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost local]# service vsftpd start</div><div class="line">Redirecting to /bin/systemctl start  vsftpd.service</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看服务状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@localhost local]# service vsftpd status</div><div class="line">Redirecting to /bin/systemctl status  vsftpd.service</div><div class="line">● vsftpd.service - Vsftpd ftp daemon</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/vsftpd.service; disabled; vendor preset: disabled)</div><div class="line">   Active: active (running) since 三 2017-08-30 15:28:18 CST; 15min ago</div><div class="line">  Process: 4295 ExecStart=/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf (code=exited, status=0/SUCCESS)</div><div class="line"> Main PID: 4296 (vsftpd)</div><div class="line">   CGroup: /system.slice/vsftpd.service</div><div class="line">           └─4296 /usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf</div><div class="line"></div><div class="line">8月 30 15:28:18 localhost.localdomain systemd[1]: Starting Vsftpd ftp daemon...</div><div class="line">8月 30 15:28:18 localhost.localdomain systemd[1]: Started Vsftpd ftp daemon.</div><div class="line">Hint: Some lines were ellipsized, use -l to show in full.</div></pre></td></tr></table></figure>
-<p>Active: active (running)  启动状态，可以使用</p>
-</li>
-<li>现在我们就可以匿名访问了<h3 id="vsftpd添加用户"><a href="#vsftpd添加用户" class="headerlink" title="vsftpd添加用户"></a>vsftpd添加用户</h3></li>
-<li>vsftpd添加用户<br>FTP用户一般是不能登录系统的,只能进入FTP服务器自己的目录中,这是为了安全.这样的用户就叫做虚拟用户了.实际上并不是真正的虚拟用户,只是不能登录SHELL了而已,没能力登录系统.</li>
-</ol>
-<p>添加用户命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/sbin/adduser -d /opt/test_ftp -g ftp -s /sbin/nologin test2</div></pre></td></tr></table></figure></p>
-<p>上面的命令是添加一个 名称为 test2的用户。</p>
-<p>命令解析：使用命令(adduser)添加test2用户,不能登录系统(-s /sbin/nologin),自己的文件夹在(-d /opt/test_ftp)),属于组ftp(-g ftp).</p>
-<p>为该用户设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost local]# passwd test2</div></pre></td></tr></table></figure></p>
-<p>现在重启服务我们就可以使用test2直接访问我们的 /opttest_ftp目录了<br><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830155115.png" alt="ftp1"></p>
-<h3 id="给用户权限上传下载，修改"><a href="#给用户权限上传下载，修改" class="headerlink" title="给用户权限上传下载，修改"></a>给用户权限上传下载，修改</h3><p>虽然用户能够进行查看，但是还没有权限上传、下载和修改</p>
-<ol>
-<li><p>授权</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost local]# chmod 755 /opt/test_ftp</div></pre></td></tr></table></figure>
-</li>
-<li><p>编辑配置文件<br>一般创建一个ftp 用户，作为管理员只希望它只能访问其自己的所属目录的，是不会让他选择其他目录的。</p>
-</li>
-</ol>
-<p>设置ftp用户的权限</p>
-<p>在安装好ftp时，在 /etc/vsftpd目录下可以看到vsftpd的配置文件vsftpd.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]# vim vsftpd.conf       </div><div class="line"># Example config file /etc/vsftpd/vsftpd.conf</div><div class="line">#</div><div class="line"># The default compiled in settings are fairly paranoid. This sample file</div><div class="line"># loosens things up a bit, to make the ftp daemon more usable.</div><div class="line"># Please see vsftpd.conf.5 for all compiled in defaults.</div><div class="line">#</div><div class="line"># READ THIS: This example file is NOT an exhaustive list of vsftpd options.</div><div class="line"># Please read the vsftpd.conf.5 manual page to get a full idea of vsftpd&apos;s</div><div class="line"># capabilities.</div><div class="line">#</div><div class="line"># Allow anonymous FTP? (Beware - allowed by default if you comment this out).</div><div class="line">anonymous_enable=YES</div><div class="line">#</div><div class="line"># Uncomment this to allow local users to log in.</div><div class="line"># When SELinux is enforcing check for SE bool ftp_home_dir</div><div class="line">local_enable=YES</div><div class="line">#</div><div class="line"># Uncomment this to enable any form of FTP write command.</div><div class="line">write_enable=YES</div><div class="line">#</div><div class="line"># Default umask for local users is 077. You may wish to change this to 022,</div><div class="line"># if your users expect that (022 is used by most other ftpd&apos;s)</div><div class="line">local_umask=022</div><div class="line">#</div><div class="line"># Uncomment this to allow the anonymous FTP user to upload files. This only</div><div class="line"># has an effect if the above global write enable is activated. Also, you will</div><div class="line"># obviously need to create a directory writable by the FTP user.</div><div class="line"># When SELinux is enforcing check for SE bool allow_ftpd_anon_write, allow_ftpd_full_access</div><div class="line">anon_upload_enable=YES</div><div class="line">#</div><div class="line"># Uncomment this if you want the anonymous FTP user to be able to create</div><div class="line"># new directories.</div><div class="line">anon_mkdir_write_enable=YES</div><div class="line">#</div><div class="line"># Activate directory messages - messages given to remote users when they</div><div class="line"># go into a certain directory.</div><div class="line">dirmessage_enable=YES</div><div class="line">#</div><div class="line"># Activate logging of uploads/downloads.</div><div class="line">xferlog_enable=YES</div><div class="line">#</div><div class="line"># Make sure PORT transfer connections originate from port 20 (ftp-data).</div><div class="line">connect_from_port_20=YES</div><div class="line">#</div><div class="line"># If you want, you can arrange for uploaded anonymous files to be owned by</div><div class="line"># a different user. Note! Using &quot;root&quot; for uploaded files is not</div><div class="line"># recommended!</div><div class="line">#chown_uploads=YES</div><div class="line">#chown_username=whoever</div><div class="line">#</div><div class="line"># You may override where the log file goes if you like. The default is shown</div><div class="line"># below.</div><div class="line">#xferlog_file=/var/log/xferlog</div><div class="line">#</div><div class="line"># If you want, you can have your log file in standard ftpd xferlog format.</div><div class="line"># Note that the default log file location is /var/log/xferlog in this case.</div><div class="line">xferlog_std_format=YES</div><div class="line">#</div><div class="line"># You may change the default value for timing out an idle session.</div><div class="line">idle_session_timeout=600</div><div class="line">#</div><div class="line"># You may change the default value for timing out a data connection.</div><div class="line">data_connection_timeout=120</div><div class="line">#</div><div class="line"># It is recommended that you define on your system a unique user which the</div><div class="line"># ftp server can use as a totally isolated and unprivileged user.</div><div class="line">#nopriv_user=ftpsecure</div><div class="line">#</div><div class="line"># Enable this and the server will recognise asynchronous ABOR requests. Not</div><div class="line"># recommended for security (the code is non-trivial). Not enabling it,</div><div class="line"># however, may confuse older FTP clients.</div><div class="line">#async_abor_enable=YES</div><div class="line">#</div><div class="line"># By default the server will pretend to allow ASCII mode but in fact ignore</div><div class="line"># the request. Turn on the below options to have the server actually do ASCII</div><div class="line"># mangling on files when in ASCII mode.</div><div class="line"># Beware that on some FTP servers, ASCII support allows a denial of service</div><div class="line"># attack (DoS) via the command &quot;SIZE /big/file&quot; in ASCII mode. vsftpd</div><div class="line"># predicted this attack and has always been safe, reporting the size of the</div><div class="line"># raw file.</div><div class="line"># ASCII mangling is a horrible feature of the protocol.</div><div class="line">ascii_upload_enable=YES</div><div class="line">ascii_download_enable=YES</div><div class="line">#</div><div class="line"># You may fully customise the login banner string:</div><div class="line">ftpd_banner=Welcome to blah FTP service.</div><div class="line">#</div><div class="line"># You may specify a file of disallowed anonymous e-mail addresses. Apparently</div><div class="line"># useful for combatting certain DoS attacks.</div><div class="line">#deny_email_enable=YES</div><div class="line"># (default follows)</div><div class="line">#banned_email_file=/etc/vsftpd/banned_emails</div><div class="line">#</div><div class="line"># You may specify an explicit list of local users to chroot() to their home</div><div class="line"># directory. If chroot_local_user is YES, then this list becomes a list of</div><div class="line"># users to NOT chroot().</div><div class="line"># (Warning! chroot&apos;ing can be very dangerous. If using chroot, make sure that</div><div class="line"># the user does not have write access to the top level directory within the</div><div class="line"># chroot)</div><div class="line">chroot_local_user=YES</div><div class="line">chroot_list_enable=YES</div><div class="line"># (default follows)</div><div class="line">chroot_list_file=/etc/vsftpd/chroot_list</div><div class="line">#</div><div class="line"># You may activate the &quot;-R&quot; option to the builtin ls. This is disabled by</div><div class="line"># default to avoid remote users being able to cause excessive I/O on large</div><div class="line"># sites. However, some broken FTP clients such as &quot;ncftp&quot; and &quot;mirror&quot; assume</div><div class="line"># the presence of the &quot;-R&quot; option, so there is a strong case for enabling it.</div><div class="line">#ls_recurse_enable=YES</div><div class="line">#</div><div class="line">  When &quot;listen&quot; directive is enabled, vsftpd runs in standalone mode and</div><div class="line">▽ listens on IPv4 sockets. This directive cannot be used in conjunction</div><div class="line"># with the listen_ipv6 directive.</div><div class="line">listen=YES</div><div class="line">#</div><div class="line"># This directive enables listening on IPv6 sockets. By default, listening</div><div class="line"># on the IPv6 &quot;any&quot; address (::) will accept connections from both IPv6</div><div class="line"># and IPv4 clients. It is not necessary to listen on *both* IPv4 and IPv6</div><div class="line"># sockets. If you want that (perhaps because you want to listen on specific</div><div class="line"># addresses) then you must run two copies of vsftpd with two configuration</div><div class="line"># files.</div><div class="line"># Make sure, that one of the listen options is commented !!</div><div class="line"># listen_ipv6=YES</div><div class="line"></div><div class="line">pam_service_name=vsftpd</div><div class="line">userlist_enable=YES</div><div class="line">tcp_wrappers=YES</div><div class="line">anon_other_write_enable=YES</div><div class="line">anon_root=/opt/test_ftp</div><div class="line">guest_enable=YES</div><div class="line">guest_username=test2</div><div class="line">virtual_use_local_privs=YES</div></pre></td></tr></table></figure></p>
-<ol>
-<li>创建用户文件/etc/vsftpd/chroot_list<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/vsftpd/chroot_list</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>将需要的用户添加进去，我们只有一个test2，一行一个用户名</p>
-<ol>
-<li>设置权限<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]# getsebool -a|grep ftp</div><div class="line">ftpd_anon_write --&gt; off</div><div class="line">ftpd_connect_all_unreserved --&gt; off</div><div class="line">  pd_connect_db --&gt; off</div><div class="line">▽tpd_full_access --&gt; off</div><div class="line">ftpd_use_cifs --&gt; off</div><div class="line">ftpd_use_fusefs --&gt; off</div><div class="line">ftpd_use_nfs --&gt; off</div><div class="line">ftpd_use_passive_mode --&gt; off</div><div class="line">httpd_can_connect_ftp --&gt; off</div><div class="line">httpd_enable_ftp_server --&gt; off</div><div class="line">tftp_anon_write --&gt; off</div><div class="line">tftp_home_dir --&gt; off</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>4.1 开启 anon_write 和full_access<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]# setsebool allow_ftpd_anon_write  1</div><div class="line">[root@localhost vsftpd]# setsebool allow_ftpd_full_access 1</div></pre></td></tr></table></figure></p>
-<ol>
-<li>重启ftp服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]# service vsftpd restart</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830160616.png" alt="ftp2"></p>
-<p>注：测试连接软件是FileZilla，windows访问 ftp://[ip]</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;主要参考博客 &lt;a href=&quot;http://www.cnblogs.com/wolf-sun/p/6058501.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/wolf-sun/p/6058501.
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="测试" scheme="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="linux" scheme="http://blog.qnight.cn/tags/linux/"/>
-    
-      <category term="ftp" scheme="http://blog.qnight.cn/tags/ftp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7 静态IP设置</title>
-    <link href="http://blog.qnight.cn/setting_static_ip.html"/>
-    <id>http://blog.qnight.cn/setting_static_ip.html</id>
-    <published>2017-08-29T11:35:03.000Z</published>
-    <updated>2017-09-01T01:28:45.813Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文链接：<a href="http://blog.csdn.net/johnnycode/article/details/40624403" target="_blank" rel="external">http://blog.csdn.net/johnnycode/article/details/40624403</a><br>1、编辑 ifcfg-eth0 文件，vim 最小化安装时没有被安装，需要自行安装不描述。<br>这里注意自己的网卡名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</div></pre></td></tr></table></figure></p>
-<p>2、修改如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">BOOTPROTO=&quot;static&quot; #dhcp改为static   </div><div class="line">ONBOOT=&quot;yes&quot; #开机启用本配置  </div><div class="line">IPADDR=192.168.7.106 #静态IP  </div><div class="line">GATEWAY=192.168.7.1 #默认网关  </div><div class="line">NETMASK=255.255.255.0 #子网掩码  </div><div class="line">DNS1=192.168.7.1 #DNS 配置</div></pre></td></tr></table></figure></p>
-<p>3、修改后效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># ]# cat /etc/sysconfig/network-scripts/ifcfg-eth0  </div><div class="line">HWADDR=&quot;00:15:5D:07:F1:02&quot;  </div><div class="line">TYPE=&quot;Ethernet&quot;  </div><div class="line">BOOTPROTO=&quot;static&quot; #dhcp改为static   </div><div class="line">DEFROUTE=&quot;yes&quot;  </div><div class="line">PEERDNS=&quot;yes&quot;  </div><div class="line">PEERROUTES=&quot;yes&quot;  </div><div class="line">IPV4_FAILURE_FATAL=&quot;no&quot;  </div><div class="line">IPV6INIT=&quot;yes&quot;  </div><div class="line">IPV6_AUTOCONF=&quot;yes&quot;  </div><div class="line">IPV6_DEFROUTE=&quot;yes&quot;  </div><div class="line">IPV6_PEERDNS=&quot;yes&quot;  </div><div class="line">IPV6_PEERROUTES=&quot;yes&quot;  </div><div class="line">IPV6_FAILURE_FATAL=&quot;no&quot;  </div><div class="line">NAME=&quot;eth0&quot;  </div><div class="line">UUID=&quot;bb3a302d-dc46-461a-881e-d46cafd0eb71&quot;  </div><div class="line">ONBOOT=&quot;yes&quot; #开机启用本配置  </div><div class="line">IPADDR=192.168.7.106 #静态IP  </div><div class="line">GATEWAY=192.168.7.1 #默认网关  </div><div class="line">NETMASK=255.255.255.0 #子网掩码  </div><div class="line">DNS1=192.168.7.1 #DNS 配置</div></pre></td></tr></table></figure></p>
-<ol>
-<li><p>重启下网络服务<br>注意需要成功，faile是有问题的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# service network restart  </div><div class="line">Restarting network (via systemctl):                        [  OK  ]</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看改动后的效果，Centois 7 不再使用 ifconfig 而是用 ip 命令查看网络信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># ip addr  </div><div class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN   </div><div class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00  </div><div class="line">    inet 127.0.0.1/8 scope host lo  </div><div class="line">       valid_lft forever preferred_lft forever  </div><div class="line">    inet6 ::1/128 scope host   </div><div class="line">       valid_lft forever preferred_lft forever  </div><div class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN qlen 1000  </div><div class="line">    link/ether 00:15:5d:07:f1:02 brd ff:ff:ff:ff:ff:ff  </div><div class="line">    inet 192.168.7.106/24 brd 192.168.7.255 scope global eth0  </div><div class="line">       valid_lft forever preferred_lft forever  </div><div class="line">    inet6 fe80::215:5dff:fe07:f102/64 scope link   </div><div class="line">       valid_lft forever preferred_lft forever</div></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原文链接：&lt;a href=&quot;http://blog.csdn.net/johnnycode/article/details/40624403&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/johnnycode/ar
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="linux" scheme="http://blog.qnight.cn/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SAMBA共享</title>
-    <link href="http://blog.qnight.cn/samba.html"/>
-    <id>http://blog.qnight.cn/samba.html</id>
-    <published>2017-08-28T14:49:03.000Z</published>
-    <updated>2017-09-01T01:28:45.810Z</updated>
-    
-    <content type="html"><![CDATA[<p>1、安装samba:可以先检查下是否已经安装：rpm -qa | grep samba,没有的话自己安装下，这里介绍下基于RPM包的一种在线安装模式yum<br>yum是一种快速安装模式，它会自动解决软件安装时的依赖问题并自动去特定的服务器下载相应的软件进行安装，命令十分简单：yum install samba，快捷方便的背后离不开程序员的辛苦啊！<br>2、创建共享文件夹，这里就是mkdir -m 777 /home/def/share<br>3、修改/etc/samba/smb.conf，这里面的参数就比较多，主要是<br>workgroup = WORKGROUP（这个就是windows工作组模式，还有一种是域模式）<br>hosts allow = 192.168.1.100（可以放问的IP地址，这里写的时windows地址）<br>然后在文件的结尾加上<br>[public]（共享名，就是windows访问时会显示的名称）<br>comment = Public Stuff（注释）<br>path = /home/def/share（共享名）<br>public = yes（公开）<br>writable = yes（可写）<br>当然这里只是些基础的参数，还有其他的参数根据情况设置，比如会出现乱码，还要指定编码格式。<br>4、重启smb服务：service smb restart   service smb status  查看状态<br>5、创建samba客户：smbpasswd -a   def,回车后会提示输入密码。这个就是将来远程主机登录时需要的密码，这里的def帐号必须时系统已经有的<br>帐号，没有的话会报错，然后新输的密码就是远程登录密码，这样做的好处就是自己的密码和远程登录的密码分开。<br>6、windows下连接，启动运行，输入\192.168.58.168,输入smb帐号密码就可以了  </p>
-<p>由于暂时还不会防火墙和SELINUX配置，而下面有些方法中的操作会受到他们的限制，因此先关闭这俩。<br>关闭防火墙的命令：service iptables stop<br>关闭SELINUX命令：setenforce 0  </p>
-<p>window下关闭网络共享连接  cmd &gt;&gt;<br>net use * /del /y</p>
-<p>如果访问的是当前用户下的文件，不需要配置</p>
-<p>如果访问的不是当前用户下的文件或者文件夹，需要配置/etc/samba/smb.conf，加入：  [Share] 为在共享中显示的文件夹名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[Share]</div><div class="line"></div><div class="line">comment = Shared Folder with username and password</div><div class="line"></div><div class="line">path = /usr/local/test</div><div class="line"></div><div class="line">public = yes</div><div class="line"></div><div class="line">writable = yes</div><div class="line"></div><div class="line">valid users = user1</div><div class="line"></div><div class="line">available = yes</div><div class="line"></div><div class="line">browseable = yes</div></pre></td></tr></table></figure></p>
-<p>启动 samba 服务<br>systemctl start smb.service</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1、安装samba:可以先检查下是否已经安装：rpm -qa | grep samba,没有的话自己安装下，这里介绍下基于RPM包的一种在线安装模式yum&lt;br&gt;yum是一种快速安装模式，它会自动解决软件安装时的依赖问题并自动去特定的服务器下载相应的软件进行安装，命令十分简
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="linux" scheme="http://blog.qnight.cn/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java中位运算符</title>
-    <link href="http://blog.qnight.cn/JAVA_Bitwise_Operators%20.html"/>
-    <id>http://blog.qnight.cn/JAVA_Bitwise_Operators .html</id>
-    <published>2017-08-27T14:21:36.000Z</published>
-    <updated>2017-09-01T01:28:45.800Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li><p>今天在读==ConcurrentHashMap==的源码中突然发现一段很好玩的代码，大概理解它的意思。不多说上代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Returns a power of two table size for the given desired capacity.</span></div><div class="line"><span class="comment"> * See Hackers Delight, sec 3.2</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">tableSizeFor</span><span class="params">(<span class="keyword">int</span> c)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n = c - <span class="number">1</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">1</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">2</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">4</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">8</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">16</span>;</div><div class="line">    <span class="keyword">return</span> (n &lt; <span class="number">0</span>) ? <span class="number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><em>在 ConcurrentHashMap 源码的第688~700  line</em></p>
-<ul>
-<li>疑问<ol>
-<li>见过&gt;&gt;、&lt;&lt;的位运算符，但没见过&gt;&gt;&gt;估计意思差不多；</li>
-<li>|= 运算符，目测是或；</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>不知道写段代码测试吧</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"15的二进制数是   "</span>+ Integer.toBinaryString(<span class="number">15</span>));</div><div class="line">		System.out.println(<span class="string">"-15的二进制数是   "</span>+ Integer.toBinaryString(-<span class="number">15</span>));</div><div class="line">		System.out.println(<span class="string">"15 &gt;&gt; 2 的运算结果是    "</span> + (<span class="number">15</span> &gt;&gt; <span class="number">2</span>));</div><div class="line">		System.out.println(<span class="string">"15 &lt;&lt; 2 的运算结果是    "</span> + (<span class="number">15</span> &lt;&lt; <span class="number">2</span>));</div><div class="line">		System.out.println(<span class="string">"15 &gt;&gt;&gt; 2 的运算结果是    "</span> + (<span class="number">15</span> &gt;&gt;&gt; <span class="number">2</span>));</div><div class="line">		<span class="comment">//遗憾的是没有&lt;&lt;&lt;运算符,我的jdk是jdk1.8.0_144</span></div><div class="line">		<span class="comment">//System.out.println(15 &lt;&lt;&lt; 2);</span></div><div class="line">		System.out.println(<span class="string">"-15 &gt;&gt; 2 的运算结果是    "</span> + (-<span class="number">15</span> &gt;&gt; <span class="number">2</span>));</div><div class="line">		System.out.println(<span class="string">"-15 &lt;&lt; 2 的运算结果是    "</span> + (-<span class="number">15</span> &lt;&lt; <span class="number">2</span>));</div><div class="line">		System.out.println(<span class="string">"-15 &gt;&gt;&gt; 2 的运算结果是    "</span> + (-<span class="number">15</span> &gt;&gt;&gt; <span class="number">2</span>));</div><div class="line">		<span class="keyword">int</span> index = <span class="number">8</span>;</div><div class="line">		System.out.println(index + <span class="string">" | 15 &gt;&gt;&gt; 2的运算结果是   "</span> + (index | <span class="number">15</span> &gt;&gt;&gt; <span class="number">2</span>));</div><div class="line">		System.out.println(index + <span class="string">" |= 15 &gt;&gt;&gt; 2 的运算结果是    "</span> + (index |= <span class="number">15</span> &gt;&gt;&gt; <span class="number">2</span>));</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">15的二进制数是   1111</div><div class="line">-15的二进制数是   11111111111111111111111111110001</div><div class="line">15 &gt;&gt; 2 的运算结果是    3</div><div class="line">15 &lt;&lt; 2 的运算结果是    60</div><div class="line">15 &gt;&gt;&gt; 2 的运算结果是    3</div><div class="line">-15 &gt;&gt; 2 的运算结果是    -4</div><div class="line">-15 &lt;&lt; 2 的运算结果是    -60</div><div class="line">-15 &gt;&gt;&gt; 2 的运算结果是    1073741820</div><div class="line">8 | 3的运算结果是   11</div><div class="line">8 |= 15 &gt;&gt;&gt; 2 的运算结果是    11</div></pre></td></tr></table></figure>
-</li>
-<li><p>分析</p>
-<ol>
-<li>==15 &gt;&gt; 2==<br>15 的 二 进 制 表 示 00000000 00000000 00000000 00001111  正数补码反码都一样<br>得 -15的补码表示 11111111 11111111 11111111 11110001<br>将 15右移2位 00000000 00000000 00000000 00000011 得3  </li>
-<li>==-15 &gt;&gt; 2==<br>将-15右移2位 11111111 11111111 11111111 11111100<br>在高位补1<br>保留符号位，然后按位取反<br>10000000 00000000 00000000 00000011<br>然后加1，即为所求数的原码：<br>10000000 00000000 00000000 00000100<br>所以 -15&gt;&gt;2 右移两位结果是 -4</li>
-<li>==&gt;&gt;&gt;== 符号结果是无符号规则右移  主要区别是在负数上面<br>-15的二进制表示 11111111 11111111 11111111 11110001<br>将-15右移2位， 在高位补0， 00111111 11111111 11111111 11111100<br>所得结果 1073741820  </li>
-<li>从上面的结果可以看出 8|=15就是 8|15 就是或运算符，唯一的区别的就是temp = temp | temp1 等于 temp |= temp1，重新复习下与或非运算符：<ol>
-<li>与运算符用符号“&amp;”表示，其使用规律如下：<br>两个操作数中位都为1，结果才为1，否则结果为0，</li>
-<li>或运算符用符号“|”表示，其运算规律如下：<br>两个位只要有一个为1，那么结果就是1，否则就为0， </li>
-<li>非运算符<br>非运算符用符号“~”表示，其运算规律如下：<br>如果位为0，结果是1，如果位为1，结果是0， </li>
-<li>异或运算符<br>异或运算符是用符号“^”表示的，其运算规律是：<br>两个操作数的位中，相同则结果为0，不同则结果为1。</li>
-</ol>
-</li>
-</ol>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;今天在读==ConcurrentHashMap==的源码中突然发现一段很好玩的代码，大概理解它的意思。不多说上代码：&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="java" scheme="http://blog.qnight.cn/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试</title>
-    <link href="http://blog.qnight.cn/test.html"/>
-    <id>http://blog.qnight.cn/test.html</id>
-    <published>2017-07-27T02:08:03.000Z</published>
-    <updated>2017-09-01T01:28:45.817Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="测试1"><a href="#测试1" class="headerlink" title="测试1"></a>测试1</h3><p>  来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h2&gt;&lt;h3 id=&quot;测试1&quot;&gt;&lt;a href=&quot;#测试1&quot; class=&quot;headerlink&quot; title=&quot;测试1&quot;&gt;&lt;/a&gt;测试1&lt;/h3&gt;&lt;p
-    
-    </summary>
-    
-      <category term="测试" scheme="http://blog.qnight.cn/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="测试下" scheme="http://blog.qnight.cn/tags/%E6%B5%8B%E8%AF%95%E4%B8%8B/"/>
+      <category term="测试下" scheme="http://blog.wuwii.com/tags/%E6%B5%8B%E8%AF%95%E4%B8%8B/"/>
     
   </entry>
   

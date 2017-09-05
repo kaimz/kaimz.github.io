@@ -11,7 +11,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('不好意思，这篇文章需要密码！') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -106,25 +123,27 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="http://a2.qpic.cn/psb?/V13OsJkp4Tukgx/tz6NvLOC9ofq**fbgt2Qj5rb4sbYlx4Zqni3wtdPYvA!/b/dDwBAAAAAAAA&bo=EAAQAAAAAAADByI!&rf=viewer_4?v=5.1.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
 
 
 
 
 
 
-<meta name="description" content="1、安装samba:可以先检查下是否已经安装：rpm -qa | grep samba,没有的话自己安装下，这里介绍下基于RPM包的一种在线安装模式yumyum是一种快速安装模式，它会自动解决软件安装时的依赖问题并自动去特定的服务器下载相应的软件进行安装，命令十分简单：yum install samba，快捷方便的背后离不开程序员的辛苦啊！2、创建共享文件夹，这里就是mkdir -m 777 /h">
+<meta name="description" content="简介 Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置NetBIOS">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SAMBA共享">
-<meta property="og:url" content="http://blog.qnight.cn/samba.html">
+<meta property="og:url" content="http://blog.wuwii.com/samba.html">
 <meta property="og:site_name" content="我想说点什么">
-<meta property="og:description" content="1、安装samba:可以先检查下是否已经安装：rpm -qa | grep samba,没有的话自己安装下，这里介绍下基于RPM包的一种在线安装模式yumyum是一种快速安装模式，它会自动解决软件安装时的依赖问题并自动去特定的服务器下载相应的软件进行安装，命令十分简单：yum install samba，快捷方便的背后离不开程序员的辛苦啊！2、创建共享文件夹，这里就是mkdir -m 777 /h">
+<meta property="og:description" content="简介 Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置NetBIOS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-01T01:28:45.810Z">
+<meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170905093409.png">
+<meta property="og:updated_time" content="2017-09-05T01:40:08.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SAMBA共享">
-<meta name="twitter:description" content="1、安装samba:可以先检查下是否已经安装：rpm -qa | grep samba,没有的话自己安装下，这里介绍下基于RPM包的一种在线安装模式yumyum是一种快速安装模式，它会自动解决软件安装时的依赖问题并自动去特定的服务器下载相应的软件进行安装，命令十分简单：yum install samba，快捷方便的背后离不开程序员的辛苦啊！2、创建共享文件夹，这里就是mkdir -m 777 /h">
+<meta name="twitter:description" content="简介 Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置NetBIOS">
+<meta name="twitter:image" content="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170905093409.png">
 
 
 
@@ -152,7 +171,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.qnight.cn/samba.html"/>
+  <link rel="canonical" href="http://blog.wuwii.com/samba.html"/>
 
 
 
@@ -278,21 +297,45 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            站点地图
+            搜索
           </a>
         </li>
-      
-
       
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -317,7 +360,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.qnight.cn/samba.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/samba.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张 凯">
@@ -382,6 +425,18 @@
 
           
             
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/samba.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="samba.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
           
 
           
@@ -389,6 +444,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  737
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
           
 
           
@@ -403,12 +489,25 @@
       
 
       
-        <p>1、安装samba:可以先检查下是否已经安装：rpm -qa | grep samba,没有的话自己安装下，这里介绍下基于RPM包的一种在线安装模式yum<br>yum是一种快速安装模式，它会自动解决软件安装时的依赖问题并自动去特定的服务器下载相应的软件进行安装，命令十分简单：yum install samba，快捷方便的背后离不开程序员的辛苦啊！<br>2、创建共享文件夹，这里就是mkdir -m 777 /home/def/share<br>3、修改/etc/samba/smb.conf，这里面的参数就比较多，主要是<br>workgroup = WORKGROUP（这个就是windows工作组模式，还有一种是域模式）<br>hosts allow = 192.168.1.100（可以放问的IP地址，这里写的时windows地址）<br>然后在文件的结尾加上<br>[public]（共享名，就是windows访问时会显示的名称）<br>comment = Public Stuff（注释）<br>path = /home/def/share（共享名）<br>public = yes（公开）<br>writable = yes（可写）<br>当然这里只是些基础的参数，还有其他的参数根据情况设置，比如会出现乱码，还要指定编码格式。<br>4、重启smb服务：service smb restart   service smb status  查看状态<br>5、创建samba客户：smbpasswd -a   def,回车后会提示输入密码。这个就是将来远程主机登录时需要的密码，这里的def帐号必须时系统已经有的<br>帐号，没有的话会报错，然后新输的密码就是远程登录密码，这样做的好处就是自己的密码和远程登录的密码分开。<br>6、windows下连接，启动运行，输入\192.168.58.168,输入smb帐号密码就可以了  </p>
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p><code>Samba</code>是在<code>Linux</code>和<code>UNIX</code>系统上实现<code>SMB协议</code>的一个免费软件，由服务器及客户端程序构成。<code>SMB</code>（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置<code>NetBIOS over TCP/IP</code>使得Samba不但能与局域网络主机分享资源，还能与全世界的电脑分享资源。  </p>
+</blockquote>
+<h3 id="安装samba"><a href="#安装samba" class="headerlink" title="安装samba"></a>安装samba</h3><ul>
+<li>可以先检查下是否已经安装：<code>rpm -qa | grep samba</code><br>这里使用yum安装，可以不用担心一些依赖包的问题：<code>yum install samba</code>  </li>
+<li>创建共享文件夹，这里就是<code>mkdir -m 777 /home/user1/share</code>  </li>
+<li>修改<code>/etc/samba/smb.conf</code>，这里面的参数就比较多，主要是<br><code>workgroup = WORKGROUP</code>（这个就是windows工作组模式，还有一种是域模式，可以不改使用<code>MYGROUP</code>）<br><code>hosts allow = 192.168.19.207</code>（可以放问的IP地址，这里写的时windows地址，一般不填写）<br>然后在文件的结尾加上<br>[public]（共享名，就是windows访问时会显示的名称）<br>comment = Public Stuff（注释）<br>path = /home/user1/share（共享名）<br>public = yes（公开）<br>writable = yes（可写）<br>当然这里只是些基础的参数，还有其他的参数根据情况设置，比如会出现乱码，还要指定编码格式。  </li>
+<li>重启smb服务：<code>service smb restart</code>、   <code>service smb status</code>  查看状态  </li>
+<li>创建samba客户：<code>smbpasswd -a   user1</code>,回车后会提示输入密码。这个就是将来远程主机登录时需要的密码，这里的<code>user1</code>帐号必须是系统已经有的<br>帐号，没有的话会报错，然后新输的密码就是远程登录密码，这样做的好处就是自己的密码和远程登录的密码分开。  </li>
+<li>windows下连接，启动运行，输入<code>\\192.168.19.185</code>,输入smb帐号密码就可以了  </li>
+</ul>
 <p>由于暂时还不会防火墙和SELINUX配置，而下面有些方法中的操作会受到他们的限制，因此先关闭这俩。<br>关闭防火墙的命令：service iptables stop<br>关闭SELINUX命令：setenforce 0  </p>
 <p>window下关闭网络共享连接  cmd &gt;&gt;<br>net use * /del /y</p>
 <p>如果访问的是当前用户下的文件，不需要配置</p>
-<p>如果访问的不是当前用户下的文件或者文件夹，需要配置/etc/samba/smb.conf，加入：  [Share] 为在共享中显示的文件夹名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[Share]</div><div class="line"></div><div class="line">comment = Shared Folder with username and password</div><div class="line"></div><div class="line">path = /usr/local/test</div><div class="line"></div><div class="line">public = yes</div><div class="line"></div><div class="line">writable = yes</div><div class="line"></div><div class="line">valid users = user1</div><div class="line"></div><div class="line">available = yes</div><div class="line"></div><div class="line">browseable = yes</div></pre></td></tr></table></figure></p>
-<p>启动 samba 服务<br>systemctl start smb.service</p>
+<p>如果访问的不是当前用户下的文件或者文件夹，需要配置<code>/etc/samba/smb.conf</code>，加入：  [Share] 为在共享中显示的文件夹名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[Share]</div><div class="line"></div><div class="line">comment = Shared Folder with username and password</div><div class="line"></div><div class="line">path = /data</div><div class="line"></div><div class="line">public = yes</div><div class="line"></div><div class="line">writable = yes</div><div class="line"></div><div class="line">valid users = user1</div><div class="line"></div><div class="line">available = yes</div><div class="line"></div><div class="line">browseable = yes</div></pre></td></tr></table></figure></p>
+<p>启动 samba 服务<br><code>systemctl start smb.service</code>  </p>
+<h3 id="测试服务"><a href="#测试服务" class="headerlink" title="测试服务"></a>测试服务</h3><p>我是用的是windows客户端连接，输入Ip <code>\\192.168.19.185</code><br>我使用的是user1账户</p>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170905093409.png" alt="samba"></p>
+<p><strong>账户有权限可以正常进入到文件中</strong>  </p>
 
       
     </div>
@@ -461,7 +560,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/JAVA_Bitwise_Operators .html" rel="next" title="Java中位运算符">
+              <a href="/JAVA_Bitwise_Operators.html" rel="next" title="Java中位运算符">
                 <i class="fa fa-chevron-left"></i> Java中位运算符
               </a>
             
@@ -536,6 +635,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="hypercomments_widget"></div>
+    
   </div>
 
 
@@ -558,8 +659,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg"
@@ -574,7 +684,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -585,7 +695,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -596,7 +706,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -678,6 +788,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装samba"><span class="nav-number">2.</span> <span class="nav-text">安装samba</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试服务"><span class="nav-number">3.</span> <span class="nav-text">测试服务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -714,6 +840,25 @@
 </div>
 
 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共4.9k字</span>
+</div>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
         
 
         
@@ -817,32 +962,378 @@
 
 	
 
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 95150, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 95150, xid: "samba.html"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/95150/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
 
 
 
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
 
   
 
-
-
-
-
-
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 
-
-
-
-
-  
-
-  
 
   
 

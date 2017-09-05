@@ -4,21 +4,19 @@
 
     
   <url>
-    <loc>http://blog.qnight.cn/hexo_install_error.html</loc>
-    <lastmod>2017-09-01T06:21:48.167Z</lastmod>
+    <loc>http://blog.wuwii.com/samba.html</loc>
+    <lastmod>2017-09-05T01:40:08.343Z</lastmod>
     <data>
         <display>
-        <title>关于npm install hexo出错</title>
-        <pubTime>2017-08-31T14:43:03.000Z</pubTime>
+        <title>SAMBA共享</title>
+        <pubTime>2017-08-28T14:49:03.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
-        <tag>npm</tag>
+        <tag>linux</tag>
          
          
            
              
-              <breadCrumb title="学习笔记" url="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -26,8 +24,28 @@
 
     
   <url>
-    <loc>http://blog.qnight.cn/vsftpd.html</loc>
-    <lastmod>2017-09-01T01:28:45.821Z</lastmod>
+    <loc>http://blog.wuwii.com/JAVA_Bitwise_Operators.html</loc>
+    <lastmod>2017-09-05T01:20:27.641Z</lastmod>
+    <data>
+        <display>
+        <title>Java中位运算符</title>
+        <pubTime>2017-08-27T14:21:36.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/vsftpd.html</loc>
+    <lastmod>2017-09-05T01:17:56.793Z</lastmod>
     <data>
         <display>
         <title>linux上搭建ftp服务器</title>
@@ -40,7 +58,7 @@
          
            
              
-              <breadCrumb title="学习笔记" url="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -48,8 +66,115 @@
 
     
   <url>
-    <loc>http://blog.qnight.cn/test.html</loc>
-    <lastmod>2017-09-01T01:28:45.817Z</lastmod>
+    <loc>http://blog.wuwii.com/linux_user_default_path.html</loc>
+    <lastmod>2017-09-05T01:15:59.057Z</lastmod>
+    <data>
+        <display>
+        <title>Linux下如何修改用户默认目录</title>
+        <pubTime>2017-08-31T14:16:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/hexo_install_error.html</loc>
+    <lastmod>2017-09-05T01:14:59.665Z</lastmod>
+    <data>
+        <display>
+        <title>关于npm install hexo出错</title>
+        <pubTime>2017-08-31T14:43:03.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>npm</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/kaifu-love-story.html</loc>
+    <lastmod>2017-09-05T01:14:23.393Z</lastmod>
+    <data>
+        <display>
+        <title>分享：李开复：我的爱情故事</title>
+        <pubTime>2017-09-03T14:38:03.000Z</pubTime>
+        
+        <tag>李开复</tag>
+         
+        <tag>感情</tag>
+         
+         
+           
+             
+              <breadCrumb title="分享" url="http://blog.wuwii.com/categories/%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/enumeration-package-design%20.html</loc>
+    <lastmod>2017-09-05T01:13:52.946Z</lastmod>
+    <data>
+        <display>
+        <title>枚举的封装设计</title>
+        <pubTime>2017-09-04T15:08:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>枚举</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/hello-world.html</loc>
+    <lastmod>2017-09-05T00:56:13.720Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-07-03T02:08:03.000Z</pubTime>
+        
+        <tag>测试下</tag>
+         
+         
+           
+             
+              <breadCrumb title="测试" url="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://blog.wuwii.com/test.html</loc>
+    <lastmod>2017-09-05T00:48:03.196Z</lastmod>
     <data>
         <display>
         <title>测试</title>
@@ -60,7 +185,7 @@
          
            
              
-              <breadCrumb title="测试" url="http://blog.qnight.cn/categories/%E6%B5%8B%E8%AF%95/"/>
+              <breadCrumb title="测试" url="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
           
         </display>
     </data>
@@ -68,8 +193,8 @@
 
     
   <url>
-    <loc>http://blog.qnight.cn/setting_static_ip.html</loc>
-    <lastmod>2017-09-01T01:28:45.813Z</lastmod>
+    <loc>http://blog.wuwii.com/setting_static_ip.html</loc>
+    <lastmod>2017-09-05T00:48:03.188Z</lastmod>
     <data>
         <display>
         <title>CentOS 7 静态IP设置</title>
@@ -80,67 +205,7 @@
          
            
              
-              <breadCrumb title="学习笔记" url="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.qnight.cn/samba.html</loc>
-    <lastmod>2017-09-01T01:28:45.810Z</lastmod>
-    <data>
-        <display>
-        <title>SAMBA共享</title>
-        <pubTime>2017-08-28T14:49:03.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.qnight.cn/linux_user_default_path.html</loc>
-    <lastmod>2017-09-01T01:28:45.806Z</lastmod>
-    <data>
-        <display>
-        <title>Linux下如何修改用户默认目录</title>
-        <pubTime>2017-09-01T01:28:45.806Z</pubTime>
-        
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.qnight.cn/JAVA_Bitwise_Operators%20.html</loc>
-    <lastmod>2017-09-01T01:28:45.800Z</lastmod>
-    <data>
-        <display>
-        <title>Java中位运算符</title>
-        <pubTime>2017-08-27T14:21:36.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.qnight.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -148,19 +213,4 @@
 
     
     
-    
-  <url>
-    <loc>http://blog.qnight.cn/hello-world.html</loc>
-    <lastmod>2017-08-31T07:04:17.729Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2017-08-31T07:04:17.729Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>
