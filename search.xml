@@ -264,12 +264,12 @@
 <li>创建samba客户：<code>smbpasswd -a   user1</code>,回车后会提示输入密码。这个就是将来远程主机登录时需要的密码，这里的<code>user1</code>帐号必须是系统已经有的<br>帐号，没有的话会报错，然后新输的密码就是远程登录密码，这样做的好处就是自己的密码和远程登录的密码分开。  </li>
 <li>windows下连接，启动运行，输入<code>\\192.168.19.185</code>,输入smb帐号密码就可以了  </li>
 </ul>
-<p>由于暂时还不会防火墙和SELINUX配置，而下面有些方法中的操作会受到他们的限制，因此先关闭这俩。<br>关闭防火墙的命令：service iptables stop<br>关闭SELINUX命令：setenforce 0  </p>
-<p>window下关闭网络共享连接  cmd &gt;&gt;<br>net use * /del /y</p>
+<p>由于暂时还不会防火墙和SELINUX配置，而下面有些方法中的操作会受到他们的限制，因此先关闭这俩。<br>关闭防火墙的命令：<code>service iptables stop</code><br>关闭SELINUX命令：<code>setenforce 0</code>  </p>
+<p>window下关闭网络共享连接  cmd &gt;&gt;<br><code>net use * /del /y</code></p>
 <p>如果访问的是当前用户下的文件，不需要配置</p>
 <p>如果访问的不是当前用户下的文件或者文件夹，需要配置<code>/etc/samba/smb.conf</code>，加入：  [Share] 为在共享中显示的文件夹名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[Share]</div><div class="line"></div><div class="line">comment = Shared Folder with username and password</div><div class="line"></div><div class="line">path = /data</div><div class="line"></div><div class="line">public = yes</div><div class="line"></div><div class="line">writable = yes</div><div class="line"></div><div class="line">valid users = user1</div><div class="line"></div><div class="line">available = yes</div><div class="line"></div><div class="line">browseable = yes</div></pre></td></tr></table></figure></p>
 <p>启动 samba 服务<br><code>systemctl start smb.service</code>  </p>
-<h3 id="测试服务"><a href="#测试服务" class="headerlink" title="测试服务"></a>测试服务</h3><p>我是用的是windows客户端连接，输入Ip <code>\\192.168.19.185</code><br>我使用的是user1账户</p>
+<h3 id="测试服务"><a href="#测试服务" class="headerlink" title="测试服务"></a>测试服务</h3><p>我使用的是windows客户端连接，输入Ip <code>\\192.168.19.185</code><br>我使用的是user1账户</p>
 <p><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170905093409.png" alt="samba"></p>
 <p><strong>账户有权限可以正常进入到文件中</strong>  </p>
 ]]></content>
