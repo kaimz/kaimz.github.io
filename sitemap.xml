@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/centos-fastDFS.html</loc>
+    
+    <lastmod>2017-09-05T09:11:35.694Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/samba.html</loc>
+    
+    <lastmod>2017-09-05T09:10:07.998Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/JAVA_Bitwise_Operators.html</loc>
+    
+    <lastmod>2017-09-05T08:48:39.282Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/vsftpd.html</loc>
     
-    <lastmod>2017-09-05T06:13:33.160Z</lastmod>
+    <lastmod>2017-09-05T06:43:35.157Z</lastmod>
     
   </url>
   
@@ -12,20 +33,6 @@
     <loc>http://blog.wuwii.com/setting_static_ip.html</loc>
     
     <lastmod>2017-09-05T03:58:04.042Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/samba.html</loc>
-    
-    <lastmod>2017-09-05T01:45:34.013Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/JAVA_Bitwise_Operators.html</loc>
-    
-    <lastmod>2017-09-05T01:20:27.641Z</lastmod>
     
   </url>
   

@@ -4,8 +4,70 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/centos-fastDFS.html</loc>
+    <lastmod>2017-09-05T09:11:35.694Z</lastmod>
+    <data>
+        <display>
+        <title>搭建fastDFS单实例服务器</title>
+        <pubTime>2017-07-18T02:08:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>fastDFS</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/samba.html</loc>
+    <lastmod>2017-09-05T09:10:07.998Z</lastmod>
+    <data>
+        <display>
+        <title>SAMBA共享</title>
+        <pubTime>2017-08-28T14:49:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/JAVA_Bitwise_Operators.html</loc>
+    <lastmod>2017-09-05T08:48:39.282Z</lastmod>
+    <data>
+        <display>
+        <title>Java中位运算符</title>
+        <pubTime>2017-08-07T14:21:36.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/vsftpd.html</loc>
-    <lastmod>2017-09-05T06:13:33.160Z</lastmod>
+    <lastmod>2017-09-05T06:43:35.157Z</lastmod>
     <data>
         <display>
         <title>linux上搭建ftp服务器</title>
@@ -34,46 +96,6 @@
         <pubTime>2017-08-29T11:35:03.000Z</pubTime>
         
         <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/samba.html</loc>
-    <lastmod>2017-09-05T01:45:34.013Z</lastmod>
-    <data>
-        <display>
-        <title>SAMBA共享</title>
-        <pubTime>2017-08-28T14:49:03.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/JAVA_Bitwise_Operators.html</loc>
-    <lastmod>2017-09-05T01:20:27.641Z</lastmod>
-    <data>
-        <display>
-        <title>Java中位运算符</title>
-        <pubTime>2017-08-27T14:21:36.000Z</pubTime>
-        
-        <tag>java</tag>
          
          
            

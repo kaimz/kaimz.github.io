@@ -130,19 +130,19 @@
 
 
 
-<meta name="description" content="简介 Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置NetBIOS">
+<meta name="description" content="简介 Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SAMBA共享">
 <meta property="og:url" content="http://blog.wuwii.com/samba.html">
 <meta property="og:site_name" content="我想说点什么">
-<meta property="og:description" content="简介 Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置NetBIOS">
+<meta property="og:description" content="简介 Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170905093409.png">
-<meta property="og:updated_time" content="2017-09-05T01:45:34.013Z">
+<meta property="og:updated_time" content="2017-09-05T09:10:07.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SAMBA共享">
-<meta name="twitter:description" content="简介 Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置NetBIOS">
+<meta name="twitter:description" content="简介 Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。">
 <meta name="twitter:image" content="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170905093409.png">
 
 
@@ -490,8 +490,10 @@
 
       
         <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
-<p><code>Samba</code>是在<code>Linux</code>和<code>UNIX</code>系统上实现<code>SMB协议</code>的一个免费软件，由服务器及客户端程序构成。<code>SMB</code>（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置<code>NetBIOS over TCP/IP</code>使得Samba不但能与局域网络主机分享资源，还能与全世界的电脑分享资源。  </p>
+<p><code>Samba</code>是在<code>Linux</code>和<code>UNIX</code>系统上实现<code>SMB协议</code>的一个免费软件，由服务器及客户端程序构成。<code>SMB</code>（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。</p>
 </blockquote>
+<a id="more"></a>
+<p>SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置<code>NetBIOS over TCP/IP</code>使得Samba不但能与局域网络主机分享资源，还能与全世界的电脑分享资源。  </p>
 <h3 id="安装samba"><a href="#安装samba" class="headerlink" title="安装samba"></a>安装samba</h3><ul>
 <li>可以先检查下是否已经安装：<code>rpm -qa | grep samba</code><br>这里使用yum安装，可以不用担心一些依赖包的问题：<code>yum install samba</code>  </li>
 <li>创建共享文件夹，这里就是<code>mkdir -m 777 /home/user1/share</code>  </li>
@@ -673,7 +675,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -695,7 +697,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -831,7 +833,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.1k字</span>
+  <span class="post-count">博客全站共7.4k字</span>
 </div>
 
 <script>
