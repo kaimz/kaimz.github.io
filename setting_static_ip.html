@@ -130,18 +130,18 @@
 
 
 
-<meta name="description" content="最近使用linux做服务器共享，需要设置静态IP，整理了一下。">
+<meta name="description" content="获取网卡信息在root用户下，输入命令ifconfig123456789101112131415161718[root@localhost ~]# ifconfigens33: flags=4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu 1500        inet 192.168.19.128  netmask 255.255.255.0  b">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 7 静态IP设置">
 <meta property="og:url" content="http://blog.wuwii.com/setting_static_ip.html">
 <meta property="og:site_name" content="我想说点什么">
-<meta property="og:description" content="最近使用linux做服务器共享，需要设置静态IP，整理了一下。">
+<meta property="og:description" content="获取网卡信息在root用户下，输入命令ifconfig123456789101112131415161718[root@localhost ~]# ifconfigens33: flags=4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu 1500        inet 192.168.19.128  netmask 255.255.255.0  b">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-05T00:48:03.188Z">
+<meta property="og:updated_time" content="2017-09-05T03:51:26.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 静态IP设置">
-<meta name="twitter:description" content="最近使用linux做服务器共享，需要设置静态IP，整理了一下。">
+<meta name="twitter:description" content="获取网卡信息在root用户下，输入命令ifconfig123456789101112131415161718[root@localhost ~]# ifconfigens33: flags=4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu 1500        inet 192.168.19.128  netmask 255.255.255.0  b">
 
 
 
@@ -453,7 +453,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  408
+                  419
                 </span>
               
 
@@ -487,18 +487,15 @@
       
 
       
-        <p><strong>最近使用linux做服务器共享，需要设置静态IP，整理了一下。</strong>  <a id="more"></a><br>1、编辑 ifcfg-eth0 文件，vim 最小化安装时没有被安装，需要自行安装不描述。<br>这里注意自己的网卡名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</div></pre></td></tr></table></figure></p>
-<p>2、修改如下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">BOOTPROTO=<span class="string">"static"</span> <span class="comment">#dhcp改为static   </span></div><div class="line">ONBOOT=<span class="string">"yes"</span> <span class="comment">#开机启用本配置  </span></div><div class="line">IPADDR=192.168.7.106 <span class="comment">#静态IP  </span></div><div class="line">GATEWAY=192.168.7.1 <span class="comment">#默认网关  </span></div><div class="line">NETMASK=255.255.255.0 <span class="comment">#子网掩码  </span></div><div class="line">DNS1=192.168.7.1 <span class="comment">#DNS 配置</span></div></pre></td></tr></table></figure></p>
-<p>3、修改后效果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ]# cat /etc/sysconfig/network-scripts/ifcfg-eth0  </span></div><div class="line">HWADDR=<span class="string">"00:15:5D:07:F1:02"</span>  </div><div class="line">TYPE=<span class="string">"Ethernet"</span>  </div><div class="line">BOOTPROTO=<span class="string">"static"</span> <span class="comment">#dhcp改为static   </span></div><div class="line">DEFROUTE=<span class="string">"yes"</span>  </div><div class="line">PEERDNS=<span class="string">"yes"</span>  </div><div class="line">PEERROUTES=<span class="string">"yes"</span>  </div><div class="line">IPV4_FAILURE_FATAL=<span class="string">"no"</span>  </div><div class="line">IPV6INIT=<span class="string">"yes"</span>  </div><div class="line">IPV6_AUTOCONF=<span class="string">"yes"</span>  </div><div class="line">IPV6_DEFROUTE=<span class="string">"yes"</span>  </div><div class="line">IPV6_PEERDNS=<span class="string">"yes"</span>  </div><div class="line">IPV6_PEERROUTES=<span class="string">"yes"</span>  </div><div class="line">IPV6_FAILURE_FATAL=<span class="string">"no"</span>  </div><div class="line">NAME=<span class="string">"eth0"</span>  </div><div class="line">UUID=<span class="string">"bb3a302d-dc46-461a-881e-d46cafd0eb71"</span>  </div><div class="line">ONBOOT=<span class="string">"yes"</span> <span class="comment">#开机启用本配置  </span></div><div class="line">IPADDR=192.168.7.106 <span class="comment">#静态IP  </span></div><div class="line">GATEWAY=192.168.7.1 <span class="comment">#默认网关  </span></div><div class="line">NETMASK=255.255.255.0 <span class="comment">#子网掩码  </span></div><div class="line">DNS1=192.168.7.1 <span class="comment">#DNS 配置</span></div></pre></td></tr></table></figure></p>
-<ol>
-<li><p>重启下网络服务<br>注意需要成功，faile是有问题的配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># service network restart  </span></div><div class="line">Restarting network (via systemctl):                        [  OK  ]</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看改动后的效果，Centois 7 不再使用 ifconfig 而是用 ip 命令查看网络信息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ip addr  </span></div><div class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN   </div><div class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00  </div><div class="line">    inet 127.0.0.1/8 scope host lo  </div><div class="line">       valid_lft forever preferred_lft forever  </div><div class="line">    inet6 ::1/128 scope host   </div><div class="line">       valid_lft forever preferred_lft forever  </div><div class="line">2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN qlen 1000  </div><div class="line">    link/ether 00:15:5d:07:f1:02 brd ff:ff:ff:ff:ff:ff  </div><div class="line">    inet 192.168.7.106/24 brd 192.168.7.255 scope global eth0  </div><div class="line">       valid_lft forever preferred_lft forever  </div><div class="line">    inet6 fe80::215:5dff:fe07:f102/64 scope link   </div><div class="line">       valid_lft forever preferred_lft forever</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>原文链接：<a href="http://blog.csdn.net/johnnycode/article/details/40624403" target="_blank" rel="external">http://blog.csdn.net/johnnycode/article/details/40624403</a>  </p>
+        <h3 id="获取网卡信息"><a href="#获取网卡信息" class="headerlink" title="获取网卡信息"></a>获取网卡信息</h3><h4 id="在root用户下，输入命令ifconfig"><a href="#在root用户下，输入命令ifconfig" class="headerlink" title="在root用户下，输入命令ifconfig"></a>在root用户下，输入命令ifconfig</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># ifconfig</span></div><div class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</div><div class="line">        inet 192.168.19.128  netmask 255.255.255.0  broadcast 192.168.19.255</div><div class="line">        inet6 fe80::2938:ef28:162e:9ffd  prefixlen 64  scopeid 0x20&lt;link&gt;</div><div class="line">        ether 00:0c:29:93:06:e9  txqueuelen 1000  (Ethernet)</div><div class="line">        RX packets 77  bytes 7911 (7.7 KiB)</div><div class="line">        RX errors 0  dropped 0  overruns 0  frame 0</div><div class="line">        TX packets 67  bytes 11943 (11.6 KiB)</div><div class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</div><div class="line"></div><div class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</div><div class="line">        inet 127.0.0.1  netmask 255.0.0.0</div><div class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</div><div class="line">        loop  txqueuelen 1  (Local Loopback)</div><div class="line">        RX packets 127  bytes 9199 (8.9 KiB)</div><div class="line">        RX errors 0  dropped 0  overruns 0  frame 0</div><div class="line">        TX packets 127  bytes 9199 (8.9 KiB)</div><div class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</div></pre></td></tr></table></figure>
+<h3 id="更改配置信息"><a href="#更改配置信息" class="headerlink" title="更改配置信息"></a>更改配置信息</h3><h4 id="从上面可以看到我的网卡号是ens33"><a href="#从上面可以看到我的网卡号是ens33" class="headerlink" title="从上面可以看到我的网卡号是ens33"></a>从上面可以看到我的网卡号是ens33</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># vim /etc/sysconfig/network-scripts/ifcfg-ens33 </span></div><div class="line">TYPE=<span class="string">"Ethernet"</span></div><div class="line">BOOTPROTO=<span class="string">"static"</span></div><div class="line">IPADDR=192.168.19.128</div><div class="line">NETMASK=255.255.255.0</div><div class="line">GATEWAY=192.168.19.1</div><div class="line">DEFROUTE=<span class="string">"yes"</span></div><div class="line">PEERDNS=<span class="string">"yes"</span></div><div class="line">PEERROUTES=<span class="string">"yes"</span></div><div class="line">IPV4_FAILURE_FATAL=<span class="string">"no"</span></div><div class="line">IPV6INIT=<span class="string">"yes"</span></div><div class="line">IPV6_AUTOCONF=<span class="string">"yes"</span></div><div class="line">IPV6_DEFROUTE=<span class="string">"yes"</span></div><div class="line">IPV6_PEERDNS=<span class="string">"yes"</span></div><div class="line">IPV6_PEERROUTES=<span class="string">"yes"</span></div><div class="line">IPV6_FAILURE_FATAL=<span class="string">"no"</span></div><div class="line">IPV6_ADDR_GEN_MODE=<span class="string">"stable-privacy"</span></div><div class="line">NAME=<span class="string">"ens33"</span></div><div class="line">UUID=<span class="string">"f9e34fd2-c12f-4d4c-ad93-37d0b9cc43ce"</span></div><div class="line">DEVICE=<span class="string">"ens33"</span></div><div class="line">ONBOOT=<span class="string">"yes"</span></div></pre></td></tr></table></figure>
+<ul>
+<li><code>BOOTPROTO</code>代表的是获取ip方式（“dhcp”＝动态获取／“static”＝设置静态ip）</li>
+<li><code>IPADDR</code>代表静态ip地址 （地址就用之前ifconfig获取的inet 192.168.19.128）</li>
+<li><code>NETMASK</code>代表子网掩码（地址就用之前ifconfig获取的netmask 255.255.255.0）</li>
+<li><code>GATEWAY</code>代表网关（由于你的ip是192.168.58网段的，所以使用192.168.19.1，注意：你是ip地址前三位是什么网段就在后面加个1就行了）</li>
+<li><code>DNS1</code>就是dns了（需要你知道你的网络的dns，一般在路由器管理后台有配置，可以不设置dns）<h3 id="最后重启下网络服务"><a href="#最后重启下网络服务" class="headerlink" title="最后重启下网络服务"></a>最后重启下网络服务</h3>注意，fail是有问题的配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># service network restart  </span></div><div class="line">Restarting network (via systemctl):                        [  OK  ]</div></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -650,8 +647,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg"
@@ -769,6 +775,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取网卡信息"><span class="nav-number">1.</span> <span class="nav-text">获取网卡信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在root用户下，输入命令ifconfig"><span class="nav-number">1.1.</span> <span class="nav-text">在root用户下，输入命令ifconfig</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改配置信息"><span class="nav-number">2.</span> <span class="nav-text">更改配置信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从上面可以看到我的网卡号是ens33"><span class="nav-number">2.1.</span> <span class="nav-text">从上面可以看到我的网卡号是ens33</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后重启下网络服务"><span class="nav-number">3.</span> <span class="nav-text">最后重启下网络服务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
