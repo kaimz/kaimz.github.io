@@ -1,4 +1,6 @@
+http://blog.wuwii.com/jiao-hun-awakening.html
 http://blog.wuwii.com/enumeration-package-design .html
+http://blog.wuwii.com/enumeration-package-design.html
 http://blog.wuwii.com/kaifu-love-story.html
 http://blog.wuwii.com/hexo_install_error.html
 http://blog.wuwii.com/linux_user_default_path.html

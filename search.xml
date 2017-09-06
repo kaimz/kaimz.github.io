@@ -3,8 +3,65 @@
   
     
     <entry>
+      <title><![CDATA[叫魂]]></title>
+      <url>/jiao-hun-awakening.html</url>
+      <content type="html"><![CDATA[<p>最近人的心很杂乱，总是回忆起以前的种种，加上今天是<code>中元节</code>，想起了以前的一件事，正式说法应该是<code>叫魂</code>。<a id="more"></a>  </p>
+<p>大约十三四岁的时候，严冬，我记得冷得厉害，我生了一场重病，高烧39度，吊针了一周都没退下去，而且人还难受得厉害了。有时候还会呻吟。老人们都见的世道多，说我有可能见鬼了，弄不好小命都可能保不住了。很无奈，母亲带我去村里的一个老奶奶家里。当时我很奇怪，把我带到一个黑漆漆的屋子里，开了灯，被吓到，就是跟看恐怖片一样，满墙都是各种奇怪的字画、条幅。很快，老奶奶一算，说是我被鬼吓的，掉了魂，是被村里的池塘里淹死的小孩下的（那个池塘就在上学的路上，确实淹死过小孩），后来问我有没有在池塘边摔倒过，这个倒是记得太清楚了。随后，她烧起纸钱，让我去烧香、磕头，最后是喝水拌下纸钱留下的灰，晚上还得去池塘边烧纸。如此，第二天病真的基本好了。不过，却给我留下别的后遗症了，有时候会想，这世间真的有鬼神吗？</p>
+<p>我也不知道这些奇奇怪怪的事情应该怎么解释，但是那位老奶奶确实帮助不少人治好了疑难杂症，不乏一些从城里专门过来拜访的人。但，我只知道这个应该是祖祖辈辈传下来的，也只要那些稀奇古怪的人在这些特殊的场合才会有人使用的吧。</p>
+<p>虽然事情过了很长时间，但是我也从没忘记这些事情，后来在网上查到，说这个事情是–<code>叫魂</code>。</p>
+<p>还说到这些人都要<code>受耻</code>，因为他们泄露了大秘密，需要忏悔，所有对别人的好，都要降罪到自己身上。</p>
+<p>多年前，那位老奶奶也去世了，听说各地来的人很多。听我妈说，信佛的人不能跟他们走太近。</p>
+<p>往事如风，生活中处处充满了不一样的故事，虽然这个事情没人能够解释它，但是它却是确确实实存在的啊。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 碎碎念 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 奇异 </tag>
+            
+            <tag> 生活 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[枚举的封装设计]]></title>
       <url>/enumeration-package-design%20.html</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><code>enum</code> 的全称为 <code>enumeration</code>， 是 <code>JDK 1.5</code>  中引入的新特性，存放在 <code>java.lang</code> 包中。虽然功能少，但是实际开发中还是非常方便的。</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> MenuType &#123;</div><div class="line"><span class="comment">// 注意：枚举成员命名，请使用英文大写形式  </span></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 目录</span></div><div class="line"><span class="comment">     */</span></div><div class="line">	CATALOG(<span class="number">0</span>),</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 菜单</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    MENU(<span class="number">1</span>),</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 按钮</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    BUTTON(<span class="number">2</span>);</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> value;</div><div class="line">    <span class="comment">// 私有的构造方法</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MenuType</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.value = value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">enum</span> Operation &#123;</div><div class="line">        GETCAPABILITIES &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        DESCRIBEFEATURETYPE &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        GETFEATURE&#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; ,</div><div class="line">        LOCKFEATURE&#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; ,</div><div class="line">        TRANSACTION_INSERT &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">4</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        TRANSACTION_UPDATE &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">8</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        TRANSACTION_DELETE &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">16</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;, </div><div class="line">        TRANSACTION_REPLACE &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">32</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        </div><div class="line">        <span class="function"><span class="keyword">abstract</span> <span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span></span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    	System.out.println(Operation.TRANSACTION_INSERT.getCode());</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 枚举 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[枚举的封装设计]]></title>
+      <url>/enumeration-package-design.html</url>
       <content type="html"><![CDATA[<blockquote>
 <p><code>enum</code> 的全称为 <code>enumeration</code>， 是 <code>JDK 1.5</code>  中引入的新特性，存放在 <code>java.lang</code> 包中。虽然功能少，但是实际开发中还是非常方便的。</p>
 </blockquote>
