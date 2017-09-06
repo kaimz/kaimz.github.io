@@ -140,7 +140,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830155115.png">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830160616.png">
-<meta property="og:updated_time" content="2017-09-05T06:43:35.157Z">
+<meta property="og:updated_time" content="2017-09-06T02:37:24.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux上搭建ftp服务器">
 <meta name="twitter:description" content="摘要 vsftpd 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务器软件，支持很多其他的 FTP 服务器所不支持的特征。比如：非常高的安全性需求、带宽限制、良好的可伸缩性、可">
@@ -456,7 +456,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,790
+                  1,944
                 </span>
               
 
@@ -472,7 +472,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  9
+                  10
                 </span>
               
             </div>
@@ -521,6 +521,8 @@
 <h4 id="重启ftp服务"><a href="#重启ftp服务" class="headerlink" title="重启ftp服务"></a>重启ftp服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]<span class="comment"># service vsftpd restart</span></div></pre></td></tr></table></figure>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830160616.png" alt="ftp2"></p>
 <p>注：测试连接软件是<code>FileZilla</code>，windows访问 ftp://[ip]</p>
+<h3 id="update-20170901-使用FileZilla创建中文文件夹Linux乱码"><a href="#update-20170901-使用FileZilla创建中文文件夹Linux乱码" class="headerlink" title="update 20170901 使用FileZilla创建中文文件夹Linux乱码"></a>update 20170901 使用FileZilla创建中文文件夹Linux乱码</h3><p>首先出现这个问题的原因是WINDOWS采用的是<code>GBK</code>编码方式，而Linux采用的是<code>UTF-8</code><br>首先设置好FileZilla的编码方式为<code>zh_CN</code><br>在将 <code>/etc/locale.conf</code> 中的<code>LANG</code>修改为<code>&quot;zh_CN.UTF-8&quot;</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># vim /etc/locale.conf </span></div><div class="line">LANG=<span class="string">"zh_CN.UTF-8"</span></div></pre></td></tr></table></figure></p>
+<p>这个修改可以有效解决windows客户端使用ftp协议上传中文文件到Linux乱码的问题。<br><strong>其实最根本的解决方法是客户端上传的文件经过ftp软件能与服务器统一编码方式</strong>，具体百度吧c#、java的都有。</p>
 
       
     </div>
@@ -688,7 +690,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -710,7 +712,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -801,7 +803,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装vsftpd"><span class="nav-number">2.</span> <span class="nav-text">安装vsftpd</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检测是否已经安装vsftpd。"><span class="nav-number">2.1.</span> <span class="nav-text">检测是否已经安装vsftpd。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装vsftpd-1"><span class="nav-number">2.2.</span> <span class="nav-text">安装vsftpd</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用yum安装"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用yum安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用rpm安装"><span class="nav-number">2.2.2.</span> <span class="nav-text">使用rpm安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动服务"><span class="nav-number">2.3.</span> <span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看服务状态"><span class="nav-number">2.4.</span> <span class="nav-text">查看服务状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在我们就可以匿名访问了"><span class="nav-number">2.5.</span> <span class="nav-text">现在我们就可以匿名访问了</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vsftpd添加用户"><span class="nav-number">3.</span> <span class="nav-text">vsftpd添加用户</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vsftpd添加用户-1"><span class="nav-number">3.1.</span> <span class="nav-text">vsftpd添加用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给用户权限上传下载，修改"><span class="nav-number">3.2.</span> <span class="nav-text">给用户权限上传下载，修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#授权"><span class="nav-number">3.3.</span> <span class="nav-text">授权</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑配置文件"><span class="nav-number">3.4.</span> <span class="nav-text">编辑配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户访问权限及路径限制："><span class="nav-number">3.5.</span> <span class="nav-text">用户访问权限及路径限制：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置权限"><span class="nav-number">3.6.</span> <span class="nav-text">设置权限</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#开启-anon-write-和full-access"><span class="nav-number">3.6.1.</span> <span class="nav-text">开启 anon_write 和full_access</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重启ftp服务"><span class="nav-number">3.7.</span> <span class="nav-text">重启ftp服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装vsftpd"><span class="nav-number">2.</span> <span class="nav-text">安装vsftpd</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检测是否已经安装vsftpd。"><span class="nav-number">2.1.</span> <span class="nav-text">检测是否已经安装vsftpd。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装vsftpd-1"><span class="nav-number">2.2.</span> <span class="nav-text">安装vsftpd</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用yum安装"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用yum安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用rpm安装"><span class="nav-number">2.2.2.</span> <span class="nav-text">使用rpm安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动服务"><span class="nav-number">2.3.</span> <span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看服务状态"><span class="nav-number">2.4.</span> <span class="nav-text">查看服务状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在我们就可以匿名访问了"><span class="nav-number">2.5.</span> <span class="nav-text">现在我们就可以匿名访问了</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vsftpd添加用户"><span class="nav-number">3.</span> <span class="nav-text">vsftpd添加用户</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vsftpd添加用户-1"><span class="nav-number">3.1.</span> <span class="nav-text">vsftpd添加用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给用户权限上传下载，修改"><span class="nav-number">3.2.</span> <span class="nav-text">给用户权限上传下载，修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#授权"><span class="nav-number">3.3.</span> <span class="nav-text">授权</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑配置文件"><span class="nav-number">3.4.</span> <span class="nav-text">编辑配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户访问权限及路径限制："><span class="nav-number">3.5.</span> <span class="nav-text">用户访问权限及路径限制：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置权限"><span class="nav-number">3.6.</span> <span class="nav-text">设置权限</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#开启-anon-write-和full-access"><span class="nav-number">3.6.1.</span> <span class="nav-text">开启 anon_write 和full_access</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重启ftp服务"><span class="nav-number">3.7.</span> <span class="nav-text">重启ftp服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#update-20170901-使用FileZilla创建中文文件夹Linux乱码"><span class="nav-number">5.</span> <span class="nav-text">update 20170901 使用FileZilla创建中文文件夹Linux乱码</span></a></li></ol></div>
             
 
           </div>
@@ -846,7 +848,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共8.1k字</span>
+  <span class="post-count">博客全站共9.0k字</span>
 </div>
 
 <script>

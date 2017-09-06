@@ -4,6 +4,68 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/test.html</loc>
+    <lastmod>2017-09-06T05:39:16.036Z</lastmod>
+    <data>
+        <display>
+        <title>测试</title>
+        <pubTime>2017-07-04T02:08:03.000Z</pubTime>
+        
+        <tag>测试下</tag>
+         
+         
+           
+             
+              <breadCrumb title="测试" url="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/fetter-tears.html</loc>
+    <lastmod>2017-09-06T05:38:37.172Z</lastmod>
+    <data>
+        <display>
+        <title>念</title>
+        <pubTime>2017-07-18T14:08:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/vsftpd.html</loc>
+    <lastmod>2017-09-06T02:37:24.028Z</lastmod>
+    <data>
+        <display>
+        <title>linux上搭建ftp服务器</title>
+        <pubTime>2017-08-30T14:08:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>ftp</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/enumeration-package-design.html</loc>
     <lastmod>2017-09-06T00:31:33.314Z</lastmod>
     <data>
@@ -98,28 +160,6 @@
         <pubTime>2017-08-07T14:21:36.000Z</pubTime>
         
         <tag>java</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/vsftpd.html</loc>
-    <lastmod>2017-09-05T06:43:35.157Z</lastmod>
-    <data>
-        <display>
-        <title>linux上搭建ftp服务器</title>
-        <pubTime>2017-08-30T14:08:03.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>ftp</tag>
          
          
            
@@ -235,26 +275,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://blog.wuwii.com/test.html</loc>
-    <lastmod>2017-09-05T00:48:03.196Z</lastmod>
-    <data>
-        <display>
-        <title>测试</title>
-        <pubTime>2017-07-27T02:08:03.000Z</pubTime>
-        
-        <tag>测试下</tag>
-         
-         
-           
-             
-              <breadCrumb title="测试" url="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
 </urlset>

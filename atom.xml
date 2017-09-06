@@ -203,7 +203,7 @@
     <link href="http://blog.wuwii.com/vsftpd.html"/>
     <id>http://blog.wuwii.com/vsftpd.html</id>
     <published>2017-08-30T14:08:03.000Z</published>
-    <updated>2017-09-05T06:43:35.157Z</updated>
+    <updated>2017-09-06T02:37:24.028Z</updated>
     
     <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><blockquote>
 <p><code>vsftpd</code> 是“very secure FTP daemon”的缩写，安全性是它的一个最大的特点。vsftpd 是一个 UNIX 类操作系统上运行的服务器的名字，它可以运行在诸如 Linux、BSD、Solaris、 HP-UNIX等系统上面，是一个完全免费的、开放源代码的ftp服务器软件，支持很多其他的 FTP 服务器所不支持的特征。比如：非常高的安全性需求、带宽限制、良好的可伸缩性、可创建虚拟用户、支持IPv6、速率高等。</p>
@@ -236,6 +236,8 @@
 <h4 id="重启ftp服务"><a href="#重启ftp服务" class="headerlink" title="重启ftp服务"></a>重启ftp服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost vsftpd]<span class="comment"># service vsftpd restart</span></div></pre></td></tr></table></figure>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170830160616.png" alt="ftp2"></p>
 <p>注：测试连接软件是<code>FileZilla</code>，windows访问 ftp://[ip]</p>
+<h3 id="update-20170901-使用FileZilla创建中文文件夹Linux乱码"><a href="#update-20170901-使用FileZilla创建中文文件夹Linux乱码" class="headerlink" title="update 20170901 使用FileZilla创建中文文件夹Linux乱码"></a>update 20170901 使用FileZilla创建中文文件夹Linux乱码</h3><p>首先出现这个问题的原因是WINDOWS采用的是<code>GBK</code>编码方式，而Linux采用的是<code>UTF-8</code><br>首先设置好FileZilla的编码方式为<code>zh_CN</code><br>在将 <code>/etc/locale.conf</code> 中的<code>LANG</code>修改为<code>&quot;zh_CN.UTF-8&quot;</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># vim /etc/locale.conf </span></div><div class="line">LANG=<span class="string">"zh_CN.UTF-8"</span></div></pre></td></tr></table></figure></p>
+<p>这个修改可以有效解决windows客户端使用ftp协议上传中文文件到Linux乱码的问题。<br><strong>其实最根本的解决方法是客户端上传的文件经过ftp软件能与服务器统一编码方式</strong>，具体百度吧c#、java的都有。</p>
 ]]></content>
     
     <summary type="html">
@@ -385,25 +387,34 @@
   </entry>
   
   <entry>
-    <title>测试</title>
-    <link href="http://blog.wuwii.com/test.html"/>
-    <id>http://blog.wuwii.com/test.html</id>
-    <published>2017-07-27T02:08:03.000Z</published>
-    <updated>2017-09-05T00:48:03.196Z</updated>
+    <title>念</title>
+    <link href="http://blog.wuwii.com/fetter-tears.html"/>
+    <id>http://blog.wuwii.com/fetter-tears.html</id>
+    <published>2017-07-18T14:08:03.000Z</published>
+    <updated>2017-09-06T05:38:37.172Z</updated>
     
-    <content type="html"><![CDATA[<p>来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉<br><a id="more"></a></p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="测试1"><a href="#测试1" class="headerlink" title="测试1"></a>测试1</h3>]]></content>
+    <content type="html"><![CDATA[<p>夜总是格外的静，月光就可以通过窗户观赏我这残酷的心情了。  </p>
+<p>想想过去，我有好几年都没跟你见过面，即使是聊天也是随意的说说，心中确实有写隔阂，没有以前那么天真，忧伤了。现在节奏太快了现在做事都是太认真了，总是考虑会不会有结果，渐渐的失去了一些目标，一些梦想，一些人。</p>
+<p>事情总是那么凑巧，这个时候室友都封闭开发去，需要一个人，偌大的房间留个我一个人享受，想可以慢慢的在这里疗伤了，是的，下班后，比往常安静了，没以前在一起讲段子的欢声，骂做的菜真难吃，米是不是又没有煮·····现在只剩下我每天做一个菜，煮一碗米，一个人在吃饭，夜真是寂静的无聊，只有这个残酷的月光能在一旁陪伴。</p>
+<p>真的想，一个人静静的吃饭。得不到可能就是最好的结果，毕竟这么长时间都没有联系过的人，早就应该消失的人，为什么还要在她幸福的时刻出现。</p>
+<p>难以启齿，大道理真的没几个人能说的清楚，但是我还是清楚心中所想，只是心底还是存在那么一些执念，不愿意放下罢了，估计今生也没那么容易放下吧。</p>
+<p>但是，人总是要往前走的，也不能一直活在这个回忆里去放弃，要努力前行。有可能时间不会让我忘记，只是削弱它的程度，它的悲伤吧。</p>
+<p>曾经看到你的签名，想要制造羁绊，就必须要承担流泪的风险，我不太清楚你心中所想，也不懂你，这么多年了没见，每个人都发生了无数的可能。这句话我看出来，你是真的想找到爱情，而且已经可能找到了对的人了，成了一段绚丽多彩的美丽故事。</p>
+<p>我可能是个执着的傻瓜，总是伤害到人，最终也伤害到自己了；我也是追求完美的人，都只去接触身边符合自己的人。所以总是这个患得患失的状态。我想上面这句话来形容我最好的了，选择来到了这个世界，就应该住在这里，与它融合，影响它，不必去选择什么对与错。可能会很痛，可能会是错误的道路，但那样生活就会不一样的精彩，不是吗？我希望不在抗拒这个世界带来的美好，也不去害怕去开辟新的人生。</p>
+<p>我查到这句话来自《小王子》，我看了遍才开始写这篇文章，对啊，你就是我的世界里独一无二的，我对你来说，也将是你的世界的唯一了。虽然每个人都有可能成为路人甲，但是人生不就是这样的吗？ </p>
+]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉&lt;br&gt;
+      &lt;p&gt;夜总是格外的静，月光就可以通过窗户观赏我这残酷的心情了。  &lt;/p&gt;
+&lt;p&gt;想想过去，我有好几年都没跟你见过面，即使是聊天也是随意的说说，心中确实有写隔阂，没有以前那么天真，忧伤了。现在节奏太快了现在做事都是太认真了，总是考虑会不会有结果，渐渐的失去了一些目标，一些梦想，一
     
     </summary>
     
-      <category term="测试" scheme="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
+      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
     
     
-      <category term="测试下" scheme="http://blog.wuwii.com/tags/%E6%B5%8B%E8%AF%95%E4%B8%8B/"/>
+      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
@@ -506,6 +517,29 @@
       <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
     
       <category term="fastDFS" scheme="http://blog.wuwii.com/tags/fastDFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试</title>
+    <link href="http://blog.wuwii.com/test.html"/>
+    <id>http://blog.wuwii.com/test.html</id>
+    <published>2017-07-04T02:08:03.000Z</published>
+    <updated>2017-09-06T05:39:16.036Z</updated>
+    
+    <content type="html"><![CDATA[<p>来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉<br><a id="more"></a></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="测试1"><a href="#测试1" class="headerlink" title="测试1"></a>测试1</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉&lt;br&gt;
+    
+    </summary>
+    
+      <category term="测试" scheme="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="测试下" scheme="http://blog.wuwii.com/tags/%E6%B5%8B%E8%AF%95%E4%B8%8B/"/>
     
   </entry>
   
