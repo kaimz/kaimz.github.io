@@ -5,7 +5,6 @@ http://blog.wuwii.com/enumeration-package-design.html
 http://blog.wuwii.com/kaifu-love-story.html
 http://blog.wuwii.com/hexo_install_error.html
 http://blog.wuwii.com/linux_user_default_path.html
-http://blog.wuwii.com/vsftpd.html
 http://blog.wuwii.com/setting_static_ip.html
 http://blog.wuwii.com/samba.html
 http://blog.wuwii.com/JAVA_Bitwise_Operators.html
