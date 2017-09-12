@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/java-mqtt.html</loc>
+    
+    <lastmod>2017-09-12T10:16:46.569Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/about/index.html</loc>
+    
+    <lastmod>2017-09-12T00:37:52.179Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/yunfu-event.html</loc>
+    
+    <lastmod>2017-09-12T00:37:52.175Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/vsftpd.html</loc>
+    
+    <lastmod>2017-09-12T00:37:52.172Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/install-mosquitto.html</loc>
+    
+    <lastmod>2017-09-12T00:37:52.167Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/improve-lives-quality.html</loc>
+    
+    <lastmod>2017-09-12T00:37:52.165Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/jiao-hun-awakening.html</loc>
     
     <lastmod>2017-09-08T09:02:59.391Z</lastmod>
@@ -96,13 +138,6 @@
     <loc>http://blog.wuwii.com/hello-world.html</loc>
     
     <lastmod>2017-09-05T00:56:13.720Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/about/index.html</loc>
-    
-    <lastmod>2017-09-05T00:48:03.203Z</lastmod>
     
   </url>
   

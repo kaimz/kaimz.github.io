@@ -4,6 +4,113 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/java-mqtt.html</loc>
+    <lastmod>2017-09-12T10:16:46.569Z</lastmod>
+    <data>
+        <display>
+        <title>MQTT在JAVA中使用</title>
+        <pubTime>2017-09-12T10:08:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>MQTT</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://blog.wuwii.com/yunfu-event.html</loc>
+    <lastmod>2017-09-12T00:37:52.175Z</lastmod>
+    <data>
+        <display>
+        <title>关于难产孕妇跳楼事件</title>
+        <pubTime>2017-09-06T14:48:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活" url="http://blog.wuwii.com/categories/%E7%94%9F%E6%B4%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/vsftpd.html</loc>
+    <lastmod>2017-09-12T00:37:52.172Z</lastmod>
+    <data>
+        <display>
+        <title>linux上搭建ftp服务器</title>
+        <pubTime>2017-08-30T14:08:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>ftp</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/install-mosquitto.html</loc>
+    <lastmod>2017-09-12T00:37:52.167Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS 7 下安装mosquitto</title>
+        <pubTime>2017-09-11T14:24:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>mosquitto</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/improve-lives-quality.html</loc>
+    <lastmod>2017-09-12T00:37:52.165Z</lastmod>
+    <data>
+        <display>
+        <title>提升生活质量的日常方法</title>
+        <pubTime>2017-08-04T02:08:03.000Z</pubTime>
+        
+        <tag>生活</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/jiao-hun-awakening.html</loc>
     <lastmod>2017-09-08T09:02:59.391Z</lastmod>
     <data>
@@ -11,9 +118,9 @@
         <title>叫魂</title>
         <pubTime>2017-09-05T12:08:03.000Z</pubTime>
         
-        <tag>奇异</tag>
-         
         <tag>生活</tag>
+         
+        <tag>奇异</tag>
          
          
            
@@ -294,7 +401,6 @@
     </data>
     </url>
 
-    
     
     
 </urlset>
