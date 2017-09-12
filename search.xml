@@ -46,6 +46,39 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Mosquitto用户名密码配置]]></title>
+      <url>/mqtt-user.html</url>
+      <content type="html"><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>由于需要把<code>mqtt</code>部署到外网上面去，所以需要关闭<code>匿名登陆</code>，采取用户<code>认证模式</code>，而且还可能需要把主题加密。</p>
+<a id="more"></a>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><p>配置参数在<code>/etc/mosquitto/mosquitto.conf</code>中，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">allow_anonymous 允许匿名登陆</div><div class="line">password_file 账号密码文件</div><div class="line">acl_file 访问控制列表</div></pre></td></tr></table></figure>
+<p>配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[root@localhost mosquitto]<span class="comment"># vim mosquitto.conf           </span></div><div class="line"><span class="comment"># Place your local configuration in /etc/mosquitto/conf.d/</span></div><div class="line"></div><div class="line">pid_file /var/run/mosquitto.pid</div><div class="line"></div><div class="line">persistence <span class="literal">true</span></div><div class="line">persistence_location /var/lib/mosquitto/</div><div class="line"></div><div class="line"><span class="comment">#log_dest file /var/log/mosquitto/mosquitto.log</span></div><div class="line"></div><div class="line">include_dir /etc/mosquitto/conf.d</div><div class="line">allow_anonymous <span class="literal">false</span></div><div class="line">password_file /etc/mosquitto/pwfile</div><div class="line">acl_file /etc/mosquitto/aclfile</div><div class="line">port 8001</div></pre></td></tr></table></figure></p>
+<h4 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost mosquitto]<span class="comment"># cat pwfile                   </span></div><div class="line">agri:<span class="variable">$6</span><span class="variable">$NprvJLB</span>/CkEomWGy<span class="variable">$gNj5Mr6Wf</span>+2Xz16P6dIZYD/ladZZtyKQMJ/tdpy7WLepj5akpPB+hF8zolrNd5IacbsAxXDWX1vS5I9Pj4fnCA==</div></pre></td></tr></table></figure>
+<p>添加用户<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_passwd -c /etc/mosquitto/pwfile wuwii</div></pre></td></tr></table></figure></p>
+<p>设置好密码</p>
+<h4 id="添加Topic和用户的关系"><a href="#添加Topic和用户的关系" class="headerlink" title="添加Topic和用户的关系"></a>添加Topic和用户的关系</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># vim /etc/mosquitto/aclfile</span></div><div class="line"><span class="comment"># This affects access control for clients with no username.</span></div><div class="line"><span class="comment">#topic read $SYS/#</span></div><div class="line"></div><div class="line"><span class="comment"># This only affects clients with username "roger".</span></div><div class="line"><span class="comment">#user roger</span></div><div class="line"><span class="comment">#topic foo/bar</span></div><div class="line"><span class="comment">#user zhang</span></div><div class="line">user zhang</div><div class="line">topic <span class="built_in">read</span> mtopic/<span class="comment">#</span></div><div class="line"></div><div class="line">user zhang</div><div class="line">topic write mtopic/<span class="comment">#</span></div><div class="line"></div><div class="line"><span class="comment"># This affects all clients.</span></div><div class="line"><span class="comment"># pattern write $SYS/broker/connection/%c/state</span></div></pre></td></tr></table></figure>
+<h4 id="重启测试"><a href="#重启测试" class="headerlink" title="重启测试"></a>重启测试</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost mosquitto]<span class="comment"># /etc/init.d/mosquitto restart</span></div><div class="line">Restarting mosquitto (via systemctl):                      [  确定  ]</div></pre></td></tr></table></figure>
+<p>ps:添加用户的时候会出现<code>覆盖</code>的问题，再看。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> Mosquitto </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[CentOS 7 下安装mosquitto]]></title>
       <url>/install-mosquitto.html</url>
       <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>

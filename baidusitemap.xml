@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/mqtt-user.html</loc>
+    <lastmod>2017-09-12T10:23:23.129Z</lastmod>
+    <data>
+        <display>
+        <title>Mosquitto用户名密码配置</title>
+        <pubTime>2017-09-12T02:08:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>Mosquitto</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/java-mqtt.html</loc>
     <lastmod>2017-09-12T10:16:46.569Z</lastmod>
     <data>

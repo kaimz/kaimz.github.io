@@ -1,4 +1,5 @@
 http://blog.wuwii.com/java-mqtt.html
+http://blog.wuwii.com/mqtt-user.html
 http://blog.wuwii.com/install-mosquitto.html
 http://blog.wuwii.com/heart00.html
 http://blog.wuwii.com/geotools-over-analyze.html

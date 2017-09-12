@@ -111,7 +111,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="记录心情" />
+  <meta name="keywords" content="Mosquitto,linux,Mosquitto用户名密码配置" />
 
 
 
@@ -129,16 +129,18 @@
 
 
 
-<meta name="description" content="最美的风景一直在身边，不曾离去。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="喃声细语">
-<meta property="og:url" content="http://blog.wuwii.com/archives/index.html">
+<meta name="description" content="介绍由于需要把mqtt部署到外网上面去，所以需要关闭匿名登陆，采取用户认证模式，而且还可能需要把主题加密。">
+<meta name="keywords" content="Mosquitto,linux,Mosquitto用户名密码配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mosquitto用户名密码配置">
+<meta property="og:url" content="http://blog.wuwii.com/mqtt-user.html">
 <meta property="og:site_name" content="喃声细语">
-<meta property="og:description" content="最美的风景一直在身边，不曾离去。">
+<meta property="og:description" content="介绍由于需要把mqtt部署到外网上面去，所以需要关闭匿名登陆，采取用户认证模式，而且还可能需要把主题加密。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-12T10:23:23.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="喃声细语">
-<meta name="twitter:description" content="最美的风景一直在身边，不曾离去。">
+<meta name="twitter:title" content="Mosquitto用户名密码配置">
+<meta name="twitter:description" content="介绍由于需要把mqtt部署到外网上面去，所以需要关闭匿名登陆，采取用户认证模式，而且还可能需要把主题加密。">
 
 
 
@@ -166,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.wuwii.com/archives/"/>
+  <link rel="canonical" href="http://blog.wuwii.com/mqtt-user.html"/>
 
 
 
 
 
-  <title>归档 | 喃声细语</title>
+  <title>Mosquitto用户名密码配置 | 喃声细语</title>
   
 
 
@@ -207,7 +209,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -345,403 +347,263 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 20 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/mqtt-user.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张 凯">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mosquitto用户名密码配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T10:08:03+08:00">
+                2017-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mqtt-user.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="mqtt-user.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  261
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>由于需要把<code>mqtt</code>部署到外网上面去，所以需要关闭<code>匿名登陆</code>，采取用户<code>认证模式</code>，而且还可能需要把主题加密。</p>
+<a id="more"></a>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h4><p>配置参数在<code>/etc/mosquitto/mosquitto.conf</code>中，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">allow_anonymous 允许匿名登陆</div><div class="line">password_file 账号密码文件</div><div class="line">acl_file 访问控制列表</div></pre></td></tr></table></figure>
+<p>配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[root@localhost mosquitto]<span class="comment"># vim mosquitto.conf           </span></div><div class="line"><span class="comment"># Place your local configuration in /etc/mosquitto/conf.d/</span></div><div class="line"></div><div class="line">pid_file /var/run/mosquitto.pid</div><div class="line"></div><div class="line">persistence <span class="literal">true</span></div><div class="line">persistence_location /var/lib/mosquitto/</div><div class="line"></div><div class="line"><span class="comment">#log_dest file /var/log/mosquitto/mosquitto.log</span></div><div class="line"></div><div class="line">include_dir /etc/mosquitto/conf.d</div><div class="line">allow_anonymous <span class="literal">false</span></div><div class="line">password_file /etc/mosquitto/pwfile</div><div class="line">acl_file /etc/mosquitto/aclfile</div><div class="line">port 8001</div></pre></td></tr></table></figure></p>
+<h4 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost mosquitto]<span class="comment"># cat pwfile                   </span></div><div class="line">agri:<span class="variable">$6</span><span class="variable">$NprvJLB</span>/CkEomWGy<span class="variable">$gNj5Mr6Wf</span>+2Xz16P6dIZYD/ladZZtyKQMJ/tdpy7WLepj5akpPB+hF8zolrNd5IacbsAxXDWX1vS5I9Pj4fnCA==</div></pre></td></tr></table></figure>
+<p>添加用户<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_passwd -c /etc/mosquitto/pwfile wuwii</div></pre></td></tr></table></figure></p>
+<p>设置好密码</p>
+<h4 id="添加Topic和用户的关系"><a href="#添加Topic和用户的关系" class="headerlink" title="添加Topic和用户的关系"></a>添加Topic和用户的关系</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># vim /etc/mosquitto/aclfile</span></div><div class="line"><span class="comment"># This affects access control for clients with no username.</span></div><div class="line"><span class="comment">#topic read $SYS/#</span></div><div class="line"></div><div class="line"><span class="comment"># This only affects clients with username "roger".</span></div><div class="line"><span class="comment">#user roger</span></div><div class="line"><span class="comment">#topic foo/bar</span></div><div class="line"><span class="comment">#user zhang</span></div><div class="line">user zhang</div><div class="line">topic <span class="built_in">read</span> mtopic/<span class="comment">#</span></div><div class="line"></div><div class="line">user zhang</div><div class="line">topic write mtopic/<span class="comment">#</span></div><div class="line"></div><div class="line"><span class="comment"># This affects all clients.</span></div><div class="line"><span class="comment"># pattern write $SYS/broker/connection/%c/state</span></div></pre></td></tr></table></figure>
+<h4 id="重启测试"><a href="#重启测试" class="headerlink" title="重启测试"></a>重启测试</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost mosquitto]<span class="comment"># /etc/init.d/mosquitto restart</span></div><div class="line">Restarting mosquitto (via systemctl):                      [  确定  ]</div></pre></td></tr></table></figure>
+<p>ps:添加用户的时候会出现<code>覆盖</code>的问题，再看。</p>
+
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 🖐 感谢阅读------</div>
+    
+</div>
+
+		
+	</div>
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+            <a href="/tags/Mosquitto/" rel="tag"><i class="fa fa-tag"></i> Mosquitto</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/install-mosquitto.html" rel="next" title="CentOS 7 下安装mosquitto">
+                <i class="fa fa-chevron-left"></i> CentOS 7 下安装mosquitto
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/java-mqtt.html" itemprop="url">
-              
-                <span itemprop="name">MQTT在JAVA中使用</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/java-mqtt.html" rel="prev" title="MQTT在JAVA中使用">
+                MQTT在JAVA中使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-12T18:08:03+08:00"
-              content="2017-09-12" >
-          09-12
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-            <a class="post-title-link" href="/mqtt-user.html" itemprop="url">
-              
-                <span itemprop="name">Mosquitto用户名密码配置</span>
-              
-            </a>
-        
-      </h2>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-12T10:08:03+08:00"
-              content="2017-09-12" >
-          09-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/install-mosquitto.html" itemprop="url">
-              
-                <span itemprop="name">CentOS 7 下安装mosquitto</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-11T22:24:03+08:00"
-              content="2017-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/heart00.html" itemprop="url">
-              
-                <span itemprop="name">心</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-07T23:08:03+08:00"
-              content="2017-09-07" >
-          09-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/geotools-over-analyze.html" itemprop="url">
-              
-                <span itemprop="name">Geotools做个最简单叠加分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-07T17:51:03+08:00"
-              content="2017-09-07" >
-          09-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/yunfu-event.html" itemprop="url">
-              
-                <span itemprop="name">关于难产孕妇跳楼事件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-06T22:48:03+08:00"
-              content="2017-09-06" >
-          09-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/jiao-hun-awakening.html" itemprop="url">
-              
-                <span itemprop="name">叫魂</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-05T20:08:03+08:00"
-              content="2017-09-05" >
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/enumeration-package-design.html" itemprop="url">
-              
-                <span itemprop="name">枚举的封装设计</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-04T23:08:03+08:00"
-              content="2017-09-04" >
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/kaifu-love-story.html" itemprop="url">
-              
-                <span itemprop="name">分享：李开复：我的爱情故事</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-03T22:38:03+08:00"
-              content="2017-09-03" >
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/hexo_install_error.html" itemprop="url">
-              
-                <span itemprop="name">关于npm install hexo出错</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-31T22:43:03+08:00"
-              content="2017-08-31" >
-          08-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -749,6 +611,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
 
         </div>
         
@@ -769,8 +637,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg"
@@ -888,6 +765,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数说明"><span class="nav-number">2.1.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看用户"><span class="nav-number">2.2.</span> <span class="nav-text">查看用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加Topic和用户的关系"><span class="nav-number">2.3.</span> <span class="nav-text">添加Topic和用户的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重启测试"><span class="nav-number">2.4.</span> <span class="nav-text">重启测试</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1023,11 +916,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -1052,6 +943,8 @@
 
 		_hcwp.push({widget:"Bloggerstream", widget_id: 95150, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
+		
+		_hcwp.push({widget:"Stream", widget_id: 95150, xid: "mqtt-user.html"});
 		
 
 		(function() {
