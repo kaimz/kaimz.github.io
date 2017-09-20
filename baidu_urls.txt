@@ -1,3 +1,5 @@
+http://blog.wuwii.com/20170917.html
+http://blog.wuwii.com/maven-error-one.html
 http://blog.wuwii.com/java-mqtt.html
 http://blog.wuwii.com/mqtt-user.html
 http://blog.wuwii.com/install-mosquitto.html
@@ -12,8 +14,11 @@ http://blog.wuwii.com/linux_user_default_path.html
 http://blog.wuwii.com/vsftpd.html
 http://blog.wuwii.com/setting_static_ip.html
 http://blog.wuwii.com/samba.html
+http://blog.wuwii.com/maven-plugins-error.html
+http://blog.wuwii.com/first-quit-job.html
 http://blog.wuwii.com/JAVA_Bitwise_Operators.html
 http://blog.wuwii.com/improve-lives-quality.html
+http://blog.wuwii.com/fsds-java.html
 http://blog.wuwii.com/fetter-tears.html
 http://blog.wuwii.com/centos-fastDFS.html
 http://blog.wuwii.com/test.html

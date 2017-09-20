@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-09-12T10:16:46.569Z</updated>
+  <updated>2017-09-18T00:41:33.649Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170917</title>
+    <link href="http://blog.wuwii.com/20170917.html"/>
+    <id>http://blog.wuwii.com/20170917.html</id>
+    <published>2017-09-17T14:08:03.000Z</published>
+    <updated>2017-09-18T00:41:33.649Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是周日，作为个程序员，就不要在这个好日子出去浪了，安心，最该就是要注意养好身体，哈哈，因为上班确实有点累。</p>
+<p>但是，但是了，个人生活也不能太糟蹋了，都说程序员的生活就像只无头的苍蝇，邋遢的很，这句话，说点就有点不对了，我今天就要来个大扫除了，毕竟，这个狗窝我还得住好长一段日子。</p>
+<p>一大早做个早餐吃下，就把被褥，都扔进洗衣机了，接下来搞卫生了，突然发现门上有只壁虎，但是，它已经憋成一坨了。。难受，很明显，它被门真的夹坏了。只能小心清理下它的身体，祈祷不要怪我啊啊啊，我不是有意的。</p>
+<p>只能说经历这个就遭报应了啊，拿起简单划个快递箱子半天划不开，结果弄完，发现手上一滩血，bbb，受伤了，手上两道口子，刚才没发觉，剪刀什么时候这么快，完全没知觉。。。</p>
+<p>现在都感觉后怕了。。明天还能去上班吗？</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天是周日，作为个程序员，就不要在这个好日子出去浪了，安心，最该就是要注意养好身体，哈哈，因为上班确实有点累。&lt;/p&gt;
+&lt;p&gt;但是，但是了，个人生活也不能太糟蹋了，都说程序员的生活就像只无头的苍蝇，邋遢的很，这句话，说点就有点不对了，我今天就要来个大扫除了，毕竟，这个狗窝我
+    
+    </summary>
+    
+      <category term="生活" scheme="http://blog.wuwii.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="生活" scheme="http://blog.wuwii.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>maven错误 Plugin execution not covered by lifecycle configuration org.codehaus.mo...</title>
+    <link href="http://blog.wuwii.com/maven-error-one.html"/>
+    <id>http://blog.wuwii.com/maven-error-one.html</id>
+    <published>2017-09-14T14:44:03.000Z</published>
+    <updated>2017-09-18T00:41:33.695Z</updated>
+    
+    <content type="html"><![CDATA[<p>导<code>geoserver</code>源码时发现，我的<code>maven</code>项目<code>pom.xml</code>有几个都报错了，一时没解决记录下。<a id="more"></a></p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
+<li>eclipse  - 4.61</li>
+<li>maven 3.3.9</li>
+<li>项目 geoserver 源码 2.11.2 </li>
+</ul>
+<h3 id="出现错误"><a href="#出现错误" class="headerlink" title="出现错误"></a>出现错误</h3><p>正常import源码maven项目报错<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Multiple annotations found at this line:</div><div class="line">- maven-enforcer-plugin ...</div><div class="line">- Plugin execution not covered by lifecycle configuration: org.codehaus.mojo:aspectj-maven-plugin:1.3.1:compile (execution: </div><div class="line"> default, phase: compile)</div></pre></td></tr></table></figure></p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">pluginManagement</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">                  ....</div><div class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">pluginManagement</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><plugins> 标签外再套一个 <code>&lt;pluginManagement&gt;</code> 标签  </plugins></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;导&lt;code&gt;geoserver&lt;/code&gt;源码时发现，我的&lt;code&gt;maven&lt;/code&gt;项目&lt;code&gt;pom.xml&lt;/code&gt;有几个都报错了，一时没解决记录下。
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="maven" scheme="http://blog.wuwii.com/tags/maven/"/>
+    
+  </entry>
   
   <entry>
     <title>MQTT在JAVA中使用</title>
@@ -68,7 +129,7 @@
     <link href="http://blog.wuwii.com/mqtt-user.html"/>
     <id>http://blog.wuwii.com/mqtt-user.html</id>
     <published>2017-09-12T02:08:03.000Z</published>
-    <updated>2017-09-12T10:23:23.129Z</updated>
+    <updated>2017-09-18T00:41:33.710Z</updated>
     
     <content type="html"><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>由于需要把<code>mqtt</code>部署到外网上面去，所以需要关闭<code>匿名登陆</code>，采取用户<code>认证模式</code>，而且还可能需要把主题加密。</p>
 <a id="more"></a>
@@ -94,7 +155,7 @@
     
       <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
     
-      <category term="Mosquitto" scheme="http://blog.wuwii.com/tags/Mosquitto/"/>
+      <category term="MQTT" scheme="http://blog.wuwii.com/tags/MQTT/"/>
     
   </entry>
   
@@ -103,7 +164,7 @@
     <link href="http://blog.wuwii.com/install-mosquitto.html"/>
     <id>http://blog.wuwii.com/install-mosquitto.html</id>
     <published>2017-09-11T14:24:03.000Z</published>
-    <updated>2017-09-12T00:37:52.167Z</updated>
+    <updated>2017-09-18T00:41:33.668Z</updated>
     
     <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
 <p><code>MQTT</code>（Message Queuing Telemetry Transport，消息队列遥测传输）是IBM开发的一个<code>即时通讯协议</code>，有可能成为物联网的重要组成部分。该协议支持所有平台，几乎可以把所有联网物品和外部连接起来，被用来当做传感器和制动器（比如通过Twitter让房屋联网）的通信协议。</p>
@@ -138,7 +199,7 @@
     
       <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
     
-      <category term="mosquitto" scheme="http://blog.wuwii.com/tags/mosquitto/"/>
+      <category term="MQTT" scheme="http://blog.wuwii.com/tags/MQTT/"/>
     
   </entry>
   
@@ -549,6 +610,83 @@
   </entry>
   
   <entry>
+    <title>Maven使用tomcat7-maven-plugin插件run时出现错误： A child container failed during start</title>
+    <link href="http://blog.wuwii.com/maven-plugins-error.html"/>
+    <id>http://blog.wuwii.com/maven-plugins-error.html</id>
+    <published>2017-08-24T14:08:03.000Z</published>
+    <updated>2017-09-18T00:41:33.706Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>eclipse上使用<code>maven</code>项目总是会爆各种奇怪的错误，看不懂哇看不懂。<br>这次又出现<code>A child container failed during start</code>…</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境:"></a>环境:</h3><ul>
+<li>maven - 3.3.9</li>
+<li>jdk1.8.0_144</li>
+<li>eclipse - 4.6</li>
+<li>os - win10-1703</li>
+</ul>
+<h3 id="出现错误："><a href="#出现错误：" class="headerlink" title="出现错误："></a>出现错误：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line">严重: A child container failed during start</div><div class="line">java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Tomcat].StandardHost[localhost].StandardContext[]]</div><div class="line">	at java.util.concurrent.FutureTask.report(FutureTask.java:122)</div><div class="line">	at java.util.concurrent.FutureTask.get(FutureTask.java:192)</div><div class="line">	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:1123)</div><div class="line">	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:800)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)</div><div class="line">	at org.apache.catalina.core.ContainerBase<span class="variable">$StartChild</span>.call(ContainerBase.java:1559)</div><div class="line">	at org.apache.catalina.core.ContainerBase<span class="variable">$StartChild</span>.call(ContainerBase.java:1549)</div><div class="line">	at java.util.concurrent.FutureTask.run(FutureTask.java:266)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor<span class="variable">$Worker</span>.run(ThreadPoolExecutor.java:624)</div><div class="line">	at java.lang.Thread.run(Thread.java:748)</div><div class="line">Caused by: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Tomcat].StandardHost[localhost].StandardContext[]]</div><div class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:154)</div><div class="line">	... 6 more</div><div class="line">Caused by: java.lang.ClassCastException: org.springframework.web.SpringServletContainerInitializer cannot be cast to javax.servlet.ServletContainerInitializer</div><div class="line">	at org.apache.catalina.startup.ContextConfig.getServletContainerInitializer(ContextConfig.java:1661)</div><div class="line">	at org.apache.catalina.startup.ContextConfig.processServletContainerInitializers(ContextConfig.java:1569)</div><div class="line">	at org.apache.catalina.startup.ContextConfig.webConfig(ContextConfig.java:1277)</div><div class="line">	at org.apache.catalina.startup.ContextConfig.configureStart(ContextConfig.java:878)</div><div class="line">	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:369)</div><div class="line">	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)</div><div class="line">	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5179)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)</div><div class="line">	... 6 more</div><div class="line"></div><div class="line">八月 24, 2017 5:26:11 下午 org.apache.catalina.core.ContainerBase startInternal</div><div class="line">严重: A child container failed during start</div><div class="line">java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Tomcat].StandardHost[localhost]]</div><div class="line">	at java.util.concurrent.FutureTask.report(FutureTask.java:122)</div><div class="line">	at java.util.concurrent.FutureTask.get(FutureTask.java:192)</div><div class="line">	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:1123)</div><div class="line">	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:302)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)</div><div class="line">	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:443)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)</div><div class="line">	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:732)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)</div><div class="line">	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:335)</div><div class="line">	at org.apache.tomcat.maven.plugin.tomcat7.run.AbstractRunMojo.startContainer(AbstractRunMojo.java:1091)</div><div class="line">	at org.apache.tomcat.maven.plugin.tomcat7.run.AbstractRunMojo.execute(AbstractRunMojo.java:512)</div><div class="line">	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)</div><div class="line">	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)</div><div class="line">	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)</div><div class="line">	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)</div><div class="line">	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)</div><div class="line">	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)</div><div class="line">	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)</div><div class="line">	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)</div><div class="line">	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)</div><div class="line">	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)</div><div class="line">	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)</div><div class="line">	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)</div><div class="line">	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)</div><div class="line">	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)</div><div class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</div><div class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</div><div class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</div><div class="line">	at java.lang.reflect.Method.invoke(Method.java:498)</div><div class="line">	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)</div><div class="line">	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)</div><div class="line">	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)</div><div class="line">	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)</div><div class="line">Caused by: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Tomcat].StandardHost[localhost]]</div><div class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:154)</div><div class="line">	at org.apache.catalina.core.ContainerBase<span class="variable">$StartChild</span>.call(ContainerBase.java:1559)</div><div class="line">	at org.apache.catalina.core.ContainerBase<span class="variable">$StartChild</span>.call(ContainerBase.java:1549)</div><div class="line">	at java.util.concurrent.FutureTask.run(FutureTask.java:266)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor<span class="variable">$Worker</span>.run(ThreadPoolExecutor.java:624)</div><div class="line">	at java.lang.Thread.run(Thread.java:748)</div><div class="line">Caused by: org.apache.catalina.LifecycleException: A child container failed during start</div><div class="line">	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:1131)</div><div class="line">	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:800)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)</div><div class="line">	... 6 more</div></pre></td></tr></table></figure>
+<h3 id="尝试解决的方法："><a href="#尝试解决的方法：" class="headerlink" title="尝试解决的方法："></a>尝试解决的方法：</h3><ul>
+<li>更换maven 至最新版本   - 结果：无效</li>
+<li>网上搜索都说web版本太高 2.5 ,2.4都没效果</li>
+<li>注意问题所在<code>org.springframework.web.SpringServletContainerInitializer cannot be cast to javax.servlet.ServletContainerInitializer</code> 这句话上，根本上就是jar包有问题。首先在项目排除这个<code>javax.servlet-api</code>包，可以运行成功;</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 加上这句，作用域改成编译时使用，而打包时不使用 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>但是也有可能<code>jdk</code>的问题，有人说是Jdk中毒了，我看到这个回答感觉自己中毒了 doge.jpg。</strong></p>
+<p>感觉使用<code>idea</code>怎么没出错，嗯~，就是坑你，没商量~。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;eclipse上使用&lt;code&gt;maven&lt;/code&gt;项目总是会爆各种奇怪的错误，看不懂哇看不懂。&lt;br&gt;这次又出现&lt;code&gt;A child container failed during start&lt;/code&gt;…&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="maven" scheme="http://blog.wuwii.com/tags/maven/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于辞职</title>
+    <link href="http://blog.wuwii.com/first-quit-job.html"/>
+    <id>http://blog.wuwii.com/first-quit-job.html</id>
+    <published>2017-08-18T15:08:03.000Z</published>
+    <updated>2017-09-18T00:41:33.652Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天总算是把工作交接完了，又要开始一段新的职业生涯了。</p>
+<a id="more"></a>
+<p>记得是去年11月25号入职金拓维，当时面试我的还记得是友爱的周总，在金拓维很长的实习生活中，公司氛围很好，哈哈，第一位项目经理是光哥，当然，我现在跳槽也是来到光哥手下干事的，又回来了。</p>
+<p>来公司认识第一位员工应该是我们的秦~，现在是我的室友，比我早来一天。</p>
+<p>后来一位大学同学也来了，感觉这个世界真的小，工作的时候还有大学同学一起，还是很知足的，是不是。</p>
+<p>后来还有饶~~，等等一些同事，真的庆幸遇到这些兄弟们，让工作历程，变得不再孤单。</p>
+<p>即使目前跳槽了，也还在附近，仍然一起的。That`s ok! </p>
+<p>具体跳槽原因，可能是我这个人不太安分吧，在这个公司刚签合同一个多月，就跑了，我也很窘迫的，鼓起勇气去辞职的，经理也谈了一堆道理，balabala,省略。。。</p>
+<p>去了初创公司，可能会很累，但是为了梦想，总得向前迈出一小步。虽然最近发生的事情有点多，人也有点沉沦，但是不失本心，我想只会越来越好的。</p>
+<p>也希望大家都能越来越好！</p>
+<p>真的很晚了，今晚又要失眠了。</p>
+<p>对自己说声，晚安！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天总算是把工作交接完了，又要开始一段新的职业生涯了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="辞职" scheme="http://blog.wuwii.com/tags/%E8%BE%9E%E8%81%8C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java中位运算符</title>
     <link href="http://blog.wuwii.com/JAVA_Bitwise_Operators.html"/>
     <id>http://blog.wuwii.com/JAVA_Bitwise_Operators.html</id>
@@ -642,194 +780,6 @@
     
     
       <category term="生活" scheme="http://blog.wuwii.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>念</title>
-    <link href="http://blog.wuwii.com/fetter-tears.html"/>
-    <id>http://blog.wuwii.com/fetter-tears.html</id>
-    <published>2017-07-18T14:08:03.000Z</published>
-    <updated>2017-09-08T09:00:51.729Z</updated>
-    
-    <content type="html"><![CDATA[<p>夜总是格外的静，月光就可以通过窗户观赏我这残酷的心情了。  </p>
-<p>想想过去，我有好几年都没跟你见过面，即使是聊天也是随意的说说，心中确实有写隔阂，没有以前那么天真，忧伤了。现在节奏太快了现在做事都是太认真了，总是考虑会不会有结果，渐渐的失去了一些目标，一些梦想，一些人。</p>
-<p>事情总是那么凑巧，这个时候室友都封闭开发去，需要一个人，偌大的房间留个我一个人享受，想可以慢慢的在这里疗伤了，是的，下班后，比往常安静了，没以前在一起讲段子的欢声，骂做的菜真难吃，米是不是又没有煮·····现在只剩下我每天做一个菜，煮一碗米，一个人在吃饭，夜真是寂静的无聊，只有这个残酷的月光能在一旁陪伴。</p>
-<p>真的想，一个人静静的吃饭。得不到可能就是最好的结果，毕竟这么长时间都没有联系过的人，早就应该消失的人，为什么还要在她幸福的时刻出现。</p>
-<p>难以启齿，大道理真的没几个人能说的清楚，但是我还是清楚心中所想，只是心底还是存在那么一些执念，不愿意放下罢了，估计今生也没那么容易放下吧。</p>
-<p>但是，人总是要往前走的，也不能一直活在这个回忆里去放弃，要努力前行。有可能时间不会让我忘记，只是削弱它的程度，它的悲伤吧。</p>
-<p>曾经看到你的签名，想要制造羁绊，就必须要承担流泪的风险，我不太清楚你心中所想，也不懂你，这么多年了没见，每个人都发生了无数的可能。这句话我看出来，你是真的想找到爱情，而且已经可能找到了对的人了，成了一段绚丽多彩的美丽故事。</p>
-<p>我可能是个执着的傻瓜，总是伤害到人，最终也伤害到自己了；我也是追求完美的人，都只去接触身边符合自己的人。所以总是这个患得患失的状态。我想上面这句话来形容我最好的了，选择来到了这个世界，就应该住在这里，与它融合，影响它，不必去选择什么对与错。可能会很痛，可能会是错误的道路，但那样生活就会不一样的精彩，不是吗？我希望不在抗拒这个世界带来的美好，也不去害怕去开辟新的人生。</p>
-<p>我查到这句话来自《小王子》，对啊，你就是我的世界里独一无二的，我对你来说，也将是你的世界的唯一了。虽然每个人都有可能成为路人甲，但是人生不就是这样的吗？ </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;夜总是格外的静，月光就可以通过窗户观赏我这残酷的心情了。  &lt;/p&gt;
-&lt;p&gt;想想过去，我有好几年都没跟你见过面，即使是聊天也是随意的说说，心中确实有写隔阂，没有以前那么天真，忧伤了。现在节奏太快了现在做事都是太认真了，总是考虑会不会有结果，渐渐的失去了一些目标，一些梦想，一
-    
-    </summary>
-    
-      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搭建fastDFS单实例服务器</title>
-    <link href="http://blog.wuwii.com/centos-fastDFS.html"/>
-    <id>http://blog.wuwii.com/centos-fastDFS.html</id>
-    <published>2017-07-18T02:08:03.000Z</published>
-    <updated>2017-09-05T09:11:35.694Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p><code>FastDFS</code>是一个开源的轻量级分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题。特别适合以文件为载体的在线服务，如相册网站、视频网站等等。</p>
-</blockquote>
-<a id="more"></a>  
-<blockquote>
-<p><code>FastDFS</code>为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。</p>
-<p><code>FastDFS</code>服务端有两个角色：跟踪器<code>tracker</code>和存储节点<code>storage</code>。跟踪器主要做调度工作，在访问上起负载均衡的作用。</p>
-</blockquote>
-<h2 id="安装并配置FastDFS"><a href="#安装并配置FastDFS" class="headerlink" title="安装并配置FastDFS"></a>安装并配置FastDFS</h2><h3 id="运行环境及相关软件"><a href="#运行环境及相关软件" class="headerlink" title="运行环境及相关软件"></a>运行环境及相关软件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CentOS 7.0</div><div class="line">FastDFS_v5.08.tar.gz</div><div class="line">nginx-1.8.1.tar.gz</div><div class="line">fastdfs-nginx-module_v1.16.tar.gz</div><div class="line">libfastcommon</div></pre></td></tr></table></figure>
-<h3 id="服务器规划"><a href="#服务器规划" class="headerlink" title="服务器规划"></a>服务器规划</h3><table>
-<thead>
-<tr>
-<th>服务器名称</th>
-<th>IP地址及端口</th>
-<th>备注 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>fastdfs-tracker</td>
-<td>192.168.114.128:22122</td>
-<td>跟踪服务器/调度服务器</td>
-</tr>
-<tr>
-<td>fastdfs-storage</td>
-<td>192.168.114.128:23000</td>
-<td>存储服务器 </td>
-</tr>
-</tbody>
-</table>
-<h3 id="安装FastDFS"><a href="#安装FastDFS" class="headerlink" title="安装FastDFS"></a>安装FastDFS</h3><h4 id="首先创建工具目录（非必须）"><a href="#首先创建工具目录（非必须）" class="headerlink" title="首先创建工具目录（非必须）"></a>首先创建工具目录（非必须）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage ~]<span class="comment"># mkdir -p /home/oldcat/tools</span></div><div class="line">[root@fastdfs-storage ~]<span class="comment"># cd /home/oldcat/tools/</span></div></pre></td></tr></table></figure>
-<h4 id="下载并安装FastDFS依赖包libfastcommon"><a href="#下载并安装FastDFS依赖包libfastcommon" class="headerlink" title="下载并安装FastDFS依赖包libfastcommon"></a>下载并安装FastDFS依赖包libfastcommon</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage tools]<span class="comment"># wget https://codeload.github.com/happyfish100/libfastcommon/zip/master</span></div><div class="line">[root@fastdfs-storage tools]<span class="comment"># unzip master</span></div><div class="line">[root@fastdfs-storage tools]<span class="comment"># cd libfastcommon-master/</span></div><div class="line">[root@fastdfs-storage libfastcommon-master]<span class="comment"># ls</span></div><div class="line">HISTORY  INSTALL  libfastcommon.spec  make.sh  php-fastcommon  README  src</div><div class="line">[root@fastdfs-storage libfastcommon-master]<span class="comment"># ./make.sh</span></div><div class="line">[root@fastdfs-storage libfastcommon-master]<span class="comment"># ./make.sh install</span></div></pre></td></tr></table></figure>
-<h4 id="下载并安装FastDFS"><a href="#下载并安装FastDFS" class="headerlink" title="下载并安装FastDFS"></a>下载并安装FastDFS</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker tools]<span class="comment"># wget http://jaist.dl.sourceforge.net/project/fastdfs/FastDFS%20Server%20Source%20Code/FastDFS%20Server%20with%20PHP%20Extension%20Source%20Code%20V5.08/FastDFS_v5.08.tar.gz</span></div><div class="line">[root@fastdfs-tracker tools]<span class="comment"># tar xf FastDFS_v5.08.tar.gz</span></div><div class="line">[root@fastdfs-tracker tools]<span class="comment"># cd FastDFS</span></div><div class="line">[root@fastdfs-tracker FastDFS]<span class="comment"># ./make.sh &amp;&amp; ./make.sh install</span></div></pre></td></tr></table></figure>
-<h4 id="采用默认方式安装后的文件及目录："><a href="#采用默认方式安装后的文件及目录：" class="headerlink" title="采用默认方式安装后的文件及目录："></a>采用默认方式安装后的文件及目录：</h4><h5 id="服务脚本："><a href="#服务脚本：" class="headerlink" title="服务脚本："></a>服务脚本：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker ~]<span class="comment"># ll /etc/init.d/ |grep fdfs</span></div><div class="line">-rwxr-xr-x. 1 root root   918 4月  22 22:08 fdfs_storaged</div><div class="line">-rwxr-xr-x. 1 root root   920 4月  22 22:08 fdfs_trackerd</div></pre></td></tr></table></figure>
-<h5 id="样例配置文件"><a href="#样例配置文件" class="headerlink" title="样例配置文件"></a>样例配置文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker ~]<span class="comment"># ll /etc/fdfs/</span></div><div class="line">总用量 20</div><div class="line">-rw-r--r--. 1 root root 1461 4月  22 22:08 client.conf.sample</div><div class="line">-rw-r--r--. 1 root root 7927 4月  22 22:08 storage.conf.sample</div><div class="line">-rw-r--r--. 1 root root 7200 4月  22 22:08 tracker.conf.sample</div></pre></td></tr></table></figure>
-<h5 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker ~]<span class="comment"># ll /usr/bin|grep fdfs</span></div><div class="line">-rwxr-xr-x.   1 root root     252272 4月  22 22:08 fdfs_appender_test</div><div class="line">-rwxr-xr-x.   1 root root     252225 4月  22 22:08 fdfs_appender_test1</div><div class="line">-rwxr-xr-x.   1 root root     242449 4月  22 22:08 fdfs_append_file</div><div class="line">-rwxr-xr-x.   1 root root     242013 4月  22 22:08 fdfs_crc32</div><div class="line">-rwxr-xr-x.   1 root root     242508 4月  22 22:08 fdfs_delete_file</div><div class="line">-rwxr-xr-x.   1 root root     243627 4月  22 22:08 fdfs_download_file</div><div class="line">-rwxr-xr-x.   1 root root     243369 4月  22 22:08 fdfs_file_info</div><div class="line">-rwxr-xr-x.   1 root root     255657 4月  22 22:08 fdfs_monitor</div><div class="line">-rwxr-xr-x.   1 root root     863913 4月  22 22:08 fdfs_storaged</div><div class="line">-rwxr-xr-x.   1 root root     258712 4月  22 22:08 fdfs_test</div><div class="line">-rwxr-xr-x.   1 root root     257881 4月  22 22:08 fdfs_test1</div><div class="line">-rwxr-xr-x.   1 root root     365232 4月  22 22:08 fdfs_trackerd</div><div class="line">-rwxr-xr-x.   1 root root     243547 4月  22 22:08 fdfs_upload_appender</div><div class="line">-rwxr-xr-x.   1 root root     244453 4月  22 22:08 fdfs_upload_file</div></pre></td></tr></table></figure>
-<h3 id="配置跟踪服务器（tracker-server）"><a href="#配置跟踪服务器（tracker-server）" class="headerlink" title="配置跟踪服务器（tracker server）"></a>配置跟踪服务器（tracker server）</h3><h4 id="拷贝tracker-server和client端样例配置文件并重命名"><a href="#拷贝tracker-server和client端样例配置文件并重命名" class="headerlink" title="拷贝tracker server和client端样例配置文件并重命名"></a>拷贝tracker server和client端样例配置文件并重命名</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker ~]<span class="comment"># cp /etc/fdfs/tracker.conf.sample /etc/fdfs/tracker.conf</span></div><div class="line">[root@fastdfs-storage ~]<span class="comment"># cp /etc/fdfs/client.conf.sample /etc/fdfs/client.conf</span></div></pre></td></tr></table></figure>
-<h4 id="编辑tracker-server配置文件tracker-conf，需要修改内容如下："><a href="#编辑tracker-server配置文件tracker-conf，需要修改内容如下：" class="headerlink" title="编辑tracker server配置文件tracker.conf，需要修改内容如下："></a>编辑tracker server配置文件tracker.conf，需要修改内容如下：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">disabled=<span class="literal">false</span>（默认为<span class="literal">false</span>，表示是否无效）</div><div class="line">port=22122（默认为22122）</div><div class="line">base_path=/data/fastdfs/tracker</div></pre></td></tr></table></figure>
-<h4 id="编辑client端的配置文件client-conf，需要修改内容如下"><a href="#编辑client端的配置文件client-conf，需要修改内容如下" class="headerlink" title="编辑client端的配置文件client.conf，需要修改内容如下"></a>编辑client端的配置文件client.conf，需要修改内容如下</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">base_path=/data/fastdfs/tracker</div><div class="line">tracker_server=172.18.10.232:22122</div></pre></td></tr></table></figure>
-<h4 id="创建tracker-server数据目录"><a href="#创建tracker-server数据目录" class="headerlink" title="创建tracker server数据目录"></a>创建tracker server数据目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker ~]<span class="comment"># mkdir -p /data/fastdfs/tracker</span></div></pre></td></tr></table></figure>
-<h4 id="测试启动tracker-server，启动成功会自动在-data-fastdfs-tracker目录新建data和logs目录"><a href="#测试启动tracker-server，启动成功会自动在-data-fastdfs-tracker目录新建data和logs目录" class="headerlink" title="测试启动tracker server，启动成功会自动在/data/fastdfs/tracker目录新建data和logs目录"></a>测试启动tracker server，启动成功会自动在/data/fastdfs/tracker目录新建data和logs目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker ~]<span class="comment"># cd /data/fastdfs/tracker/</span></div><div class="line">[root@fastdfs-tracker tracker]<span class="comment"># ls</span></div><div class="line">[root@fastdfs-tracker tracker]<span class="comment"># /etc/init.d/fdfs_trackerd start</span></div><div class="line">Starting FastDFS tracker server:</div><div class="line">[root@fastdfs-tracker tracker]<span class="comment"># ss -lntup|grep 22122</span></div><div class="line">tcp    LISTEN     0      128                    *:22122                 *:*      users:((<span class="string">"fdfs_trackerd"</span>,3785,5)) </div><div class="line">[root@fastdfs-tracker tracker]<span class="comment"># ls</span></div><div class="line">data  logs</div></pre></td></tr></table></figure>
-<h4 id="关闭tracker-server-目前可以不使用"><a href="#关闭tracker-server-目前可以不使用" class="headerlink" title="关闭tracker server(目前可以不使用)"></a>关闭tracker server(目前可以不使用)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker tracker]<span class="comment"># /etc/init.d/fdfs_trackerd stop</span></div><div class="line">waiting <span class="keyword">for</span> pid [3785] <span class="built_in">exit</span> ...</div><div class="line">pid [3785] <span class="built_in">exit</span>.</div></pre></td></tr></table></figure>
-<h3 id="配置存储服务器（storage-server）"><a href="#配置存储服务器（storage-server）" class="headerlink" title="配置存储服务器（storage server）"></a>配置存储服务器（storage server）</h3><h4 id="拷贝storage-server样例配置文件并重命名"><a href="#拷贝storage-server样例配置文件并重命名" class="headerlink" title="拷贝storage server样例配置文件并重命名"></a>拷贝storage server样例配置文件并重命名</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage ~]<span class="comment"># cp /etc/fdfs/storage.conf.sample /etc/fdfs/storage.conf</span></div></pre></td></tr></table></figure>
-<h4 id="编辑storage-server配置文件storage-conf，需要修改内容如下："><a href="#编辑storage-server配置文件storage-conf，需要修改内容如下：" class="headerlink" title="编辑storage server配置文件storage.conf，需要修改内容如下："></a>编辑storage server配置文件storage.conf，需要修改内容如下：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">disabled=<span class="literal">false</span>（默认为<span class="literal">false</span>，表示是否无效）</div><div class="line">port=23000（默认为23000）</div><div class="line">base_path=/data/fastdfs/storage</div><div class="line">tracker_server=172.18.10.232:22122</div><div class="line">store_path0=/data/fastdfs/storage</div><div class="line">http.server_port=8888（默认为8888，nginx中配置的监听端口那之一致）</div></pre></td></tr></table></figure>
-<h4 id="创建storage-server数据目录"><a href="#创建storage-server数据目录" class="headerlink" title="创建storage server数据目录"></a>创建storage server数据目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage ~]<span class="comment"># mkdir -p /data/fastdfs/storage</span></div></pre></td></tr></table></figure>
-<h4 id="测试启动storage-server，启动成功会自动在-data-fastdfs-tracker目录新建data和logs目录（启动storage-server的前提是tracker-server必须事先已启动）"><a href="#测试启动storage-server，启动成功会自动在-data-fastdfs-tracker目录新建data和logs目录（启动storage-server的前提是tracker-server必须事先已启动）" class="headerlink" title="测试启动storage server，启动成功会自动在/data/fastdfs/tracker目录新建data和logs目录（启动storage server的前提是tracker server必须事先已启动）"></a>测试启动storage server，启动成功会自动在/data/fastdfs/tracker目录新建data和logs目录（启动storage server的前提是tracker server必须事先已启动）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage ~]<span class="comment"># cd /data/fastdfs/storage/</span></div><div class="line">[root@fastdfs-storage storage]<span class="comment"># ls</span></div><div class="line">[root@fastdfs-storage storage]<span class="comment"># /etc/init.d/fdfs_storaged start</span></div><div class="line">Starting FastDFS storage server:</div><div class="line">[root@fastdfs-storage storage]<span class="comment"># ss -lntup|grep 23000</span></div><div class="line">tcp    LISTEN     0      128                    *:23000                 *:*      users:((<span class="string">"fdfs_storaged"</span>,3786,5))</div><div class="line">[root@fastdfs-storage storage]<span class="comment"># ls</span></div><div class="line">data  logs</div></pre></td></tr></table></figure>
-<h4 id="验证storage是否登记到tracker服务器"><a href="#验证storage是否登记到tracker服务器" class="headerlink" title="验证storage是否登记到tracker服务器~"></a>验证storage是否登记到tracker服务器~</h4><ul>
-<li>使用/usr/bin/fdfs_monitor /etc/fdfs/storage.conf，运行fdfs_monitor查看storage服务器是否已经登记到tracker服务器。</li>
-<li>如果出现ip_addr = <ip> Active, 则表明storage服务器已经登记到tracker服务器~</ip></li>
-<li>Storage 1:<br>  id = 192.168.0.1<br>  ip_addr = 192.168.0.1  ==ACTIVE==<h3 id="文件上传测试"><a href="#文件上传测试" class="headerlink" title="文件上传测试"></a>文件上传测试</h3><ul>
-<li>执行如下上传命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker ~]<span class="comment"># /usr/bin/fdfs_upload_file /etc/fdfs/client.conf /etc/fdfs/client.conf</span></div><div class="line">group1/M00/00/00/rBIK6VcaP0aARXXvAAHrUgHEviQ394.conf</div><div class="line">返回文件ID即说明文件已经上传成功</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="存储服务器（storage-server）安装并配置nginx"><a href="#存储服务器（storage-server）安装并配置nginx" class="headerlink" title="存储服务器（storage server）安装并配置nginx"></a>存储服务器（storage server）安装并配置nginx</h2><h3 id="下载并安装fastdfs-nginx-module模块"><a href="#下载并安装fastdfs-nginx-module模块" class="headerlink" title="下载并安装fastdfs-nginx-module模块"></a>下载并安装fastdfs-nginx-module模块</h3><blockquote>
-<p><code>FastDFS</code>通过<code>Tracker</code>服务器,将文件放在<code>Storage</code>服务器存储，但是同组存储服务器之间需要进入文件复制，有同步延迟的问题。假设Tracker服务器将文件上传到了192.168.4.125，上传成功后文件ID已经返回给客户端。此时FastDFS存储集群机制会将这个文件同步到同组存储192.168.4.126，在文件还没有复制完成的情况下，客户端如果用这个文件ID在192.168.4.126上取文件,就会出现文件无法访问的错误。而fastdfs-nginx-module可以重定向文件连接到源服务器取文件,避免客户端由于复制延迟导致的文件无法访问错误。</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage  tools]<span class="comment"># wget http://nchc.dl.sourceforge.net/project/fastdfs/FastDFS%20Nginx%20Module%20Source%20Code/fastdfs-nginx-module_v1.16.tar.gz</span></div><div class="line">[root@fastdfs-storage tools]<span class="comment"># tar xf fastdfs-nginx-module_v1.16.tar.gz </span></div><div class="line">[root@fastdfs-storage tools]<span class="comment"># cd fastdfs-nginx-module/src/</span></div><div class="line">[root@fastdfs-storage src]<span class="comment"># vim config</span></div><div class="line">编辑config文件，执行如下命令进行批量替换并保存退出</div><div class="line">:%s+/usr/<span class="built_in">local</span>/+/usr/+g</div></pre></td></tr></table></figure>
-<h3 id="拷贝fastdfs-nginx-module模块中配置文件到-etc-fdfs目录中并编辑"><a href="#拷贝fastdfs-nginx-module模块中配置文件到-etc-fdfs目录中并编辑" class="headerlink" title="拷贝fastdfs-nginx-module模块中配置文件到/etc/fdfs目录中并编辑"></a>拷贝fastdfs-nginx-module模块中配置文件到/etc/fdfs目录中并编辑</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage ~]<span class="comment"># cp /home/oldcat/tools/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs/</span></div><div class="line">[root@fastdfs-storage ~]<span class="comment"># vim /etc/fdfs/mod_fastdfs.conf</span></div><div class="line">修改内容如下：</div><div class="line">connect_timeout=10</div><div class="line">base_path=/tmp（默认为/tmp）</div><div class="line">tracker_server=172.18.10.232:22122</div><div class="line">storage_server_port=23000（默认配置为23000）</div><div class="line">url_have_group_name = <span class="literal">true</span></div><div class="line">store_path0=/data/fastdfs/storage</div><div class="line">group_name=group1（默认配置为group1）</div></pre></td></tr></table></figure>
-<h3 id="安装nginx依赖库（必须要检查）"><a href="#安装nginx依赖库（必须要检查）" class="headerlink" title="安装nginx依赖库（必须要检查）"></a>安装nginx依赖库（必须要检查）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage nginx-1.8.1]<span class="comment"># yum install -y pcre-devel zlib-devel</span></div></pre></td></tr></table></figure>
-<h3 id="下载并安装nginx"><a href="#下载并安装nginx" class="headerlink" title="下载并安装nginx"></a>下载并安装nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage  tools]<span class="comment"># wget http://nginx.org/download/nginx-1.8.1.tar.gz</span></div><div class="line">[root@fastdfs-storage tools]<span class="comment"># tar xf nginx-1.8.1.tar.gz </span></div><div class="line">[root@fastdfs-storage tools]<span class="comment"># cd nginx-1.8.1</span></div><div class="line">[root@fastdfs-storage nginx-1.8.1]<span class="comment"># ./configure --prefix=/application/nginx/ --add-module=../fastdfs-nginx-module/src/</span></div><div class="line">[root@fastdfs-storage nginx-1.8.1]<span class="comment"># make &amp;&amp; make install</span></div></pre></td></tr></table></figure>
-<h3 id="拷贝FastDFS中的部分配置文件到-etc-fdfs目录中"><a href="#拷贝FastDFS中的部分配置文件到-etc-fdfs目录中" class="headerlink" title="拷贝FastDFS中的部分配置文件到/etc/fdfs目录中"></a>拷贝FastDFS中的部分配置文件到/etc/fdfs目录中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage ~]<span class="comment"># cp /home/oldcat/tools/FastDFS/conf/http.conf /etc/fdfs/</span></div><div class="line">[root@fastdfs-storage ~]<span class="comment"># cp /home/oldcat/tools/FastDFS/conf/mime.types /etc/fdfs/</span></div></pre></td></tr></table></figure>
-<h3 id="配置nginx，如下所示："><a href="#配置nginx，如下所示：" class="headerlink" title="配置nginx，如下所示："></a>配置nginx，如下所示：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage ~]<span class="comment"># vim /application/nginx/conf/nginx.conf</span></div><div class="line">    user  root;    </div><div class="line">    worker_processes  1;</div><div class="line">    events &#123;</div><div class="line">       worker_connections  1024;</div><div class="line">    &#125;</div><div class="line">    http &#123;</div><div class="line">        include       mime.types;</div><div class="line">        default_type  application/octet-stream;</div><div class="line">        sendfile        on;</div><div class="line">        keepalive_timeout  65;</div><div class="line">        server &#123;</div><div class="line">            listen       8888;</div><div class="line">            server_name  localhost;</div><div class="line">            location / &#123;</div><div class="line">                root   html;</div><div class="line">                index  index.html index.htm;</div><div class="line">            &#125;</div><div class="line">            location ~/group[0-9]/M00 &#123;</div><div class="line">                root /data/fastdfs/storage/data/;</div><div class="line">                ngx_fastdfs_module;</div><div class="line">            &#125;</div><div class="line">            error_page   500 502 503 504  /50x.html;</div><div class="line">            location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><p>a、<code>user root</code>是解决下载操作时报404的问题<br>b、<code>8888</code>端口号与<code>/etc/fdfs/storage.conf</code>中的<code>http.server_port=8888</code>相对应<br>c、<code>storage</code>对应有多个group的情况下，访问路径带group名称，例如：<code>/group1/M00/00/00/**</code>，对应nginx配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">location ~/group[0-9]/ &#123;</div><div class="line">       ngx_fastdfs_module;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<h3 id="创建M00至storage存储目录的符号连接："><a href="#创建M00至storage存储目录的符号连接：" class="headerlink" title="创建M00至storage存储目录的符号连接："></a>创建M00至storage存储目录的符号连接：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -sv /data/fastdfs/storage/data  /data/fastdfs/storage/data/M00</div></pre></td></tr></table></figure>
-<h3 id="拷贝nginx服务到-etc-init-d-目录下并启动"><a href="#拷贝nginx服务到-etc-init-d-目录下并启动" class="headerlink" title="拷贝nginx服务到/etc/init.d/目录下并启动"></a>拷贝nginx服务到/etc/init.d/目录下并启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage ~]<span class="comment"># cp /application/nginx/sbin/nginx /etc/init.d/</span></div><div class="line">[root@fastdfs-storage ~]<span class="comment"># /etc/init.d/nginx</span></div><div class="line">[root@fastdfs-storage ~]<span class="comment"># ss -lntup|grep 8888</span></div><div class="line">tcp    LISTEN     0      128                    *:8888                  *:*      users:((<span class="string">"nginx"</span>,7308,6),(<span class="string">"nginx"</span>,7309,6))</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="防火墙端口设置"><a href="#防火墙端口设置" class="headerlink" title="防火墙端口设置"></a>防火墙端口设置</h2><h3 id="查看已开启的端口："><a href="#查看已开启的端口：" class="headerlink" title="查看已开启的端口："></a>查看已开启的端口：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost nginx-1.12.0]<span class="comment"># firewall-cmd --zone=public --list-ports</span></div><div class="line">20880/tcp 80/tcp 2181/tcp 23000/tcp 22122/tcp 9999/tcp</div><div class="line">[root@localhost nginx-1.12.0]<span class="comment">#</span></div></pre></td></tr></table></figure>
-<h3 id="开放端口号命令：–permanent表示永久生效，不加的话，重启后不生效"><a href="#开放端口号命令：–permanent表示永久生效，不加的话，重启后不生效" class="headerlink" title="开放端口号命令：–permanent表示永久生效，不加的话，重启后不生效"></a>开放端口号命令：–permanent表示永久生效，不加的话，重启后不生效</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo firewall-cmd --zone=public --add-port=23000/tcp --permanent <span class="comment">#开户端口号</span></div><div class="line">sudo firewall-cmd --reload</div></pre></td></tr></table></figure>
-<h3 id="CentOS7-防火墙相关命令："><a href="#CentOS7-防火墙相关命令：" class="headerlink" title="CentOS7 防火墙相关命令："></a>CentOS7 防火墙相关命令：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">enable</span> firewalld.service    <span class="comment">#开启防火墙</span></div><div class="line">systemctl stop firewalld.service     <span class="comment">#关闭防火墙(开机会仍会启动)</span></div><div class="line">systemctl <span class="built_in">disable</span> firewalld.service  <span class="comment">#禁用防火墙(开机后不再启动)</span></div></pre></td></tr></table></figure>
-<hr>
-<h2 id="添加开机自启"><a href="#添加开机自启" class="headerlink" title="添加开机自启"></a>添加开机自启</h2><h3 id="首先检查-etc-rc-d-rc-local-是否有执行权限"><a href="#首先检查-etc-rc-d-rc-local-是否有执行权限" class="headerlink" title="首先检查 /etc/rc.d/rc.local  是否有执行权限"></a>首先检查 <code>/etc/rc.d/rc.local</code>  是否有执行权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ll /etc/rc.d/rc.local</div><div class="line">-rwxr--r-x. 1 root root 550 8月  18 10:58 /etc/rc.d/rc.local</div><div class="line">user 有x有执行权限，没有则执行</div><div class="line">chmod u+x /etc/rc.d/rc.local</div></pre></td></tr></table></figure>
-<h3 id="在-etc-rc-d-rc-local-最底下加上服务器启动命令"><a href="#在-etc-rc-d-rc-local-最底下加上服务器启动命令" class="headerlink" title="在 /etc/rc.d/rc.local 最底下加上服务器启动命令"></a>在 <code>/etc/rc.d/rc.local</code> 最底下加上服务器启动命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/fdfs_trackerd start  </div><div class="line">/etc/init.d/fdfs_storaged start  </div><div class="line">/etc/init.d/nginx</div></pre></td></tr></table></figure>
-<h3 id="查看服务启动"><a href="#查看服务启动" class="headerlink" title="查看服务启动"></a>查看服务启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># netstat -unltp|grep fdfs</span></div><div class="line">tcp        0      0 0.0.0.0:22122           0.0.0.0:*               LISTEN      1239/fdfs_trackerd  </div><div class="line">tcp        0      0 0.0.0.0:23000           0.0.0.0:*               LISTEN      1245/fdfs_storaged  </div><div class="line">[root@localhost ~]<span class="comment"># netstat -unltp|grep nginx</span></div><div class="line">tcp        0      0 0.0.0.0:8888            0.0.0.0:*               LISTEN      1278/nginx: master</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;FastDFS&lt;/code&gt;是一个开源的轻量级分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题。特别适合以文件为载体的在线服务，如相册网站、视频网站等等。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
-    
-      <category term="fastDFS" scheme="http://blog.wuwii.com/tags/fastDFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试</title>
-    <link href="http://blog.wuwii.com/test.html"/>
-    <id>http://blog.wuwii.com/test.html</id>
-    <published>2017-07-04T02:08:03.000Z</published>
-    <updated>2017-09-08T06:26:36.096Z</updated>
-    
-    <content type="html"><![CDATA[<p>来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉<br><a id="more"></a></p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="测试1"><a href="#测试1" class="headerlink" title="测试1"></a>测试1</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉&lt;br&gt;
-    
-    </summary>
-    
-      <category term="测试" scheme="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="测试下" scheme="http://blog.wuwii.com/tags/%E6%B5%8B%E8%AF%95%E4%B8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://blog.wuwii.com/hello-world.html"/>
-    <id>http://blog.wuwii.com/hello-world.html</id>
-    <published>2017-07-03T02:08:03.000Z</published>
-    <updated>2017-09-05T00:56:13.720Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-      <category term="测试" scheme="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="测试下" scheme="http://blog.wuwii.com/tags/%E6%B5%8B%E8%AF%95%E4%B8%8B/"/>
     
   </entry>
   

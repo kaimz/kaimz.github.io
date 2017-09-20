@@ -3,9 +3,10 @@
 
 
     
+    
   <url>
     <loc>http://blog.wuwii.com/mqtt-user.html</loc>
-    <lastmod>2017-09-12T10:23:23.129Z</lastmod>
+    <lastmod>2017-09-18T00:41:33.710Z</lastmod>
     <data>
         <display>
         <title>Mosquitto用户名密码配置</title>
@@ -13,12 +14,136 @@
         
         <tag>linux</tag>
          
-        <tag>Mosquitto</tag>
+        <tag>MQTT</tag>
          
          
            
              
               <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/maven-plugins-error.html</loc>
+    <lastmod>2017-09-18T00:41:33.706Z</lastmod>
+    <data>
+        <display>
+        <title>Maven使用tomcat7-maven-plugin插件run时出现错误： A child container failed during start</title>
+        <pubTime>2017-08-24T14:08:03.000Z</pubTime>
+        
+        <tag>maven</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/maven-error-one.html</loc>
+    <lastmod>2017-09-18T00:41:33.695Z</lastmod>
+    <data>
+        <display>
+        <title>maven错误 Plugin execution not covered by lifecycle configuration org.codehaus.mo...</title>
+        <pubTime>2017-09-14T14:44:03.000Z</pubTime>
+        
+        <tag>maven</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/install-mosquitto.html</loc>
+    <lastmod>2017-09-18T00:41:33.668Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS 7 下安装mosquitto</title>
+        <pubTime>2017-09-11T14:24:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>MQTT</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/fsds-java.html</loc>
+    <lastmod>2017-09-18T00:41:33.662Z</lastmod>
+    <data>
+        <display>
+        <title>fastDFS与java整合文件上传下载</title>
+        <pubTime>2017-07-20T02:08:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>fastDFS</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/first-quit-job.html</loc>
+    <lastmod>2017-09-18T00:41:33.652Z</lastmod>
+    <data>
+        <display>
+        <title>关于辞职</title>
+        <pubTime>2017-08-18T15:08:03.000Z</pubTime>
+        
+        <tag>辞职</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/20170917.html</loc>
+    <lastmod>2017-09-18T00:41:33.649Z</lastmod>
+    <data>
+        <display>
+        <title>20170917</title>
+        <pubTime>2017-09-17T14:08:03.000Z</pubTime>
+        
+        <tag>生活</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活" url="http://blog.wuwii.com/categories/%E7%94%9F%E6%B4%BB/"/>
           
         </display>
     </data>
@@ -46,7 +171,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://blog.wuwii.com/yunfu-event.html</loc>
@@ -79,28 +203,6 @@
         <tag>linux</tag>
          
         <tag>ftp</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/install-mosquitto.html</loc>
-    <lastmod>2017-09-12T00:37:52.167Z</lastmod>
-    <data>
-        <display>
-        <title>CentOS 7 下安装mosquitto</title>
-        <pubTime>2017-09-11T14:24:03.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>mosquitto</tag>
          
          
            
