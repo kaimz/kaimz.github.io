@@ -25,26 +25,6 @@
     
     
   <url>
-    <loc>http://blog.wuwii.com/version.html</loc>
-    <lastmod>2017-10-10T00:30:59.629Z</lastmod>
-    <data>
-        <display>
-        <title>关于博客改动</title>
-        <pubTime>2017-07-04T02:08:03.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/trend.html</loc>
     <lastmod>2017-10-10T00:30:59.629Z</lastmod>
     <data>
@@ -58,6 +38,26 @@
            
              
               <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/version.html</loc>
+    <lastmod>2017-10-10T00:30:59.629Z</lastmod>
+    <data>
+        <display>
+        <title>关于博客改动</title>
+        <pubTime>2017-07-04T02:08:03.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
