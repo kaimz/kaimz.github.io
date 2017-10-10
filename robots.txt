@@ -1,14 +1,10 @@
 # hexo robots.txt
-User-agent: * 
-Allow: /
-Allow: /archives/
-Disallow: /vendors/
+User-agent: *
+Disallow: 
 Disallow: /js/
 Disallow: /css/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
+Disallow: /lib/
+Disallow: /static/
 
 Sitemap: http://blog.wuwii.com/sitemap.xml
 Sitemap: http://blog.wuwii.com/baidusitemap.xml
-

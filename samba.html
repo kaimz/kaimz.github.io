@@ -117,6 +117,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="喃声细语" type="application/atom+xml" />
+
 
 
 
@@ -185,7 +187,18 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?97c68fa4bed481d056e563899af2da89";
+      hm.src = "https://hm.baidu.com/hm.js?b847762b9271725a63131e554978de0a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63798915";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -196,10 +209,16 @@
 
 
 
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1264593822&web_id=1264593822" language="JavaScript"></script>
+  </div>
 
 
 
 
+
+  
+  <link href="http://blog.wuwii.com/harlem-shake-style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -360,7 +379,7 @@
     <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/samba.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张 凯">
+      <meta itemprop="name" content="一棵树站在原野上">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
     </span>
@@ -659,8 +678,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg"
-               alt="张 凯" />
-          <p class="site-author-name" itemprop="name">张 凯</p>
+               alt="一棵树站在原野上" />
+          <p class="site-author-name" itemprop="name">一棵树站在原野上</p>
            
               <p class="site-description motion-element" itemprop="description">最美的风景一直在身边，不曾离去。</p>
           
@@ -670,7 +689,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -681,7 +700,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -692,7 +711,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -701,12 +720,79 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+			
+			<a title="收藏到书签，偶尔High一下^_^" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+    
+      var songs = [
+          "http://ov62kaxkk.bkt.clouddn.com/%E6%9C%A8%E6%9D%91%E5%BC%93%20-%20%E3%81%84%E3%81%A4%E3%82%82%E4%BD%95%E5%BA%A6%E3%81%A7%E3%82%82.mp3",       
+          "......"
+      ];
+ 
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+    
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> 听音乐</a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/kaimz" target="_blank" title="GitHub">
+                <a href="https://github.com/kaimz" target="_blank" title="GitHub" rel="external nofollow">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
@@ -715,16 +801,16 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://douban.com/people/38515717" target="_blank" title="豆瓣">
+                <a href="http://weibo.com/p/1005053974218109" target="_blank" title="Weibo" rel="external nofollow">
                   
-                    <i class="fa fa-fw fa-globe"></i>
+                    <i class="fa fa-fw fa-weibo"></i>
                   
-                  豆瓣
+                  Weibo
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/zhang-kai-89-51-58" target="_blank" title="知乎">
+                <a href="http://www.zhihu.com/people/zhang-kai-89-51-58" target="_blank" title="知乎" rel="external nofollow">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
@@ -753,6 +839,10 @@
               
                 <li class="links-of-blogroll-item">
                   <a href="https://www.google.com" title="Google" target="_blank" rel="external nofollow">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.b2bdq.com" title="b2b网站大全" target="_blank" rel="external nofollow">b2b网站大全</a>
                 </li>
               
             </ul>
@@ -803,7 +893,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">张 凯</span>
+  <span class="author" itemprop="copyrightHolder">一棵树站在原野上</span>
 </div>
 
 
@@ -824,7 +914,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共17.4k字</span>
+  <span class="post-count">博客全站共31.9k字</span>
 </div>
 
 <script>
@@ -1323,5 +1413,6 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
   
 
+  <script type="text/javascript" src="/js/src/love.js"></script>
 </body>
 </html>

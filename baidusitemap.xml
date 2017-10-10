@@ -3,6 +3,481 @@
 
 
     
+  <url>
+    <loc>http://blog.wuwii.com/miss-you.html</loc>
+    <lastmod>2017-10-10T00:31:22.302Z</lastmod>
+    <data>
+        <display>
+        <title>我想她，是那么的美好吧</title>
+        <pubTime>2017-10-04T04:15:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://blog.wuwii.com/version.html</loc>
+    <lastmod>2017-10-10T00:30:59.629Z</lastmod>
+    <data>
+        <display>
+        <title>关于博客改动</title>
+        <pubTime>2017-07-04T02:08:03.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/trend.html</loc>
+    <lastmod>2017-10-10T00:30:59.629Z</lastmod>
+    <data>
+        <display>
+        <title>一叶知秋</title>
+        <pubTime>2017-10-08T15:08:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/seo.html</loc>
+    <lastmod>2017-10-10T00:30:59.614Z</lastmod>
+    <data>
+        <display>
+        <title>关于SEO</title>
+        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
+        
+        <tag>SEO</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/multiple-file-upload.html</loc>
+    <lastmod>2017-10-10T00:30:59.582Z</lastmod>
+    <data>
+        <display>
+        <title>jQuery实现多文件上传并预览</title>
+        <pubTime>2017-10-07T02:08:03.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>jQuery</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <lastmod>2017-10-10T00:30:59.567Z</lastmod>
+    <data>
+        <display>
+        <title>如何通过Maven的Tomcat插件运行Web工程</title>
+        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
+        
+        <tag>maven</tag>
+         
+        <tag>tomcat</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <lastmod>2017-10-10T00:30:59.567Z</lastmod>
+    <data>
+        <display>
+        <title>如何通过Maven的Jetty插件运行Web工程</title>
+        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
+        
+        <tag>maven</tag>
+         
+        <tag>jetty</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/log-error.html</loc>
+    <lastmod>2017-10-10T00:30:59.551Z</lastmod>
+    <data>
+        <display>
+        <title>log4j WARN No appenders could be found for logger</title>
+        <pubTime>2017-10-08T14:08:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>log4j</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/share-sadness.html</loc>
+    <lastmod>2017-10-08T00:52:06.288Z</lastmod>
+    <data>
+        <display>
+        <title>我想分享你的悲伤</title>
+        <pubTime>2017-10-07T14:08:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://blog.wuwii.com/wh-romance.html</loc>
+    <lastmod>2017-10-07T10:06:36.143Z</lastmod>
+    <data>
+        <display>
+        <title>这些只属于武汉的浪漫，看完幸福感爆棚</title>
+        <pubTime>2017-10-05T10:08:03.000Z</pubTime>
+        
+        <tag>生活</tag>
+         
+        <tag>武汉</tag>
+         
+         
+           
+             
+              <breadCrumb title="分享" url="http://blog.wuwii.com/categories/%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/to-self.html</loc>
+    <lastmod>2017-10-07T10:06:36.137Z</lastmod>
+    <data>
+        <display>
+        <title>随便写点</title>
+        <pubTime>2017-10-02T08:29:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/thinking-boy.html</loc>
+    <lastmod>2017-10-07T10:06:36.133Z</lastmod>
+    <data>
+        <display>
+        <title>请告诉女儿：嫁人就嫁心机男</title>
+        <pubTime>2017-10-03T02:08:03.000Z</pubTime>
+        
+        <tag>感情</tag>
+         
+         
+           
+             
+              <breadCrumb title="分享" url="http://blog.wuwii.com/categories/%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/redis.html</loc>
+    <lastmod>2017-10-07T10:06:36.012Z</lastmod>
+    <data>
+        <display>
+        <title>redies安装</title>
+        <pubTime>2017-09-26T14:08:03.000Z</pubTime>
+        
+        <tag>redis</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/never-sleeping.html</loc>
+    <lastmod>2017-10-07T10:06:35.912Z</lastmod>
+    <data>
+        <display>
+        <title>不眠</title>
+        <pubTime>2017-09-28T14:08:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/melangolo.html</loc>
+    <lastmod>2017-10-07T10:06:35.880Z</lastmod>
+    <data>
+        <display>
+        <title>《苦橙》-- 歌词</title>
+        <pubTime>2017-09-29T12:08:03.000Z</pubTime>
+        
+        <tag>歌词</tag>
+         
+         
+           
+             
+              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/kaifu-love-story.html</loc>
+    <lastmod>2017-10-07T10:06:35.862Z</lastmod>
+    <data>
+        <display>
+        <title>分享：李开复：我的爱情故事</title>
+        <pubTime>2017-09-03T14:38:03.000Z</pubTime>
+        
+        <tag>李开复</tag>
+         
+        <tag>感情</tag>
+         
+         
+           
+             
+              <breadCrumb title="分享" url="http://blog.wuwii.com/categories/%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/hello-world.html</loc>
+    <lastmod>2017-10-07T10:06:35.855Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-07-03T02:08:03.000Z</pubTime>
+        
+        <tag>测试下</tag>
+         
+         
+           
+             
+              <breadCrumb title="测试" url="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/gzip-error.html</loc>
+    <lastmod>2017-10-07T10:06:35.848Z</lastmod>
+    <data>
+        <display>
+        <title>gzip stdin not in gzip format的错误</title>
+        <pubTime>2017-09-26T14:40:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/gps2utc.html</loc>
+    <lastmod>2017-10-07T10:06:35.817Z</lastmod>
+    <data>
+        <display>
+        <title>使用java将gps时转换为utc时间方法</title>
+        <pubTime>2017-10-03T14:28:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/floating-life.html</loc>
+    <lastmod>2017-10-07T10:06:35.765Z</lastmod>
+    <data>
+        <display>
+        <title>《浮生》-- 歌词</title>
+        <pubTime>2017-09-28T15:08:03.000Z</pubTime>
+        
+        <tag>歌词</tag>
+         
+         
+           
+             
+              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/doby4-install.html</loc>
+    <lastmod>2017-10-07T10:06:35.759Z</lastmod>
+    <data>
+        <display>
+        <title>WIN10家庭版安装Doby 4</title>
+        <pubTime>2017-10-03T06:08:03.000Z</pubTime>
+        
+        <tag>doby</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/byte.html</loc>
+    <lastmod>2017-10-07T10:06:35.753Z</lastmod>
+    <data>
+        <display>
+        <title>高四位，低四位</title>
+        <pubTime>2017-09-23T15:08:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/TravisCI.html</loc>
+    <lastmod>2017-10-07T10:06:35.644Z</lastmod>
+    <data>
+        <display>
+        <title>Travis CI 持续集成</title>
+        <pubTime>2017-10-02T15:08:03.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>Travis CI</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://blog.wuwii.com/mqtt-user.html</loc>
@@ -319,26 +794,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/test.html</loc>
-    <lastmod>2017-09-08T06:26:36.096Z</lastmod>
-    <data>
-        <display>
-        <title>测试</title>
-        <pubTime>2017-07-04T02:08:03.000Z</pubTime>
-        
-        <tag>测试下</tag>
-         
-         
-           
-             
-              <breadCrumb title="测试" url="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/enumeration-package-design.html</loc>
     <lastmod>2017-09-06T00:31:33.314Z</lastmod>
     <data>
@@ -478,48 +933,6 @@
            
              
               <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/kaifu-love-story.html</loc>
-    <lastmod>2017-09-05T01:14:23.393Z</lastmod>
-    <data>
-        <display>
-        <title>分享：李开复：我的爱情故事</title>
-        <pubTime>2017-09-03T14:38:03.000Z</pubTime>
-        
-        <tag>李开复</tag>
-         
-        <tag>感情</tag>
-         
-         
-           
-             
-              <breadCrumb title="分享" url="http://blog.wuwii.com/categories/%E5%88%86%E4%BA%AB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/hello-world.html</loc>
-    <lastmod>2017-09-05T00:56:13.720Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2017-07-03T02:08:03.000Z</pubTime>
-        
-        <tag>测试下</tag>
-         
-         
-           
-             
-              <breadCrumb title="测试" url="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
           
         </display>
     </data>

@@ -111,11 +111,13 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="记录心情" />
+  <meta name="keywords" content="一棵树站在原野上" />
 
 
 
 
+
+  <link rel="alternate" href="/atom.xml" title="喃声细语" type="application/atom+xml" />
 
 
 
@@ -128,6 +130,7 @@
 
 
 <meta name="description" content="最美的风景一直在身边，不曾离去。">
+<meta name="keywords" content="张凯,1075199251,k@wuwii.com,http:&#x2F;&#x2F;blog.wuwii.com,一棵树站在原野上,记录心情,追光者w">
 <meta property="og:type" content="website">
 <meta property="og:title" content="喃声细语">
 <meta property="og:url" content="http://blog.wuwii.com/page/3/index.html">
@@ -170,7 +173,7 @@
 
 
 
-  <title> 记录心情 - 喃声细语 - 最美的风景一直在身边，不曾离去。 </title>
+  <title>  喃声细语 </title>
   
 
 
@@ -181,7 +184,18 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?97c68fa4bed481d056e563899af2da89";
+      hm.src = "https://hm.baidu.com/hm.js?b847762b9271725a63131e554978de0a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63798915";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -192,10 +206,16 @@
 
 
 
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1264593822&web_id=1264593822" language="JavaScript"></script>
+  </div>
 
 
 
 
+
+  
+  <link href="http://blog.wuwii.com/harlem-shake-style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -355,10 +375,10 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/fsds-java.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/java-mqtt.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张 凯">
+      <meta itemprop="name" content="一棵树站在原野上">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
     </span>
@@ -374,7 +394,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/fsds-java.html" itemprop="url">fastDFS与java整合文件上传下载</a></h1>
+                <a class="post-title-link" href="/java-mqtt.html" itemprop="url">MQTT在JAVA中使用</a></h1>
         
 
         <div class="post-meta">
@@ -386,8 +406,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T10:08:03+08:00">
-                2017-07-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T18:08:03+08:00">
+                2017-09-12
               </time>
             
 
@@ -428,8 +448,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/fsds-java.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="fsds-java.html" itemprop="commentsCount"></span>
+                <a href="/java-mqtt.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="java-mqtt.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -452,7 +472,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,160
+                  1,759
                 </span>
               
 
@@ -468,7 +488,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6
+                  8
                 </span>
               
             </div>
@@ -485,15 +505,13 @@
 
       
         
-          
-          准备
-下载fastdfs-client-java源码源码地址 密码：s3sw
-修改pom.xml第一个plugins是必需要的，是maven用来编译的插件，第二个是maven打源码包的，可以不要。
-123456789101112131415161718192021222324252627&lt;bu
-          ...
+          <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><blockquote>
+<p>由于项目中需求，多个客户机终端不断发送位置给服务机，服务机根据消息，准确判断信息，并返回响应，回复该客户机。</p>
+</blockquote>
+<p>在这里我们的服务机，不但要订阅所有客户机的主题，还要根据客户机消息做出相应的响应，服务机同时充当客户机使用，客户机也推送主题消息，充当服务器。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/fsds-java.html#more" rel="contents">
+            <a class="btn" href="/java-mqtt.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -542,10 +560,10 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/fetter-tears.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/mqtt-user.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张 凯">
+      <meta itemprop="name" content="一棵树站在原野上">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
     </span>
@@ -561,7 +579,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/fetter-tears.html" itemprop="url">念</a></h1>
+                <a class="post-title-link" href="/mqtt-user.html" itemprop="url">Mosquitto用户名密码配置</a></h1>
         
 
         <div class="post-meta">
@@ -573,8 +591,374 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T22:08:03+08:00">
-                2017-07-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T10:08:03+08:00">
+                2017-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mqtt-user.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="mqtt-user.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  261
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>由于需要把<code>mqtt</code>部署到外网上面去，所以需要关闭<code>匿名登陆</code>，采取用户<code>认证模式</code>，而且还可能需要把主题加密。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/mqtt-user.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+	</div>
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/install-mosquitto.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一棵树站在原野上">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/install-mosquitto.html" itemprop="url">CentOS 7 下安装mosquitto</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-11T22:24:03+08:00">
+                2017-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/install-mosquitto.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="install-mosquitto.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,389
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p><code>MQTT</code>（Message Queuing Telemetry Transport，消息队列遥测传输）是IBM开发的一个<code>即时通讯协议</code>，有可能成为物联网的重要组成部分。该协议支持所有平台，几乎可以把所有联网物品和外部连接起来，被用来当做传感器和制动器（比如通过Twitter让房屋联网）的通信协议。</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/install-mosquitto.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+	</div>
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/heart00.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一棵树站在原野上">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/heart00.html" itemprop="url">心</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T23:08:03+08:00">
+                2017-09-07
               </time>
             
 
@@ -615,8 +999,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/fetter-tears.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="fetter-tears.html" itemprop="commentsCount"></span>
+                <a href="/heart00.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="heart00.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -639,7 +1023,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  760
+                  361
                 </span>
               
 
@@ -655,7 +1039,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -672,14 +1056,10 @@
 
       
         
-          
-          夜总是格外的静，月光就可以通过窗户观赏我这残酷的心情了。  
-想想过去，我有好几年都没跟你见过面，即使是聊天也是随意的说说，心中确实有写隔阂，没有以前那么天真，忧伤了。现在节奏太快了现在做事都是太认真了，总是考虑会不会有结果，渐渐的失去了一些目标，一些梦想，一些人。
-事情总是那么凑巧，这个时候室友都
-          ...
+          不知道现在你过得到底怎么样，看到你的签名又换了“心比长相好，懂比爱重要”。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/fetter-tears.html#more" rel="contents">
+            <a class="btn" href="/heart00.html">
               阅读全文 &raquo;
             </a>
           </div>
@@ -728,10 +1108,10 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/centos-fastDFS.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/geotools-over-analyze.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张 凯">
+      <meta itemprop="name" content="一棵树站在原野上">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
     </span>
@@ -747,7 +1127,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/centos-fastDFS.html" itemprop="url">搭建fastDFS单实例服务器</a></h1>
+                <a class="post-title-link" href="/geotools-over-analyze.html" itemprop="url">Geotools做个最简单叠加分析</a></h1>
         
 
         <div class="post-meta">
@@ -759,8 +1139,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T10:08:03+08:00">
-                2017-07-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T17:51:03+08:00">
+                2017-09-07
               </time>
             
 
@@ -801,8 +1181,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/centos-fastDFS.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="centos-fastDFS.html" itemprop="commentsCount"></span>
+                <a href="/geotools-over-analyze.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="geotools-over-analyze.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -825,7 +1205,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,352
+                  1,045
                 </span>
               
 
@@ -841,7 +1221,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  12
+                  5
                 </span>
               
             </div>
@@ -858,12 +1238,558 @@
 
       
         
-          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p><code>FastDFS</code>是一个开源的轻量级分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题。特别适合以文件为载体的在线服务，如相册网站、视频网站等等。</p>
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>最近需要利用<code>Geotools</code>开发一些业务需求，今天刚开始搞。本来说是跟跟最新版的<code>geoserver</code>中的geotools一个版本，我的geoserver版本如下<br><img src="http://ov62kaxkk.bkt.clouddn.com/TIM%E6%88%AA%E5%9B%BE20170907172642.png" alt="image">
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/geotools-over-analyze.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+	</div>
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/yunfu-event.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一棵树站在原野上">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/yunfu-event.html" itemprop="url">关于难产孕妇跳楼事件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T22:48:03+08:00">
+                2017-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/生活/" itemprop="url" rel="index">
+                    <span itemprop="name">生活</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/yunfu-event.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="yunfu-event.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  147
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          看到新闻，难产孕妇跳楼身亡，真的很难想象，这个产妇经历了什么，才选择了这么个结果，一尸两命。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/yunfu-event.html">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+	</div>
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/jiao-hun-awakening.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一棵树站在原野上">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/jiao-hun-awakening.html" itemprop="url">叫魂</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T20:08:03+08:00">
+                2017-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/碎碎念/" itemprop="url" rel="index">
+                    <span itemprop="name">碎碎念</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/jiao-hun-awakening.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="jiao-hun-awakening.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  603
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          最近人的心很杂乱，总是回忆起以前的种种，加上今天是``中元节``，想起了以前的一件事，正式说法应该是``叫魂``。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/jiao-hun-awakening.html">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+	</div>
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/enumeration-package-design.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一棵树站在原野上">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/enumeration-package-design.html" itemprop="url">枚举的封装设计</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-04T23:08:03+08:00">
+                2017-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/enumeration-package-design.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="enumeration-package-design.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  166
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><code>enum</code> 的全称为 <code>enumeration</code>， 是 <code>JDK 1.5</code>  中引入的新特性，存放在 <code>java.lang</code> 包中。虽然功能少，但是实际开发中还是非常方便的。</p>
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/centos-fastDFS.html#more" rel="contents">
+            <a class="btn" href="/enumeration-package-design.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -912,10 +1838,10 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/test.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/kaifu-love-story.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张 凯">
+      <meta itemprop="name" content="一棵树站在原野上">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
     </span>
@@ -931,7 +1857,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/test.html" itemprop="url">测试</a></h1>
+                <a class="post-title-link" href="/kaifu-love-story.html" itemprop="url">分享：李开复：我的爱情故事</a></h1>
         
 
         <div class="post-meta">
@@ -943,8 +1869,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-04T10:08:03+08:00">
-                2017-07-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T22:38:03+08:00">
+                2017-09-03
               </time>
             
 
@@ -966,8 +1892,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/测试/" itemprop="url" rel="index">
-                    <span itemprop="name">测试</span>
+                  <a href="/categories/分享/" itemprop="url" rel="index">
+                    <span itemprop="name">分享</span>
                   </a>
                 </span>
 
@@ -985,8 +1911,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/test.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="test.html" itemprop="commentsCount"></span>
+                <a href="/kaifu-love-story.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="kaifu-love-story.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -1009,7 +1935,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  124
+                  49
                 </span>
               
 
@@ -1042,10 +1968,12 @@
 
       
         
-          <p>来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉<br>
+          <blockquote>
+<p><strong>最好的爱情，并不是终日互相对视，而是共同眺望远方，相伴而行。他们眺望着的，始终是同一个方向。</strong> </p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/test.html#more" rel="contents">
+            <a class="btn" href="/kaifu-love-story.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1094,10 +2022,10 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/hello-world.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/hexo_install_error.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张 凯">
+      <meta itemprop="name" content="一棵树站在原野上">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
     </span>
@@ -1113,7 +2041,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hello-world.html" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/hexo_install_error.html" itemprop="url">关于npm install hexo出错</a></h1>
         
 
         <div class="post-meta">
@@ -1125,8 +2053,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-03T10:08:03+08:00">
-                2017-07-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-31T22:43:03+08:00">
+                2017-08-31
               </time>
             
 
@@ -1148,8 +2076,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/测试/" itemprop="url" rel="index">
-                    <span itemprop="name">测试</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
 
@@ -1167,8 +2095,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/hello-world.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="hello-world.html" itemprop="commentsCount"></span>
+                <a href="/hexo_install_error.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="hexo_install_error.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -1191,7 +2119,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  78
+                  508
                 </span>
               
 
@@ -1207,7 +2135,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -1224,12 +2152,12 @@
 
       
         
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
+          <h3 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h3><blockquote>
+<p>最近跳槽换公司后，又要重新在公司电脑上搭个hexo blog环境，从github上拷贝下自己的源码后，执行<strong>npm install hexo</strong> 突然报错了。  </p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/hello-world.html#more" rel="contents">
+            <a class="btn" href="/hexo_install_error.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1273,7 +2201,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1308,8 +2236,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg"
-               alt="张 凯" />
-          <p class="site-author-name" itemprop="name">张 凯</p>
+               alt="一棵树站在原野上" />
+          <p class="site-author-name" itemprop="name">一棵树站在原野上</p>
            
               <p class="site-description motion-element" itemprop="description">最美的风景一直在身边，不曾离去。</p>
           
@@ -1319,7 +2247,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1330,7 +2258,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1341,7 +2269,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1350,12 +2278,79 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+			
+			<a title="收藏到书签，偶尔High一下^_^" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+    
+      var songs = [
+          "http://ov62kaxkk.bkt.clouddn.com/%E6%9C%A8%E6%9D%91%E5%BC%93%20-%20%E3%81%84%E3%81%A4%E3%82%82%E4%BD%95%E5%BA%A6%E3%81%A7%E3%82%82.mp3",       
+          "......"
+      ];
+ 
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+    
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> 听音乐</a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/kaimz" target="_blank" title="GitHub">
+                <a href="https://github.com/kaimz" target="_blank" title="GitHub" rel="external nofollow">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
@@ -1364,16 +2359,16 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://douban.com/people/38515717" target="_blank" title="豆瓣">
+                <a href="http://weibo.com/p/1005053974218109" target="_blank" title="Weibo" rel="external nofollow">
                   
-                    <i class="fa fa-fw fa-globe"></i>
+                    <i class="fa fa-fw fa-weibo"></i>
                   
-                  豆瓣
+                  Weibo
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/zhang-kai-89-51-58" target="_blank" title="知乎">
+                <a href="http://www.zhihu.com/people/zhang-kai-89-51-58" target="_blank" title="知乎" rel="external nofollow">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
@@ -1402,6 +2397,10 @@
               
                 <li class="links-of-blogroll-item">
                   <a href="https://www.google.com" title="Google" target="_blank" rel="external nofollow">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.b2bdq.com" title="b2b网站大全" target="_blank" rel="external nofollow">b2b网站大全</a>
                 </li>
               
             </ul>
@@ -1436,7 +2435,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">张 凯</span>
+  <span class="author" itemprop="copyrightHolder">一棵树站在原野上</span>
 </div>
 
 
@@ -1457,7 +2456,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共17.4k字</span>
+  <span class="post-count">博客全站共31.9k字</span>
 </div>
 
 <script>
@@ -1954,5 +2953,6 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
   
 
+  <script type="text/javascript" src="/js/src/love.js"></script>
 </body>
 </html>

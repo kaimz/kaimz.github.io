@@ -3,6 +3,638 @@
   
     
     <entry>
+      <title><![CDATA[一叶知秋]]></title>
+      <url>/trend.html</url>
+      <content type="html"><![CDATA[<p>今天晚上在小区里面慢跑，突然一个东西掉到我眼镜架上，塞在里面了，尬，拿下来一看，看到的是一片树叶。<br><img src="https://i.loli.net/2017/10/08/59da342e1af4a.jpg" alt="image"><br>时间过得真快，已经秋天了，今年国庆八天长假，也过完，我想，今后，再得过多少年，才有八天长假。</p>
+<a id="more"></a>
+<p>事情一直在发生，故事永远也写不完，我想我现在想什么，也许在眺望着什么，犹豫着什么，患得患失着什么。在每一刻，它都是好的。也许有一天，我老了，不再去疯了，就这么平静得下去。</p>
+<p>我想我现在还是这么个人吧，一直以来也是，对身边的事情都是依依不舍的，但是我没有停留，紧跟着前进，真是想去浪迹天涯呀，但是那是不可能的，我有自己的牵挂与责任，我还是放不下，总有一天，我会老去，总是不想放过，但是时常会放弃自己的一些事情，为难着自己，不愿意离开。</p>
+<p><img src="https://ooo.0o0.ooo/2017/10/08/59d9afb316e7f.png" alt="img"></p>
+<p>也许是秋天总是会给人带来一丝惆怅的心情吧，不知不觉的，你就会触景生情，这个时候千万别拍照，别去看镜子，你会发现，不知不觉，多了一份沧桑，心里有一些焦灼，慢慢的会影响你的心绪。走的时候，又会浑然不知。</p>
+<p>我想我现在还是正值好时光的年纪，即使不能清高，也要活出自我，最后像树叶一样洒脱的离开，因为，我想我正在它夏天的这个时候，还没到，还没到，还能享受最热烈的阳光。</p>
+<p><img src="https://i.loli.net/2017/10/08/59da398b58f84.jpg" alt="image"></p>
+<p>恍惚，秋分早已过，不用在意太多孰是孰非，早就没留退路，只能这样不顾一切，而你是否能明白了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 碎碎念 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 心情 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[log4j WARN No appenders could be found for logger]]></title>
+      <url>/log-error.html</url>
+      <content type="html"><![CDATA[<p>项目的日志以前没设置好，打印出来的东西一团糟。需要把项目的Log文件改一下，改好测试了，没问题，commit，结果突然发现项目启动不了，瞬间吓坏，倒退了，哈哈，机制。报错一大堆：<a id="more"></a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line">严重: The web application [/devframe-server] created a ThreadLocal with key of <span class="built_in">type</span> [org.springframework.core.NamedThreadLocal] (value [Transactional resources]) and a value of <span class="built_in">type</span> [java.util.HashMap] (value [&#123;&#123;</div><div class="line">	CreateTime:<span class="string">"2017-10-08 16:24:04"</span>,</div><div class="line">	ActiveCount:1,</div><div class="line">	PoolingCount:0,</div><div class="line">	CreateCount:100,</div><div class="line">	DestroyCount:99,</div><div class="line">	CloseCount:1,</div><div class="line">	ConnectCount:2,</div><div class="line">	Connections:[</div><div class="line">	]</div><div class="line">&#125;</div><div class="line"></div><div class="line">[</div><div class="line">]=org.springframework.jdbc.datasource.ConnectionHolder@71579f16, org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean@7998ca6f=org.springframework.orm.jpa.EntityManagerHolder@1fd59301&#125;]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.</div><div class="line">十月 08, 2017 4:24:25 下午 org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks</div><div class="line">严重: The web application [/devframe-server] created a ThreadLocal with key of <span class="built_in">type</span> [org.springframework.core.NamedThreadLocal] (value [Current AOP proxy]) and a value of <span class="built_in">type</span> [com.devframe.service.impl.DeviceServiceImpl$<span class="variable">$EnhancerBySpringCGLIB</span>$<span class="variable">$905a00fd</span>] (value [com.devframe.service.impl.DeviceServiceImpl@b16530c]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.</div><div class="line">十月 08, 2017 4:24:25 下午 org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks</div><div class="line">严重: The web application [/devframe-server] created a ThreadLocal with key of <span class="built_in">type</span> [org.springframework.core.NamedThreadLocal] (value [Actual transaction active]) and a value of <span class="built_in">type</span> [java.lang.Boolean] (value [<span class="literal">true</span>]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.</div><div class="line">十月 08, 2017 4:24:25 下午 org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks</div><div class="line">严重: The web application [/devframe-server] created a ThreadLocal with key of <span class="built_in">type</span> [org.springframework.core.NamedThreadLocal] (value [Transaction synchronizations]) and a value of <span class="built_in">type</span> [java.util.LinkedHashSet] (value [[]]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.</div><div class="line">十月 08, 2017 4:24:25 下午 org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks</div><div class="line">严重: The web application [/devframe-server] created a ThreadLocal with key of <span class="built_in">type</span> [org.springframework.core.NamedThreadLocal] (value [Current AOP method invocation]) and a value of <span class="built_in">type</span> [org.springframework.aop.framework.ReflectiveMethodInvocation] (value [ReflectiveMethodInvocation: public abstract java.util.List com.devframe.dao.DeviceDao.findBySerialnumber(java.lang.String); target is of class [org.springframework.data.jpa.repository.support.SimpleJpaRepository]]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.</div><div class="line">十月 08, 2017 4:24:25 下午 org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks</div><div class="line">严重: The web application [/devframe-server] created a ThreadLocal with key of <span class="built_in">type</span> [org.springframework.core.NamedThreadLocal] (value [Current transaction name]) and a value of <span class="built_in">type</span> [java.lang.String] (value [com.devframe.service.impl.DeviceServiceImpl.findBySerialnumber]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.</div><div class="line">十月 08, 2017 4:24:25 下午 org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks</div><div class="line">严重: Unable to determine string representation of value of <span class="built_in">type</span> [org.springframework.transaction.interceptor.TransactionAspectSupport.TransactionInfo]</div><div class="line">java.lang.NullPointerException</div><div class="line">	at org.springframework.transaction.interceptor.TransactionAspectSupport<span class="variable">$TransactionInfo</span>.toString(TransactionAspectSupport.java:624)</div><div class="line">	at org.apache.catalina.loader.WebappClassLoader.checkThreadLocalMapForLeaks(WebappClassLoader.java:2520)</div><div class="line">	at org.apache.catalina.loader.WebappClassLoader.checkThreadLocalsForLeaks(WebappClassLoader.java:2454)</div><div class="line">	at org.apache.catalina.loader.WebappClassLoader.clearReferences(WebappClassLoader.java:1995)</div><div class="line">	at org.apache.catalina.loader.WebappClassLoader.stop(WebappClassLoader.java:1901)</div><div class="line">	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:662)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)</div><div class="line">	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5526)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:160)</div><div class="line">	at org.apache.catalina.core.ContainerBase<span class="variable">$StartChild</span>.call(ContainerBase.java:1559)</div><div class="line">	at org.apache.catalina.core.ContainerBase<span class="variable">$StartChild</span>.call(ContainerBase.java:1549)</div><div class="line">	at java.util.concurrent.FutureTask.run(FutureTask.java:266)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor<span class="variable">$Worker</span>.run(ThreadPoolExecutor.java:624)</div><div class="line">	at java.lang.Thread.run(Thread.java:748)</div><div class="line"></div><div class="line">十月 08, 2017 4:24:25 下午 org.apache.catalina.loader.WebappClassLoader checkThreadLocalMapForLeaks</div><div class="line">严重: The web application [/devframe-server] created a ThreadLocal with key of <span class="built_in">type</span> [org.springframework.core.NamedThreadLocal] (value [Current aspect-driven transaction]) and a value of <span class="built_in">type</span> [org.springframework.transaction.interceptor.TransactionAspectSupport.TransactionInfo] (value [Unknown]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.</div><div class="line">十月 08, 2017 4:24:25 下午 org.apache.coyote.AbstractProtocol start</div><div class="line">信息: Starting ProtocolHandler [<span class="string">"http-bio-8081"</span>]</div><div class="line">十月 08, 2017 4:24:25 下午 org.apache.catalina.loader.WebappClassLoader loadClass</div><div class="line">信息: Illegal access: this web application instance has been stopped already.  Could not load org.hibernate.engine.transaction.internal.jta.JtaStatusHelper.  The eventual following stack trace is caused by an error thrown <span class="keyword">for</span> debugging purposes as well as to attempt to terminate the thread <span class="built_in">which</span> caused the illegal access, and has no functional impact.</div><div class="line">java.lang.IllegalStateException</div><div class="line">	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1599)</div><div class="line">	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1558)</div><div class="line">	at org.hibernate.engine.transaction.internal.TransactionCoordinatorImpl.afterTransaction(TransactionCoordinatorImpl.java:142)</div><div class="line">	at org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction.afterTransactionCompletion(JdbcTransaction.java:138)</div><div class="line">	at org.hibernate.engine.transaction.spi.AbstractTransactionImpl.rollback(AbstractTransactionImpl.java:213)</div><div class="line">	at org.hibernate.jpa.internal.TransactionImpl.rollback(TransactionImpl.java:108)</div><div class="line">	at org.springframework.orm.jpa.JpaTransactionManager.doRollback(JpaTransactionManager.java:544)</div><div class="line">	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processRollback(AbstractPlatformTransactionManager.java:853)</div><div class="line">	at org.springframework.transaction.support.AbstractPlatformTransactionManager.rollback(AbstractPlatformTransactionManager.java:830)</div><div class="line">	at org.springframework.transaction.interceptor.TransactionAspectSupport.completeTransactionAfterThrowing(TransactionAspectSupport.java:503)</div><div class="line">	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:285)</div><div class="line">	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)</div><div class="line">	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)</div><div class="line">	at org.springframework.aop.framework.CglibAopProxy<span class="variable">$DynamicAdvisedInterceptor</span>.intercept(CglibAopProxy.java:655)</div><div class="line">	at com.devframe.service.impl.DeviceServiceImpl$<span class="variable">$EnhancerBySpringCGLIB</span>$<span class="variable">$905a00fd</span>.findBySerialnumber(&lt;generated&gt;)</div><div class="line">	at com.devframe.util.mqtt.TimingPublish.run(TimingPublish.java:241)</div><div class="line">	at com.devframe.service.impl.MqttServerImpl.callBackChoose(MqttServerImpl.java:108)</div><div class="line">	at com.devframe.util.mqtt.ServerMQTT.messageArrived(ServerMQTT.java:161)</div><div class="line">	at org.eclipse.paho.client.mqttv3.internal.CommsCallback.deliverMessage(CommsCallback.java:499)</div><div class="line">	at org.eclipse.paho.client.mqttv3.internal.CommsCallback.handleMessage(CommsCallback.java:402)</div><div class="line">	at org.eclipse.paho.client.mqttv3.internal.CommsCallback.run(CommsCallback.java:206)</div><div class="line">	at java.util.concurrent.Executors<span class="variable">$RunnableAdapter</span>.call(Executors.java:511)</div><div class="line">	at java.util.concurrent.FutureTask.run(FutureTask.java:266)</div><div class="line">	at java.util.concurrent.ScheduledThreadPoolExecutor<span class="variable">$ScheduledFutureTask</span>.access<span class="variable">$201</span>(ScheduledThreadPoolExecutor.java:180)</div><div class="line">	at java.util.concurrent.ScheduledThreadPoolExecutor<span class="variable">$ScheduledFutureTask</span>.run(ScheduledThreadPoolExecutor.java:293)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor<span class="variable">$Worker</span>.run(ThreadPoolExecutor.java:624)</div><div class="line">	at java.lang.Thread.run(Thread.java:748)</div><div class="line"></div><div class="line">十月 08, 2017 4:24:25 下午 org.apache.catalina.loader.WebappClassLoader loadClass</div><div class="line">信息: Illegal access: this web application instance has been stopped already.  Could not load org.eclipse.paho.client.mqttv3.internal.MessageCatalog.  The eventual following stack trace is caused by an error thrown <span class="keyword">for</span> debugging purposes as well as to attempt to terminate the thread <span class="built_in">which</span> caused the illegal access, and has no functional impact.</div><div class="line">java.lang.IllegalStateException</div><div class="line">	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1599)</div><div class="line">	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1558)</div><div class="line">	at org.eclipse.paho.client.mqttv3.MqttException.getMessage(MqttException.java:225)</div><div class="line">	at org.eclipse.paho.client.mqttv3.MqttException.toString(MqttException.java:233)</div><div class="line">	at java.lang.String.valueOf(String.java:2994)</div><div class="line">	at java.io.PrintStream.println(PrintStream.java:821)</div><div class="line">	at java.lang.Throwable<span class="variable">$WrappedPrintStream</span>.println(Throwable.java:748)</div><div class="line">	at java.lang.Throwable.printStackTrace(Throwable.java:655)</div><div class="line">	at java.lang.Throwable.printStackTrace(Throwable.java:643)</div><div class="line">	at java.lang.Throwable.printStackTrace(Throwable.java:634)</div><div class="line">	at com.devframe.util.mqtt.ServerMQTT.connectionLost(ServerMQTT.java:144)</div><div class="line">	at org.eclipse.paho.client.mqttv3.internal.CommsCallback.connectionLost(CommsCallback.java:292)</div><div class="line">	at org.eclipse.paho.client.mqttv3.internal.ClientComms.shutdownConnection(ClientComms.java:423)</div><div class="line">	at org.eclipse.paho.client.mqttv3.internal.CommsCallback.run(CommsCallback.java:220)</div><div class="line">	at java.util.concurrent.Executors<span class="variable">$RunnableAdapter</span>.call(Executors.java:511)</div><div class="line">	at java.util.concurrent.FutureTask.run(FutureTask.java:266)</div><div class="line">	at java.util.concurrent.ScheduledThreadPoolExecutor<span class="variable">$ScheduledFutureTask</span>.access<span class="variable">$201</span>(ScheduledThreadPoolExecutor.java:180)</div><div class="line">	at java.util.concurrent.ScheduledThreadPoolExecutor<span class="variable">$ScheduledFutureTask</span>.run(ScheduledThreadPoolExecutor.java:293)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor<span class="variable">$Worker</span>.run(ThreadPoolExecutor.java:624)</div><div class="line">	at java.lang.Thread.run(Thread.java:748)</div><div class="line"></div><div class="line">十月 08, 2017 4:24:38 下午 org.apache.catalina.loader.WebappClassLoader loadClass</div><div class="line">信息: Illegal access: this web application instance has been stopped already.  Could not load org.apache.commons.pool2.impl.EvictionConfig.  The eventual following stack trace is caused by an error thrown <span class="keyword">for</span> debugging purposes as well as to attempt to terminate the thread <span class="built_in">which</span> caused the illegal access, and has no functional impact.</div><div class="line">java.lang.IllegalStateException</div><div class="line">	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1599)</div><div class="line">	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1558)</div><div class="line">	at org.apache.commons.pool2.impl.GenericObjectPool.evict(GenericObjectPool.java:743)</div><div class="line">	at org.apache.commons.pool2.impl.BaseGenericObjectPool<span class="variable">$Evictor</span>.run(BaseGenericObjectPool.java:1036)</div><div class="line">	at java.util.TimerThread.mainLoop(Timer.java:555)</div><div class="line">	at java.util.TimerThread.run(Timer.java:505)</div></pre></td></tr></table></figure>
+<p>根据上面查找问题，刚开始一直以为是 mqtt 出现错误了，检查完全没问题，而且最近只是修改了其他的内容，一想到我刚刚改了log4j，估计是它除了错误，但是上面的错误信息完全没给我有用的提示信息，只能知道<code>web root</code> 都没能启动，就去各个spring配置文件看，但是没发现有配置log4j的位置，最后功夫不负有心人终于在<code>web.xml</code>看到了一段话</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 启动Log4j --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>log4jConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:log4j.properties<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.util.Log4jConfigListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>跟我目前路径不一致，改好后，成功启动。。。莫名其妙了。</p>
+<p>网上查了下，日志出现错误，找不到<code>log4j.properties</code>报错是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">log4j:WARN No appenders could be found for logger (org.apache.ibatis.logging.LogFactory).   </div><div class="line">log4j:WARN Please initialize the log4j system properly.</div></pre></td></tr></table></figure></p>
+<p>那就不得而知了。</p>
+<p>总算解决了。。</p>
+<p>总结：</p>
+<ol>
+<li>部署的项目在<code>WEB-INF/classes/</code>路径下加上文件 <code>log4j.properties</code> ,开发中，我使用的是maven构建项目的，所以，在<code>resources</code> 文件下加入 <code>log4j.properties</code> 就可以了。</li>
+<li>这样下去启动下去仍然会报错，Web开发的时候，spring容器启动去读取这个log4j的配置文件的时候，找不到它，所以要在 <code>web.xml</code> 中重新配置文件位置：<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 启动Log4j --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>log4jConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:log4j.properties<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.util.Log4jConfigListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> log4j </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[我想分享你的悲伤]]></title>
+      <url>/share-sadness.html</url>
+      <content type="html"><![CDATA[<h3 id="我想分享你的悲伤"><a href="#我想分享你的悲伤" class="headerlink" title="我想分享你的悲伤"></a>我想分享你的悲伤</h3><p>我想分享你的悲伤，</p>
+<p>我要成为故事中的小丑，</p>
+<p>将悲伤写进喜剧中。</p>
+<p>我想分享你的悲伤，</p>
+<p>我会强颜为笑，</p>
+<p>带上面具，</p>
+<p>安慰你。</p>
+<p>我想分享你的悲伤</p>
+<p>但我不能将悲伤带给你，</p>
+<p>因为哄你开心，</p>
+<p>才是我的责任，</p>
+<p>即便是伤痕累累，</p>
+<p>你一笑，</p>
+<p>我便好。</p>
+<p>我想分享你的悲伤，</p>
+<p>永远微笑，</p>
+<p>不贪婪。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 碎碎念 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 心情 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[jQuery实现多文件上传并预览]]></title>
+      <url>/multiple-file-upload.html</url>
+      <content type="html"><![CDATA[<p>自己做了个文件上传，样式有些简陋，功能还需以后完善。中间遇到了一些问题，在这里记录下。<a id="more"></a></p>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height: 82px; width: 100%; border-bottom: 1px solid #ddd;padding-top: 5px"</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 80px; height: 82px;float: left;text-align: right; line-height: 72px;"</span>&gt;</span>反馈图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">class</span>=<span class="string">"file"</span>&gt;</span>选择文件</div><div class="line">               <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">accept</span>=<span class="string">"image/png,image/gif,image/jpg,image/jpeg"</span> <span class="attr">id</span>=<span class="string">"files"</span> <span class="attr">name</span>=<span class="string">"files"</span> <span class="attr">multiple</span> /&gt;</span></div><div class="line">           <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"preview"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.file</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#03afD9</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#99D3F5</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</div><div class="line">    <span class="attribute">margin-left</span>: <span class="number">5px</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">12px</span>;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">    <span class="attribute">color</span>: white;</div><div class="line">    <span class="attribute">text-decoration</span>: none;</div><div class="line">    <span class="attribute">text-indent</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">20px</span>;</div><div class="line">    <span class="attribute">margin-top</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.file</span> <span class="selector-tag">input</span> &#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.file</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#95B8E7</span>;</div><div class="line">    <span class="attribute">border-color</span>: <span class="number">#78C3F3</span>;</div><div class="line">    <span class="attribute">color</span>: white;</div><div class="line">    <span class="attribute">text-decoration</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//下面用于多图片上传预览功能</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">setImagePreviews</span>(<span class="params">docObj</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> preview = $(<span class="string">"#preview"</span>, $(<span class="string">".MachineEdit"</span>, Dev.App.FillPanel.Target));</div><div class="line">            preview.html(<span class="string">""</span>);</div><div class="line">            fileList = docObj.files;</div><div class="line">            <span class="keyword">if</span> (fileList.length &gt; <span class="number">3</span>)&#123;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; fileList.length; i++) &#123;</div><div class="line">                <span class="keyword">if</span> (!checkType(fileList[i].name))&#123;</div><div class="line">                    preview.html(<span class="string">""</span>);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                preview.append(<span class="string">"&lt;div style='float:left;cursor:pointer;margin-left: 3px;' &gt;&lt;img id='img"</span> + i + <span class="string">"' /&gt; &lt;/div&gt;"</span>);</div><div class="line">                <span class="keyword">var</span> imgObjPreview = $(<span class="string">"#img"</span>+i, $(<span class="string">".MachineEdit"</span>, Dev.App.FillPanel.Target));</div><div class="line">                <span class="keyword">if</span> (fileList &amp;&amp; fileList[i]) &#123;</div><div class="line">                    <span class="comment">//火狐下，直接设img属性</span></div><div class="line">                    imgObjPreview.css(<span class="string">"display"</span>,<span class="string">"block"</span>);</div><div class="line">                    <span class="comment">//控制缩略图大小</span></div><div class="line">                    imgObjPreview.width(<span class="number">70</span>);</div><div class="line">                    imgObjPreview.height(<span class="number">70</span>);</div><div class="line">                    <span class="comment">//imgObjPreview.src = docObj.files[0].getAsDataURL();</span></div><div class="line">                    <span class="comment">//火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式</span></div><div class="line">                    imgObjPreview.attr(<span class="string">"src"</span>, <span class="built_in">window</span>.URL.createObjectURL(fileList[i]));</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="comment">//IE下，使用滤镜</span></div><div class="line">                    docObj.select();</div><div class="line">                    <span class="keyword">var</span> imgSrc = <span class="built_in">document</span>.selection.createRange().text;</div><div class="line">                    <span class="keyword">var</span> localImagId = $(<span class="string">"#img"</span>+i, $(<span class="string">".MachineEdit"</span>, Dev.App.FillPanel.Target));</div><div class="line">                    <span class="comment">//必须设置初始大小</span></div><div class="line">                    localImagId.width(<span class="number">70</span>);</div><div class="line">                    localImagId.height(<span class="number">70</span>);</div><div class="line">                    <span class="comment">//图片异常的捕捉，防止用户修改后缀来伪造图片</span></div><div class="line">                    imgObjPreview.css(<span class="string">"display"</span>, <span class="string">"none"</span>);</div><div class="line">                    <span class="built_in">document</span>.selection.empty();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">/*检测照片格式*/</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">checkType</span>(<span class="params">image</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> extStart = image.lastIndexOf(<span class="string">"."</span>);</div><div class="line">            <span class="keyword">var</span> ext = image.substring(extStart, image.length).toUpperCase();</div><div class="line">            <span class="keyword">if</span> ( ext != <span class="string">".PNG"</span> &amp;&amp; ext != <span class="string">".GIF"</span> &amp;&amp; ext != <span class="string">".JPG"</span> &amp;&amp; ext != <span class="string">".JPEG"</span>) &#123;</div><div class="line">                dialog.Alert(<span class="string">"图片限于png，gif，jpeg，jpg格式！"</span>, <span class="string">"error"</span>);</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>调用方式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#files"</span>, $(<span class="string">".MachineEdit"</span>, Dev.App.FillPanel.Target)).bind(<span class="string">"change"</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    setImagePreviews(<span class="keyword">this</span>);</div><div class="line"> &#125;);</div></pre></td></tr></table></figure></p>
+<p>效果展示：<br><img src="https://i.loli.net/2017/10/07/59d8a623e0921.png" alt="img"></p>
+<p>上传的时候使用的是<code>FormData</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//以上省略</span></div><div class="line">            <span class="keyword">var</span> form = <span class="keyword">new</span> FormData();</div><div class="line">           <span class="comment">//注意参数数组的时候使用多次append就行了</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = fileList.length; i &lt; len; i++) &#123;</div><div class="line">                form.append(<span class="string">"files"</span>, fileList[i]);</div><div class="line">            &#125;</div><div class="line">           </div><div class="line">            form.append(<span class="string">"orgid"</span>, selectorgid);</div><div class="line">            form.append(<span class="string">"cautionid"</span>, selectAl);</div><div class="line">            form.append(<span class="string">"fkder"</span>,Dev.cookie.user.truename);</div><div class="line"></div><div class="line">            $.ajax(&#123;</div><div class="line">                type: <span class="string">"POST"</span>,</div><div class="line">                url: <span class="string">'~~省略~~'</span>,</div><div class="line">                data: form,</div><div class="line">                contentType: <span class="literal">false</span>,</div><div class="line">                processData: <span class="literal">false</span>, <span class="comment">//注意一定要设置为false</span></div><div class="line">                success: <span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">                    <span class="keyword">if</span> (!Dev.IsNull(response) &amp;&amp; response.statusCode == <span class="number">200</span>) &#123;</div><div class="line">                        dialog.Alert(msg.addSuccess, <span class="string">"success"</span>);</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        dialog.Alert(msg.addFailed, <span class="string">"error"</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                error: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                    dialog.Alert(msg.netout, <span class="string">"error"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;)</div></pre></td></tr></table></figure>
+<p><code>processData</code>的默认值是<code>true</code>。用于对<code>data</code>参数进行序列化处理。</p>
+<h3 id="后台"><a href="#后台" class="headerlink" title="后台"></a>后台</h3><p>java后台使用的是springMVC，相同的可以参考。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/***"</span>, method = RequestMethod.POST)</div><div class="line">	<span class="function"><span class="keyword">public</span> HttpResponse&lt;CautionFeedBackEntity&gt; <span class="title">addFile</span><span class="params">(@RequestParam(value=<span class="string">"files"</span>,required=<span class="keyword">false</span>)</span>MultipartFile[] files, CautionFeedBackEntity entity) </span>&#123;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			~~~处理~~~</div><div class="line">			<span class="keyword">return</span> <span class="keyword">new</span> HttpResponse&lt;CautionFeedBackEntity&gt;(ResponseStatusCode.C200);</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			Log.error(<span class="string">"错误飘过~~~~"</span>);</div><div class="line">			<span class="keyword">return</span> <span class="keyword">new</span> HttpResponse&lt;CautionFeedBackEntity&gt;(ResponseStatusCode.C400);</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>需要注意的是 <code>MultipartFile[]</code> 需要设置 <code>@RequestParam</code> 参数。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>html优化。</li>
+<li>脚本后期还需添加点击删除功能，并且还要更新input-file里的内容。</li>
+<li>js中处理图片的过程，还需做更多的控制（文件大小，伪文件）。</li>
+<li>使用fastDFS存储。</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> jQuery </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[这些只属于武汉的浪漫，看完幸福感爆棚]]></title>
+      <url>/wh-romance.html</url>
+      <content type="html"><![CDATA[<p>无意中看到个长图，感觉到身边的城市这边美，平时没什么时间去发现，倒是有点小小的遗憾吧，记下，有机会一定要转转/ y。<a id="more"></a></p>
+<p><img src="https://i.loli.net/2017/10/05/59d6030110f9e.jpg" alt="img"></p>
+<p>就是希望以后有个人能一起去我们想去的地方。。。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 分享 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+            <tag> 武汉 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[我想她，是那么的美好吧]]></title>
+      <url>/miss-you.html</url>
+      <content type="html"><![CDATA[<p>我想她，是那么的美好吧。<a id="more"></a></p>
+<p>这么多年还记得她，不是因为长相，她长相清秀，但是没那么出众，可能因为她别样清脆的声音，但我也不是声控，可能是因为别的，总之，还在意她。</p>
+<p>人就是这么奇怪，有时候遇到什么东西就容易出身，青春期的男生可能总是浮想翩翩，就是经常失神吧，我现在大概还是这个样子了，愣。</p>
+<p>跟她说过的话不多吧，见面了的时候我也不敢跟她打招呼，因为我很内向，而且还是个很慢热的人，平时话也非常少，我了解的人也不多，实在是一个再也普通不过的人了。</p>
+<p>但是在我眼中的她干净，就像不沾人间烟土的仙子。人很聪明，没什么心机，可以跟其他人玩的很合得来。</p>
+<p>我觉得她最大的特点就是明媚了，为什么会用这个词了，应该来源于她当时的网名。人烦恼的时候总是会仰望天空，但是天空中也有阴云。看到她的眼睛，感觉就是一直散发着光，是真的明媚，而且带着淡淡的忧伤。</p>
+<p>就这样，抓走了我的心。后来做了傻事，表白了她，想当初太年轻了，她很懂事，果断拒绝了我。我当时很颓废，回想当初不应该那样的，后来高考完后，她又加了我，不知道当时是什么自尊心在作祟，居然没想到去追回她，什么高考失利都是借口，自己大概当时有些失望，是想放弃的吧。</p>
+<p>后来上了大学应该简单联系了几句，但是没多说，我也忘了，曾经一度真的以为我忘了，但是qq还是一直存在我这里，特别关注，平时闲着没事就喜欢翻翻她的空间，但是也不想留下痕迹，简单看下她再干什么，她还是以前那个样子，每次看到，心中会有暖意吧。直到毕业工作来到了武汉这个城市，不尽然的又想去找她，但是她的心已经对你上了一把锁了，你该用什么去打开它了，没感情经历的我该拿什么去追回她了。</p>
+<p>回想当初，自己这个人真的是有点烂了，什么也没付出就像拿到什么，后来别人主动了，自己却放弃了，如果当初没能戳穿那段感情就好了，即使能远远的看着她，也是一件多么美好的事情啊。我想现在懂了，可能已经太晚了，自己已经不可能撩动她的心了，已经过了那个年纪了，这么长时间，早已经物是人非了，有可能，我这一辈子再也不能见到她了吧，但是只要还能想起她，看到她的消息，心中还是泛起了涟漪。反正现在人都这么烂了，只能用真心去等候吧。</p>
+<p>在最好的年纪遇到这么个人真的很美好！虽然没经历过什么刻骨铭心的事情，但我不会忘记的，谢谢她，让我想变成更好的人。</p>
+<p>愿她以后一直明媚，不再忧伤吧。</p>
+<p>真的很美好！都要加油了。</p>
+<p>没想到就写了这么点，也许真的还不够吧，这个博客暂时也没公开，就算是给自己的青春留点东西吧。</p>
+<hr>
+]]></content>
+      
+        <categories>
+            
+            <category> 碎碎念 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 心情 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[使用java将gps时转换为utc时间方法]]></title>
+      <url>/gps2utc.html</url>
+      <content type="html"><![CDATA[<h3 id="gps时间系统"><a href="#gps时间系统" class="headerlink" title="gps时间系统"></a>gps时间系统</h3><blockquote>
+<p><code>GPS时间系统</code>采用原子时AT1秒长作时间基准，秒长定义为铯原子CS133基态的两个超精细能级间跃迁辐射振荡9192631170周所持续的时间，时间起算的原点定义在1980年1月6日世界协调时UTC0时，启动后不跳秒，保证时间的连续。以后随着时间积累，GPS时与UTC时的整秒差以及秒以下的差异通过时间服务部门定期公布。<br>精密导航和测量的需要，GPS建立了专用的时间系统。该系统可简写为GPS由GPS主控站的原于钟控制，规定GPS与协调时的时刻于t980年1月6日o时相一致。其后随着时间的积累两者之间的差别将表现为秒的整倍数。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="gps周"><a href="#gps周" class="headerlink" title="gps周"></a>gps周</h4><blockquote>
+<p><code>GPS周</code>（GPS Week）是GPS系统内部所采用的时间系统。<br>时间零点定义的为：1980年1月5日夜晚与1980年1月6日凌晨之间0点。最大时间单位是周（一周：604800秒）。每1024周（即7168天）为一循环周期。第一个GPS周循环点为1999年8月22日0时0分0秒。即从这一刻起，周数重新从0开始算起。星期记数规则是：Sunday为0，Monday为1，以此类推，依次记作0~6，GPS周记数（GPS Week Number）为“GPS周 星期记数”。</p>
+</blockquote>
+<h3 id="使用java将gps时转换为utc时间方法"><a href="#使用java将gps时转换为utc时间方法" class="headerlink" title="使用java将gps时转换为utc时间方法"></a>使用java将gps时转换为utc时间方法</h3><p>看到了gps时间系统大概明白了 gps时由整周（7天）计数，与周内秒计数两部分组成。转换为utc时间可以从1980年1月6日0时,基本思路计算出总共的秒数，然后通过计算总秒数包含了多少整年，整年减掉后取余，计算年内多少整月，依次类推就可以计算出最后utc时刻的年月日时分秒.毫秒值了。</p>
+<p>转换过程中需要主要的年中的闰年处理，还有GPS时与utc时的闰秒问题，如果是转换为北京时间要求时区的问题需要考虑。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.util.mqtt;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Date;</div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line"><span class="comment">* <span class="doctag">@ClassName</span>: GPS2UTC </span></div><div class="line"><span class="comment">* <span class="doctag">@Description</span>: gps时间转成utc+8:00 北京时间</span></div><div class="line"><span class="comment">* <span class="doctag">@author</span> zhangkai </span></div><div class="line"><span class="comment">* <span class="doctag">@date</span> 2017年9月25日 下午3:08:07 </span></div><div class="line"><span class="comment">*  </span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GPS2UTC</span> </span>&#123;</div><div class="line"></div><div class="line">	 <span class="keyword">private</span> java.util.Date date;  </div><div class="line">	 <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] monthday = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>, <span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>&#125;;</div><div class="line">	 <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> TIME_DAY_MS = <span class="number">3600</span>*<span class="number">24</span>*<span class="number">1000</span>;</div><div class="line">	 </div><div class="line">	 </div><div class="line">	 <span class="comment">/*</span></div><div class="line"><span class="comment">	  * @week gps周</span></div><div class="line"><span class="comment">	  * @tow  gps周内秒（单位毫秒）</span></div><div class="line"><span class="comment">	  * @leaps 闰秒数</span></div><div class="line"><span class="comment">	  */</span></div><div class="line">	<span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">GPS2UTC</span><span class="params">(<span class="keyword">int</span> week, <span class="keyword">int</span> tow, <span class="keyword">int</span> leaps)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> totalday;</div><div class="line">		<span class="keyword">int</span> year = <span class="number">1980</span>;</div><div class="line">		<span class="keyword">int</span> month;</div><div class="line">		<span class="keyword">int</span> day;</div><div class="line"></div><div class="line">		totalday = week * <span class="number">7</span>;</div><div class="line">		totalday += <span class="number">5</span>;</div><div class="line"></div><div class="line">		<span class="comment">// 如果需要减去闰秒</span></div><div class="line">		<span class="keyword">if</span> (leaps != <span class="number">0</span> &amp;&amp; week &gt; <span class="number">0</span>) &#123;</div><div class="line">			<span class="keyword">if</span> (tow &lt; leaps * <span class="number">1000</span>) &#123;</div><div class="line">				totalday--;</div><div class="line">				tow = TIME_DAY_MS - leaps * <span class="number">1000</span> + tow;</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				tow = tow - leaps * <span class="number">1000</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">while</span> (totalday &gt;= <span class="number">366</span>) &#123;</div><div class="line">			totalday -= <span class="number">365</span>;</div><div class="line">			<span class="keyword">if</span> (isLeapYear(year)) &#123;</div><div class="line">				totalday -= <span class="number">1</span>;</div><div class="line">			&#125;</div><div class="line">			year++;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(isLeapYear(year)) &#123;</div><div class="line">			monthday[<span class="number">2</span>] = <span class="number">29</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> &#123;</div><div class="line">			monthday[<span class="number">2</span>] = <span class="number">28</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span> (month = <span class="number">1</span>; month &lt;= <span class="number">12</span>; month++) &#123;</div><div class="line">			<span class="keyword">if</span> (totalday &lt; monthday[month]) &#123;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">			totalday -= monthday[month];</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		day = totalday;</div><div class="line">		day++;</div><div class="line"></div><div class="line">		<span class="keyword">while</span> (tow &gt; TIME_DAY_MS) &#123;</div><div class="line">			tow -= TIME_DAY_MS;</div><div class="line">			day++;</div><div class="line">			<span class="keyword">if</span> (day &gt; monthday[month]) &#123;</div><div class="line">				day = <span class="number">1</span>;</div><div class="line">				month++;</div><div class="line">				<span class="keyword">if</span> (month &gt; <span class="number">12</span>) &#123;</div><div class="line">					month = <span class="number">1</span>;</div><div class="line">					year++;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		tow /= <span class="number">10</span>;</div><div class="line">		<span class="comment">//int msecond = tow % 100;</span></div><div class="line">		tow /= <span class="number">100</span>;</div><div class="line">		<span class="keyword">int</span> second = tow % <span class="number">60</span>;</div><div class="line">		tow /= <span class="number">60</span>;</div><div class="line">		<span class="keyword">int</span> minute = tow % <span class="number">60</span>;</div><div class="line">		<span class="keyword">int</span> hour = tow / <span class="number">60</span>;</div><div class="line">		<span class="comment">//转成Utc时候 北京时间UTC+8:00</span></div><div class="line">		year -= <span class="number">1900</span>;</div><div class="line">		month -= <span class="number">1</span>;</div><div class="line">		hour += <span class="number">8</span>;</div><div class="line">		date = <span class="keyword">new</span> Date(year, month,day,hour,minute,second);</div><div class="line">	 &#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 判断闰年</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> year</span></div><div class="line"><span class="comment">	 * <span class="doctag">@return</span></span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isLeapYear</span><span class="params">(<span class="keyword">int</span> year)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (((year % <span class="number">4</span> == <span class="number">0</span>) &amp;&amp; (year % <span class="number">100</span> != <span class="number">0</span>)) || (year % <span class="number">400</span> == <span class="number">0</span>)) </div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> Date <span class="title">getDate</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> date;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其实可以把时区参数放到函数中，<br>为什么要减去1900年，这要说到java中<code>new Date</code>这个方法的定义，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Deprecated</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Date</span><span class="params">(<span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> date, <span class="keyword">int</span> hrs, <span class="keyword">int</span> min, <span class="keyword">int</span> sec)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> y = year + <span class="number">1900</span>;</div><div class="line">        <span class="comment">// month is 0-based. So we have to normalize month to support Long.MAX_VALUE.</span></div><div class="line">        <span class="keyword">if</span> (month &gt;= <span class="number">12</span>) &#123;</div><div class="line">            y += month / <span class="number">12</span>;</div><div class="line">            month %= <span class="number">12</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (month &lt; <span class="number">0</span>) &#123;</div><div class="line">            y += CalendarUtils.floorDivide(month, <span class="number">12</span>);</div><div class="line">            month = CalendarUtils.mod(month, <span class="number">12</span>);</div><div class="line">        &#125;</div><div class="line">        BaseCalendar cal = getCalendarSystem(y);</div><div class="line">        cdate = (BaseCalendar.Date) cal.newCalendarDate(TimeZone.getDefaultRef());</div><div class="line">        cdate.setNormalizedDate(y, month + <span class="number">1</span>, date).setTimeOfDay(hrs, min, sec, <span class="number">0</span>);</div><div class="line">        getTimeImpl();</div><div class="line">        cdate = <span class="keyword">null</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>看出来年是按照1900基数来算的。</p>
+<p>通过上面的算法可以将gps时间转换成北京时间 </p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[WIN10家庭版安装Doby 4]]></title>
+      <url>/doby4-install.html</url>
+      <content type="html"><![CDATA[<p>笔记本电脑的音效确实好差劲啊，无聊还是准备安装了一个杜比装X，效果还是不错的，<code>家庭版</code>安装过程中，跟以前<code>专业版</code>有所不同。<a id="more"></a></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a rel="external nofollow" target="_blank" href="http://pan.baidu.com/s/1cdIQpo">http://pan.baidu.com/s/1cdIQpo</a></p>
+<p>密码 <code>k8sa</code></p>
+<p>下载好解压，</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li>进入解压的文件夹中直接执行安装程序<code>.exe文件</code>，记住不要修改软件的安装的路径，让软件自行解压到<code>C:\DRIVERS\WIN\DOLBY</code>，最后记住取消<code>勾勾</code>再点finish。我们会在C盘的安装目录里看到如下的文件:    <img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171003132434.png" alt="image"></li>
+<li>WIN10电脑有个蛋疼的驱动自动更新，它会自动下载和更新我们电脑上的相关驱动，我们需要取消这个功能，步骤：</li>
+</ul>
+<blockquote>
+<p>控制面板\所有控制面板项\系统\高级系统设置\硬件\设备安装设置<br>选择否<br>保存设置</p>
+</blockquote>
+<p>通过上面的设置，系统不会自动更新我们的驱动了，</p>
+<ul>
+<li>现在需要重启，注意不是一般的重启，我们需要禁用驱动程序强制签名，为什么会这样，我想应该是微软系统还没收录这类的驱动程序，（ps:以前玩腾讯游戏也是，WIN10已更新把腾讯驱动给屏蔽了，全挂了）<br>回归正题，按住<code>shirt键</code>，再去点击计算机<code>重启</code>按钮，进入<code>疑难解答</code>这一项，再点<code>启动设置</code>，电脑重启后，会让我们选择一个列表的东西，我们直接按键盘 <code>7键</code> 禁用驱动程序强制签名 的选项。</li>
+<li>然后，进入我们第一步安装问价的路径 <code>C:\DRIVERS\WIN\DOLBY</code> 64位系统进入 <code>X64</code>文件夹中运行安装 <code>DTCP</code><br><img src="http://ov62kaxkk.bkt.clouddn.com/6bba7eed2e738bd4cf4228eaa38b87d6267ff99d.jpg" alt="image"><br><img src="http://ov62kaxkk.bkt.clouddn.com/fbe31a738bd4b31cfa5f0e6085d6277f9f2ff89d%5B1%5D.jpg" alt="image"></li>
+</ul>
+<p>安装完成后，可以看到电脑右下角有杜比的图标，放音乐有频谱，表明杜比接管声卡驱动成功了。<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171003134123.png" alt="image"></p>
+<p>贴张音效图</p>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171003134455.png" alt="image"></p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><ol>
+<li>安装时候不需要卸载原来的声卡，安装时候不需要卸载原来的声卡，安装时候不需要卸载原来的声卡，重要的说三遍。</li>
+<li>WIN10家庭版相比专业版没有<code>策略组</code>，不能去设置设置安装限制，但是还是能正常安装，我想不需要设置  （禁止安装未由其他策略设置描述的设备设置），所以专业版也可以使用这个方式安装。</li>
+<li>台式电脑要注意了，杜比不支持前置声卡接口。</li>
+<li>有厂商制定的声卡或者软件，可能有一些兼容问题，我的HP笔记本就是静音没有键盘灯提示了。</li>
+<li>最后，渣渣笔记本的扬声器，随便淘宝买个50块以内的音响就完爆了，哈哈，提升硬件才是硬道理。</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> doby </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[请告诉女儿：嫁人就嫁心机男]]></title>
+      <url>/thinking-boy.html</url>
+      <content type="html"><![CDATA[<p>本来是昨天听FM听到这篇文章的，文章非常好，虽然自己也没感情经历，突然感觉自己这么是个直男好吓人啊😭，就算是一段认识吧，分享下这个文章，也不转载了，（哭。<br><a id="more"></a></p>
+<p>直接挂个链接吧。</p>
+<p><strong>文章作者：</strong> 国馆</p>
+<p><strong>原文链接：</strong> <a rel="external nofollow" target="_blank" href="https://www.douban.com/note/638049932/">https://www.douban.com/note/638049932/</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 分享 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 感情 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Travis CI 持续集成]]></title>
+      <url>/TravisCI.html</url>
+      <content type="html"><![CDATA[<h3 id="Travis-CI-持续集成"><a href="#Travis-CI-持续集成" class="headerlink" title="Travis CI 持续集成"></a>Travis CI 持续集成</h3><p>到这一步，你其实已经可以很简便的使用 <code>Hexo</code> 来写博客了，可人是一种永远不满足的动物。使用 Hexo 来写博客有一个问题就是，我只能在安装了 Hexo 的计算机上写东西，然后 hexo generate 再 hexo deploy 到托管服务器。如果我想在没有安装 Hexo 的电脑上写博客呢？如果我想随时随地修改，或者写一下博客呢？<br>当然一个简单办法就是把自己博客的源文件也托管到 Github，每次都把源文件 clone 下来，然后安装 Hexo，再构建发布就好了。可是这样做的话，始终不太优雅。那可以搞一个远程的服务器，把构建博客的事情交给服务器，每次要写博客的时候连接到服务器上去就行了。可既然我们把博客都托管到了 Github，为甚么博客的构建还需要服务呢？不行，这样还是不够优雅。如果有什么服务能够代替上述的那个服务器就好了，答案是确实有的——持续集成。<br><a id="more"></a></p>
+<h4 id="什么是持续集成"><a href="#什么是持续集成" class="headerlink" title="什么是持续集成"></a>什么是持续集成</h4><blockquote>
+<p><code>持续集成</code>（Continuous Integration）是一种软件开发实践。 在持续集成中，团队成员频繁集成他们的工作成果，一般每人每天至少集成一次，也可以多次。 每次集成会经过自动构建（包括自动测试）的检验，以尽快发现集成错误。</p>
+</blockquote>
+<h4 id="什么是-Travis-CI"><a href="#什么是-Travis-CI" class="headerlink" title="什么是 Travis CI"></a>什么是 Travis CI</h4><blockquote>
+<p><code>Travis CI</code> 是目前新兴的开源持续集成构建项目，它与 jenkins，GO 的很明显的特别在于采用 yaml 格式，同时它是在线的服务，不像 jenkins 需要你本地搭建服务器，简洁清新独树一帜。目前大多数的 Github 项目都已经移入到 Travis CI 的构建队列中，据说Travis CI 每天运行超过 4000 次完整构建。对于做开源项目或者 Github 的使用者，如果你的项目还没有加入 Travis CI 构建队列，那么我真的想对你说 OUT 了。</p>
+</blockquote>
+<h4 id="Travis-和-Hexo"><a href="#Travis-和-Hexo" class="headerlink" title="Travis 和 Hexo"></a>Travis 和 Hexo</h4><p>为什么我们要选择 Travis 呢，因为它和 Github 集成的程度非常高，对于 Github 上的开源项目，可以免费在 Travis 上构建（我们是不是该为免费的互联网精神干杯🍻），而非开源的私有项目想在 Travis 上构建价格还是非常感人的。<br>我先把在 Travis 上进行自动构建的思路说一下：<br><img src="http://7xin49.com1.z0.glb.clouddn.com/mac_qrsync/cbc37bcd05062212564fe2aaaee6631f.png-960.jpg" alt="Travis"></p>
+<ul>
+<li>我们在在 Github 的博客仓库里新建一个 <code>blog-source</code> 分支，然后把博客的源码托管到这个分支</li>
+<li>每当我们在本地写好了博文之后，把修改 <code>push</code> 到该分支</li>
+<li>Travis 上可以对这个项目的 <code>blog-source</code> 分支设置钩子，每当检测到 <code>push</code> 的时候就去仓库 <code>clone</code> 源代码</li>
+<li>Travis 执行构建脚本</li>
+<li>Travis 把构建结果通过 <code>push</code> 部署到 <code>master</code> 分支或者 Coding.net 的仓库里 </li>
+</ul>
+<p>在这样的自动化流程下，我们唯一需要做的事情就是 <code>push</code> 我们的博文到源代码分支，其他的事情交给 Travis，当然，这一流程是需要我们配置的。</p>
+<h4 id="配置-Travis"><a href="#配置-Travis" class="headerlink" title="配置 Travis"></a>配置 Travis</h4><h5 id="注册-Travis"><a href="#注册-Travis" class="headerlink" title="注册 Travis"></a>注册 Travis</h5><p>Travis CI 不需要单独注册，直接使用 GitHub 账号登录就可以了。<br>上<a rel="external nofollow" target="_blank" href="https://travis-ci.org/">官网</a> 会发现有 Sign in with GitHub（使用GitHUb登录）和 Sign Up（注册），其实这俩做的事情都一样，就是用 GitHub 账号登录。登录后界面会显示你的 GitHub Repository，默认全部全部没有勾选，选择你的博客的 Repository 后完成第一步，如图：<br><img src="http://7xin49.com1.z0.glb.clouddn.com/mac_qrsync/c5c4ae39bc22681ccf481119befbe363.png-960.jpg" alt="image"><br>如果你没有看到自己的项目，请点击右上角的 <code>Sync with Github</code>。</p>
+<h4 id="安装-Travis-CML"><a href="#安装-Travis-CML" class="headerlink" title="安装 Travis CML"></a>安装 Travis CML</h4><p>在进行下面的步骤之前，我们需要先安装 Travis 的 CML，因为后面的部署需要我们加密的自己的 SSH 私钥和 Github、Coding.net 通信。安装过程请看 <a rel="external nofollow" target="_blank" href="https://github.com/travis-ci/travis.rb#installation">Travis CML Installation</a>：<br>首先必须有 <a rel="external nofollow" target="_blank" href="http://www.ruby-lang.org/en/downloads/">Ruby 1.9.3</a> 以上，检查了版本之后，安装 Travis，检查版本即可： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ruby -v</div><div class="line">gem install travis -v 1.8.4 --no-rdoc --no-ri</div><div class="line">travis version</div></pre></td></tr></table></figure>
+<p>如上，如果出现 1.8.2 这样的版本信息，则说明 Travis CI Command Line Client 安装成功。之后进行登录，执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">travis login</div></pre></td></tr></table></figure></p>
+<p>按照提示登录就好了。  </p>
+<h4 id="配置-Travis-1"><a href="#配置-Travis-1" class="headerlink" title="配置 Travis"></a>配置 Travis</h4><p>在博客根目录下添加 Travis CI 所需要的配置文件 <code>.travis.yml</code>，配置文件内容和一些说明如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">language: node_js</div><div class="line">node_js: stable</div><div class="line"></div><div class="line"># assign build branches</div><div class="line">branches:</div><div class="line">  only:</div><div class="line">    - blog-source</div><div class="line"></div><div class="line"># cache this directory</div><div class="line">cache:</div><div class="line">  directories:</div><div class="line">    - node_modules</div><div class="line"></div><div class="line"># S: Build Lifecycle</div><div class="line">before_install:</div><div class="line">  - openssl aes-256-cbc -K $encrypted_a0b7f0848317_key -iv $encrypted_a0b7f0848317_iv -in ./.travis/id_rsa.enc -out ~/.ssh/id_rsa -d</div><div class="line">  - chmod 600 ~/.ssh/id_rsa</div><div class="line">  - eval $(ssh-agent)</div><div class="line">  - ssh-add ~/.ssh/id_rsa</div><div class="line">  - cp .travis/ssh_config ~/.ssh/config</div><div class="line">  - npm install -g hexo-cli # 安装 hexo</div><div class="line">  - git clone -b mod https://github.com/quentin-chen/hexo-theme-even.git themes/even</div><div class="line"></div><div class="line">install:</div><div class="line">  - npm install # 安装 package.json 中的插件</div><div class="line"></div><div class="line">script:</div><div class="line">  - hexo generate</div><div class="line"></div><div class="line">after_success:</div><div class="line">  - git config --global user.name &quot;Quentin_Chen&quot;</div><div class="line">  - git config --global user.email &quot;quentin.chen@foxmail.com&quot;</div><div class="line">  - sed -i&apos;&apos; &quot;/^ *repo/s~github\.com~$&#123;githubToken&#125;@github.com~&quot; _config.yml</div><div class="line">  - hexo deploy</div><div class="line"># E: Build LifeCycle</div></pre></td></tr></table></figure>
+<p>我逐步来讲解一下每一个配置项的意思。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">language: node_js</div><div class="line">node_js: stable</div><div class="line"></div><div class="line"># assign build branches</div><div class="line">branches:</div><div class="line">  only:</div><div class="line">    - blog-source</div><div class="line"></div><div class="line"># cache this directory</div><div class="line">cache:</div><div class="line">  directories:</div><div class="line">    - node_modules</div></pre></td></tr></table></figure></p>
+<p>这里指定了构建的环境是 Node.js，版本是当前稳定版本。设置的 <code>WebHook</code> 钩子只检测 <code>blog-source</code> 分支的 <code>push</code> 变动。另外我们把 <code>node_modules</code> 文件夹放入缓存，这样可以大大节约每次构建的时间（2min -&gt; 30s）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">before_install:</div><div class="line">  - openssl aes-256-cbc -K &lt;you_key&gt; -iv &lt;your_iv&gt; -in ./.travis/id_rsa.enc -out ~/.ssh/id_rsa -d</div><div class="line">  - chmod 600 ~/.ssh/id_rsa</div><div class="line">  - eval $(ssh-agent)</div><div class="line">  - ssh-add ~/.ssh/id_rsa</div><div class="line">  - cp .travis/ssh_config ~/.ssh/config</div><div class="line">  - npm install -g hexo-cli # 安装 hexo</div><div class="line">  - git clone &lt;theme_repo&gt; themes/&lt;theme&gt;</div></pre></td></tr></table></figure>
+<p>其实每次 Travis 构建的时候，相当于创建了一个干净的虚拟机，除了 Git 等必须的工具，甚至连 Node.js 的环境都是现安装的。所以我们在构建自己的博客之前，需要做一些环境的准备。<br>其中 2-6 行是用来配置 SSH 私钥的，这样才能让 Github 和 Coding.net 知道你的身份。这一部分我们后面再说。<br>第 7 行是在 Travis 中安装 Hexo 环境，第 8 行是安装主题。</p>
+<blockquote>
+<p>关于主题这里，如果你对自己的主题做了修改（包括配置文件），那么应该把自己修改过的主题托管到 Github，这里填的 <code>&lt;theme_repo&gt;</code> 应是你自己地址。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">install:</div><div class="line">  - npm install # 安装 package.json 中的插件</div><div class="line"></div><div class="line">script:</div><div class="line">  - hexo generate</div><div class="line"></div><div class="line">after_success:</div><div class="line">  - git config --global user.name &quot;&lt;You Name&gt;&quot;</div><div class="line">  - git config --global user.email &quot;&lt;email&gt;&quot;</div><div class="line">  - hexo deploy</div></pre></td></tr></table></figure>
+<p>这一部分，就是在 Travis 上模拟部署过程。因为要使用 Git，所以要提前配置好 Committer 的信息。<br>生成私钥加密文件 </p>
+<blockquote>
+<p>什么是私钥？<br>私钥就是密钥对（密钥对指一对公钥和私钥），我们在使用 Github 的时候，首先需要在 Github 上配置公钥，这是最基础的。那么，存在我们本地的私钥就是你的个人身份标示，如果你的项目 git 地址配置的是 git@github.com:username/projectname.git（相对的还有 <a href="https://github.com/username/projectname.git），" target="_blank" rel="external">https://github.com/username/projectname.git），</a> 当你在对 Repository 在一些操作（比如 push 等），则需要私钥进行身份验证了（这是自动验证的，如果是使用 https 的配置，则需要提供用户名和密码）。<br>我们在 Travis CI 上自动部署代码，就牵扯到了 push 操作，那么就需要提供私钥了。</p>
+<p>为什么生成私钥加密文件？</p>
+</blockquote>
+<p>将私钥直接放在项目里，那么人人都能看到。私钥的泄露将会发生一系列的问题，比如有坏人拿你的私钥直接操作你的 git 项目，你能干啥他也能干啥（原理上面讲了），这咋整？我们需要对私钥进行加密。<br>Travis 提供了加密文件的支持，什么意思呢？我们可以对文件（这里指私钥）在本地进行加密，然后把加密过后的文件放在项目里，那么别人就无法获取里面的真实内容。然后我们在让 Travis 执行脚本的时候，在读取加密文件之前对文件进行解密（使用的解密密码提前在 Travis 上配置好了），这样就可以达到不将文件内容暴露，并且让 Travis 获取到真实内容的目的了，大概的时序图如下：<br><img src="http://7xin49.com1.z0.glb.clouddn.com/mac_qrsync/8801dc034d298600bfc9b7124a0f42cd.png-960.jpg" alt="image"><br>开始吧，我们首先把自己的在博客的根目录下建立 .travis 文件夹来存放相关的资料：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir .travis &amp;&amp; <span class="built_in">cd</span> .travis</div></pre></td></tr></table></figure></p>
+<p>把本地的私钥复制一份过来，用 Travis 加密，然后删除（切记加密完了一定要删除原始密钥！！！）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cp ~/.ssh/id_rsa .</div><div class="line">travis encrypt-file id_rsa</div><div class="line">rm id_rsa</div></pre></td></tr></table></figure></p>
+<p>现在 ls 命令查看一下 <code>.travis</code> 目录应该只有 <code>id_rsa.enc</code> 这一个文件才对。然后我们再在当前目录下新建一个 <code>ssh_config</code> 用来配置 Travis 上的 SSH Client。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Host *</div><div class="line">  User git</div><div class="line">  StrictHostKeyChecking no</div><div class="line">  IdentityFile ~/.ssh/id_rsa</div><div class="line">  IdentitiesOnly yes</div></pre></td></tr></table></figure>
+<p>现在，我们在 Travis 网站，博客项目的设置（项目右上角）里可以看到两个用于解密私钥的环境变量：  <img src="http://7xin49.com1.z0.glb.clouddn.com/mac_qrsync/c180cfd5996f2b3c1d43f9017a11b7c9.png-960.jpg" alt="image"></p>
+<p>把这两个环境变量名复制到上面的 <code>.travis.yaml</code> 文件里替换相应部分：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">before_install:</div><div class="line">  - openssl aes-256-cbc -K &lt;you_key&gt; -iv &lt;your_iv&gt; -in ./.travis/id_rsa.enc -out ~/.ssh/id_rsa -d</div></pre></td></tr></table></figure></p>
+<p>这样，全部的配置就完成了。</p>
+<blockquote>
+<p>Tips： Github 还支持 Application Token 的方式来认证身份，比使用 SSH 私钥要更简便，但考虑到 Coding.net 并不支持，我还是选择普适的方法。有兴趣的同学可以自己研究一下，就当做课后作业吧:D。</p>
+</blockquote>
+<h4 id="完成工作流"><a href="#完成工作流" class="headerlink" title="完成工作流"></a>完成工作流</h4><p>在进行工作流之前我们来检查一下我们现在工作目录和所有必须的东西：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── .travis*</div><div class="line">│   ├── id_rsa.enc</div><div class="line">│   └── ssh_config</div><div class="line">├── _config.yml*</div><div class="line">├── db.json*</div><div class="line">├── node_modules</div><div class="line">├── package.json*</div><div class="line">├── scaffolds*</div><div class="line">├── <span class="built_in">source</span>*</div><div class="line">│   ├── CNAME*</div><div class="line">│   ├── _posts</div><div class="line">│   ├── about</div><div class="line">│   ├── categories</div><div class="line">│   ├── img</div><div class="line">│   ├── media</div><div class="line">│   └── tags</div><div class="line">└── themes</div></pre></td></tr></table></figure></p>
+<p>我用星号标记的文件和文件夹都是十分重要的，确保 Git 覆盖了这些文件和目录，然后我们把目录 <code>push</code> 到 <code>github/blog-source</code> 仓库分支。Travis WebHook 立马就会检测到 <code>push</code>，然后开始构建了：<br><img src="http://7xin49.com1.z0.glb.clouddn.com/mac_qrsync/e0f11bcfb411c5b73bdcac015ee87b3d.png-960.jpg" alt="image"></p>
+<p>上图是一次成功的构建，我们可以点开 <code>Job log</code> 看一下构建过程的 Log 文件，特别是构建没有成功的话，我们更要仔细阅读，找准问题，对症下药。<br>构建成功以后再去刷新你的网页，是不是已经是最新的了呢？</p>
+<p>以上是<strong>利用 <code>Travis</code> 实现全自动部署</strong></p>
+<p><strong>文章作者写的非常详细，我就完全复制转载过来了，非常感谢。</strong></p>
+<p><strong>原文作者: Kun Chen</strong></p>
+<p><strong>原文链接：<a rel="external nofollow" target="_blank" href="http://kchen.cc/2016/11/12/hexo-instructions/">http://kchen.cc/2016/11/12/hexo-instructions/</a> </strong></p>
+<p><strong>侵删</strong></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> Travis CI </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[随便写点]]></title>
+      <url>/to-self.html</url>
+      <content type="html"><![CDATA[<p>想起曾今为了买电脑，每天都要去看下评测，总是感觉那是个莫大的荣誉，可是现在，都不愿意摸电脑了，哈哈，朋友圈、空间这些东西不再玩了，牢骚也不再去分享了。感觉人都要变老了，没那么大精力去玩了。</p>
+<p>看看镜子里的自己，可能没感觉，还是这么的年轻，突然拿起以前刚入大学的照片，真是一个天上，一个地下，现在人也变黑了，感觉脸上的棱角也要抹平了。世界的一切都没有变，只是我变了，变老了，生命从来都不等人，朋友们现在都开始展示自己的高调生活了，手机、车子还有房子了，现在自己虽然说刚毕业，义务所有，一切还需要自己打拼。我也想成为了不起的人，但是你想成为的人，也会失去大把周围的美丽的风景。</p>
+<p>可能从小到大，我都是个很闷的人吧，可能还很小气，不想跟别人分享任何东西吧，却往往忽视了这个世界上关心我的人了。对的，不管什么什么时候，都不能忘记曾经对自己好的人，即使只是一餐饭，还是一声关心问候，甚至只是一句玩笑话。应该留点时间给老爸老妈了，他们的头发都开始白了。现在在武汉工作，尽可能的近一点，方便一点吧，多点时间回家吧。  </p>
+<p>我想，自己已经早已经过了那个年少的年纪了，不能再不顾后果的做一件事情，即使是自己多么喜爱，多么不想放弃的一件事，一个东西，还是一个人。<strong>最美好的时光，莫过于再一个人的年少，无知者无畏。“花有重开日，人无再少年。”</strong>   </p>
+<p>虽然想成熟了，但是自己也没经历过什么大事，心里还是那个满心忐忑的少年吧，嗯，其实我也没变什么，还是那么简单：去做自己喜欢做的事情，去爱自己想爱的人。</p>
+<p>年轻可能是现在我剩下最好的礼物可，不能浪费了，前面的时光我放弃了很多的东西，如今追回来虽然好难，但是我是不会轻易言弃的。不管在经历着什么，都要记得每一天，认认真真的，不要去放弃了。</p>
+<p>我这个人的圈子很小，没什么朋友，很闷，也很慢热，，遇到苦难了，想坚持，也想放弃，不想逗留。曾经也想改变性格，但是实在是很无力，反而让自己很难受，反正这是上天给予我的礼物，现在我的工作和生活也不必在乎这个性格的弊端，我已经接受了。</p>
+<p>说过<strong>生活要晶莹剔透柔软善良，想对待第一次自己喜欢的人儿一样去对待它。没有好坏，没有歧视，只用想去付出，然后得到。</strong></p>
+<p>我总是这么的心急，只要一切都来得及。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 碎碎念 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 心情 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[《苦橙》-- 歌词]]></title>
+      <url>/melangolo.html</url>
+      <content type="html"><![CDATA[<p>以前听的一首很美的歌，欣赏下歌词。<a id="more"></a></p>
+<blockquote class="blockquote-center"><h2 id="苦橙"><a href="#苦橙" class="headerlink" title="苦橙"></a>苦橙</h2><h5 id="林力尧"><a href="#林力尧" class="headerlink" title="林力尧"></a>林力尧</h5><p>越沉默 越用心包裹<br>忽略 越多难过 容易更乐活<br>可终究 郁结如核的感受<br>还是被自己品尝出浅薄<br>不甘被冷落<br>心甘情愿被你利用<br>榨尽真心<br>难怪换被丢弃的理由<br>其实我也知道我<br>并不算成熟<br>所以更渴望能有<br>风雨的承受<br>无奈连光都照不够<br>也没有人来收获<br>只能自己结果<br>和坠地的疼痛<br>其实我也知道我<br>是有些懦弱<br>表里不一的坚强<br>难道也有错<br>我只是不愿意<br>一直妥协昧心到腐朽<br>成色不足的苦橙<br>难道注定就<br>不如那些罐头<br>讨喜地被拥有</p>
+<p>越肺腑 越失心袒露<br>他们 都多事故 而我多冲动<br>学不会 深加工过的笑容<br>就留给他们<br>礼貌地对我<br>你也别内疚<br>反正我被笑过很多<br>卖相不好<br>又怎么能怪人不识货<br>其实我也知道我<br>并不算成熟<br>所以更渴望能有<br>风雨的承受<br>无奈连光都照不够<br>也没有人来收获<br>只能自己结果<br>和坠地的疼痛<br>其实我也知道我<br>是有些懦弱<br>表里不一的坚强<br>难道也有错<br>我只是不愿意<br>一直妥协昧心到腐朽<br>成色不足的苦橙<br>难道注定就<br>不如那些罐头<br>讨喜地被拥有<br>你别内疚<br>反正现在我已想通<br>卖相不好<br>也许才有真心等候</p>
+</blockquote>]]></content>
+      
+        <categories>
+            
+            <category> 那些很美的句子 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 歌词 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[《浮生》-- 歌词]]></title>
+      <url>/floating-life.html</url>
+      <content type="html"><![CDATA[<p>今天听到这首歌，第一次听到它，我感觉无穷的想念都涌出来了，说真的，我哭了。<a id="more"></a></p>
+<blockquote class="blockquote-center"><h2 id="浮生"><a href="#浮生" class="headerlink" title="浮生"></a>浮生</h2><h5 id="刘莱斯"><a href="#刘莱斯" class="headerlink" title="刘莱斯"></a>刘莱斯</h5><p>无人与我把酒分<br>无人告我夜已深<br>无人问我粥可暖<br>无人与我立黄昏<br>他真的很喜欢你 像风走了八千里<br>他真的很喜欢你 像阵雨下到了南极<br>他真的很想念你 像珊瑚沉在海底<br>他真的很喜欢你 不问归期不远万里<br>他真的很喜欢你 像盲人看一出哑剧<br>他真的很喜欢你 像第一首诗不尽人意<br>他真的很喜欢你 像太阳自转无论朝夕<br>他真的很喜欢你 千言万语乐此不疲</p>
+<p>他真的很喜欢你 像春雨下得淅淅沥沥<br>他真的很喜欢你 像夏日聒噪的蝉鸣<br>他真的很想念你 像秋叶落得悄无声息<br>他真的很喜欢你 想冬天的雪沁在心里<br>他真的很喜欢你 像狗本性难移<br>他真的很喜欢你 所以他可以一直没脸没皮<br>他真的很想念你 无时不刻不在想你<br>他真的很喜欢你 所以他把你捧在手心<br>他真的很喜欢你 所以固执地排比比喻<br>他真的很喜欢你 虽然他的感情实在细腻<br>他真的很想念你 真的无时不刻不再想你<br>他真的很喜欢你 不想浪费时间的一点一滴<br>他真的 很喜欢你<br>他真的 很喜欢你<br>他真的 很想念你<br>他真的 很喜欢你 很喜欢很喜欢你<br>有人与我把酒分<br>有人告我夜已深<br>有人问我粥可暖<br>有人与我立黄昏<br>有人待我诚且真<br>有人忧我细无声<br>有人知我冷与暖<br>有人伴我度余生</p>
+</blockquote>]]></content>
+      
+        <categories>
+            
+            <category> 那些很美的句子 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 歌词 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[不眠]]></title>
+      <url>/never-sleeping.html</url>
+      <content type="html"><![CDATA[<p>一直在想起你，<br>反反复复告诉自己不要打扰你了，<br>其实我总是这么的固执，<br>一次次骗自己，<br>但还是没能停下颤抖的手，<br>向你发送了一个憨笑的表情。  </p>
+<p>每次发送一条消息，<br>有时候要想半天，<br>怎么能去撩动你的心，<br>虽然大多数的时候没能得到回应，<br>但每次发完我得内心，<br>总是还是很期待的，<br>不知道这种感觉是从什么时候开始的，<br>是多年前的高中，<br>还是现在，  </p>
+<p>我想，<br>不期待太多的回应，<br>但愿一切安好吧，<br>我想，<br>我还是太懦弱了，<br>虽然想追回你，<br>照顾你，<br>但我真不知道该用什么来追回你，<br>可能我这个人真有点烂了，<br>没付出过什么，<br>也没做过什么刻骨铭心的事情，<br>只有等待，<br>等待就等于没有结果。</p>
+<p>一个又一个夜晚吧，<br>一次又一次的念，<br>我的生活就是这样的吧，<br>做自己想做的事，<br>买想买的东西，<br>去和喜欢的人聊聊天，<br>很快乐，<br>虽然很打扰，<br>但是抱歉，<br>我很自私。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 碎碎念 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 心情 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[gzip stdin not in gzip format的错误]]></title>
+      <url>/gzip-error.html</url>
+      <content type="html"><![CDATA[<p>出现这个错误，觉得很奇怪，网上全部都说是去掉文件后缀<code>.gz</code>，要不就是使用<code>-xvf</code>，不要加上参数<code>z</code>。但是这种方法不能解决我的错误。</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@localhost opt]<span class="comment">#  tar -xvf redis-3.2.4.tar.gz</span></div><div class="line"></div><div class="line">gzip: stdin: not <span class="keyword">in</span> gzip format</div><div class="line">tar: Child returned status 1</div><div class="line">tar: Error is not recoverable: exiting now</div><div class="line">[root@localhost opt]<span class="comment"># file redis-3.2.4.tar.gz </span></div><div class="line">redis-3.2.4.tar.gz: HTML document, UTF-8 Unicode text</div></pre></td></tr></table></figure>
+<p>语　　法：<code>file [-beLvz][-f &lt;名称文件&gt;][-m &lt;魔法数字文件&gt;...][文件或目录...]</code></p>
+<p><strong>可以看出来，我们下载下来的文件并不是我们想要的，弄了半天，它只是一个<code>html</code>页面，气死人是吧。</strong></p>
+<p>补充说明：通过file指令，我们得以辨识该文件的类型。</p>
+<p>参　　数：<br>　<code>-b</code> 　列出辨识结果时，不显示文件名称。<br>　<code>-c</code>　 详细显示指令执行过程，便于排错或分析程序执行的情形。<br>　<code>-f</code>     &lt;名称文件&gt; 　指定名称文件，其内容有一个或多个文件名称呢感，让file依序辨识这些文件，格式为每列一个文件名称。<br>　<code>-L</code> 　直接显示符号连接所指向的文件的类别。<br>　<code>-m</code>    &lt;魔法数字文件&gt; 　指定魔法数字文件。<br>　<code>-v</code> 　显示版本信息。<br>　<code>-z</code>　 尝试去解读压缩文件的内容。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[redies安装]]></title>
+      <url>/redis.html</url>
+      <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>直接去官网下载最新版的，前面使用<code>wget</code>下载半天下载下来的全是错误文件，浪费了大把时间，最重要的是浪费心情。<a id="more"></a></p>
+<p>Redis官网(redis.io)</p>
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost bin]<span class="comment"># tar xzf redis-4.0.2.tar.gz</span></div></pre></td></tr></table></figure>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>进入解压的文件中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> redis-4.0.2</div></pre></td></tr></table></figure>
+<p>编译<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line"><span class="built_in">cd</span> src</div><div class="line">make install PREFIX=/usr/<span class="built_in">local</span>/redis</div></pre></td></tr></table></figure></p>
+<h4 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h4><p>新建文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /usr/<span class="built_in">local</span>/redis/etc</div></pre></td></tr></table></figure></p>
+<p>移动config文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv ./redis.conf /usr/<span class="built_in">local</span>/redis/etc/</div></pre></td></tr></table></figure>
+<h3 id="启动Redis服务"><a href="#启动Redis服务" class="headerlink" title="启动Redis服务"></a>启动Redis服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/redis/bin/redis-server</div></pre></td></tr></table></figure>
+<p>前台运行中</p>
+<p>想要后台运行修改配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /usr/<span class="built_in">local</span>/redis/etc/redis.conf</div></pre></td></tr></table></figure></p>
+<p>将<code>daemonize</code>的值改为<code>yes</code></p>
+<p>后台运行命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　/usr/<span class="built_in">local</span>/redis/bin/redis-server /usr/<span class="built_in">local</span>/redis/etc/redis.conf</div></pre></td></tr></table></figure></p>
+<p>查看端口<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost bin]<span class="comment"># netstat -tunpl | grep 6379                    </span></div><div class="line">tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN      5769/./redis-server</div></pre></td></tr></table></figure></p>
+<p>启动成功。  </p>
+<p>客户端登陆<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost bin]<span class="comment"># /usr/local/redis/bin/redis-cli </span></div><div class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> foo bar</div><div class="line">OK</div><div class="line">127.0.0.1:6379&gt; get foo</div><div class="line"><span class="string">"bar"</span></div></pre></td></tr></table></figure></p>
+<p>关闭服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/redis/bin/redis-cli shutdown</div></pre></td></tr></table></figure></p>
+<p>redis开机自启  </p>
+<p><code>vim /etc/rc.local</code><br>底部添加<br>　<code>/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis-conf</code></p>
+<h3 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">redis-benchmark：redis性能测试工具</div><div class="line"></div><div class="line">　　redis-check-aof：检查aof日志的工具</div><div class="line"></div><div class="line">　　redis-check-dump：检查rdb日志的工具</div><div class="line"></div><div class="line">　　redis-cli：连接用的客户端</div><div class="line"></div><div class="line">　　redis-server：redis服务进程</div></pre></td></tr></table></figure>
+<h3 id="剩下就是配置"><a href="#剩下就是配置" class="headerlink" title="剩下就是配置"></a>剩下就是配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">daemonize：如需要在后台运行，把该项的值改为yes</div><div class="line"></div><div class="line">　　pdifile：把pid文件放在/var/run/redis.pid，可以配置到其他地址</div><div class="line"></div><div class="line">　　<span class="built_in">bind</span>：指定redis只接收来自该IP的请求，如果不设置，那么将处理所有请求，在生产环节中最好设置该项</div><div class="line"></div><div class="line">　　port：监听端口，默认为6379</div><div class="line"></div><div class="line">　　timeout：设置客户端连接时的超时时间，单位为秒</div><div class="line"></div><div class="line">　　loglevel：等级分为4级，debug，revbose，notice和warning。生产环境下一般开启notice</div><div class="line"></div><div class="line">　　logfile：配置<span class="built_in">log</span>文件地址，默认使用标准输出，即打印在命令行终端的端口上</div><div class="line"></div><div class="line">　　database：设置数据库的个数，默认使用的数据库是0</div><div class="line"></div><div class="line">　　save：设置redis进行数据库镜像的频率</div><div class="line"></div><div class="line">　　rdbcompression：在进行镜像备份时，是否进行压缩</div><div class="line"></div><div class="line">　　dbfilename：镜像备份文件的文件名</div><div class="line"></div><div class="line">　　dir：数据库镜像备份的文件放置的路径</div><div class="line"></div><div class="line">　　slaveof：设置该数据库为其他数据库的从数据库</div><div class="line"></div><div class="line">　　masterauth：当主数据库连接需要密码验证时，在这里设定</div><div class="line"></div><div class="line">　　requirepass：设置客户端连接后进行任何其他指定前需要使用的密码</div><div class="line"></div><div class="line">　　maxclients：限制同时连接的客户端数量</div><div class="line"></div><div class="line">　　maxmemory：设置redis能够使用的最大内存</div><div class="line"></div><div class="line">　　appendonly：开启appendonly模式后，redis会把每一次所接收到的写操作都追加到appendonly.aof文件中，当redis重新启动时，会从该文件恢复出之前的状态</div><div class="line"></div><div class="line">　　appendfsync：设置appendonly.aof文件进行同步的频率</div><div class="line"></div><div class="line">　　vm_enabled：是否开启虚拟内存支持</div><div class="line"></div><div class="line">　　vm_swap_file：设置虚拟内存的交换文件的路径</div><div class="line"></div><div class="line">　　vm_max_momery：设置开启虚拟内存后，redis将使用的最大物理内存的大小，默认为0</div><div class="line"></div><div class="line">　　vm_page_size：设置虚拟内存页的大小</div><div class="line"></div><div class="line">　　vm_pages：设置交换文件的总的page数量</div><div class="line"></div><div class="line">　　vm_max_thrrads：设置vm IO同时使用的线程数量</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> redis </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于SEO]]></title>
+      <url>/seo.html</url>
+      <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p><code>SEO</code>是由英文<code>Search Engine Optimization</code>缩写而来， 中文意译为“搜索引擎优化”！SEO是指通过对网站进行站内优化和修复(网站Web结构调整、网站内容建设、网站代码优化和编码等)和站外优化，从而提高网站的网站关键词排名以及公司产品的曝光度。通过搜索引擎查找信息是当今网民们寻找网上信息和资源的主要手段。(来自百度百科)</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="关于谷歌站长平台Google-Search-Console"><a href="#关于谷歌站长平台Google-Search-Console" class="headerlink" title="关于谷歌站长平台Google Search Console"></a>关于谷歌站长平台Google Search Console</h3><p>在国内使用谷歌大家都懂的，这里就说下谷歌收录我们的网站</p>
+<p>登陆谷歌站长平台，验证我们的网站的所有权，推荐使用html验证，方便。</p>
+<p>然后提交我们的sitemap.xml站点地图，谷歌爬虫就会自动去抓取我们的网站了。</p>
+<p>网站提交到谷歌大约一到两天就会被收录，速度是相当快的。</p>
+<h3 id="关于百度站长平台"><a href="#关于百度站长平台" class="headerlink" title="关于百度站长平台"></a>关于百度站长平台</h3><p>在国内的网站，离开了百度，就可以回去玩泥巴了。</p>
+<p>所以，在国内的网站优先做好百度这边的相关优化，相对于谷歌，百度这边的东西稍微复杂点，需要花点时间研究下。</p>
+<h4 id="链接提交"><a href="#链接提交" class="headerlink" title="链接提交"></a>链接提交</h4><p>百度上分为两种链接提交方式，当然你可以都是用，或者使用其中一种。<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170924215007.png" alt="image"></p>
+<h5 id="自动提交"><a href="#自动提交" class="headerlink" title="自动提交"></a>自动提交</h5><p>自动提交又分三种方式，一样的你也可以都使用。</p>
+<h6 id="主动推送"><a href="#主动推送" class="headerlink" title="主动推送"></a>主动推送</h6><p><img src="http://ov62kaxkk.bkt.clouddn.com/3333.png" alt="image"><br>调用百度给我们生成的接口，在我们推送网页到服务器的时候，可以自动提交我们的网站到百度站长平台。（推荐）</p>
+<h6 id="自动推送"><a href="#自动推送" class="headerlink" title="自动推送"></a>自动推送</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> bp = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">    <span class="keyword">var</span> curProtocol = <span class="built_in">window</span>.location.protocol.split(<span class="string">':'</span>)[<span class="number">0</span>];</div><div class="line">    <span class="keyword">if</span> (curProtocol === <span class="string">'https'</span>) &#123;</div><div class="line">        bp.src = <span class="string">'https://zz.bdstatic.com/linksubmit/push.js'</span>;        </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        bp.src = <span class="string">'http://push.zhanzhang.baidu.com/push.js'</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> s = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"script"</span>)[<span class="number">0</span>];</div><div class="line">    s.parentNode.insertBefore(bp, s);</div><div class="line">&#125;)();</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<p>在我们需要推送的网页上加上这个js脚本，每次打开这个网页，都会自动将网页推送给百度。</p>
+<h6 id="sitemap"><a href="#sitemap" class="headerlink" title="sitemap"></a>sitemap</h6><p>提交我们的sitemap.xml，百度爬虫可以自动抓取我们的网站。</p>
+<h5 id="手动提交"><a href="#手动提交" class="headerlink" title="手动提交"></a>手动提交</h5><p>故名思意，把我们的网页都填上去，手动提交。相对上面的自动提交，就显得比较麻烦。</p>
+<h4 id="robots"><a href="#robots" class="headerlink" title="robots"></a>robots</h4><p>百度上的说明：</p>
+<blockquote>
+<p>使用说明<br>1、robots.txt可以告诉百度您网站的哪些页面可以被抓取，哪些页面不可以被抓取。<br>2、您可以通过Robots工具来创建、校验、更新您的robots.txt文件，或查看您网站robots.txt文件在百度生效的情况。<br>3、Robots工具目前支持48k的文件内容检测，请保证您的robots.txt文件不要过大，目录最长不超过250个字符。 </p>
+</blockquote>
+<p>很容易理解，不知道怎么生成，可以去网站百度robots有自动生成的站长工具。</p>
+<h3 id="优化网站"><a href="#优化网站" class="headerlink" title="优化网站"></a>优化网站</h3><p>按道理说目录结构越简单，爬虫越容易抓取。</p>
+<p>网页尾缀改成.html</p>
+<p>国内网站不要挂在Github Page上面，百度爬虫抓取不到。</p>
+<p>给非友情链接的出站链接添加 “nofollow” 标签，<br>爬虫会从你网站跑出去，再也回不来了，加上这个标签，爬虫不回去爬取这个链接，便签避免不必要的PR输出。</p>
+<p>网站关键字keywords</p>
+<p>网站简介 description</p>
+<p>网站 title</p>
+<blockquote>
+<p>关键字出现在title标题里是有利于seo优化的，前提是你的目标关键词已经确定好。如果确定好的话，尽可能让它们在title标题尽量靠前，同时标题总字数注意控制在80个字符以内，切勿堆砌关键字。title的标点符号：关键词分割符号英文半角逗号，_ | ;品牌与关键词分割符号 -</p>
+</blockquote>
+<p>周末了，休息了。这个国庆要加班，难受。。。</p>
+<p>update20171002</p>
+<p>哈哈 <code>今日头条销售威胁</code> 这个新闻看了下，</p>
+<blockquote>
+<p>9月30日消息，近日某锁具商家老板表示，遭到今日头条销售威胁，如果继续在百度投放广告，而不在今日头条投放广告，将让自己团队的人一起点击直到商家百度余额为负。<br>据该商家老板的录音，近日，他接到今日头条销售电话，“你们百度这边还有多少余额啊？我看看要不要再点一下。你这边真的不考虑一下其他平台吗？”<br>在老板表示不考虑其他平台后，该销售称刚才已经让团队每个人都点一下了，大概一千个人吧，可能让该商家百度的余额等一会是负的。“所以说没事呀，不是挺好的嘛，你做（百度）嘛！你做！我们点嘛！做，一直做得你做到什么时候我们点到什么时候。”<br>随后，在威胁商家后，该销售向推荐今日头条，不过并未多加介绍，直接向商家表示，现在把微信加一下，把我的账号发给你，然后你打一下款就好了。</p>
+</blockquote>
+<p>如果在以前，对这个事件可能感觉到不可思议，但是，目前，<code>百度凤巢</code> 推广后，导致这个国内互联网竞价有点变化，以前都是看谁出的钱多，谁往上，现在还要看质量，网页排版，体验有很大影响。所以现在要竞价更高，而且还是在背后计算，才能出结果。</p>
+<p>据说莆田系医院的广告，点一次，需要付1000以上，可怕，大家为了<code>正义</code>keyi 多点点，当然每天每个IP只生效一次，就是那种带金色V的。<br><img src="https://i.loli.net/2017/10/09/59db8508b75aa.png" alt="img"></p>
+<p>update20171009</p>
+<p>关于博客长时间没更新后，导致收录量降低的问题</p>
+<p>总结就是博客质量不行咯，扎心了/。<br>当然坚持更新下，估计还是会回来的，真是心累，百度这种算法要累死人。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> SEO </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[高四位，低四位]]></title>
+      <url>/byte.html</url>
+      <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>今天做业务的时候，遇到个问题，做协议的消息处理中，有个档位类型，分<code>高四位</code>是一种档位，<code>低四位</code>是例外的一种档位，当时看到需求一阵懵，百度了下，才了解了下，才清楚。<br><a id="more"></a></p>
+<p>其实这个就是4个位加上四个位，刚好一个字节，就是一个byte，例如<code>00011000</code>，我们需要把它拆开。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"><span class="comment">* <span class="doctag">@ClassName</span>: GearsType </span></div><div class="line"><span class="comment">* <span class="doctag">@Description</span>: 档位类型 </span></div><div class="line"><span class="comment">* <span class="doctag">@author</span> zhangkai </span></div><div class="line"><span class="comment">* <span class="doctag">@date</span> 2017年9月23日 下午2:16:23 </span></div><div class="line"><span class="comment">*  </span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="keyword">enum</span> GearsType &#123;</div><div class="line">	<span class="comment">//空挡</span></div><div class="line">	G00((<span class="keyword">byte</span>)<span class="number">0</span>, <span class="string">"空档"</span>, <span class="keyword">true</span>),</div><div class="line">	<span class="comment">//高4位档</span></div><div class="line">	G01((<span class="keyword">byte</span>)<span class="number">1</span>, <span class="string">"倒车档"</span>, <span class="keyword">true</span>), G02((<span class="keyword">byte</span>)<span class="number">2</span>, <span class="string">"低速档"</span>, <span class="keyword">true</span>), G03((<span class="keyword">byte</span>)<span class="number">4</span>, <span class="string">"中速档"</span>, <span class="keyword">true</span>), G04((<span class="keyword">byte</span>)<span class="number">8</span>, <span class="string">"高速挡"</span>, <span class="keyword">true</span>), </div><div class="line">	<span class="comment">//低4位档</span></div><div class="line">	G05((<span class="keyword">byte</span>)<span class="number">1</span>, <span class="string">"1档"</span>, <span class="keyword">false</span>), G06((<span class="keyword">byte</span>)<span class="number">2</span>, <span class="string">"2档"</span>, <span class="keyword">false</span>), G07((<span class="keyword">byte</span>)<span class="number">4</span>, <span class="string">"3档"</span>, <span class="keyword">false</span>), G08((<span class="keyword">byte</span>)<span class="number">8</span>, <span class="string">"4档"</span>, <span class="keyword">false</span>);</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> Byte name;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> String value;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> Boolean flag;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> name</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> value</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> flag</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">GearsType</span><span class="params">(Byte name, String value, Boolean flag)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">		<span class="keyword">this</span>.value = value;</div><div class="line">		<span class="keyword">this</span>.flag = flag;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 获取档位</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> string</span></div><div class="line"><span class="comment">	 * <span class="doctag">@return</span></span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getValue</span><span class="params">(String string)</span> </span>&#123;</div><div class="line">		Byte index = Byte.parseByte(string);</div><div class="line">		<span class="keyword">if</span> (index == G00.name) &#123;</div><div class="line">			<span class="keyword">return</span> G00.value;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">byte</span> high = (<span class="keyword">byte</span>) ((index &amp; <span class="number">0xf0</span>) &gt;&gt; <span class="number">4</span>);<span class="comment">// 高四位</span></div><div class="line">		<span class="keyword">byte</span> low = (<span class="keyword">byte</span>) (index &amp; <span class="number">0x0f</span>);<span class="comment">// 低四位</span></div><div class="line">		String highResult = <span class="keyword">null</span>;</div><div class="line">		String lowResult = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">for</span> (GearsType g : GearsType.values()) &#123;</div><div class="line">			<span class="comment">// 高四位</span></div><div class="line">			<span class="keyword">if</span> (g.flag &amp;&amp; g.name == high &amp;&amp; highResult == <span class="keyword">null</span>) &#123;</div><div class="line">				highResult = g.value;</div><div class="line">				<span class="comment">// 低四位</span></div><div class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (!g.flag &amp;&amp; g.name == low &amp;&amp; lowResult == <span class="keyword">null</span>) &#123;</div><div class="line">				lowResult = g.value;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> highResult == <span class="keyword">null</span> || lowResult == <span class="keyword">null</span> ? <span class="keyword">null</span> : highResult + <span class="string">"/"</span> + lowResult;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h3><p><code>0xf0</code> 是 8位 ：<code>1111 0000</code><br>使用位与操作符<code>&amp;</code>，再将它右移4位，就可以得到高四位了，同理可以得到低四位。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[20170917]]></title>
       <url>/20170917.html</url>
       <content type="html"><![CDATA[<p>今天是周日，作为个程序员，就不要在这个好日子出去浪了，安心，最该就是要注意养好身体，哈哈，因为上班确实有点累。</p>
@@ -318,7 +950,7 @@
 <p><strong>最好的爱情，并不是终日互相对视，而是共同眺望远方，相伴而行。他们眺望着的，始终是同一个方向。</strong> </p>
 </blockquote>
 <a id="more"></a> 
-<p><a href="http://weibo.com/ttarticle/p/show?id=2309404145816167164260" target="_blank" rel="external">李开复：我的爱情故事</a></p>
+<p><a rel="external nofollow" target="_blank" href="http://weibo.com/ttarticle/p/show?id=2309404145816167164260">李开复：我的爱情故事</a></p>
 ]]></content>
       
         <categories>
@@ -883,21 +1515,100 @@
     </entry>
     
     <entry>
-      <title><![CDATA[测试]]></title>
-      <url>/test.html</url>
-      <content type="html"><![CDATA[<p>来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉<br><a id="more"></a></p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="测试1"><a href="#测试1" class="headerlink" title="测试1"></a>测试1</h3>]]></content>
+      <title><![CDATA[如何通过Maven的Jetty插件运行Web工程]]></title>
+      <url>/maven-jetty.html</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><code>Jetty</code> 是一个开源的servlet容器，它为基于Java的web容器，例如JSP和servlet提供运行环境。Jetty是使用Java语言编写的，它的API以一组JAR包的形式发布。开发人员可以将Jetty容器实例化成一个对象，可以迅速为一些独立运行（stand-alone）的Java应用提供网络和web连接。</p>
+</blockquote>
+<a id="more"></a>
+<p>在pom.xml文件的<build></build>标签中加入如下配置：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jetty-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.4.v20170414<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scanIntervalSeconds</span>&gt;</span>5<span class="tag">&lt;/<span class="name">scanIntervalSeconds</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">webApp</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">contextPath</span>&gt;</span>/<span class="tag">&lt;/<span class="name">contextPath</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">webApp</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">connectors</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">connector</span> <span class="attr">implementation</span>=<span class="string">"org.eclipse.jetty.server.nio.SelectChannelConnector"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">port</span>&gt;</span>80<span class="tag">&lt;/<span class="name">port</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">connector</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">connectors</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>参数配置：</p>
+<ol>
+<li><code>configuration.scanIntervalSeconds</code> 配置表示新代码的扫描时间间隔（秒），值 <code>&lt;= 0</code> 表示不扫描。这里利用的是jetty 的定时重载代码的特性，做修改后不用重新启动项目，自动扫描出改动后会自动更新class文件的。</li>
+<li><code>configuration.webApp.contextPath</code> 配置表示工程的虚拟目录名，如果配置为/，则届时访问路径为hostname:port/，如果配置为/jetty，则届时访问路径为hostname:port/jetty，有点相当于namespace的作用。</li>
+</ol>
+<p>用Maven Build启动，需在Goals栏中配置如下：<br> <code>jetty:run</code> 或者指定端口 <code>jetty:run -Djetty.port=80</code></p>
+<p>直接在项目根目录下在命令行中用maven命令启动: <code>mvn jetty:run -Djetty.port=80</code></p>
+<p>需要注意的是<strong>pom.xml文件中指定的端口优先级要比Goals中指定的端口的优先级要高</strong></p>
+]]></content>
       
         <categories>
             
-            <category> 测试 </category>
+            <category> 学习笔记 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 测试下 </tag>
+            <tag> maven </tag>
+            
+            <tag> jetty </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[如何通过Maven的Tomcat插件运行Web工程]]></title>
+      <url>/maven-tomcat.html</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><code>Tomcat</code> 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。对于一个初学者来说，可以这样认为，当在一台机器上配置好Apache 服务器，可利用它响应HTML（标准通用标记语言下的一个应用）页面的访问请求。实际上Tomcat是Apache 服务器的扩展，但运行时它是独立运行的，所以当你运行tomcat 时，它实际上作为一个与Apache 独立的进程单独运行的。</p>
+</blockquote>
+<p><img src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike60%2C5%2C5%2C60%2C20/sign=bf6d81464f90f60310bd9415587bd87e/b3b7d0a20cf431adfe004e4e4e36acaf2fdd98f2.jpg" alt="img"><br><a id="more"></a></p>
+<p><code>maven</code>项目如何使用<code>Tomcat</code>插件运行项目，需要注意的是几个参数的设置，就可以灵活使用了。</p>
+<ul>
+<li>maven version - 3.3.9</li>
+<li><p><code>pom.xml</code>的 <code>build -&gt; plugins</code> 标签下加上:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">         <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">path</span>&gt;</span>/<span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">charset</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">charset</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">port</span>&gt;</span>80<span class="tag">&lt;/<span class="name">port</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">uriEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">uriEncoding</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>最后是这样的：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">					<span class="comment">&lt;!-- 设置项目jdk --&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">source</span>&gt;</span>$&#123;java-version&#125;<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">target</span>&gt;</span>$&#123;java-version&#125;<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">					<span class="comment">&lt;!-- true:跳过测试 --&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">skip</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skip</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-resources-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">				    <span class="comment">&lt;!-- 访问应用的路径 '/xxx' 就是使用 http://[hosthome]:[port]/xxx --&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">path</span>&gt;</span>/<span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">charset</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">charset</span>&gt;</span></div><div class="line">					<span class="comment">&lt;!-- 配置端口号 --&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">port</span>&gt;</span>80<span class="tag">&lt;/<span class="name">port</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">uriEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">uriEncoding</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>总结:</p>
+<ol>
+<li>maven build 启动方式 <code>tomcat7:run</code></li>
+<li><code>maven-compiler-plugin</code> 插件能解决 <strong> Dynamic Web Module 3.0 requires Java 1.6 or newer</strong> update maven 项目后的java版本不对的问题。</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> maven </tag>
+            
+            <tag> tomcat </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于博客改动]]></title>
+      <url>/version.html</url>
+      <content type="html"><![CDATA[<p>来到这个世界，被筛选，被挑剔，被赋予使命。我们被杀死，中途夭折，轻易放弃，多次失败，多次重头再来。变成暴躁的炸弹，变成美丽的花，我们恶心难堪，又美丽动人，充满希望，却又满是不堪。你用悲伤去看，这是一个充满死亡的地方。你用努力去看，这里充满了永不停歇的希望，人们都带着笑。诸君共勉<br><a id="more"></a></p>
+<h4 id="关于改动"><a href="#关于改动" class="headerlink" title="关于改动"></a>关于改动</h4><p>于20170902将改成.com域名wuwii</p>
+<p>update20171009以前这个用这个页面测试和调整一些样式，现在把它调整下，记录博客相关的设置改动。</p>
+<p>博客图床使用的是<code>七牛云</code>，每月免费10G流量。我外链音乐也是放上面的，当然什么Js，css也可以使用它的CDN加速。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hexo </tag>
             
         </tags>
         
@@ -906,15 +1617,15 @@
     <entry>
       <title><![CDATA[Hello World]]></title>
       <url>/hello-world.html</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+      <content type="html"><![CDATA[<p>Welcome to <a rel="external nofollow" target="_blank" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a rel="external nofollow" target="_blank" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a rel="external nofollow" target="_blank" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a rel="external nofollow" target="_blank" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<p>More info: <a rel="external nofollow" target="_blank" href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<p>More info: <a rel="external nofollow" target="_blank" href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<p>More info: <a rel="external nofollow" target="_blank" href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p>More info: <a rel="external nofollow" target="_blank" href="https://hexo.io/docs/deployment.html">Deployment</a></p>
 ]]></content>
       
         <categories>
