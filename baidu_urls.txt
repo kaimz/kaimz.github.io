@@ -1,3 +1,4 @@
+http://blog.wuwii.com/maven-scope.html
 http://blog.wuwii.com/20171015.html
 http://blog.wuwii.com/junitgenerator.html
 http://blog.wuwii.com/install-skip-test.html
