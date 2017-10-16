@@ -1,3 +1,7 @@
+http://blog.wuwii.com/20171015.html
+http://blog.wuwii.com/junitgenerator.html
+http://blog.wuwii.com/install-skip-test.html
+http://blog.wuwii.com/really-love.html
 http://blog.wuwii.com/catch-jedis.html
 http://blog.wuwii.com/youdao-note.html
 http://blog.wuwii.com/tomcat-error01.html

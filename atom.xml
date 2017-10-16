@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-10-13T08:06:30.219Z</updated>
+  <updated>2017-10-16T00:44:51.482Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -16,15 +16,178 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20171015</title>
+    <link href="http://blog.wuwii.com/20171015.html"/>
+    <id>http://blog.wuwii.com/20171015.html</id>
+    <published>2017-10-15T13:43:03.000Z</published>
+    <updated>2017-10-16T00:44:51.482Z</updated>
+    
+    <content type="html"><![CDATA[<p>每次看到你发的那些难过的句子，</p>
+<p>我也感觉心快要化了，</p>
+<p>你曾经说过，</p>
+<p>不谈恋爱了就不会有烦恼了，</p>
+<p>那现在我真的不希望你谈恋爱了，<br>幸福真是个大鬼头，<br>我从没有拥有过，<br>也都对它失望了。</p>
+<p>姑娘，你一定要好好照顾自己，</p>
+<p>我在想好的女生都是被这样被逼的不想谈恋爱了吗，</p>
+<p>在这段时间里，曾经天真活泼的你，瞬间就变得忧郁，有脾气了， 可能很多人认为你变了，不认识了吧。</p>
+<p>虽然了解的你不多，但是我想你根本没变吧，只是善于伪装吧，伪装得太好，让别人看不出伤疤，看不到疼痛。</p>
+<p>姑娘，真的没必要不要这样了，你说 心比长相好，懂比爱重要。我想一个对的人最起码不会让身边得人这么的难受，我想我虽然一直抱有幻想，但我可能也不是你生命中那个对的人，因为，我也伤害过你，现在留下的只有伤口和已经上锁的心。你这么优秀，没有什么错过的青春，错过的爱情，只是没遇到对的，总有一天，你可以等到那个对的人，宠着你的人，不让你难过的人，愿生活有诗，有梦，有远方，还有一个懂你、爱你的可心人。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;每次看到你发的那些难过的句子，&lt;/p&gt;
+&lt;p&gt;我也感觉心快要化了，&lt;/p&gt;
+&lt;p&gt;你曾经说过，&lt;/p&gt;
+&lt;p&gt;不谈恋爱了就不会有烦恼了，&lt;/p&gt;
+&lt;p&gt;那现在我真的不希望你谈恋爱了，&lt;br&gt;幸福真是个大鬼头，&lt;br&gt;我从没有拥有过，&lt;br&gt;也都对它失望了。&lt;/p&gt;
+&lt;p&gt;姑
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+    <link href="http://blog.wuwii.com/junitgenerator.html"/>
+    <id>http://blog.wuwii.com/junitgenerator.html</id>
+    <published>2017-10-15T11:19:03.000Z</published>
+    <updated>2017-10-16T00:44:51.451Z</updated>
+    
+    <content type="html"><![CDATA[<p>单元测试平时开发的时候是大有打交道了，使用Intellij后，发现有这个自动生成Junit 4 单元测试代码的插件，就是要说的 <code>JUnitGenerator</code>。<a id="more"></a></p>
+<h4 id="安装工具"><a href="#安装工具" class="headerlink" title="安装工具"></a>安装工具</h4><p>首先我的Intellij 版本是201702</p>
+<p>settings -&gt; 搜索 JUnitGenerator 下载V2.0版本，安装插件，重启Intellij</p>
+<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><p>安装完插件，我们就可以进行自动生成单元测试代码了。<br>在要测试的类的页面，使用快捷键 <code>Alt + Insert</code> ，安装了JUnitGenerator 插件就会出现这个<code>JUnit Test</code> 选项，我们选择<code>Junit 4</code></p>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015170801.png" alt="image"></p>
+<p>这个时候虽然能生成测试代码，但是你会发现，它生成的位置不是我们需要的，没有生成到<code>test source</code> 文件夹下，所以需要设置下它的生成目录，</p>
+<p>打开首先我的Intellij的 settings -&gt; Other Settings -&gt; 选第一个。<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015171518.png" alt="image"><br>其中 Output Path 是设置我们自动生成的测试文件的位置，需要重新设置下到<br><code>${SOURCEPATH}/../../test/java/${PACKAGE}/${FILENAME}</code></p>
+<p>然后就是最后的日期格式乱码，点开JUnit 4 选项卡，将<code>date</code> 改成 <code>today</code>，里面是模板，可以根据自己的需求自己改，毕竟，测试代码的命名就没那么严格了。</p>
+<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p>我们使用的是Junit 4 的，肯定得先引入Junit 的依赖包，在pom.xml中加入它得依赖：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	 <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>不然生成出来的代码会报错的，找不到Jar包。。</p>
+<p>改了上面的，应该就没什么问题。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;单元测试平时开发的时候是大有打交道了，使用Intellij后，发现有这个自动生成Junit 4 单元测试代码的插件，就是要说的 &lt;code&gt;JUnitGenerator&lt;/code&gt;。
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Intellij" scheme="http://blog.wuwii.com/tags/Intellij/"/>
+    
+      <category term="JUnitGenerator" scheme="http://blog.wuwii.com/tags/JUnitGenerator/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+    <link href="http://blog.wuwii.com/install-skip-test.html"/>
+    <id>http://blog.wuwii.com/install-skip-test.html</id>
+    <published>2017-10-15T07:40:03.000Z</published>
+    <updated>2017-10-16T00:44:51.451Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用<code>Eclipse</code> 的maven 打包部署项目，以前都是直接直接勾选 <code>Skip Tests</code> <a id="more"></a></p>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015152112.png" alt="image"></p>
+<p><del>使用好像 Intellij 没有这个选项</del>，只能使用maven 的命令 来进行这个操作，可以在项目的根目录直接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn install -DskipTests</div></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn install -Dmaven.test.skip=true</div></pre></td></tr></table></figure></p>
+<p>或者直接在 Intellij 中Install 的时候 带上参数，点开 Intellij中右侧 的 MAVEN PROJECT -&gt; Lifecycle -&gt; install -&gt;右键选择 Create… -&gt; 在 install 后面加上参数 <code>-DskipTests</code></p>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015153116.png" alt="image"></p>
+<p>再去执行</p>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015153608.png" alt="image"></p>
+<p>SUCCESS!再去看看项目，单元测试代码没有打包。</p>
+<hr>
+<p>更新，发现了Intellij，有 Skip Tests 选项<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171015155149.png" alt="image"></p>
+<hr>
+<p>上面的小选项卡里的功能以前并没有注意到，仔细看了看，主要的还是跟Eclipse maven相似，只是源码可以自动下载，更强大了。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用&lt;code&gt;Eclipse&lt;/code&gt; 的maven 打包部署项目，以前都是直接直接勾选 &lt;code&gt;Skip Tests&lt;/code&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="maven" scheme="http://blog.wuwii.com/tags/maven/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>他真的很喜欢你</title>
+    <link href="http://blog.wuwii.com/really-love.html"/>
+    <id>http://blog.wuwii.com/really-love.html</id>
+    <published>2017-10-14T15:30:03.000Z</published>
+    <updated>2017-10-16T00:44:51.482Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>他真的很喜欢你，认真且怂，从一而终。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2017/10/15/59e238a08a631.jpg" alt="image"></p>
+<a id="more"></a>
+<p>“何谓孤寂？”<br>“清风，艳日，无笑意。”<br>“可否具体？”<br>“左拥，右抱，无情欲。”<br>“可否再具体？”<br>“不得你。”</p>
+<p>“何为思念？”<br>“日月，星辰，旷野雨落。”<br>“可否具体？”<br>“山川，江流，烟袅湖泊。”<br>“可否再具体？”<br>“万物是你，无可躲。</p>
+<p>“何为无救？”<br>“良药、妙方，无可医。”<br>“可否具体？”<br>“扁鹊、华佗，俱无策。”<br>“可否再具体？”<br>“念你成疾。”</p>
+<p>“何谓求索？”<br>“落霞，朝阳，七千里。”<br>“可否具体？”<br>“夏雨，冬雪，九万顷。”<br>“可否再具体？”<br>“追寻你。”</p>
+<p>“何谓伴侣？”<br>“柴米，油盐，木栅栏。”<br>“可否具体？”<br>“粗茶，淡饭，执子手。”<br>“可否再具体？”<br>“和你。”</p>
+<p>“何谓漂泊？”<br>“飞蓬，飘萍，无根底。”<br>“可否具体？”<br>“只鹤，孤雁，寒塘独下迟。”<br>“可否再具体？”<br>“南游，东出，客愁，旅思，离乡千万里。”<br>“可否更具体？”<br>“春行，秋度，杳杳无归期。”<br>“仍是不解。”<br>“浪迹云游，何处寻你。”</p>
+<p>“何谓难得？”<br>“落虹，繁星，山间风。”<br>“可否具体？”<br>“雾凇，凤翎，黄粱梦。”<br>“可否再具体？”<br>“伴你而生，有始无终。”</p>
+<p>“何谓欢喜？”<br>“清风，晓月，伴星辰。”<br>“可否具体？”<br>“一见，再见，已倾心。”<br>“可否再具体？”<br>“余光皆是你。”</p>
+<p>“何谓欣悦？”<br>“四海，三山，两心。”<br>“可否具体？”<br>“两人，三餐，四季。”<br>“可否再具体？”<br>“与你。”</p>
+<p>“何谓愁？”<br>“江湖，灯市，檐下躲雨。”<br>“可否具体？”<br>“孤舟，青衫，长亭垂柳。”<br>“可否再具体？”<br>“所见是你，无可避。”</p>
+<p>“何谓美人？”<br>“纤手，漾眸，柔腰肢。”<br>“可否具体？”<br>“橘子香气。”<br>“可否再具体？”<br>“汝。”</p>
+<p>“何谓忧？”<br>“无笑，无乐，郁积于心。”<br>“可否具体？”<br>“思你，念你，不得见你。”<br>“可否再具体？”<br>“你已无意。”</p>
+<p>“何谓空寂？”<br>“抬头，艳阳，流云里。”<br>“可否具体？”<br>“飘摇，流浪，无归期。”<br>“可否再具体？”<br>“没等到你。”  </p>
+<p>“何为习性？”<br>“清茶，浊酒，和音伴。”<br>“可否具体？”<br>“跋山，涉水，曲随行。”<br>“可否再具体？”<br>“予你。”  </p>
+<p>“何为等待？”<br>“不知几分红颜悴，多少相思碎。”<br>“可否详言？”<br>“花开花落两不知，惟介音无回。”<br>“可否甚解？”<br>“一叶一追寻，待一人与归。”    </p>
+<p>“何为距离？”<br>“白云，大地，止相望。”<br>“可否具体？”<br>“树木，微风，终轻拂。”<br>“可否再具体？”<br>“你与我。”  </p>
+<p>“何为思兮？”<br>“惦念，不语，乱了心。”<br>“可否具体？”<br>“失神差可拟。”<br>“可否再具体？”<br>“哪里都是你。”  </p>
+<p>“何谓心安？”<br>“同月沽酌，千诗可叙”<br>“可否具体？”<br>“红色屋顶，白色窗棂。”<br>“可否再具体？”<br>“身边有你。”   </p>
+<p>“何为心寒？”<br>“白雪、冷雨，冻寒骨。”<br>“可否具体？”<br>“深夜、凌晨，无可分。”<br>“可否再具体？”<br>“你，已弃。”  </p>
+<p>“何为归途？”<br>“夜鸟 荒路 漫漫无期。”<br>“可否具体 ？”<br>“碎言 华灯 喧嚣无际。”<br>“可否再具体？”<br>“一诗 一酌 不觉千里。”<br>“仍是不解。”<br>“与你，四处为安。”  </p>
+<p>“何谓笑意？”<br>“单车，白衣，晴空万里”<br>“可否具体？”<br>“天台，茉莉，七月初七”<br>“可否再具体？”<br>“花裙，背影，安然静谧”<br>“可否更具体？”<br>“一看到你”  </p>
+<p>“何谓卑微？”<br>“清水，野草，无艳色。”<br>“可否具体？”<br>“爱情，亲情，无回报。”<br>“可否再具体？”<br>“入尘埃。”  </p>
+<p>“何为知己？”<br>“相视，不语，已了然”<br>“可否具体？”<br>“浮华万物皆可抛”<br>“可否再具体？”<br>“愿得你”  </p>
+<hr>
+<p><strong>内容来自网易云《浮生》下面的热门的评论</strong></p>
+<p>侵删</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;他真的很喜欢你，认真且怂，从一而终。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2017/10/15/59e238a08a631.jpg&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="那些很美的句子" scheme="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
+    
+    
+      <category term="他真的很喜欢你" scheme="http://blog.wuwii.com/tags/%E4%BB%96%E7%9C%9F%E7%9A%84%E5%BE%88%E5%96%9C%E6%AC%A2%E4%BD%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java客户端使用Jedis操作Redis</title>
     <link href="http://blog.wuwii.com/catch-jedis.html"/>
     <id>http://blog.wuwii.com/catch-jedis.html</id>
     <published>2017-10-13T07:38:03.000Z</published>
-    <updated>2017-10-13T08:06:30.219Z</updated>
+    <updated>2017-10-16T00:44:51.435Z</updated>
     
     <content type="html"><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>搭建好redis ，这是我们需要在java中操作它，在这里我使用<code>jedis</code>  ，这次主要使用redis，存储信息，到时间超时，并且自动删除超时信息，累计数据List，达到一定数量，入库，删除，所以这个时候为了数据安全，删除完，才去写入新数据，需要写一个简单的分布式锁。</p>
 <a id="more"></a>
-<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><h4 id="准备，导入Jar包"><a href="#准备，导入Jar包" class="headerlink" title="准备，导入Jar包"></a>准备，导入Jar包</h4><p>首先在pox.xml加入所需要的Jar 包：</p>
+<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><h4 id="准备，导入Jar包"><a href="#准备，导入Jar包" class="headerlink" title="准备，导入Jar包"></a>准备，导入Jar包</h4><p>首先在<code>pox.xml</code>加入所需要的Jar 包：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">jedis.version</span>&gt;</span>2.9.0<span class="tag">&lt;/<span class="name">jedis.version</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;jedis.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
 <h4 id="编写连接工具类"><a href="#编写连接工具类" class="headerlink" title="编写连接工具类"></a>编写连接工具类</h4><p>首先编写工具类去连接redis：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</div><div class="line"><span class="keyword">import</span> redis.clients.jedis.JedisPool;</div><div class="line"><span class="keyword">import</span> redis.clients.jedis.JedisPoolConfig;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.Serializable;</div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line"><span class="comment">* <span class="doctag">@ClassName</span>: RedisUtil </span></div><div class="line"><span class="comment">* <span class="doctag">@Description</span>: redis工具类 </span></div><div class="line"><span class="comment">* <span class="doctag">@author</span> zhangkai </span></div><div class="line"><span class="comment">* <span class="doctag">@date</span> 2017年9月26日 下午3:20:29 </span></div><div class="line"><span class="comment">*  </span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisUtil</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">1149678082569464779L</span>;</div><div class="line"></div><div class="line">    <span class="comment">//Redis服务器IP</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span>  String addr;</div><div class="line">    </div><div class="line">    <span class="comment">//Redis的端口号</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> port;</div><div class="line">    </div><div class="line">    <span class="comment">//访问密码</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String auth;</div><div class="line">    </div><div class="line">    <span class="comment">//可用连接实例的最大数目，默认值为8；</span></div><div class="line">    <span class="comment">//如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> maxActive;</div><div class="line">    </div><div class="line">    <span class="comment">//控制一个pool最多有多少个状态为idle(空闲的)的jedis实例，默认值也是8。</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> maxIdle;</div><div class="line">    </div><div class="line">    <span class="comment">//等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException；</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> maxWait;</div><div class="line">    </div><div class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unused"</span>)</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> timeOut;</div><div class="line">    </div><div class="line">    <span class="comment">//在borrow一个jedis实例时，是否提前进行validate操作；如果为true，则得到的jedis实例均是可用的；</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> testOnBorrow;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Jedis jedis;<span class="comment">//非切片额客户端连接</span></div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> JedisPool jedisPool;<span class="comment">//非切片连接池</span></div><div class="line">    </div><div class="line">   <span class="comment">// public static ShardedJedis shardedJedis;//切片额客户端连接</span></div><div class="line">    </div><div class="line">   <span class="comment">// public static ShardedJedisPool shardedJedisPool;//切片连接池</span></div><div class="line">    </div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">    	addr = PropertyUtil.get(<span class="string">"redis.addr"</span>);</div><div class="line">    	auth = PropertyUtil.get(<span class="string">"redis.auth"</span>);</div><div class="line">    	port = Integer.parseInt(PropertyUtil.get(<span class="string">"redis.port"</span>));</div><div class="line">    	maxIdle = Integer.parseInt(PropertyUtil.get(<span class="string">"redis.maxIdle"</span>));</div><div class="line">    	maxActive = Integer.parseInt(PropertyUtil.get(<span class="string">"redis.maxActive"</span>));</div><div class="line">    	maxWait = Integer.parseInt(PropertyUtil.get(<span class="string">"redis.maxWait"</span>));</div><div class="line">    	timeOut = Integer.parseInt(PropertyUtil.get(<span class="string">"redis.timeOut"</span>));</div><div class="line">    	testOnBorrow = PropertyUtil.get(<span class="string">"redis.testOnBorrow"</span>).equals(<span class="string">"true"</span>) ? <span class="keyword">true</span> :<span class="keyword">false</span>;</div><div class="line">    	initialPool();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RedisUtil</span><span class="params">()</span></span>&#123;</div><div class="line">    	initialPool(); </div><div class="line">        jedis = getJedis();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 初始化非切片池</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">initialPool</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 池基本配置 </span></div><div class="line">        JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();</div><div class="line">        config.setMaxTotal(maxActive); </div><div class="line">        config.setMaxIdle(maxIdle); </div><div class="line">        config.setMaxWaitMillis(maxWait); </div><div class="line">        config.setTestOnBorrow(testOnBorrow);</div><div class="line">        jedisPool = <span class="keyword">new</span> JedisPool(config, addr, port);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 获取Jedis实例</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span></span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> Jedis <span class="title">getJedis</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">if</span> (jedisPool != <span class="keyword">null</span>) &#123;</div><div class="line">               jedis = jedisPool.getResource();</div><div class="line">               jedis.auth(auth);<span class="comment">//认证</span></div><div class="line">               <span class="keyword">return</span> jedis;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            Log.error(e);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 释放jedis资源</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> jedis</span></div><div class="line"><span class="comment">     */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">returnResource</span><span class="params">(<span class="keyword">final</span> Jedis jedis)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (jedis != <span class="keyword">null</span>) &#123;</div><div class="line">        	jedis.close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>连接上redis我们就可以使用jedis操作我们的redis，直接写业务</p>
@@ -46,7 +209,7 @@
     
     </summary>
     
-      <category term="测试" scheme="http://blog.wuwii.com/categories/%E6%B5%8B%E8%AF%95/"/>
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
@@ -421,22 +584,30 @@
     <link href="http://blog.wuwii.com/miss-you.html"/>
     <id>http://blog.wuwii.com/miss-you.html</id>
     <published>2017-10-04T04:15:03.000Z</published>
-    <updated>2017-10-10T00:31:22.302Z</updated>
+    <updated>2017-10-16T00:44:51.466Z</updated>
     
     <content type="html"><![CDATA[<p>我想她，是那么的美好吧。<a id="more"></a></p>
-<p>这么多年还记得她，不是因为长相，她长相清秀，但是没那么出众，可能因为她别样清脆的声音，但我也不是声控，可能是因为别的，总之，还在意她。</p>
-<p>人就是这么奇怪，有时候遇到什么东西就容易出身，青春期的男生可能总是浮想翩翩，就是经常失神吧，我现在大概还是这个样子了，愣。</p>
+<p>不知道不觉就想起她，很难过，放不下。这么多年还记得她，不是因为长相，她长相清秀，但是没那么出众，可能因为她别样清脆的声音，但我也不是声控，可能是因为别的，总之，还在意她。</p>
+<p>人就是这么奇怪，有时候遇到什么东西就容易出神，青春期的男生可能总是浮想翩翩，就是经常失神吧，我现在大概还是这个样子了，愣。</p>
 <p>跟她说过的话不多吧，见面了的时候我也不敢跟她打招呼，因为我很内向，而且还是个很慢热的人，平时话也非常少，我了解的人也不多，实在是一个再也普通不过的人了。</p>
 <p>但是在我眼中的她干净，就像不沾人间烟土的仙子。人很聪明，没什么心机，可以跟其他人玩的很合得来。</p>
-<p>我觉得她最大的特点就是明媚了，为什么会用这个词了，应该来源于她当时的网名。人烦恼的时候总是会仰望天空，但是天空中也有阴云。看到她的眼睛，感觉就是一直散发着光，是真的明媚，而且带着淡淡的忧伤。</p>
+<p>我觉得她最大的特点就是明媚了，为什么会用这个词了，应该来源于她当时的网名。人烦恼的时候总是会仰望天空，但是天空中也有阴云。看到她的眼睛，感觉就是一直散发着光，是真的明媚，而且带着淡淡的忧伤；说话的时候就像歌曲，安静优雅而又绵长。</p>
 <p>就这样，抓走了我的心。后来做了傻事，表白了她，想当初太年轻了，她很懂事，果断拒绝了我。我当时很颓废，回想当初不应该那样的，后来高考完后，她又加了我，不知道当时是什么自尊心在作祟，居然没想到去追回她，什么高考失利都是借口，自己大概当时有些失望，是想放弃的吧。</p>
-<p>后来上了大学应该简单联系了几句，但是没多说，我也忘了，曾经一度真的以为我忘了，但是qq还是一直存在我这里，特别关注，平时闲着没事就喜欢翻翻她的空间，但是也不想留下痕迹，简单看下她再干什么，她还是以前那个样子，每次看到，心中会有暖意吧。直到毕业工作来到了武汉这个城市，不尽然的又想去找她，但是她的心已经对你上了一把锁了，你该用什么去打开它了，没感情经历的我该拿什么去追回她了。</p>
-<p>回想当初，自己这个人真的是有点烂了，什么也没付出就像拿到什么，后来别人主动了，自己却放弃了，如果当初没能戳穿那段感情就好了，即使能远远的看着她，也是一件多么美好的事情啊。我想现在懂了，可能已经太晚了，自己已经不可能撩动她的心了，已经过了那个年纪了，这么长时间，早已经物是人非了，有可能，我这一辈子再也不能见到她了吧，但是只要还能想起她，看到她的消息，心中还是泛起了涟漪。反正现在人都这么烂了，只能用真心去等候吧。</p>
+<p>后来上了大学应该简单联系了几句，但是没多说，我也忘了，曾经一度真的以为我忘了，但是qq还是一直存在我这里，特别关注，平时闲着没事就喜欢翻翻她的空间，但是也不想留下痕迹，简单看下她再干什么，去她去过的地方，看她想看的电影。看到她的照片，她还是以前那个样子，每次看到，心中会有暖意吧，偷偷的存下。直到毕业工作来到了武汉这个城市，不尽然的又想去找她，但是她的心已经对你上了一把锁了，你该用什么去打开它了，没感情经历的我该拿什么去追回她了。</p>
+<p>回想当初，自己这个人真的是有点烂了，什么也没付出就像拿到什么，如果当初没能戳穿就好了，即使能远远的看着她，也是一件多么美好的事情啊。我想现在懂了，可能已经太晚了，自己已经不可能撩动她的心了，已经过了那个年纪了，这么长时间，早已经物是人非了，有可能，我这一辈子再也不能见到她了吧，但是只要还能想起她，看到她的消息，心中还是泛起了涟漪。反正现在人都这么烂了，只能用真心去等候吧。</p>
 <p>在最好的年纪遇到这么个人真的很美好！虽然没经历过什么刻骨铭心的事情，但我不会忘记的，谢谢她，让我想变成更好的人。</p>
 <p>愿她以后一直明媚，不再忧伤吧。</p>
 <p>真的很美好！都要加油了。</p>
-<p>没想到就写了这么点，也许真的还不够吧，这个博客暂时也没公开，就算是给自己的青春留点东西吧。</p>
 <hr>
+<p>最终还是没能抓住她，让别人抓走了她的心。但是看到她现在纠结的感情问题，心都要快化了。很想去看看她，但犹豫她是不想见到我吧，弄巧成拙后，朋友也做不成。</p>
+<p>是我真有点情绪了，我还是有些犹豫，只是我这个人就是这样的直吧，EQ不在线。确实啊，但是，喜欢的确实好辛苦啊，追一个人很久不回应该怎么办，苦笑，明知道是傻，还能怎么办了，从没退路的我，不知道游离在何处，发现真的好累，不曾想过什么多余的，可能我还是像从前那么单纯吧。</p>
+<p>别人都说，想清楚了，没人会说自己的感情是最特别的，哪个人不深情，最终留给自己的才是最重要的。我想是这段时间打扰得厉害了，于人于己都不好，她幸福的时刻，不忍心再打扰下去了。看到她现在的空间和微博，尽是些伤感的句子，很想让她开心，但是我发现我并不能办到，在她面前真的感觉到好卑微，有些患得患失，情绪化了，真的错了，我是一个只能让她更难受的人，或许真的不是对的人，因为这个样子她并不是我想要的。</p>
+<p>虽然我也很不想放弃，但是这样下去对谁都不好，真的好想戒了，就这样静静地看着吧，悄无声息。</p>
+<p>希望她能幸福吧，走过的路，没什么可遗憾的。</p>
+<p>我相信一定能遇到下一个对的人，现在能做的唯有努力提升自己，才能在对的时间不错过，耐心等待，不将就，不奢求。择一城，遇一人，终老。</p>
+<p>给自己一个约定吧，三十岁之前，只为等待，死了心，再离去。</p>
+<p>希望不会被暴露吧。</p>
+<p>（完，不更新了</p>
 ]]></content>
     
     <summary type="html">
@@ -637,115 +808,6 @@
       <category term="hexo" scheme="http://blog.wuwii.com/tags/hexo/"/>
     
       <category term="Travis CI" scheme="http://blog.wuwii.com/tags/Travis-CI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>随便写点</title>
-    <link href="http://blog.wuwii.com/to-self.html"/>
-    <id>http://blog.wuwii.com/to-self.html</id>
-    <published>2017-10-02T08:29:03.000Z</published>
-    <updated>2017-10-07T10:06:36.137Z</updated>
-    
-    <content type="html"><![CDATA[<p>想起曾今为了买电脑，每天都要去看下评测，总是感觉那是个莫大的荣誉，可是现在，都不愿意摸电脑了，哈哈，朋友圈、空间这些东西不再玩了，牢骚也不再去分享了。感觉人都要变老了，没那么大精力去玩了。</p>
-<p>看看镜子里的自己，可能没感觉，还是这么的年轻，突然拿起以前刚入大学的照片，真是一个天上，一个地下，现在人也变黑了，感觉脸上的棱角也要抹平了。世界的一切都没有变，只是我变了，变老了，生命从来都不等人，朋友们现在都开始展示自己的高调生活了，手机、车子还有房子了，现在自己虽然说刚毕业，义务所有，一切还需要自己打拼。我也想成为了不起的人，但是你想成为的人，也会失去大把周围的美丽的风景。</p>
-<p>可能从小到大，我都是个很闷的人吧，可能还很小气，不想跟别人分享任何东西吧，却往往忽视了这个世界上关心我的人了。对的，不管什么什么时候，都不能忘记曾经对自己好的人，即使只是一餐饭，还是一声关心问候，甚至只是一句玩笑话。应该留点时间给老爸老妈了，他们的头发都开始白了。现在在武汉工作，尽可能的近一点，方便一点吧，多点时间回家吧。  </p>
-<p>我想，自己已经早已经过了那个年少的年纪了，不能再不顾后果的做一件事情，即使是自己多么喜爱，多么不想放弃的一件事，一个东西，还是一个人。<strong>最美好的时光，莫过于再一个人的年少，无知者无畏。“花有重开日，人无再少年。”</strong>   </p>
-<p>虽然想成熟了，但是自己也没经历过什么大事，心里还是那个满心忐忑的少年吧，嗯，其实我也没变什么，还是那么简单：去做自己喜欢做的事情，去爱自己想爱的人。</p>
-<p>年轻可能是现在我剩下最好的礼物可，不能浪费了，前面的时光我放弃了很多的东西，如今追回来虽然好难，但是我是不会轻易言弃的。不管在经历着什么，都要记得每一天，认认真真的，不要去放弃了。</p>
-<p>我这个人的圈子很小，没什么朋友，很闷，也很慢热，，遇到苦难了，想坚持，也想放弃，不想逗留。曾经也想改变性格，但是实在是很无力，反而让自己很难受，反正这是上天给予我的礼物，现在我的工作和生活也不必在乎这个性格的弊端，我已经接受了。</p>
-<p>说过<strong>生活要晶莹剔透柔软善良，想对待第一次自己喜欢的人儿一样去对待它。没有好坏，没有歧视，只用想去付出，然后得到。</strong></p>
-<p>我总是这么的心急，只要一切都来得及。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;想起曾今为了买电脑，每天都要去看下评测，总是感觉那是个莫大的荣誉，可是现在，都不愿意摸电脑了，哈哈，朋友圈、空间这些东西不再玩了，牢骚也不再去分享了。感觉人都要变老了，没那么大精力去玩了。&lt;/p&gt;
-&lt;p&gt;看看镜子里的自己，可能没感觉，还是这么的年轻，突然拿起以前刚入大学的照
-    
-    </summary>
-    
-      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《苦橙》-- 歌词</title>
-    <link href="http://blog.wuwii.com/melangolo.html"/>
-    <id>http://blog.wuwii.com/melangolo.html</id>
-    <published>2017-09-29T12:08:03.000Z</published>
-    <updated>2017-10-07T10:06:35.880Z</updated>
-    
-    <content type="html"><![CDATA[<p>以前听的一首很美的歌，欣赏下歌词。<a id="more"></a></p>
-<blockquote class="blockquote-center"><h2 id="苦橙"><a href="#苦橙" class="headerlink" title="苦橙"></a>苦橙</h2><h5 id="林力尧"><a href="#林力尧" class="headerlink" title="林力尧"></a>林力尧</h5><p>越沉默 越用心包裹<br>忽略 越多难过 容易更乐活<br>可终究 郁结如核的感受<br>还是被自己品尝出浅薄<br>不甘被冷落<br>心甘情愿被你利用<br>榨尽真心<br>难怪换被丢弃的理由<br>其实我也知道我<br>并不算成熟<br>所以更渴望能有<br>风雨的承受<br>无奈连光都照不够<br>也没有人来收获<br>只能自己结果<br>和坠地的疼痛<br>其实我也知道我<br>是有些懦弱<br>表里不一的坚强<br>难道也有错<br>我只是不愿意<br>一直妥协昧心到腐朽<br>成色不足的苦橙<br>难道注定就<br>不如那些罐头<br>讨喜地被拥有</p>
-<p>越肺腑 越失心袒露<br>他们 都多事故 而我多冲动<br>学不会 深加工过的笑容<br>就留给他们<br>礼貌地对我<br>你也别内疚<br>反正我被笑过很多<br>卖相不好<br>又怎么能怪人不识货<br>其实我也知道我<br>并不算成熟<br>所以更渴望能有<br>风雨的承受<br>无奈连光都照不够<br>也没有人来收获<br>只能自己结果<br>和坠地的疼痛<br>其实我也知道我<br>是有些懦弱<br>表里不一的坚强<br>难道也有错<br>我只是不愿意<br>一直妥协昧心到腐朽<br>成色不足的苦橙<br>难道注定就<br>不如那些罐头<br>讨喜地被拥有<br>你别内疚<br>反正现在我已想通<br>卖相不好<br>也许才有真心等候</p>
-</blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;以前听的一首很美的歌，欣赏下歌词。
-    
-    </summary>
-    
-      <category term="那些很美的句子" scheme="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
-    
-    
-      <category term="歌词" scheme="http://blog.wuwii.com/tags/%E6%AD%8C%E8%AF%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《浮生》-- 歌词</title>
-    <link href="http://blog.wuwii.com/floating-life.html"/>
-    <id>http://blog.wuwii.com/floating-life.html</id>
-    <published>2017-09-28T15:08:03.000Z</published>
-    <updated>2017-10-07T10:06:35.765Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天听到这首歌，第一次听到它，我感觉无穷的想念都涌出来了，说真的，我哭了。<a id="more"></a></p>
-<blockquote class="blockquote-center"><h2 id="浮生"><a href="#浮生" class="headerlink" title="浮生"></a>浮生</h2><h5 id="刘莱斯"><a href="#刘莱斯" class="headerlink" title="刘莱斯"></a>刘莱斯</h5><p>无人与我把酒分<br>无人告我夜已深<br>无人问我粥可暖<br>无人与我立黄昏<br>他真的很喜欢你 像风走了八千里<br>他真的很喜欢你 像阵雨下到了南极<br>他真的很想念你 像珊瑚沉在海底<br>他真的很喜欢你 不问归期不远万里<br>他真的很喜欢你 像盲人看一出哑剧<br>他真的很喜欢你 像第一首诗不尽人意<br>他真的很喜欢你 像太阳自转无论朝夕<br>他真的很喜欢你 千言万语乐此不疲</p>
-<p>他真的很喜欢你 像春雨下得淅淅沥沥<br>他真的很喜欢你 像夏日聒噪的蝉鸣<br>他真的很想念你 像秋叶落得悄无声息<br>他真的很喜欢你 想冬天的雪沁在心里<br>他真的很喜欢你 像狗本性难移<br>他真的很喜欢你 所以他可以一直没脸没皮<br>他真的很想念你 无时不刻不在想你<br>他真的很喜欢你 所以他把你捧在手心<br>他真的很喜欢你 所以固执地排比比喻<br>他真的很喜欢你 虽然他的感情实在细腻<br>他真的很想念你 真的无时不刻不再想你<br>他真的很喜欢你 不想浪费时间的一点一滴<br>他真的 很喜欢你<br>他真的 很喜欢你<br>他真的 很想念你<br>他真的 很喜欢你 很喜欢很喜欢你<br>有人与我把酒分<br>有人告我夜已深<br>有人问我粥可暖<br>有人与我立黄昏<br>有人待我诚且真<br>有人忧我细无声<br>有人知我冷与暖<br>有人伴我度余生</p>
-</blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天听到这首歌，第一次听到它，我感觉无穷的想念都涌出来了，说真的，我哭了。
-    
-    </summary>
-    
-      <category term="那些很美的句子" scheme="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
-    
-    
-      <category term="歌词" scheme="http://blog.wuwii.com/tags/%E6%AD%8C%E8%AF%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>不眠</title>
-    <link href="http://blog.wuwii.com/never-sleeping.html"/>
-    <id>http://blog.wuwii.com/never-sleeping.html</id>
-    <published>2017-09-28T14:08:03.000Z</published>
-    <updated>2017-10-07T10:06:35.912Z</updated>
-    
-    <content type="html"><![CDATA[<p>一直在想起你，<br>反反复复告诉自己不要打扰你了，<br>其实我总是这么的固执，<br>一次次骗自己，<br>但还是没能停下颤抖的手，<br>向你发送了一个憨笑的表情。  </p>
-<p>每次发送一条消息，<br>有时候要想半天，<br>怎么能去撩动你的心，<br>虽然大多数的时候没能得到回应，<br>但每次发完我得内心，<br>总是还是很期待的，<br>不知道这种感觉是从什么时候开始的，<br>是多年前的高中，<br>还是现在，  </p>
-<p>我想，<br>不期待太多的回应，<br>但愿一切安好吧，<br>我想，<br>我还是太懦弱了，<br>虽然想追回你，<br>照顾你，<br>但我真不知道该用什么来追回你，<br>可能我这个人真有点烂了，<br>没付出过什么，<br>也没做过什么刻骨铭心的事情，<br>只有等待，<br>等待就等于没有结果。</p>
-<p>一个又一个夜晚吧，<br>一次又一次的念，<br>我的生活就是这样的吧，<br>做自己想做的事，<br>买想买的东西，<br>去和喜欢的人聊聊天，<br>很快乐，<br>虽然很打扰，<br>但是抱歉，<br>我很自私。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一直在想起你，&lt;br&gt;反反复复告诉自己不要打扰你了，&lt;br&gt;其实我总是这么的固执，&lt;br&gt;一次次骗自己，&lt;br&gt;但还是没能停下颤抖的手，&lt;br&gt;向你发送了一个憨笑的表情。  &lt;/p&gt;
-&lt;p&gt;每次发送一条消息，&lt;br&gt;有时候要想半天，&lt;br&gt;怎么能去撩动你的心，&lt;br&gt;虽然大
-    
-    </summary>
-    
-      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
