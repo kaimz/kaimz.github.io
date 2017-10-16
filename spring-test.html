@@ -139,7 +139,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171016131207.png">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171016140842.png">
-<meta property="og:updated_time" content="2017-10-16T06:36:21.372Z">
+<meta property="og:updated_time" content="2017-10-16T09:35:52.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用spring-test 结合JUnit完成单元测试">
 <meta name="twitter:description" content="Java web项目怎么能少了spring ,当然少不了代码的单元测试，学习一下spring-test 结合 JUnit 完成单元测试，这样做会有很多好处，可以不用写额外一些方法去重复加载 applicationContext ，而且可以事务回滚等特点。下面再详细介绍。">
@@ -472,7 +472,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,548
+                  1,650
                 </span>
               
 
@@ -488,7 +488,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -525,8 +525,8 @@
 <p>证明测试成功了</p>
 <p>把rollback改成 true ,默认就是为true<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Resource</span></div><div class="line"><span class="keyword">private</span> FarmDao dao;</div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line"><span class="comment">* </span></div><div class="line"><span class="comment">* Method: updateFarm(FarmEntity farmEntity) </span></div><div class="line"><span class="comment">* </span></div><div class="line"><span class="comment">*/</span> </div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="meta">@Transactional</span></div><div class="line"><span class="comment">//@Rollback(true)</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateFarm</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123; </div><div class="line"><span class="comment">//<span class="doctag">TODO:</span> Test goes here...</span></div><div class="line">    dao.setRemarkValue(<span class="string">"备注44"</span>);</div><div class="line">    String sql1 = <span class="string">"SELECT * FROM \"AGRI_FARM\""</span>;</div><div class="line">    List&lt;FarmEntity&gt; list = service.getBySql(sql1);</div><div class="line">    System.out.println(list.get(<span class="number">0</span>).getRemark());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>测试结果  </p>
-<p><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171016140842.png" alt="image"></p>
-<p><strong>需要注意</strong>的是不能使用自己写的事务，不然会覆盖掉spring 容器的Transactional，导致测试的事务不能回滚，直接保存到数据库中的。</p>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171016140842.png" alt="image"><br>我update 的值是 “备注44” 查询出来的是 “备注11” ，后来一想这样自己写得有点傻了，其实这个方法写的没有一点用，现在只能证明数据库还没更改，但是事务还没结束嘛，肯定没入库，就不要介意了，就是这个意思了，测试完成看下数据变了没有，可以验证成功。</p>
+<p><strong>需要注意</strong>  的是不能使用自己写的事务，不然会覆盖掉spring 容器的Transactional，导致测试的事务不能回滚，直接保存到数据库中的。</p>
 <p>之前一直被这个问题卡住了，设置了<code>@Rollback(true)</code>都不能成功回滚事务，睡了一觉才知道，这个<code>executeUpdate</code>方法中自己写了一个事务，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 删除表中的数据通过条件</span></div><div class="line"><span class="comment"> * </span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> sql：删改命令</span></div><div class="line"><span class="comment"> * <span class="doctag">@return</span> 执行是否成功</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="meta">@Transactional</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">executeUpdate</span><span class="params">(String sql)</span> </span>&#123;</div><div class="line">	EntityManager em = emf.createEntityManager();</div><div class="line">	em.getTransaction().begin();</div><div class="line">	Query query = em.createNativeQuery(sql);</div><div class="line">	<span class="keyword">int</span> count = query.executeUpdate();</div><div class="line">	em.getTransaction().commit();</div><div class="line">	em.close();</div><div class="line">	<span class="keyword">return</span> count &gt; <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>就是这样的。改成自己再Dao层重新写了个测试方法。可以的了。到此结束了。</p>
 <p><strong>参考文章</strong> <a rel="external nofollow" target="_blank" href="http://blog.csdn.net/shan9liang/article/details/40452469">http://blog.csdn.net/shan9liang/article/details/40452469</a></p>
@@ -933,7 +933,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共42.0k字</span>
+  <span class="post-count">博客全站共42.1k字</span>
 </div>
 
 <script>
