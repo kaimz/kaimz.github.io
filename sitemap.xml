@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/about/index.html</loc>
+    
+    <lastmod>2017-10-17T01:31:28.128Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/java-log4j.html</loc>
     
     <lastmod>2017-10-17T01:11:45.677Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://blog.wuwii.com/spring-test.html</loc>
     
     <lastmod>2017-10-16T09:35:52.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/about/index.html</loc>
-    
-    <lastmod>2017-10-16T00:44:51.576Z</lastmod>
     
   </url>
   
