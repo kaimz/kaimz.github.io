@@ -4,31 +4,8 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/custom-log.html</loc>
-    <lastmod>2017-10-17T03:31:45.778Z</lastmod>
-    <data>
-        <display>
-        <title>Log4j格式输出工具类</title>
-        <pubTime>2017-10-17T03:28:03.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>Log4j</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
     <loc>http://blog.wuwii.com/java-log4j.html</loc>
-    <lastmod>2017-10-17T01:11:45.677Z</lastmod>
+    <lastmod>2017-10-17T03:51:54.607Z</lastmod>
     <data>
         <display>
         <title>Java中Log4j的使用及配置详情</title>
@@ -36,7 +13,7 @@
         
         <tag>java</tag>
          
-        <tag>Log4j</tag>
+        <tag>log4j</tag>
          
          
            
@@ -47,6 +24,29 @@
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://blog.wuwii.com/custom-log.html</loc>
+    <lastmod>2017-10-17T03:51:08.027Z</lastmod>
+    <data>
+        <display>
+        <title>Log4j格式输出工具类</title>
+        <pubTime>2017-10-17T03:28:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>log4j</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://blog.wuwii.com/maven-scope.html</loc>
@@ -279,14 +279,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>关于SEO</title>
-        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
+        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
+        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
         
-        <tag>SEO</tag>
+        <tag>postman</tag>
          
          
            
@@ -299,14 +299,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
-        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
+        <title>关于SEO</title>
+        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
         
-        <tag>postman</tag>
+        <tag>SEO</tag>
          
          
            
