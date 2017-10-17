@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://blog.wuwii.com/custom-log.html</loc>
-    <lastmod>2017-10-17T03:29:25.859Z</lastmod>
+    <lastmod>2017-10-17T03:31:45.778Z</lastmod>
     <data>
         <display>
         <title>Log4j格式输出工具类</title>
@@ -151,14 +151,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>Intellij</tag>
+         
+        <tag>JUnitGenerator</tag>
          
          
            
@@ -171,16 +173,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
-        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
-        <tag>JUnitGenerator</tag>
+        <tag>maven</tag>
          
          
            
@@ -362,26 +362,6 @@
     
     
   <url>
-    <loc>http://blog.wuwii.com/trend.html</loc>
-    <lastmod>2017-10-10T00:30:59.629Z</lastmod>
-    <data>
-        <display>
-        <title>一叶知秋</title>
-        <pubTime>2017-10-08T15:08:03.000Z</pubTime>
-        
-        <tag>心情</tag>
-         
-         
-           
-             
-              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/version.html</loc>
     <lastmod>2017-10-10T00:30:59.629Z</lastmod>
     <data>
@@ -395,6 +375,26 @@
            
              
               <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/trend.html</loc>
+    <lastmod>2017-10-10T00:30:59.629Z</lastmod>
+    <data>
+        <display>
+        <title>一叶知秋</title>
+        <pubTime>2017-10-08T15:08:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
           
         </display>
     </data>
