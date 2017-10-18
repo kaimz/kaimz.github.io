@@ -111,7 +111,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="一棵树站在原野上" />
+  <meta name="keywords" content="张凯,1075199251,k@wuwii.com,http://blog.wuwii.com,一棵树站在原野上,追光者w,18772383543" />
 
 
 
@@ -129,17 +129,18 @@
 
 
 
-<meta name="description" content="最美的风景一直在身边，不曾离去。">
-<meta name="keywords" content="张凯,1075199251,k@wuwii.com,http:&#x2F;&#x2F;blog.wuwii.com,一棵树站在原野上,记录心情,追光者w">
-<meta property="og:type" content="website">
-<meta property="og:title" content="喃声细语">
-<meta property="og:url" content="http://blog.wuwii.com/archives/page/5/index.html">
+<meta name="description" content="由于要做Hadoop集群，需要修改系统的hostname 做一个映射，hostname 命令只能临时修改，重启就会失效，为了有效性，所以需要永久修改系统的hostname。 百度了下，网上都是说修改 /etc/sysconfig/network 配置文件，修改hostname参数，reboot 重启后也生效，然而我这样做了并没有生效，而且我打开这个配置文件，并没有Hostname 参数，完全是自己">
+<meta name="keywords" content="张凯,1075199251,k@wuwii.com,http:&#x2F;&#x2F;blog.wuwii.com,一棵树站在原野上,追光者w,18772383543">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 7 上永久修改hostname">
+<meta property="og:url" content="http://blog.wuwii.com/linux-hostname.html">
 <meta property="og:site_name" content="喃声细语">
-<meta property="og:description" content="最美的风景一直在身边，不曾离去。">
+<meta property="og:description" content="由于要做Hadoop集群，需要修改系统的hostname 做一个映射，hostname 命令只能临时修改，重启就会失效，为了有效性，所以需要永久修改系统的hostname。 百度了下，网上都是说修改 /etc/sysconfig/network 配置文件，修改hostname参数，reboot 重启后也生效，然而我这样做了并没有生效，而且我打开这个配置文件，并没有Hostname 参数，完全是自己">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-18T03:08:14.228Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="喃声细语">
-<meta name="twitter:description" content="最美的风景一直在身边，不曾离去。">
+<meta name="twitter:title" content="CentOS 7 上永久修改hostname">
+<meta name="twitter:description" content="由于要做Hadoop集群，需要修改系统的hostname 做一个映射，hostname 命令只能临时修改，重启就会失效，为了有效性，所以需要永久修改系统的hostname。 百度了下，网上都是说修改 /etc/sysconfig/network 配置文件，修改hostname参数，reboot 重启后也生效，然而我这样做了并没有生效，而且我打开这个配置文件，并没有Hostname 参数，完全是自己">
 
 
 
@@ -167,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.wuwii.com/archives/page/5/"/>
+  <link rel="canonical" href="http://blog.wuwii.com/linux-hostname.html"/>
 
 
 
 
 
-  <title>归档 | 喃声细语</title>
+  <title>CentOS 7 上永久修改hostname | 喃声细语</title>
   
 
 
@@ -225,7 +226,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -363,254 +364,294 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-        
-      好! 目前共计 60 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/linux-hostname.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一棵树站在原野上">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CentOS 7 上永久修改hostname</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T11:08:03+08:00">
+                2017-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/linux-hostname.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="linux-hostname.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,170
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>由于要做Hadoop集群，需要修改系统的<code>hostname</code> 做一个映射，hostname 命令只能临时修改，重启就会失效，为了有效性，所以需要永久修改系统的hostname。</p>
+<p>百度了下，网上都是说修改 <code>/etc/sysconfig/network</code> 配置文件，修改<code>hostname</code><br>参数，reboot 重启后也生效，然而我这样做了并没有生效，而且我打开这个配置文件，并没有Hostname 参数，完全是自己后来加上去的，它里面只有一句话 <code># Created by anaconda</code>。<br><a id="more"></a></p>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><h5 id="临时生效"><a href="#临时生效" class="headerlink" title="临时生效"></a>临时生效</h5><p>使用 <code>hostname</code> 命令 ，hostname <new hostname="">，系统重启后失效。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># hostname</span></div><div class="line">localhost.localdomain</div><div class="line">[root@localhost ~]<span class="comment"># hostname server1</span></div><div class="line">[root@localhost ~]<span class="comment"># hostname</span></div><div class="line">server1</div><div class="line">[root@localhost ~]<span class="comment">#</span></div></pre></td></tr></table></figure></new></p>
+<p>也可以直接cat /proc/sys/kernel/hostname查看。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># cat /proc/sys/kernel/hostname</span></div><div class="line">server1</div></pre></td></tr></table></figure></p>
+<p><code>hostname newname</code> 即要设置的新的hostname，运行后立即生效，但是在系统重启后会丢失所做的修改，如果要永久更改系统的hostname，就要修改相关的设置文件。</p>
+<h5 id="永久更改Linux的hostname"><a href="#永久更改Linux的hostname" class="headerlink" title="永久更改Linux的hostname"></a>永久更改Linux的hostname</h5><p>man hostname里有这么一句话，</p>
+<blockquote>
+<p>The host name is usually set once at system startup in<br>/etc/rc.d/rc.inet1 or /etc/init.d/boot (normally by reading the<br>contents of a file which contains the host name, e.g. /etc/hostname).”</p>
+</blockquote>
+<p>RedHat里没有这个文件，而是由/etc/rc.d/rc.sysinit这个脚本负责设置系统的hostname，它读取/etc/sysconfig/network这个文本文件，RedHat的hostname就是在这个文件里设置。</p>
+<p>所以，如果要永久修改RedHat的hostname，就修改/etc/sysconfig/network文件，将里面的HOSTNAME这一行修改成 HOSTNAME=NEWNAME，其中NEWNAME就是你要设置的hostname。</p>
+<p><strong>Debian发行版的hostname的配置文件是/etc/hostname。</strong></p>
+<p>修该配置文件后，重启系统就会读取配置文件设置新的hostname。</p>
+<p>我想我就是 Debian发行版 吧 执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]<span class="comment"># vim /etc/hostname </span></div><div class="line">localhost.localdomain</div></pre></td></tr></table></figure></p>
+<p>果然是这里，直接修改，保存，退出，重启。<br>再去查看Hostname<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@server1 ~]<span class="comment"># hostname</span></div><div class="line">server1</div><div class="line">[root@server1 ~]<span class="comment">#</span></div></pre></td></tr></table></figure></p>
+<p>修改成功</p>
+<h4 id="hostname与-etc-hosts的关系"><a href="#hostname与-etc-hosts的关系" class="headerlink" title="hostname与/etc/hosts的关系"></a>hostname与/etc/hosts的关系</h4><p>很过人一提到更改hostname首先就想到修改/etc/hosts文件，认为hostname的配置文件就是/etc/hosts。其实不是的。</p>
+<p>hosts文件的作用相当如DNS，提供IP地址到hostname的对应。</p>
+<p>早期的互联网计算机少，单机hosts文件里足够存放所有联网计算机。</p>
+<p>不过随着互联网的发展，这就远远不够了。于是就出现了分布式的DNS系统。由DNS服务器来提供类似的IP地址到域名的对应。具体可以man hosts。</p>
+<p><strong>Linux系统在向DNS服务器发出域名解析请求之前会查询/etc/hosts文件，如果里面有相应的记录，就会使用hosts里面的记录。<code>/etc/hosts</code>文件通常里面包含这一条记录</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">127.0.0.1    localhost.localdomain   localhost</div></pre></td></tr></table></figure></p>
+<p>hosts文件格式是一行一条记录，分别是IP地址 <code>hostname aliases</code>，三者用空白字符分隔，<code>aliases</code>可选。</p>
+<p><strong>127.0.0.1到localhost这一条建议不要修改，因为很多应用程序会用到这个，比如sendmail，修改之后这些程序可能就无法正常运行。</strong><br>在<code>/etc/hosts</code> 添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">192.168.19.185  server1</div><div class="line">192.168.19.184  server2</div></pre></td></tr></table></figure></p>
+<p>ping server2 能ping 通说明<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@server1 ~]<span class="comment"># ping server2       </span></div><div class="line">PING server2 (192.168.19.184) 56(84) bytes of data.</div><div class="line">64 bytes from server2 (192.168.19.184): icmp_seq=1 ttl=64 time=0.421 ms</div><div class="line">64 bytes from server2 (192.168.19.184): icmp_seq=2 ttl=64 time=0.602 ms</div><div class="line">64 bytes from server2 (192.168.19.184): icmp_seq=3 ttl=64 time=0.304 ms</div><div class="line">64 bytes from server2 (192.168.19.184): icmp_seq=4 ttl=64 time=1.10 ms</div><div class="line">64 bytes from server2 (192.168.19.184): icmp_seq=5 ttl=64 time=0.545 ms</div></pre></td></tr></table></figure></p>
+<p>还有一个问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# hostname</div><div class="line">localhost.localdomain</div><div class="line">[root@localhost ~]# vim /etc/hosts</div><div class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</div><div class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</div><div class="line">192.168.19.199  server3</div></pre></td></tr></table></figure></p>
+<p>重启系统后发现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@server3 ~]# hostname</div><div class="line">server3</div><div class="line">[root@server3 ~]#</div></pre></td></tr></table></figure></p>
+<p>hostname 被修改了</p>
+<p>在 <code>/etc/rc.d/rc.sysinit</code> 这个启动脚本里发现了问题的所在。<br>rc.sysinit文件里一开始就设置了hostname。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ -f /etc/sysconfig/network ]; <span class="keyword">then</span></div><div class="line">. /etc/sysconfig/network</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> [ -z <span class="string">"<span class="variable">$HOSTNAME</span>"</span> -o <span class="string">"<span class="variable">$HOSTNAME</span>"</span> = <span class="string">"(none)"</span> ]; <span class="keyword">then</span></div><div class="line">HOSTNAME=localhost</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure></p>
+<p>确实使用了<code>/etc/hostname</code> 里的hostname值。不过后面还有一段关于设置hostname的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ipaddr=</div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$HOSTNAME</span>"</span> = <span class="string">"localhost"</span> -o <span class="string">"<span class="variable">$HOSTNAME</span>"</span> = <span class="string">"localhost.localdomain"</span> ]</div><div class="line">; <span class="keyword">then</span></div><div class="line">ipaddr=$(ip addr show to 0/0 scope global | awk <span class="string">'/[[:space:]]inet</span></div><div class="line"><span class="string">/ &#123; print gensub("/.*","","g",$2) &#125;'</span>)</div><div class="line"><span class="keyword">if</span> [ -n <span class="string">"<span class="variable">$ipaddr</span>"</span> ]; <span class="keyword">then</span></div><div class="line"><span class="built_in">eval</span> $(ipcalc -h <span class="variable">$ipaddr</span> 2&gt;/dev/null)</div><div class="line">hostname <span class="variable">$&#123;HOSTNAME&#125;</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<p>脚本判断hostname是否为localhost或者localhost.localdomain，如果是的话，将会使用接口IP地址对应的 hostname来重新设置系统的hostname。问题就出在这里，我的/etc/hostname 默认的hostname是 localhost.localdomain，它的IP是192.168.19.199，而/etc/hosts里有192.168.19.199的记录。 于是就用192.168.19.199这条记录来替换了hostname。</p>
+<p>估计这也是很多人将/etc/hosts误以为是hostname的配置文件的原因。</p>
+<p><strong>参考博客</strong> <a rel="external nofollow" target="_blank" href="http://blog.csdn.net/yangshangwei/article/details/52878530">http://blog.csdn.net/yangshangwei/article/details/52878530</a>   </p>
+
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 🖐 感谢阅读------</div>
+    
+</div>
+
+		
+	</div>
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      一棵树站在原野上
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://blog.wuwii.com/linux-hostname.html" title="CentOS 7 上永久修改hostname">http://blog.wuwii.com/linux-hostname.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/custom-log.html" rel="next" title="Log4j格式输出工具类">
+                <i class="fa fa-chevron-left"></i> Log4j格式输出工具类
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/TravisCI.html" itemprop="url">
-              
-                <span itemprop="name">Travis CI 持续集成</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-02T23:08:03+08:00"
-              content="2017-10-02" >
-          10-02
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-            <a class="post-title-link" href="/to-self.html" itemprop="url">
-              
-                <span itemprop="name">随便写点</span>
-              
-            </a>
-        
-      </h2>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-02T16:29:03+08:00"
-              content="2017-10-02" >
-          10-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/melangolo.html" itemprop="url">
-              
-                <span itemprop="name">《苦橙》-- 歌词</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-29T20:08:03+08:00"
-              content="2017-09-29" >
-          09-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/floating-life.html" itemprop="url">
-              
-                <span itemprop="name">《浮生》-- 歌词</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-28T23:08:03+08:00"
-              content="2017-09-28" >
-          09-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/never-sleeping.html" itemprop="url">
-              
-                <span itemprop="name">不眠</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-28T22:08:03+08:00"
-              content="2017-09-28" >
-          09-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/gzip-error.html" itemprop="url">
-              
-                <span itemprop="name">gzip stdin not in gzip format的错误</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-26T22:40:03+08:00"
-              content="2017-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/6/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -618,6 +659,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
 
         </div>
         
@@ -638,8 +685,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg"
@@ -822,6 +878,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作"><span class="nav-number">1.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#临时生效"><span class="nav-number">1.1.</span> <span class="nav-text">临时生效</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#永久更改Linux的hostname"><span class="nav-number">1.2.</span> <span class="nav-text">永久更改Linux的hostname</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hostname与-etc-hosts的关系"><span class="nav-number">2.</span> <span class="nav-text">hostname与/etc/hosts的关系</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -959,11 +1031,9 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -988,6 +1058,8 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 		_hcwp.push({widget:"Bloggerstream", widget_id: 95150, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
+		
+		_hcwp.push({widget:"Stream", widget_id: 95150, xid: "linux-hostname.html"});
 		
 
 		(function() {

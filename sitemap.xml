@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/linux-hostname.html</loc>
+    
+    <lastmod>2017-10-18T03:08:14.228Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/miss-you.html</loc>
     
     <lastmod>2017-10-17T10:15:47.994Z</lastmod>
@@ -135,14 +142,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/version.html</loc>
+    <loc>http://blog.wuwii.com/trend.html</loc>
     
     <lastmod>2017-10-10T00:30:59.629Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/trend.html</loc>
+    <loc>http://blog.wuwii.com/version.html</loc>
     
     <lastmod>2017-10-10T00:30:59.629Z</lastmod>
     
@@ -156,14 +163,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
