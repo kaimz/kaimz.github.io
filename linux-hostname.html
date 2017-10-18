@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="由于要做Hadoop集群，需要修改系统的hostname 做一个映射，hostname 命令只能临时修改，重启就会失效，为了有效性，所以需要永久修改系统的hostname。 百度了下，网上都是说修改 /etc/sysconfig/network 配置文件，修改hostname参数，reboot 重启后也生效，然而我这样做了并没有生效，而且我打开这个配置文件，并没有Hostname 参数，完全是自己">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-18T03:08:14.228Z">
+<meta property="og:updated_time" content="2017-10-18T03:12:47.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 上永久修改hostname">
 <meta name="twitter:description" content="由于要做Hadoop集群，需要修改系统的hostname 做一个映射，hostname 命令只能临时修改，重启就会失效，为了有效性，所以需要永久修改系统的hostname。 百度了下，网上都是说修改 /etc/sysconfig/network 配置文件，修改hostname参数，reboot 重启后也生效，然而我这样做了并没有生效，而且我打开这个配置文件，并没有Hostname 参数，完全是自己">
@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,170
+                  1,172
                 </span>
               
 
@@ -529,9 +529,9 @@
 <p>重启系统后发现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@server3 ~]# hostname</div><div class="line">server3</div><div class="line">[root@server3 ~]#</div></pre></td></tr></table></figure></p>
 <p>hostname 被修改了</p>
 <p>在 <code>/etc/rc.d/rc.sysinit</code> 这个启动脚本里发现了问题的所在。<br>rc.sysinit文件里一开始就设置了hostname。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ -f /etc/sysconfig/network ]; <span class="keyword">then</span></div><div class="line">. /etc/sysconfig/network</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> [ -z <span class="string">"<span class="variable">$HOSTNAME</span>"</span> -o <span class="string">"<span class="variable">$HOSTNAME</span>"</span> = <span class="string">"(none)"</span> ]; <span class="keyword">then</span></div><div class="line">HOSTNAME=localhost</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure></p>
-<p>确实使用了<code>/etc/hostname</code> 里的hostname值。不过后面还有一段关于设置hostname的</p>
+<p>确实使用了<code>/etc/sysconfig/network</code> 里的hostname值。不过后面还有一段关于设置hostname的</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ipaddr=</div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$HOSTNAME</span>"</span> = <span class="string">"localhost"</span> -o <span class="string">"<span class="variable">$HOSTNAME</span>"</span> = <span class="string">"localhost.localdomain"</span> ]</div><div class="line">; <span class="keyword">then</span></div><div class="line">ipaddr=$(ip addr show to 0/0 scope global | awk <span class="string">'/[[:space:]]inet</span></div><div class="line"><span class="string">/ &#123; print gensub("/.*","","g",$2) &#125;'</span>)</div><div class="line"><span class="keyword">if</span> [ -n <span class="string">"<span class="variable">$ipaddr</span>"</span> ]; <span class="keyword">then</span></div><div class="line"><span class="built_in">eval</span> $(ipcalc -h <span class="variable">$ipaddr</span> 2&gt;/dev/null)</div><div class="line">hostname <span class="variable">$&#123;HOSTNAME&#125;</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
-<p>脚本判断hostname是否为localhost或者localhost.localdomain，如果是的话，将会使用接口IP地址对应的 hostname来重新设置系统的hostname。问题就出在这里，我的/etc/hostname 默认的hostname是 localhost.localdomain，它的IP是192.168.19.199，而/etc/hosts里有192.168.19.199的记录。 于是就用192.168.19.199这条记录来替换了hostname。</p>
+<p>脚本判断hostname是否为localhost或者localhost.localdomain，如果是的话，将会使用接口IP地址对应的 hostname来重新设置系统的hostname。问题就出在这里，我的/etc/sysconfig/network 默认的hostname是 localhost.localdomain，它的IP是192.168.19.199，而/etc/hosts里有192.168.19.199的记录。 于是就用192.168.19.199这条记录来替换了hostname。</p>
 <p>估计这也是很多人将/etc/hosts误以为是hostname的配置文件的原因。</p>
 <p><strong>参考博客</strong> <a rel="external nofollow" target="_blank" href="http://blog.csdn.net/yangshangwei/article/details/52878530">http://blog.csdn.net/yangshangwei/article/details/52878530</a>   </p>
 
