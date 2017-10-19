@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://blog.wuwii.com/linux-hadoop.html</loc>
-    <lastmod>2017-10-19T08:24:14.906Z</lastmod>
+    <lastmod>2017-10-19T08:51:43.146Z</lastmod>
     <data>
         <display>
         <title>CentOS 7 上安装Hadoop V 2.8.1集群及配置</title>
@@ -255,26 +255,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    <data>
-        <display>
-        <title>他真的很喜欢你</title>
-        <pubTime>2017-10-14T15:30:03.000Z</pubTime>
-        
-        <tag>他真的很喜欢你</tag>
-         
-         
-           
-             
-              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/20171015.html</loc>
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
@@ -288,6 +268,26 @@
            
              
               <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
+    <data>
+        <display>
+        <title>他真的很喜欢你</title>
+        <pubTime>2017-10-14T15:30:03.000Z</pubTime>
+        
+        <tag>他真的很喜欢你</tag>
+         
+         
+           
+             
+              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
           
         </display>
     </data>
@@ -423,14 +423,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>关于SEO</title>
-        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
+        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
+        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
         
-        <tag>SEO</tag>
+        <tag>postman</tag>
          
          
            
@@ -443,14 +443,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
-        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
+        <title>关于SEO</title>
+        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
         
-        <tag>postman</tag>
+        <tag>SEO</tag>
          
          
            
