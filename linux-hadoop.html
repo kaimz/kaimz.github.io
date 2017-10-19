@@ -143,7 +143,7 @@
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171019151635.png">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171019153415.png">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171019153453.png">
-<meta property="og:updated_time" content="2017-10-19T08:21:27.562Z">
+<meta property="og:updated_time" content="2017-10-19T08:24:14.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 上安装Hadoop V 2.8.1集群及配置">
 <meta name="twitter:description" content="Hadoop是一个由Apache基金会所开发的分布式系统基础架构。用户可以在不了解分布式底层细节的情况下，开发分布式程序。充分利用集群的威力进行高速运算和存储。 Hadoop实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS。HDFS有高容错性的特点，并且设计用来部署在低廉的（low-cost）硬件上；而且它提供高吞吐量（high throug">
@@ -476,7 +476,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3,054
+                  3,067
                 </span>
               
 
@@ -541,7 +541,7 @@
 <p>没百度出来，自己最后卡了一个小时 恍然大悟，每行后面空出空格就好了。</p>
 <p>在其余的电脑相互登陆试试，都能无密登陆，说明，配置成功。</p>
 <p><strong>但是一定要注意的是，每次ssh登陆完成后，都要执行 <code>exit</code>，否则你的后续命令是在另外一台机器上执行的。</strong></p>
-<h2 id="安装JDK-和Hadoop"><a href="#安装JDK-和Hadoop" class="headerlink" title="安装JDK 和Hadoop"></a>安装JDK 和Hadoop</h2><h3 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h3><p>三台机器都需要安装jdk，</p>
+<h2 id="安装JDK-和Hadoop"><a href="#安装JDK-和Hadoop" class="headerlink" title="安装JDK 和Hadoop"></a>安装JDK 和Hadoop</h2><h3 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h3><p>三台机器都需要安装jdk，CentOS7 安装JDK参考 <a href="http://blog.wuwii.com/linux-jdk.html">http://blog.wuwii.com/linux-jdk.html</a></p>
 <h3 id="安装hadoop"><a href="#安装hadoop" class="headerlink" title="安装hadoop"></a>安装hadoop</h3><p>首先 三台机器都需要安装hadoop，都需要执行下面所有的操作。</p>
 <h4 id="上载文件，并且解压"><a href="#上载文件，并且解压" class="headerlink" title="上载文件，并且解压"></a>上载文件，并且解压</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@server1 opt]<span class="comment"># tar -xvf hadoop-2.8.1.tar.gz</span></div></pre></td></tr></table></figure>
 <p>解压缩后得到<code>hadoop-2.8.1</code> 文件夹。</p>
