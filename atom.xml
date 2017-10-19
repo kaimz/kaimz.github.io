@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-10-18T03:18:43.540Z</updated>
+  <updated>2017-10-19T03:18:40.443Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS 7 安装JDK和环境变量的配置</title>
+    <link href="http://blog.wuwii.com/linux-jdk.html"/>
+    <id>http://blog.wuwii.com/linux-jdk.html</id>
+    <published>2017-10-19T03:18:03.000Z</published>
+    <updated>2017-10-19T03:18:40.443Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>系统环境：centos7</li>
+<li>安装方式：rpm安装</li>
+<li>版本：jdk1.8.0_144</li>
+</ul>
+<a id="more"></a>
+<h4 id="首先查看电脑的-jdk"><a href="#首先查看电脑的-jdk" class="headerlink" title="首先查看电脑的 jdk"></a>首先查看电脑的 jdk</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@server2 ~]<span class="comment"># java -version</span></div><div class="line">openjdk version <span class="string">"1.8.0_102"</span></div><div class="line">OpenJDK Runtime Environment (build 1.8.0_102-b14)</div><div class="line">OpenJDK 64-Bit Server VM (build 25.102-b14, mixed mode)</div></pre></td></tr></table></figure>
+<p>是默认安装的openjdk 不是我们需要的oracle 版本的，安装前需要卸载 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">[root@server2 ~]<span class="comment"># rpm -qa | grep java</span></div><div class="line">javapackages-tools-3.4.1-11.el7.noarch</div><div class="line">java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64</div><div class="line">java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</div><div class="line">tzdata-java-2016g-2.el7.noarch</div><div class="line">java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64</div><div class="line">java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64</div><div class="line">python-javapackages-3.4.1-11.el7.noarch</div><div class="line"></div><div class="line">[root@server2 ~]<span class="comment"># rpm -e --nodeps tzdata-java-2016g-2.el7.noarch</span></div><div class="line">[root@server2 ~]<span class="comment"># rpm -e -nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</span></div><div class="line">rpm: -nodeps: unknown option</div><div class="line">[root@server2 ~]<span class="comment"># rpm -e -nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64</span></div><div class="line">rpm: -nodeps: unknown option</div><div class="line">[root@server2 ~]<span class="comment"># rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64</span></div><div class="line">^[[A[root@server2 rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</div><div class="line">[root@server2 ~]<span class="comment"># rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64</span></div><div class="line">[root@server2 ~]<span class="comment"># rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64</span></div></pre></td></tr></table></figure></p>
+<p>最后查看卸载完成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@server2 ~]<span class="comment"># java -version</span></div><div class="line">-bash: /usr/bin/java: No such file or directory</div></pre></td></tr></table></figure></p>
+<h4 id="下载jdk"><a href="#下载jdk" class="headerlink" title="下载jdk"></a>下载jdk</h4><p>官网下载</p>
+<h4 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h4><p>我下载的是rpm 文件，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@server2 opt]<span class="comment"># rpm -ivh jdk-8u144-linux-x64.rpm </span></div><div class="line">Preparing...                          <span class="comment">################################# [100%]</span></div><div class="line">Updating / installing...</div><div class="line">   1:jdk1.8.0_144-2000:1.8.0_144-fcs  rpm                                  (  1%<span class="comment">################################# [100%]</span></div><div class="line">Unpacking JAR files...</div><div class="line">        tools.jar...</div><div class="line">        plugin.jar...</div><div class="line">        javaws.jar...</div><div class="line">        deploy.jar...</div><div class="line">        rt.jar...</div><div class="line">        jsse.jar...</div><div class="line">        charsets.jar...</div><div class="line">        localedata.jar...</div></pre></td></tr></table></figure></p>
+<p>默认安装的是路径是 <code>/usr/java</code></p>
+<h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4><p>在 <code>/etc/profile</code> 文件中加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/usr/java/jdk1.8.0_144 PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span> CLASSPATH=<span class="variable">$JAVA_HOME</span>/</div><div class="line">jre/lib/ext:<span class="variable">$JAVA_HOME</span>/lib/tools.jar <span class="built_in">export</span> PATH JAVA_HOME CLASSPATH</div></pre></td></tr></table></figure>
+<p>使生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@server2 opt]<span class="comment"># source /etc/profile</span></div><div class="line">-bash: jre/lib/ext:/usr/java/jdk1.8.0_144/lib/tools.jar: No such file or directory</div></pre></td></tr></table></figure></p>
+<p>查看系统环境状态path 是否生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@server2 opt]<span class="comment">#  echo $PATH </span></div><div class="line">/usr/java/jdk1.8.0_144/bin:/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/root/bin</div></pre></td></tr></table></figure></p>
+<p>完成。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;系统环境：centos7&lt;/li&gt;
+&lt;li&gt;安装方式：rpm安装&lt;/li&gt;
+&lt;li&gt;版本：jdk1.8.0_144&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>20171018</title>
+    <link href="http://blog.wuwii.com/20171018.html"/>
+    <id>http://blog.wuwii.com/20171018.html</id>
+    <published>2017-10-18T13:53:03.000Z</published>
+    <updated>2017-10-19T00:48:38.105Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近看她的空间留言，写了又删，删了又写，心里也和不是滋味，现在一想起她，就想到昨天见到第一眼她那种憔悴的面容，真是令人疼惜。我想可能真的不应该去见她吧，弄得现在都没能说上两句话，可能是我太自私了点，打破了一点存留下的美好吧。</p>
+<p>最近脑经确实有点炸裂，确实不怎么敢再去看她的空间了，不想再去看那种互相残忍的伤害的局面，不知道他们心里怎么想的，我根本就不想明白，明白的越多，失望估计也就越大了。突然想起，以前那么长时间公司有网，有wifi 也要强忍着不上QQ 不看手机， 就是怕突然看到她的动态，就像一下子惊起梦中的我，然后开始梦游，梦游开始不知觉中触碰各种神经，幻想着有人来刺伤自己。</p>
+<p>自从昨天打通了她的手机，今天就无时无刻的想起要去给她拨号过去，问下，你怎么现在再干嘛，过得怎么样了。想着，还是算了，昨天她见到我那种惊慌失措的样子，是真的可爱极了，她一直说她很忙，口中支支吾吾的说还有什么事情没做完。我也是那种慢热的人，做事总是顾及其他，想想还是放下，生怕打扰她，弄不好什么时候又要拉黑了。</p>
+<p>想着今晚再打过去吧，不论对错，或许，相见不如怀念，至少能不必再给她带来更多的压力，我想我这个人根本就读不懂女人的心吧，就是直嘛，也好，不要去想那些隐喻，也不要去有那些烦恼，姑且就将自己的快乐带给她人。</p>
+<p>既然她想做个坚强的人，就希望她永远做个坚强的女人吧，不要轻易的被击倒。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近看她的空间留言，写了又删，删了又写，心里也和不是滋味，现在一想起她，就想到昨天见到第一眼她那种憔悴的面容，真是令人疼惜。我想可能真的不应该去见她吧，弄得现在都没能说上两句话，可能是我太自私了点，打破了一点存留下的美好吧。&lt;/p&gt;
+&lt;p&gt;最近脑经确实有点炸裂，确实不怎么敢
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS 7 上永久修改hostname</title>
@@ -74,6 +145,36 @@
     
     
       <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>20171017</title>
+    <link href="http://blog.wuwii.com/20171017.html"/>
+    <id>http://blog.wuwii.com/20171017.html</id>
+    <published>2017-10-17T14:53:03.000Z</published>
+    <updated>2017-10-19T00:48:38.102Z</updated>
+    
+    <content type="html"><![CDATA[<p>我想我是个固执的人吧，今天上午看到你跟我说她胃疼，最终还是下定决心，去学校见见她吧。</p>
+<p>中午下班跟经理打声招呼说下午晚点来，得到回应马上就出发了，第一站是来到药店帮忙询问下暖胃的药吧，平时自己吃过的拿吧，外加一盒消炎的。</p>
+<p>我到了学校，我感觉到我已经怂了，好多年没见她了，能把她叫出来吗，经历一段波折，通过手机还是成功约出了她，最终在人海的广场上看到了她，第一眼看上去她看起来憔悴了好多，人也是超级的瘦弱，心中都是一阵疼痛，这么一段时间，人都成什么样子了，这么突然的见面，在这种场合，都有些紧张吧，曾经说，最喜欢看的就是她的眼睛了，现在突然不敢看了，是内心的愧疚吧。</p>
+<p>她就这样在前面走着，我就在旁边跟着，真是个大傻蛋啊，但是我当时真的什么也想不到说什么了，因为脑子想的都是她，杂乱到无法思考我是来干嘛的，怎么聊下去。说了点心里话，她却一直浅浅的回应，就像手足无措的孩子一样，人还往树上撞，我是超级的难受啊，这样的人怎么去照顾好自己，真的想过去抓住她的手，跟她说，跟着我吧。期间问了她以后想去哪，她说哪里工资高就去哪，我问，你不是那种缺钱的人吧；她回答得那么快，生活开支很高的，我明白她，其实她是个很节俭的人，没什么攀比的，只是想让身边的人过得更好些吧，却一直在逞强着，难受。我随口提了下为什么会留在武汉吧，以前对她说过，她大概忘了，我也不想再提了，或许，很难受，即使不难受，也没人敢承诺一辈子能在一个地方工作的，承诺太多，都是废话了，再自己没信心办好一件事的时候，再也不会去承诺了，我只是轻轻的告诉自己，以后跟着你了。说了下以前高中的时候，我想我可能是个固执的人，这么多年都没能忘记她，内心都是你，这个姑娘，真是个骗子，居然跟我小声说可能不合适。。。当然说的好多我走的时候都想不起来。。有点情绪了。</p>
+<p>最后很简单，她送我离开了，走的时候看着她，她太害羞了，她见到我那种惊慌失措的样子，是真的可爱极了，她一直说她很忙，口中支支吾吾的说还有什么事情没做完，我也没听清，压根没打算听这些无用的话语，我将药给她了，离开了，没去追回她，只是留了张背影照片，模糊了视线。告诉她，等我。</p>
+<p>我想我也是个大傻蛋，中午没吃饭，赶回来两点半，吃了两个包子，混了个苹果，就是直接困了一下午吧，，，</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我想我是个固执的人吧，今天上午看到你跟我说她胃疼，最终还是下定决心，去学校见见她吧。&lt;/p&gt;
+&lt;p&gt;中午下班跟经理打声招呼说下午晚点来，得到回应马上就出发了，第一站是来到药店帮忙询问下暖胃的药吧，平时自己吃过的拿吧，外加一盒消炎的。&lt;/p&gt;
+&lt;p&gt;我到了学校，我感觉到我已经
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
@@ -714,115 +815,6 @@
       <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
     
       <category term="log4j" scheme="http://blog.wuwii.com/tags/log4j/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我想分享你的悲伤</title>
-    <link href="http://blog.wuwii.com/share-sadness.html"/>
-    <id>http://blog.wuwii.com/share-sadness.html</id>
-    <published>2017-10-07T14:08:03.000Z</published>
-    <updated>2017-10-08T00:52:06.288Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="我想分享你的悲伤"><a href="#我想分享你的悲伤" class="headerlink" title="我想分享你的悲伤"></a>我想分享你的悲伤</h3><p>我想分享你的悲伤，</p>
-<p>我要成为故事中的小丑，</p>
-<p>将悲伤写进喜剧中。</p>
-<p>我想分享你的悲伤，</p>
-<p>我会强颜为笑，</p>
-<p>带上面具，</p>
-<p>安慰你。</p>
-<p>我想分享你的悲伤</p>
-<p>但我不能将悲伤带给你，</p>
-<p>因为哄你开心，</p>
-<p>才是我的责任，</p>
-<p>即便是伤痕累累，</p>
-<p>你一笑，</p>
-<p>我便好。</p>
-<p>我想分享你的悲伤，</p>
-<p>永远微笑，</p>
-<p>不贪婪。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;我想分享你的悲伤&quot;&gt;&lt;a href=&quot;#我想分享你的悲伤&quot; class=&quot;headerlink&quot; title=&quot;我想分享你的悲伤&quot;&gt;&lt;/a&gt;我想分享你的悲伤&lt;/h3&gt;&lt;p&gt;我想分享你的悲伤，&lt;/p&gt;
-&lt;p&gt;我要成为故事中的小丑，&lt;/p&gt;
-&lt;p&gt;将悲伤写进喜剧中。&lt;
-    
-    </summary>
-    
-      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery实现多文件上传并预览</title>
-    <link href="http://blog.wuwii.com/multiple-file-upload.html"/>
-    <id>http://blog.wuwii.com/multiple-file-upload.html</id>
-    <published>2017-10-07T02:08:03.000Z</published>
-    <updated>2017-10-10T00:30:59.582Z</updated>
-    
-    <content type="html"><![CDATA[<p>自己做了个文件上传，样式有些简陋，功能还需以后完善。中间遇到了一些问题，在这里记录下。<a id="more"></a></p>
-<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height: 82px; width: 100%; border-bottom: 1px solid #ddd;padding-top: 5px"</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 80px; height: 82px;float: left;text-align: right; line-height: 72px;"</span>&gt;</span>反馈图片<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">class</span>=<span class="string">"file"</span>&gt;</span>选择文件</div><div class="line">               <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">accept</span>=<span class="string">"image/png,image/gif,image/jpg,image/jpeg"</span> <span class="attr">id</span>=<span class="string">"files"</span> <span class="attr">name</span>=<span class="string">"files"</span> <span class="attr">multiple</span> /&gt;</span></div><div class="line">           <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"preview"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.file</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#03afD9</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#99D3F5</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</div><div class="line">    <span class="attribute">margin-left</span>: <span class="number">5px</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">4px</span> <span class="number">12px</span>;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">    <span class="attribute">color</span>: white;</div><div class="line">    <span class="attribute">text-decoration</span>: none;</div><div class="line">    <span class="attribute">text-indent</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">20px</span>;</div><div class="line">    <span class="attribute">margin-top</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.file</span> <span class="selector-tag">input</span> &#123;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.file</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#95B8E7</span>;</div><div class="line">    <span class="attribute">border-color</span>: <span class="number">#78C3F3</span>;</div><div class="line">    <span class="attribute">color</span>: white;</div><div class="line">    <span class="attribute">text-decoration</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//下面用于多图片上传预览功能</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">setImagePreviews</span>(<span class="params">docObj</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> preview = $(<span class="string">"#preview"</span>, $(<span class="string">".MachineEdit"</span>, Dev.App.FillPanel.Target));</div><div class="line">            preview.html(<span class="string">""</span>);</div><div class="line">            fileList = docObj.files;</div><div class="line">            <span class="keyword">if</span> (fileList.length &gt; <span class="number">3</span>)&#123;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; fileList.length; i++) &#123;</div><div class="line">                <span class="keyword">if</span> (!checkType(fileList[i].name))&#123;</div><div class="line">                    preview.html(<span class="string">""</span>);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                preview.append(<span class="string">"&lt;div style='float:left;cursor:pointer;margin-left: 3px;' &gt;&lt;img id='img"</span> + i + <span class="string">"' /&gt; &lt;/div&gt;"</span>);</div><div class="line">                <span class="keyword">var</span> imgObjPreview = $(<span class="string">"#img"</span>+i, $(<span class="string">".MachineEdit"</span>, Dev.App.FillPanel.Target));</div><div class="line">                <span class="keyword">if</span> (fileList &amp;&amp; fileList[i]) &#123;</div><div class="line">                    <span class="comment">//火狐下，直接设img属性</span></div><div class="line">                    imgObjPreview.css(<span class="string">"display"</span>,<span class="string">"block"</span>);</div><div class="line">                    <span class="comment">//控制缩略图大小</span></div><div class="line">                    imgObjPreview.width(<span class="number">70</span>);</div><div class="line">                    imgObjPreview.height(<span class="number">70</span>);</div><div class="line">                    <span class="comment">//imgObjPreview.src = docObj.files[0].getAsDataURL();</span></div><div class="line">                    <span class="comment">//火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式</span></div><div class="line">                    imgObjPreview.attr(<span class="string">"src"</span>, <span class="built_in">window</span>.URL.createObjectURL(fileList[i]));</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="comment">//IE下，使用滤镜</span></div><div class="line">                    docObj.select();</div><div class="line">                    <span class="keyword">var</span> imgSrc = <span class="built_in">document</span>.selection.createRange().text;</div><div class="line">                    <span class="keyword">var</span> localImagId = $(<span class="string">"#img"</span>+i, $(<span class="string">".MachineEdit"</span>, Dev.App.FillPanel.Target));</div><div class="line">                    <span class="comment">//必须设置初始大小</span></div><div class="line">                    localImagId.width(<span class="number">70</span>);</div><div class="line">                    localImagId.height(<span class="number">70</span>);</div><div class="line">                    <span class="comment">//图片异常的捕捉，防止用户修改后缀来伪造图片</span></div><div class="line">                    imgObjPreview.css(<span class="string">"display"</span>, <span class="string">"none"</span>);</div><div class="line">                    <span class="built_in">document</span>.selection.empty();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">/*检测照片格式*/</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">checkType</span>(<span class="params">image</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> extStart = image.lastIndexOf(<span class="string">"."</span>);</div><div class="line">            <span class="keyword">var</span> ext = image.substring(extStart, image.length).toUpperCase();</div><div class="line">            <span class="keyword">if</span> ( ext != <span class="string">".PNG"</span> &amp;&amp; ext != <span class="string">".GIF"</span> &amp;&amp; ext != <span class="string">".JPG"</span> &amp;&amp; ext != <span class="string">".JPEG"</span>) &#123;</div><div class="line">                dialog.Alert(<span class="string">"图片限于png，gif，jpeg，jpg格式！"</span>, <span class="string">"error"</span>);</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<p>调用方式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#files"</span>, $(<span class="string">".MachineEdit"</span>, Dev.App.FillPanel.Target)).bind(<span class="string">"change"</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    setImagePreviews(<span class="keyword">this</span>);</div><div class="line"> &#125;);</div></pre></td></tr></table></figure></p>
-<p>效果展示：<br><img src="https://i.loli.net/2017/10/07/59d8a623e0921.png" alt="img"></p>
-<p>上传的时候使用的是<code>FormData</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//以上省略</span></div><div class="line">            <span class="keyword">var</span> form = <span class="keyword">new</span> FormData();</div><div class="line">           <span class="comment">//注意参数数组的时候使用多次append就行了</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = fileList.length; i &lt; len; i++) &#123;</div><div class="line">                form.append(<span class="string">"files"</span>, fileList[i]);</div><div class="line">            &#125;</div><div class="line">           </div><div class="line">            form.append(<span class="string">"orgid"</span>, selectorgid);</div><div class="line">            form.append(<span class="string">"cautionid"</span>, selectAl);</div><div class="line">            form.append(<span class="string">"fkder"</span>,Dev.cookie.user.truename);</div><div class="line"></div><div class="line">            $.ajax(&#123;</div><div class="line">                type: <span class="string">"POST"</span>,</div><div class="line">                url: <span class="string">'~~省略~~'</span>,</div><div class="line">                data: form,</div><div class="line">                contentType: <span class="literal">false</span>,</div><div class="line">                processData: <span class="literal">false</span>, <span class="comment">//注意一定要设置为false</span></div><div class="line">                success: <span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">                    <span class="keyword">if</span> (!Dev.IsNull(response) &amp;&amp; response.statusCode == <span class="number">200</span>) &#123;</div><div class="line">                        dialog.Alert(msg.addSuccess, <span class="string">"success"</span>);</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        dialog.Alert(msg.addFailed, <span class="string">"error"</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                error: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                    dialog.Alert(msg.netout, <span class="string">"error"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;)</div></pre></td></tr></table></figure>
-<p><code>processData</code>的默认值是<code>true</code>。用于对<code>data</code>参数进行序列化处理。</p>
-<h3 id="后台"><a href="#后台" class="headerlink" title="后台"></a>后台</h3><p>java后台使用的是springMVC，相同的可以参考。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/***"</span>, method = RequestMethod.POST)</div><div class="line">	<span class="function"><span class="keyword">public</span> HttpResponse&lt;CautionFeedBackEntity&gt; <span class="title">addFile</span><span class="params">(@RequestParam(value=<span class="string">"files"</span>,required=<span class="keyword">false</span>)</span>MultipartFile[] files, CautionFeedBackEntity entity) </span>&#123;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			~~~处理~~~</div><div class="line">			<span class="keyword">return</span> <span class="keyword">new</span> HttpResponse&lt;CautionFeedBackEntity&gt;(ResponseStatusCode.C200);</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			Log.error(<span class="string">"错误飘过~~~~"</span>);</div><div class="line">			<span class="keyword">return</span> <span class="keyword">new</span> HttpResponse&lt;CautionFeedBackEntity&gt;(ResponseStatusCode.C400);</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p>需要注意的是 <code>MultipartFile[]</code> 需要设置 <code>@RequestParam</code> 参数。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
-<li>html优化。</li>
-<li>脚本后期还需添加点击删除功能，并且还要更新input-file里的内容。</li>
-<li>js中处理图片的过程，还需做更多的控制（文件大小，伪文件）。</li>
-<li>使用fastDFS存储。</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;自己做了个文件上传，样式有些简陋，功能还需以后完善。中间遇到了一些问题，在这里记录下。
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="http://blog.wuwii.com/tags/JavaScript/"/>
-    
-      <category term="jQuery" scheme="http://blog.wuwii.com/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>这些只属于武汉的浪漫，看完幸福感爆棚</title>
-    <link href="http://blog.wuwii.com/wh-romance.html"/>
-    <id>http://blog.wuwii.com/wh-romance.html</id>
-    <published>2017-10-05T10:08:03.000Z</published>
-    <updated>2017-10-07T10:06:36.143Z</updated>
-    
-    <content type="html"><![CDATA[<p>无意中看到个长图，感觉到身边的城市这边美，平时没什么时间去发现，倒是有点小小的遗憾吧，记下，有机会一定要转转/ y。<a id="more"></a></p>
-<p><img src="https://i.loli.net/2017/10/05/59d6030110f9e.jpg" alt="img"></p>
-<p>就是希望以后有个人能一起去我们想去的地方。。。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;无意中看到个长图，感觉到身边的城市这边美，平时没什么时间去发现，倒是有点小小的遗憾吧，记下，有机会一定要转转/ y。
-    
-    </summary>
-    
-      <category term="分享" scheme="http://blog.wuwii.com/categories/%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="生活" scheme="http://blog.wuwii.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="武汉" scheme="http://blog.wuwii.com/tags/%E6%AD%A6%E6%B1%89/"/>
     
   </entry>
   

@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/linux-jdk.html</loc>
+    
+    <lastmod>2017-10-19T03:18:40.443Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/install-mosquitto.html</loc>
+    
+    <lastmod>2017-10-19T02:21:51.160Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/test.html</loc>
+    
+    <lastmod>2017-10-19T00:48:38.109Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/20171018.html</loc>
+    
+    <lastmod>2017-10-19T00:48:38.105Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/20171017.html</loc>
+    
+    <lastmod>2017-10-19T00:48:38.102Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/linux-hostname.html</loc>
     
     <lastmod>2017-10-18T03:18:43.540Z</lastmod>
@@ -51,14 +86,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
+    <loc>http://blog.wuwii.com/20171015.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/20171015.html</loc>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     
@@ -143,13 +178,6 @@
   
   <url>
     <loc>http://blog.wuwii.com/trend.html</loc>
-    
-    <lastmod>2017-10-10T00:30:59.629Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/version.html</loc>
     
     <lastmod>2017-10-10T00:30:59.629Z</lastmod>
     
@@ -306,13 +334,6 @@
     <loc>http://blog.wuwii.com/maven-error-one.html</loc>
     
     <lastmod>2017-09-18T00:41:33.695Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/install-mosquitto.html</loc>
-    
-    <lastmod>2017-09-18T00:41:33.668Z</lastmod>
     
   </url>
   

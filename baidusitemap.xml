@@ -4,6 +4,108 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/linux-jdk.html</loc>
+    <lastmod>2017-10-19T03:18:40.443Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS 7 安装JDK和环境变量的配置</title>
+        <pubTime>2017-10-19T03:18:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/install-mosquitto.html</loc>
+    <lastmod>2017-10-19T02:21:51.160Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS 7 下安装mosquitto</title>
+        <pubTime>2017-09-11T14:24:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>MQTT</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/test.html</loc>
+    <lastmod>2017-10-19T00:48:38.109Z</lastmod>
+    <data>
+        <display>
+        <title>关于博客改动</title>
+        <pubTime>2017-07-04T02:08:03.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/20171018.html</loc>
+    <lastmod>2017-10-19T00:48:38.105Z</lastmod>
+    <data>
+        <display>
+        <title>20171018</title>
+        <pubTime>2017-10-18T13:53:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/20171017.html</loc>
+    <lastmod>2017-10-19T00:48:38.102Z</lastmod>
+    <data>
+        <display>
+        <title>20171017</title>
+        <pubTime>2017-10-17T14:53:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/linux-hostname.html</loc>
     <lastmod>2017-10-18T03:18:43.540Z</lastmod>
     <data>
@@ -131,26 +233,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    <data>
-        <display>
-        <title>他真的很喜欢你</title>
-        <pubTime>2017-10-14T15:30:03.000Z</pubTime>
-        
-        <tag>他真的很喜欢你</tag>
-         
-         
-           
-             
-              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/20171015.html</loc>
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
@@ -164,6 +246,26 @@
            
              
               <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
+    <data>
+        <display>
+        <title>他真的很喜欢你</title>
+        <pubTime>2017-10-14T15:30:03.000Z</pubTime>
+        
+        <tag>他真的很喜欢你</tag>
+         
+         
+           
+             
+              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
           
         </display>
     </data>
@@ -395,26 +497,6 @@
            
              
               <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/version.html</loc>
-    <lastmod>2017-10-10T00:30:59.629Z</lastmod>
-    <data>
-        <display>
-        <title>关于博客改动</title>
-        <pubTime>2017-07-04T02:08:03.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -866,28 +948,6 @@
         <pubTime>2017-09-14T14:44:03.000Z</pubTime>
         
         <tag>maven</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/install-mosquitto.html</loc>
-    <lastmod>2017-09-18T00:41:33.668Z</lastmod>
-    <data>
-        <display>
-        <title>CentOS 7 下安装mosquitto</title>
-        <pubTime>2017-09-11T14:24:03.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>MQTT</tag>
          
          
            

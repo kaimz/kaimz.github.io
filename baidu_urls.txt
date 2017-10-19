@@ -1,4 +1,7 @@
+http://blog.wuwii.com/linux-jdk.html
+http://blog.wuwii.com/20171018.html
 http://blog.wuwii.com/linux-hostname.html
+http://blog.wuwii.com/20171017.html
 http://blog.wuwii.com/custom-log.html
 http://blog.wuwii.com/java-log4j.html
 http://blog.wuwii.com/spring-test.html
@@ -56,5 +59,5 @@ http://blog.wuwii.com/fetter-tears.html
 http://blog.wuwii.com/centos-fastDFS.html
 http://blog.wuwii.com/maven-jetty.html
 http://blog.wuwii.com/maven-tomcat.html
-http://blog.wuwii.com/version.html
+http://blog.wuwii.com/test.html
 http://blog.wuwii.com/hello-world.html
