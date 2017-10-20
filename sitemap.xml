@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/java-lambda.html</loc>
+    
+    <lastmod>2017-10-20T09:18:04.043Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/compiler-version.html</loc>
     
     <lastmod>2017-10-20T03:26:10.750Z</lastmod>
@@ -163,14 +170,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
@@ -212,14 +219,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     

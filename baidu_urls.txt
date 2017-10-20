@@ -1,4 +1,5 @@
 http://blog.wuwii.com/compiler-version.html
+http://blog.wuwii.com/java-lambda.html
 http://blog.wuwii.com/sensible.html
 http://blog.wuwii.com/linux-hadoop.html
 http://blog.wuwii.com/linux-jdk.html
