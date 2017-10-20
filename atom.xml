@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-10-19T09:08:06.980Z</updated>
+  <updated>2017-10-20T03:20:54.838Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Intellij Idea 的maven 项目设置 默认java编译版本</title>
+    <link href="http://blog.wuwii.com/compiler-version.html"/>
+    <id>http://blog.wuwii.com/compiler-version.html</id>
+    <published>2017-11-19T03:28:03.000Z</published>
+    <updated>2017-10-20T03:20:54.838Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用 Intellij Idea 创建maven 项目后，每次 reimport 都会回归默认 java 版本 1.5 ，每次都要重新设置版本，很麻烦。下面的方法同样适用Eclipse。<br><a id="more"></a></p>
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><p>修改该项目的pom.xml , 只对该项目有效。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">maven.compiler.version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="name">maven.compiler.version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;maven.compiler.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">source</span>&gt;</span>$&#123;maven.compiler.source&#125;<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">target</span>&gt;</span>$&#123;maven.compiler.target&#125;<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">encoding</span>&gt;</span>$&#123;project.build.sourceEncoding&#125;<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span>	</div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>保存，eclipse 是Update maven 项目， Intellij  reimport。</p>
+<h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h5><p>修改 maven 的 配置文件 <code>settings.xml</code>，在<code>profiles</code>节点中加入自己的Jdk版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;profile&gt;      </div><div class="line">    &lt;id&gt;jdk-1.8&lt;/id&gt;      </div><div class="line">    &lt;activation&gt;      </div><div class="line">        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;      </div><div class="line">        &lt;jdk&gt;1.8&lt;/jdk&gt;      </div><div class="line">    &lt;/activation&gt;      </div><div class="line">    &lt;properties&gt;      </div><div class="line">        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;      </div><div class="line">        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;      </div><div class="line">    &lt;/properties&gt;      </div><div class="line">&lt;/profile&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>这个方法对于所有使用这个maven 插件的项目都有效。</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用 Intellij Idea 创建maven 项目后，每次 reimport 都会回归默认 java 版本 1.5 ，每次都要重新设置版本，很麻烦。下面的方法同样适用Eclipse。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="maven" scheme="http://blog.wuwii.com/tags/maven/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>别太懂事了</title>
+    <link href="http://blog.wuwii.com/sensible.html"/>
+    <id>http://blog.wuwii.com/sensible.html</id>
+    <published>2017-10-19T14:25:03.000Z</published>
+    <updated>2017-10-20T00:48:26.059Z</updated>
+    
+    <content type="html"><![CDATA[<p>不知不觉，又想起了她，自从上次见过她了，心里总是那么时刻的泛起她的影子吧，虽然说好久没见再相见，但是彼此应该没什么深刻的记忆吧，而且排斥的我很厉害，这让我心疼得厉害，到底是什么成为这样的她，不想懂了。</p>
+<p>或许吧，是以前一个人久了，什么事都得自己撑着吧，什么事情都得面对，她也是一个很拼的女孩子，什么事情都得抢在前头吧，最后了，有了委屈自己忍，有了眼泪只好自己吞。总是在乎别人的感受，然而不知道自己会有多疼的人，就是这样太懂事的人吧。明明她也很脆弱，无关外表，还是心里，却总要装作坚强的样子，明明她也有时候表现的无所适从的害怕，却还要表现得无所畏惧的淡然。可是，在别人面前，她一直装作那么懂事，别人都不相信她会难过，会流泪了吧。但是，她不这么认为的，相信自己能够修复所有的伤疤，可以完成所有的事情。</p>
+<p>但是，太懂事的人，常常会不太幸福吧，常常顾及别人得感受，不懂得去拒绝别人，更不忍心看别人难过，宁可自己委屈，宁可自己疲惫，也不想给任何人带来麻烦，这样真的会活得很累很累，考虑得太多，却总是忽略了自己。这也是我为什么总是说好担心你呀。</p>
+<p>别太懂事了，不要太善良了，给别人一次心疼自己的机会，卸下面具，天 塌下来了也不用自己去抗；别再逞强了，你也值得被人疼人。别把所有的事情都揽到自己身上，你只是你自己，不需要活成别人，也可以不管不顾一切，活成自己的模样。</p>
+<p>加油，姑娘。真希望你能好好的生活下去，忘了一切烦恼。</p>
+<p>晚安。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不知不觉，又想起了她，自从上次见过她了，心里总是那么时刻的泛起她的影子吧，虽然说好久没见再相见，但是彼此应该没什么深刻的记忆吧，而且排斥的我很厉害，这让我心疼得厉害，到底是什么成为这样的她，不想懂了。&lt;/p&gt;
+&lt;p&gt;或许吧，是以前一个人久了，什么事都得自己撑着吧，什么事情都
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS 7 上安装Hadoop V 2.8.1集群及配置</title>
@@ -749,72 +805,6 @@
   </entry>
   
   <entry>
-    <title>JavaScript和jQuery中forEach和each的用法，以及各种遍历的使用</title>
-    <link href="http://blog.wuwii.com/js-array.html"/>
-    <id>http://blog.wuwii.com/js-array.html</id>
-    <published>2017-10-10T13:28:03.000Z</published>
-    <updated>2017-10-12T00:39:51.480Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天做个选择出id前缀为imgpreviwe的img标签，给它们个背景图片，直接想都没想，forEach调了半天，没调出来，才知道用错了方法。。哈哈，以前的东西忘得差不多了，重新学习一遍。。</p>
-<a id="more"></a>
-<p>正确的是这样写，使用<code>each</code>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"[id^='imgpreviwe']"</span>, $(<span class="string">".MachineEdit"</span>, Dev.App.FillPanel.Target)).each(<span class="function"><span class="keyword">function</span> (<span class="params">index</span>) </span>&#123;</div><div class="line">                $(<span class="keyword">this</span>).attr(<span class="string">"src"</span>, <span class="string">"image/authorization/default.jpg"</span>);</div><div class="line">            &#125;);</div></pre></td></tr></table></figure></p>
-<p>下面来重新学习一遍：</p>
-<p>首先声明一个数组：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = [<span class="string">"z"</span>, <span class="string">"s"</span>, <span class="string">"y"</span>, <span class="string">"l"</span>, <span class="string">"v"</span>];</div></pre></td></tr></table></figure></p>
-<p>首先来个最简单的遍历：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = array.length; i &lt; len; i++)&#123;</div><div class="line">          <span class="built_in">console</span>.log(array[i]);</div><div class="line">      &#125;</div></pre></td></tr></table></figure></p>
-<p>运行结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">z</div><div class="line">s</div><div class="line">y</div><div class="line">i</div><div class="line">v</div></pre></td></tr></table></figure></p>
-<p>再来看下<code>forEach</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array.forEach(console.log);</div></pre></td></tr></table></figure></p>
-<p>运行结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">z 0 (5) [&quot;z&quot;, &quot;s&quot;, &quot;y&quot;, &quot;l&quot;, &quot;v&quot;]</div><div class="line">s 1 (5) [&quot;z&quot;, &quot;s&quot;, &quot;y&quot;, &quot;l&quot;, &quot;v&quot;]</div><div class="line">y 2 (5) [&quot;z&quot;, &quot;s&quot;, &quot;y&quot;, &quot;l&quot;, &quot;v&quot;]</div><div class="line">l 3 (5) [&quot;z&quot;, &quot;s&quot;, &quot;y&quot;, &quot;l&quot;, &quot;v&quot;]</div><div class="line">v 4 (5) [&quot;z&quot;, &quot;s&quot;, &quot;y&quot;, &quot;l&quot;, &quot;v&quot;]</div></pre></td></tr></table></figure>
-<p>其实结果是一样的。。</p>
-<p>了解到forEach的源码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">@param &#123;function(T=, number=, Array.&lt;T&gt;=)&#125; callback</span></div><div class="line"><span class="comment">@param &#123;*&#125; [thisArg]</span></div><div class="line"><span class="comment">@return &#123;void&#125;</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="built_in">Array</span>.prototype.forEach = <span class="function"><span class="keyword">function</span>(<span class="params">callback,thisArg</span>) </span>&#123;&#125;;</div></pre></td></tr></table></figure></p>
-<p>后来发现它的使用：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">array.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,array</span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(index + <span class="string">" : "</span> + value + <span class="string">" ~ "</span> + array);</div><div class="line">      &#125;);</div></pre></td></tr></table></figure></p>
-<ul>
-<li><code>value</code> 是遍历的值</li>
-<li><code>index</code> 索引</li>
-<li><code>array</code> 数组本身<br>运行结果：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">0 : z ~ z,s,y,l,v</div><div class="line">1 : s ~ z,s,y,l,v</div><div class="line">2 : y ~ z,s,y,l,v</div><div class="line">3 : l ~ z,s,y,l,v</div><div class="line">4 : v ~ z,s,y,l,v</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><code>map</code>：map即是 “映射”的意思 用法与 forEach 相似：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">array.map(<span class="function"><span class="keyword">function</span>(<span class="params">value,index,array</span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(index + <span class="string">" : "</span> + value + <span class="string">" ~ "</span> + array);</div><div class="line">      &#125;);</div></pre></td></tr></table></figure></p>
-<p>使用<code>each</code>来遍历数组：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.each(array, <span class="function"><span class="keyword">function</span> (<span class="params">index, value</span>) </span>&#123;</div><div class="line">          <span class="built_in">console</span>.log(index + <span class="string">" : "</span> + value);</div><div class="line">      &#125;)</div></pre></td></tr></table></figure>
-<p>结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">0 : z </div><div class="line">1 : s</div><div class="line">2 : y</div><div class="line">3 : l </div><div class="line">4 : v</div></pre></td></tr></table></figure></p>
-<p>回归正题了，上面我们使用的是$().each()，处理Dom对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(“input[name=’type’]”).each(<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>($(<span class="keyword">this</span>).attr(‘checked’)==<span class="literal">true</span>)&#123;</div><div class="line">        <span class="comment">//code</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<ul>
-<li>index 为索引<br>找到所有input dom的 name 属性为 type ，  </li>
-</ul>
-<p>看下<code>jQuery each</code>源码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">each: <span class="function"><span class="keyword">function</span>(<span class="params"> obj, callback </span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> length, i = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> ( isArrayLike( obj ) ) &#123;</div><div class="line">            length = obj.length;</div><div class="line">            <span class="keyword">for</span> ( ; i &lt; length; i++ ) &#123;</div><div class="line">                <span class="keyword">if</span> ( callback.call( obj[ i ], i, obj[ i ] ) === <span class="literal">false</span> ) &#123;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span> ( i <span class="keyword">in</span> obj ) &#123;</div><div class="line">                <span class="keyword">if</span> ( callback.call( obj[ i ], i, obj[ i ] ) === <span class="literal">false</span> ) &#123;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> obj;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p>看到别人写到，jQuery里的each方法是通过js里的call方法来实现的。<br>call这个方法很奇妙，其实官方的说明是：“调用一个对象的一个方法，以另一个对象替换当前对象。”网上更多的解释是变换上下文环境，也有说是改变上下文this指针。<br><code>call([thisObj[,arg1[, arg2[,   [,.argN]]]]])</code></p>
-<p><strong>参数</strong><br><code>thisObj</code><br>可选项。将被用作当前对象的对象。 </p>
-<p><code>arg1, arg2,  , argN</code><br>可选项。将被传递方法参数序列。</p>
-<p>说明<br>call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。</p>
-<p>引用网上有一个很经典的例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    alert(a+b);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sub</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    alert(a-b);</div><div class="line">&#125;</div><div class="line"></div><div class="line">add.call(sub,<span class="number">3</span>,<span class="number">1</span>);</div></pre></td></tr></table></figure></p>
-<p>用 add 来替换 sub，add.call(sub,3,1) == add(3,1) ，所以运行结果为：<strong>alert(4)</strong>; </p>
-<p>感觉有点厉害了。</p>
-<p><strong>注意：</strong> js 中的函数其实是对象，函数名是对 Function 对象的引用。</p>
-<p>需要注意的Javascript还有个<br><code>for/in</code> - 循环遍历对象的属性<br><strong>功能</strong> ：遍历对象属性，把属性名和属性值都提出来<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">testForIn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="keyword">var</span> obj = &#123;</div><div class="line">              name: <span class="string">"zhangkai"</span>,</div><div class="line">              color: <span class="string">'green'</span>,</div><div class="line">              movie: <span class="string">'阿甘正传'</span>,</div><div class="line">          &#125;</div><div class="line">          <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</div><div class="line">              <span class="built_in">console</span>.log(key + <span class="string">" : "</span> + obj[key]);</div><div class="line">          &#125;</div><div class="line">        &#125;)();</div></pre></td></tr></table></figure></p>
-<p>结果:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">name : zhangkai</div><div class="line">color : green</div><div class="line">movie : 阿甘正传</div></pre></td></tr></table></figure>
-<p>同样的for in 也能遍历数组:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (var i in array) &#123;</div><div class="line">          console.log(array[i]);</div><div class="line">      &#125;</div></pre></td></tr></table></figure></p>
-<p>结果也是正常的，但是有时候，会打印出数组的函数<code>function</code>，遍历的时候不推荐使用这个。</p>
-<p>当然还有while 遍历，那些就不仔细写了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天做个选择出id前缀为imgpreviwe的img标签，给它们个背景图片，直接想都没想，forEach调了半天，没调出来，才知道用错了方法。。哈哈，以前的东西忘得差不多了，重新学习一遍。。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="JavaScript" scheme="http://blog.wuwii.com/tags/JavaScript/"/>
-    
-      <category term="jQuery" scheme="http://blog.wuwii.com/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
     <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
     <link href="http://blog.wuwii.com/postman-upload.html"/>
     <id>http://blog.wuwii.com/postman-upload.html</id>
@@ -839,37 +829,6 @@
     
     
       <category term="postman" scheme="http://blog.wuwii.com/tags/postman/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一叶知秋</title>
-    <link href="http://blog.wuwii.com/trend.html"/>
-    <id>http://blog.wuwii.com/trend.html</id>
-    <published>2017-10-08T15:08:03.000Z</published>
-    <updated>2017-10-10T00:30:59.629Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天晚上在小区里面慢跑，突然一个东西掉到我眼镜架上，塞在里面了，尬，拿下来一看，看到的是一片树叶。<br><img src="https://i.loli.net/2017/10/08/59da342e1af4a.jpg" alt="image"><br>时间过得真快，已经秋天了，今年国庆八天长假，也过完，我想，今后，再得过多少年，才有八天长假。</p>
-<a id="more"></a>
-<p>事情一直在发生，故事永远也写不完，我想我现在想什么，也许在眺望着什么，犹豫着什么，患得患失着什么。在每一刻，它都是好的。也许有一天，我老了，不再去疯了，就这么平静得下去。</p>
-<p>我想我现在还是这么个人吧，一直以来也是，对身边的事情都是依依不舍的，但是我没有停留，紧跟着前进，真是想去浪迹天涯呀，但是那是不可能的，我有自己的牵挂与责任，我还是放不下，总有一天，我会老去，总是不想放过，但是时常会放弃自己的一些事情，为难着自己，不愿意离开。</p>
-<p><img src="https://ooo.0o0.ooo/2017/10/08/59d9afb316e7f.png" alt="img"></p>
-<p>也许是秋天总是会给人带来一丝惆怅的心情吧，不知不觉的，你就会触景生情，这个时候千万别拍照，别去看镜子，你会发现，不知不觉，多了一份沧桑，心里有一些焦灼，慢慢的会影响你的心绪。走的时候，又会浑然不知。</p>
-<p>我想我现在还是正值好时光的年纪，即使不能清高，也要活出自我，最后像树叶一样洒脱的离开，因为，我想我正在它夏天的这个时候，还没到，还没到，还能享受最热烈的阳光。</p>
-<p><img src="https://i.loli.net/2017/10/08/59da398b58f84.jpg" alt="image"></p>
-<p>恍惚，秋分早已过，不用在意太多孰是孰非，早就没留退路，只能这样不顾一切，而你是否能明白了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天晚上在小区里面慢跑，突然一个东西掉到我眼镜架上，塞在里面了，尬，拿下来一看，看到的是一片树叶。&lt;br&gt;&lt;img src=&quot;https://i.loli.net/2017/10/08/59da342e1af4a.jpg&quot; alt=&quot;image&quot;&gt;&lt;br&gt;时间过得真快，已经秋天了，今年国庆八天长假，也过完，我想，今后，再得过多少年，才有八天长假。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
