@@ -1,3 +1,4 @@
+http://blog.wuwii.com/programmer-day.html
 http://blog.wuwii.com/java-lambda.html
 http://blog.wuwii.com/compiler-version.html
 http://blog.wuwii.com/sensible.html

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-10-20T09:34:47.810Z</updated>
+  <updated>2017-10-24T01:10:21.902Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Programmer&#39;s Day</title>
+    <link href="http://blog.wuwii.com/programmer-day.html"/>
+    <id>http://blog.wuwii.com/programmer-day.html</id>
+    <published>2017-10-23T13:18:03.000Z</published>
+    <updated>2017-10-24T01:10:21.902Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天议论关注最多的就是1024，程序猿节日，可怕，什么时候程序猿都有节日了。。。</p>
+<p>当然公司明天还有活动，很高兴有这么个节日，作为一个单身狗，最讨厌的估计就是加班，尼玛，单身狗还害怕什么加班，太没志气了，怎么能跟那些秀恩爱的去比高低，逃。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.wuwii.test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NoOT</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        List&lt;String&gt; list = Arrays.asList(</div><div class="line">                <span class="string">"1024不加班的理由："</span>,</div><div class="line">                <span class="string">"Cannot find the object"</span>,</div><div class="line">                <span class="string">"Cannot find the object"</span>,</div><div class="line">                <span class="string">"Cannot find the object"</span>,</div><div class="line">                <span class="string">"太冷，我选择睡觉！！！   "</span>,</div><div class="line">                <span class="string">"                    ☽   "</span>,</div><div class="line">                <span class="string">"   //   /￣'- 、_      "</span>,</div><div class="line">                <span class="string">"  // ℂ/ &lt;_/ _____/    "</span>,</div><div class="line">                <span class="string">"  ￣￣￣￣￣￣￣     "</span></div><div class="line">        );</div><div class="line">        list.stream().forEach(System.out::println);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个是今年自己写在 华为云 论坛上的一个回帖，当然是为了福利的，其实我是为了混个华为P10，实在不行，给个鼠标垫算了，原谅了。</p>
+<p>另外附几张论坛好玩的几个图（侵删）</p>
+<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/23/1822231n1o90ucduykj2nw.png" alt="image"></p>
+<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/23/1537080ctfww4nlkmentap.png" alt="image"></p>
+<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/23/142101oq4bb8bljw4dumuv.jpg" alt="image"></p>
+<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/23/1104512bbyq3whcaxxal26.png" alt="image"></p>
+<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/23/102951fa586egackcjw4xl.png" alt="image"></p>
+<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/22/200553auslkcexi5ohlhua.png" alt="image"></p>
+<p>就发这么多了，，该洗洗睡了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天议论关注最多的就是1024，程序猿节日，可怕，什么时候程序猿都有节日了。。。&lt;/p&gt;
+&lt;p&gt;当然公司明天还有活动，很高兴有这么个节日，作为一个单身狗，最讨厌的估计就是加班，尼玛，单身狗还害怕什么加班，太没志气了，怎么能跟那些秀恩爱的去比高低，逃。&lt;/p&gt;
+&lt;figure
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
   
   <entry>
     <title>java 中lambda表达式的使用</title>
@@ -841,34 +877,6 @@
     
     
       <category term="tomcat" scheme="http://blog.wuwii.com/tags/tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>easyui完成日期验证，控制日期的输入范围</title>
-    <link href="http://blog.wuwii.com/easyui-validate-datebox.html"/>
-    <id>http://blog.wuwii.com/easyui-validate-datebox.html</id>
-    <published>2017-10-11T02:08:03.000Z</published>
-    <updated>2017-10-12T00:39:51.464Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天改前端问题时候遇到了这个问题，其实easyui还好，看官网例子，也可以解决我们的问题，但是现实业务中却是要考虑到各方面的，要做到更全。<br><a id="more"></a></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height: 100%; width: 200px; margin-left: 4px; display: inline-block;"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"Title"</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"Icon icon-calendar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"Text"</span>&gt;</span>上传时间<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 120px; height: 38px; line-height: 38px; display: inline-block; float: left; margin-left: 5px;"</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"uploadtime1"</span> <span class="attr">class</span>=<span class="string">"easyui-datebox"</span> <span class="attr">data-options</span>=<span class="string">"width:120,height:24,editable:false"</span> /&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height: 38px; width: 146px; margin-left: 4px; display: inline-block;"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 12px; height: 100%; display: inline-block; line-height: 38px; text-align: center; float: left; margin-left: 2px;"</span>&gt;</span>至<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 120px; height: 100%; line-height: 38px; display: inline-block; margin-left: 12px; float: left;"</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"uploadtime2"</span> <span class="attr">class</span>=<span class="string">"easyui-datebox"</span> <span class="attr">data-options</span>=<span class="string">"width:120,height:24,editable:false,validType:'validateDate[\'#uploadtime1\']'"</span> /&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$.extend($.fn.validatebox.defaults.rules, &#123;</div><div class="line">    validateDate: &#123;</div><div class="line">        validator: <span class="function"><span class="keyword">function</span> (<span class="params">value, param</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> start = $(param[<span class="number">0</span>]).datetimebox(<span class="string">'getValue'</span>);  <span class="comment">//获取开始时间</span></div><div class="line">            <span class="keyword">return</span> value &gt;= start;                             <span class="comment">//有效范围为当前时间大于开始时间</span></div><div class="line">        &#125;,</div><div class="line">        message: <span class="string">'结束日期应不能小于开始日期!'</span>                     <span class="comment">//匹配失败消息</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>效果图：<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171011171235.png" alt="image"><br>这种方法使用的是easyui的验证，提醒错误错误信息的样式比较好，而且不用手动输入，当然也又有缺点，就是，当用户先输入结束日期，再输入开始日期，就不好去验证了。<br>可以使用例外一种方式控制，官网上看到的，就是控制输入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			$(<span class="string">'#dd'</span>).datebox().datebox(<span class="string">'calendar'</span>).calendar(&#123;</div><div class="line">				validator: <span class="function"><span class="keyword">function</span>(<span class="params">date</span>)</span>&#123;</div><div class="line">					<span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">					<span class="keyword">var</span> d1 = <span class="keyword">new</span> <span class="built_in">Date</span>(now.getFullYear(), now.getMonth(), now.getDate());</div><div class="line">					<span class="keyword">var</span> d2 = <span class="keyword">new</span> <span class="built_in">Date</span>(now.getFullYear(), now.getMonth(), now.getDate()+<span class="number">10</span>);</div><div class="line">					<span class="keyword">return</span> d1&lt;=date &amp;&amp; date&lt;=d2;</div><div class="line">				&#125;</div><div class="line">			&#125;);</div><div class="line">		&#125;);</div></pre></td></tr></table></figure></p>
-<p>效果图：<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171011172502.png" alt="image"><br>只能选择设置区域的日期，其余的不能选择。</p>
-<p>需要注意的是<code>date-box</code>需要加上<code>editable:false</code>这个属性，不能让手动输入，只能选择。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天改前端问题时候遇到了这个问题，其实easyui还好，看官网例子，也可以解决我们的问题，但是现实业务中却是要考虑到各方面的，要做到更全。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="easyui" scheme="http://blog.wuwii.com/tags/easyui/"/>
     
   </entry>
   
