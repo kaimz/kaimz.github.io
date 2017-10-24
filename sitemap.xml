@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/programmer-day.html</loc>
+    
+    <lastmod>2017-10-24T05:42:32.512Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/cherish-her.html</loc>
     
     <lastmod>2017-10-24T05:15:55.793Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://blog.wuwii.com/test.html</loc>
     
     <lastmod>2017-10-24T01:10:21.905Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/programmer-day.html</loc>
-    
-    <lastmod>2017-10-24T01:10:21.902Z</lastmod>
     
   </url>
   
@@ -247,14 +247,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
