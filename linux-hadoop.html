@@ -144,7 +144,8 @@
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171019151635.png">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171019153415.png">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171019153453.png">
-<meta property="og:updated_time" content="2017-10-19T09:08:06.980Z">
+<meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171025165042.png">
+<meta property="og:updated_time" content="2017-10-25T08:52:30.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7 上安装Hadoop V 2.8.1集群及配置">
 <meta name="twitter:description" content="Hadoop是一个由Apache基金会所开发的分布式系统基础架构。用户可以在不了解分布式底层细节的情况下，开发分布式程序。充分利用集群的威力进行高速运算和存储。 Hadoop实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS。HDFS有高容错性的特点，并且设计用来部署在低廉的（low-cost）硬件上；而且它提供高吞吐量（high throug">
@@ -477,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3,081
+                  3,149
                 </span>
               
 
@@ -572,6 +573,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@server1 ~]# systemctl stop firewalld.service</div></pre></td></tr></table></figure>
 <p>我们的namanode机器是server1，IP是192.168.19.185，直接在谷歌浏览器上输入到端口 50070，自动跳转到了overview页面 （dfshealth.html）<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171019153415.png" alt="image"></p>
 <p>继续；<br>测试 8088 端口 ：<br>自动跳转到了cluster页面<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171019153453.png" alt="image"></p>
+<p>在namenode机器上执行<code>jps</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@server1 hadoop-2.8.1]<span class="comment"># jps</span></div><div class="line">12469 ResourceManager</div><div class="line">12119 NameNode</div><div class="line">12313 SecondaryNameNode</div><div class="line">12730 Jps</div></pre></td></tr></table></figure></p>
+<p>在datanode机器上执行<code>jps</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@server3 hadoop-2.8.1]<span class="comment"># jps</span></div><div class="line">10776 NodeManager</div><div class="line">11114 Jps</div><div class="line">10635 DataNode</div></pre></td></tr></table></figure></p>
+<p>这只能证明它们启动成功，还要看它们之间互相通信。<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171025165042.png" alt="hadoop"><br>出现datanode 机器，通信成功。</p>
 <p>配置完成。</p>
 <p><strong>参考博客：</strong> <a rel="external nofollow" target="_blank" href="http://blog.csdn.net/pucao_cug/article/details/71698903">http://blog.csdn.net/pucao_cug/article/details/71698903</a></p>
 
@@ -778,7 +782,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -981,7 +985,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共54.0k字</span>
+  <span class="post-count">博客全站共54.1k字</span>
 </div>
 
 <script>

@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/linux-hadoop.html</loc>
+    <lastmod>2017-10-25T08:52:30.379Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS 7 上安装Hadoop V 2.8.1集群及配置</title>
+        <pubTime>2017-10-19T08:08:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>Hadoop</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/cherish-her.html</loc>
+    <lastmod>2017-10-25T03:05:42.771Z</lastmod>
+    <data>
+        <display>
+        <title>珍惜</title>
+        <pubTime>2017-10-24T14:08:03.000Z</pubTime>
+        
+        <tag>桔子</tag>
+         
+         
+           
+             
+              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/miss-you.html</loc>
     <lastmod>2017-10-24T09:56:09.442Z</lastmod>
     <data>
@@ -50,26 +92,6 @@
         <display>
         <title>Programmer's Day</title>
         <pubTime>2017-10-23T13:18:03.000Z</pubTime>
-        
-        <tag>心情</tag>
-         
-         
-           
-             
-              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/cherish-her.html</loc>
-    <lastmod>2017-10-24T05:15:55.793Z</lastmod>
-    <data>
-        <display>
-        <title>珍惜</title>
-        <pubTime>2017-10-24T14:08:03.000Z</pubTime>
         
         <tag>心情</tag>
          
@@ -228,28 +250,6 @@
            
              
               <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/linux-hadoop.html</loc>
-    <lastmod>2017-10-19T09:08:06.980Z</lastmod>
-    <data>
-        <display>
-        <title>CentOS 7 上安装Hadoop V 2.8.1集群及配置</title>
-        <pubTime>2017-10-19T08:08:03.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>Hadoop</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -465,14 +465,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>Intellij</tag>
+         
+        <tag>JUnitGenerator</tag>
          
          
            
@@ -485,16 +487,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
-        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
-        <tag>JUnitGenerator</tag>
+        <tag>maven</tag>
          
          
            
@@ -569,14 +569,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
-        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
+        <title>关于SEO</title>
+        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
         
-        <tag>postman</tag>
+        <tag>SEO</tag>
          
          
            
@@ -589,14 +589,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>关于SEO</title>
-        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
+        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
+        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
         
-        <tag>SEO</tag>
+        <tag>postman</tag>
          
          
            
@@ -694,16 +694,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     <data>
         <display>
-        <title>如何通过Maven的Tomcat插件运行Web工程</title>
-        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
+        <title>如何通过Maven的Jetty插件运行Web工程</title>
+        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
         
         <tag>maven</tag>
          
-        <tag>tomcat</tag>
+        <tag>jetty</tag>
          
          
            
@@ -716,16 +716,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     <data>
         <display>
-        <title>如何通过Maven的Jetty插件运行Web工程</title>
-        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
+        <title>如何通过Maven的Tomcat插件运行Web工程</title>
+        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
         
         <tag>maven</tag>
          
-        <tag>jetty</tag>
+        <tag>tomcat</tag>
          
          
            

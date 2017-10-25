@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/linux-hadoop.html</loc>
+    
+    <lastmod>2017-10-25T08:52:30.379Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/cherish-her.html</loc>
+    
+    <lastmod>2017-10-25T03:05:42.771Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/miss-you.html</loc>
     
     <lastmod>2017-10-24T09:56:09.442Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>http://blog.wuwii.com/programmer-day.html</loc>
     
     <lastmod>2017-10-24T05:42:32.512Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/cherish-her.html</loc>
-    
-    <lastmod>2017-10-24T05:15:55.793Z</lastmod>
     
   </url>
   
@@ -82,13 +89,6 @@
     <loc>http://blog.wuwii.com/sensible.html</loc>
     
     <lastmod>2017-10-20T00:48:26.059Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/linux-hadoop.html</loc>
-    
-    <lastmod>2017-10-19T09:08:06.980Z</lastmod>
     
   </url>
   
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
@@ -198,14 +198,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
@@ -247,14 +247,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     

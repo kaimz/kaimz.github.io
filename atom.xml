@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-10-24T05:15:55.793Z</updated>
+  <updated>2017-10-25T03:05:42.771Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -20,23 +20,24 @@
     <link href="http://blog.wuwii.com/cherish-her.html"/>
     <id>http://blog.wuwii.com/cherish-her.html</id>
     <published>2017-10-24T14:08:03.000Z</published>
-    <updated>2017-10-24T05:15:55.793Z</updated>
+    <updated>2017-10-25T03:05:42.771Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1508832180808&amp;di=277bb0ccfa259488634243e76d0ca4bd&amp;imgtype=0&amp;src=http%3A%2F%2Fuploadfile.bizhizu.cn%2F2014%2F0529%2F20140529021838977.jpg" alt="img"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p>话说开会的时候，总是有人心不在焉的，没错，那个人就是我，开会随手刷刷手机，看到这个文章的不要学我哈。<br>无意中看到一个句子。<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1508832180808&amp;di=277bb0ccfa259488634243e76d0ca4bd&amp;imgtype=0&amp;src=http%3A%2F%2Fuploadfile.bizhizu.cn%2F2014%2F0529%2F20140529021838977.jpg" alt="img"><br><a id="more"></a></p>
 <p>其实人生的路很漫长<br>在这条人生的路上<br>你会遇到很多的人<br>很多的风景<br>当你错过以后<br>你以为人生就已经结束了<br>实际上<br>没有<br>因为它还在继续<br>你还会遇到更多的人<br>更多的风景<br>也许下一个人才是真正适合你的人</p>
 <p>可是你又没跟那个人在一起过<br>你怎么知道她不是最适合你的人呢<br>你错过了她<br>你以为你会碰到更好的人<br>可是事实证明呢<br>你到现在还是单着<br>这说明了什么<br>说明了你在潜意识里<br>你觉得她是最值得珍惜的<br>是最值得你去爱的<br>最值得你去关怀的<br>你所错过的<br>才是真正美丽的风景</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--宁财神 《龙门镖局》</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://timgsa.baidu.com/timg?image&amp;amp;quality=80&amp;amp;size=b9999_10000&amp;amp;sec=1508832180808&amp;amp;di=277bb0ccfa259488634243e76d0ca4bd&amp;amp;imgtype=0&amp;amp;src=http%3A%2F%2Fuploadfile.bizhizu.cn%2F2014%2F0529%2F20140529021838977.jpg&quot; alt=&quot;img&quot;&gt;&lt;br&gt;
+      &lt;p&gt;话说开会的时候，总是有人心不在焉的，没错，那个人就是我，开会随手刷刷手机，看到这个文章的不要学我哈。&lt;br&gt;无意中看到一个句子。&lt;br&gt;&lt;img src=&quot;https://timgsa.baidu.com/timg?image&amp;amp;quality=80&amp;amp;size=b9999_10000&amp;amp;sec=1508832180808&amp;amp;di=277bb0ccfa259488634243e76d0ca4bd&amp;amp;imgtype=0&amp;amp;src=http%3A%2F%2Fuploadfile.bizhizu.cn%2F2014%2F0529%2F20140529021838977.jpg&quot; alt=&quot;img&quot;&gt;&lt;br&gt;
     
     </summary>
     
-      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+      <category term="那些很美的句子" scheme="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
     
     
-      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
+      <category term="桔子" scheme="http://blog.wuwii.com/tags/%E6%A1%94%E5%AD%90/"/>
     
   </entry>
   
@@ -205,7 +206,7 @@
     <link href="http://blog.wuwii.com/linux-hadoop.html"/>
     <id>http://blog.wuwii.com/linux-hadoop.html</id>
     <published>2017-10-19T08:08:03.000Z</published>
-    <updated>2017-10-19T09:08:06.980Z</updated>
+    <updated>2017-10-25T08:52:30.379Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Hadoop是一个由Apache基金会所开发的分布式系统基础架构。<br>用户可以在不了解分布式底层细节的情况下，开发分布式程序。充分利用集群的威力进行高速运算和存储。<br> Hadoop实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS。HDFS有高容错性的特点，并且设计用来部署在低廉的（low-cost）硬件上；而且它提供高吞吐量（high throughput）来访问应用程序的数据，适合那些有着超大数据集（large data set）的应用程序。HDFS放宽了（relax）POSIX的要求，可以以流的形式访问（streaming access）文件系统中的数据。<br>Hadoop的框架最核心的设计就是：HDFS和MapReduce。HDFS为海量的数据提供了存储，则MapReduce为海量的数据提供了计算。(百科)</p>
@@ -270,6 +271,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@server1 ~]# systemctl stop firewalld.service</div></pre></td></tr></table></figure>
 <p>我们的namanode机器是server1，IP是192.168.19.185，直接在谷歌浏览器上输入到端口 50070，自动跳转到了overview页面 （dfshealth.html）<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171019153415.png" alt="image"></p>
 <p>继续；<br>测试 8088 端口 ：<br>自动跳转到了cluster页面<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171019153453.png" alt="image"></p>
+<p>在namenode机器上执行<code>jps</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@server1 hadoop-2.8.1]<span class="comment"># jps</span></div><div class="line">12469 ResourceManager</div><div class="line">12119 NameNode</div><div class="line">12313 SecondaryNameNode</div><div class="line">12730 Jps</div></pre></td></tr></table></figure></p>
+<p>在datanode机器上执行<code>jps</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@server3 hadoop-2.8.1]<span class="comment"># jps</span></div><div class="line">10776 NodeManager</div><div class="line">11114 Jps</div><div class="line">10635 DataNode</div></pre></td></tr></table></figure></p>
+<p>这只能证明它们启动成功，还要看它们之间互相通信。<br><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171025165042.png" alt="hadoop"><br>出现datanode 机器，通信成功。</p>
 <p>配置完成。</p>
 <p><strong>参考博客：</strong> <a rel="external nofollow" target="_blank" href="http://blog.csdn.net/pucao_cug/article/details/71698903">http://blog.csdn.net/pucao_cug/article/details/71698903</a></p>
 ]]></content>
