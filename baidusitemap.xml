@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/hadoop-miss-winutils.html</loc>
+    <lastmod>2017-10-27T03:45:47.099Z</lastmod>
+    <data>
+        <display>
+        <title>Windows下调试Hadoop集群报错Failed to find winutils.exe</title>
+        <pubTime>2017-10-27T03:48:03.000Z</pubTime>
+        
+        <tag>Hadoop</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/python-basic-type.html</loc>
+    <lastmod>2017-10-27T01:57:56.980Z</lastmod>
+    <data>
+        <display>
+        <title>python中基本数据类型</title>
+        <pubTime>2017-10-26T15:38:03.000Z</pubTime>
+        
+        <tag>python学习之路</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/python-first.html</loc>
+    <lastmod>2017-10-27T01:01:04.993Z</lastmod>
+    <data>
+        <display>
+        <title>初识python</title>
+        <pubTime>2017-10-26T15:08:03.000Z</pubTime>
+        
+        <tag>python学习之路</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/java-stream.html</loc>
     <lastmod>2017-10-26T07:12:12.655Z</lastmod>
     <data>
@@ -445,26 +505,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    <data>
-        <display>
-        <title>他真的很喜欢你</title>
-        <pubTime>2017-10-14T15:30:03.000Z</pubTime>
-        
-        <tag>他真的很喜欢你</tag>
-         
-         
-           
-             
-              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/20171015.html</loc>
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
@@ -485,19 +525,19 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
-    <lastmod>2017-10-16T00:44:51.451Z</lastmod>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>他真的很喜欢你</title>
+        <pubTime>2017-10-14T15:30:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>他真的很喜欢你</tag>
          
          
            
              
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
           
         </display>
     </data>
@@ -515,6 +555,26 @@
         <tag>Intellij</tag>
          
         <tag>JUnitGenerator</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <lastmod>2017-10-16T00:44:51.451Z</lastmod>
+    <data>
+        <display>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        
+        <tag>maven</tag>
          
          
            

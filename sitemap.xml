@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/hadoop-miss-winutils.html</loc>
+    
+    <lastmod>2017-10-27T03:45:47.099Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/python-basic-type.html</loc>
+    
+    <lastmod>2017-10-27T01:57:56.980Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/python-first.html</loc>
+    
+    <lastmod>2017-10-27T01:01:04.993Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/java-stream.html</loc>
     
     <lastmod>2017-10-26T07:12:12.655Z</lastmod>
@@ -156,13 +177,6 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
-    
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.wuwii.com/20171015.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
@@ -170,14 +184,21 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
+    
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
