@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-10-30T01:22:27.612Z</updated>
+  <updated>2017-10-30T01:43:45.625Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.wuwii.com/python-function.html"/>
     <id>http://blog.wuwii.com/python-function.html</id>
     <published>2017-10-29T13:48:03.000Z</published>
-    <updated>2017-10-30T01:22:27.612Z</updated>
+    <updated>2017-10-30T01:43:45.625Z</updated>
     
     <content type="html"><![CDATA[<h3 id="python-中内置函数"><a href="#python-中内置函数" class="headerlink" title="python 中内置函数"></a>python 中内置函数</h3><p>python 中有很多内置函数，参考网站</p>
 <p><a rel="external nofollow" target="_blank" href="http://docs.python.org/3/library/functions.html">http://docs.python.org/3/library/functions.html</a></p>
@@ -43,7 +43,7 @@
 <li>第二步：输入字符串<code>“10”</code>，返回我预先设置<code>TypeError</code>错误信息<code>bad operand type</code>，因为我设置了参数类型为 <code>int</code>，不能使用其他的类型，符合期望。</li>
 <li>第三步：输入<code>13</code> ，返回无效字符串的提示。</li>
 </ol>
-<h4 id="返回多个值"><a href="#返回多个值" class="headerlink" title="返回多个值"></a>返回多个值</h4><p>写一个返回矩形周长和面积的函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取矩形的周长和面积</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">rectangle_perimeter_area</span><span class="params">(width, height)</span>:</span></div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isinstance(width, (int, float)):</div><div class="line">        <span class="keyword">raise</span> TypeError(<span class="string">'bad operand type'</span>)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isinstance(width, (int, float)):</div><div class="line">        <span class="keyword">raise</span> TypeError(<span class="string">'bad operand type'</span>)</div><div class="line">    perimeter = <span class="number">2</span> * (width + height)</div><div class="line">    area = width * height</div><div class="line">    <span class="keyword">return</span> perimeter, area</div></pre></td></tr></table></figure></p>
+<h4 id="返回多个值"><a href="#返回多个值" class="headerlink" title="返回多个值"></a>返回多个值</h4><p>写一个返回矩形周长和面积的函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取矩形的周长和面积</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">rectangle_perimeter_area</span><span class="params">(width, height)</span>:</span></div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isinstance(width, (int, float)):</div><div class="line">        <span class="keyword">raise</span> TypeError(<span class="string">'"width" is bad operand type'</span>)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isinstance(height, (int, float)):</div><div class="line">        <span class="keyword">raise</span> TypeError(<span class="string">'"height" is bad operand type'</span>)</div><div class="line">    perimeter = <span class="number">2</span> * (width + height)</div><div class="line">    area = width * height</div><div class="line">    <span class="keyword">return</span> perimeter, area</div></pre></td></tr></table></figure></p>
 <p>使用解释器 运行它：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; from test import rectangle_perimeter_area</div><div class="line">&gt;&gt;&gt; rectangle_perimeter_area(4, 6)</div><div class="line">(20, 24)</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure></p>
 <p>可以看出来，它返回的是一个<code>tuple</code> 数组。</p>
 <h4 id="参数检查"><a href="#参数检查" class="headerlink" title="参数检查"></a>参数检查</h4><p>上面写的函数中，写了一个参数类型的检查：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if not isinstance(month, int):</div><div class="line">        raise TypeError(&apos;bad operand type&apos;)</div></pre></td></tr></table></figure></p>
