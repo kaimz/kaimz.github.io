@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-10-30T01:43:45.625Z</updated>
+  <updated>2017-10-30T02:10:06.304Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.wuwii.com/python-function.html"/>
     <id>http://blog.wuwii.com/python-function.html</id>
     <published>2017-10-29T13:48:03.000Z</published>
-    <updated>2017-10-30T01:43:45.625Z</updated>
+    <updated>2017-10-30T02:10:06.304Z</updated>
     
     <content type="html"><![CDATA[<h3 id="python-中内置函数"><a href="#python-中内置函数" class="headerlink" title="python 中内置函数"></a>python 中内置函数</h3><p>python 中有很多内置函数，参考网站</p>
 <p><a rel="external nofollow" target="_blank" href="http://docs.python.org/3/library/functions.html">http://docs.python.org/3/library/functions.html</a></p>
@@ -92,8 +92,8 @@
 <li>如果有必要，可以先对参数的数据类型做检查；</li>
 <li>函数体内部可以用return随时返回函数结果；</li>
 <li>行完毕也没有return语句时，自动return None。</li>
-<li>以同时返回多个值，但其实就是一个tuple。</li>
-<li>要注意定义可变参数和关键字参数的语法：<br>6.1. <em>args是可变参数，args接收的是一个tuple；<br>6.2. *</em>kw是关键字参数，kw接收的是一个dict。</li>
+<li>以同时返回多个值，但其实就是一个<code>tuple</code>。</li>
+<li>要注意定义可变参数和关键字参数的语法：<br>6.1. <code>*args</code>是可变参数，args接收的是一个tuple；<br>6.2. <code>**kw</code>是关键字参数，kw接收的是一个dict。</li>
 <li>默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！</li>
 <li>参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</li>
 <li>定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符*，否则定义的将是位置参数。</li>

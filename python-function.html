@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="python 中内置函数python 中有很多内置函数，参考网站 http://docs.python.org/3/library/functions.html 在调用函数的时候，如果参数数量传入错误，会报错TypeError。 123456&amp;gt;&amp;gt;&amp;gt; abs(-2)2&amp;gt;&amp;gt;&amp;gt; abs(-2, 3)Traceback (most recent call last):">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-30T01:43:45.625Z">
+<meta property="og:updated_time" content="2017-10-30T02:10:06.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中函数">
 <meta name="twitter:description" content="python 中内置函数python 中有很多内置函数，参考网站 http://docs.python.org/3/library/functions.html 在调用函数的时候，如果参数数量传入错误，会报错TypeError。 123456&amp;gt;&amp;gt;&amp;gt; abs(-2)2&amp;gt;&amp;gt;&amp;gt; abs(-2, 3)Traceback (most recent call last):">
@@ -571,8 +571,8 @@
 <li>如果有必要，可以先对参数的数据类型做检查；</li>
 <li>函数体内部可以用return随时返回函数结果；</li>
 <li>行完毕也没有return语句时，自动return None。</li>
-<li>以同时返回多个值，但其实就是一个tuple。</li>
-<li>要注意定义可变参数和关键字参数的语法：<br>6.1. <em>args是可变参数，args接收的是一个tuple；<br>6.2. *</em>kw是关键字参数，kw接收的是一个dict。</li>
+<li>以同时返回多个值，但其实就是一个<code>tuple</code>。</li>
+<li>要注意定义可变参数和关键字参数的语法：<br>6.1. <code>*args</code>是可变参数，args接收的是一个tuple；<br>6.2. <code>**kw</code>是关键字参数，kw接收的是一个dict。</li>
 <li>默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！</li>
 <li>参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</li>
 <li>定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符*，否则定义的将是位置参数。</li>
