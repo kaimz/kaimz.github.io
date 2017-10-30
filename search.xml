@@ -413,6 +413,7 @@
 </blockquote>
 <h5 id="reduce-归约"><a href="#reduce-归约" class="headerlink" title="reduce 归约"></a>reduce 归约</h5><p>求和：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//归约</span></div><div class="line">        <span class="comment">//第一种方法求和</span></div><div class="line">        String connectStrings = Arrays.stream(strings).reduce(<span class="string">""</span>, (x, y) -&gt; x + y);</div><div class="line">        System.out.println(connectStrings);</div><div class="line"></div><div class="line">        <span class="comment">// 第二种方法求和</span></div><div class="line">        String connectStrings1 = Arrays.stream(strings).reduce(<span class="string">""</span>, TestStream::getConnectStrings);</div><div class="line">        System.out.println(connectStrings1);</div></pre></td></tr></table></figure></p>
 <p>getConnectStrings方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">* Connect Strings</span></div><div class="line"><span class="comment">* <span class="doctag">@param</span> s1 参数1</span></div><div class="line"><span class="comment">* <span class="doctag">@param</span> s2 参数2</span></div><div class="line"><span class="comment">* <span class="doctag">@return</span> java.lang.String</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getConnectStrings</span><span class="params">(String s1, String s2)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> s1 + s2;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>reduce</code>中第一个参数是初始值，第二个参数是方法引用。</p>
 <h5 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h5><p>StreamAPI提供了三种数值流：IntStream、DoubleStream、LongStream，也提供了将普通流转换成数值流的三种方法：mapToInt、mapToDouble、mapToLong。 </p>
 <p>每种数值流都提供了数值计算函数，如max、min、sum等。</p>
 <p>下面使用 mapToInt 为例：</p>
@@ -2768,9 +2769,9 @@
         
         <tags>
             
-            <tag> fastDFS </tag>
-            
             <tag> java </tag>
+            
+            <tag> fastDFS </tag>
             
         </tags>
         
