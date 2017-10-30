@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/java-log4j.html</loc>
+    <lastmod>2017-10-30T06:36:44.132Z</lastmod>
+    <data>
+        <display>
+        <title>Java中Log4j的使用及配置详情</title>
+        <pubTime>2017-10-16T14:47:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>log4j</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/python-function.html</loc>
     <lastmod>2017-10-30T02:57:28.190Z</lastmod>
     <data>
@@ -459,28 +481,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/java-log4j.html</loc>
-    <lastmod>2017-10-17T03:51:54.607Z</lastmod>
-    <data>
-        <display>
-        <title>Java中Log4j的使用及配置详情</title>
-        <pubTime>2017-10-16T14:47:03.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>log4j</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/custom-log.html</loc>
     <lastmod>2017-10-17T03:51:08.027Z</lastmod>
     <data>
@@ -814,16 +814,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     <data>
         <display>
-        <title>如何通过Maven的Jetty插件运行Web工程</title>
-        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
+        <title>如何通过Maven的Tomcat插件运行Web工程</title>
+        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
         
         <tag>maven</tag>
          
-        <tag>jetty</tag>
+        <tag>tomcat</tag>
          
          
            
@@ -836,16 +836,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     <data>
         <display>
-        <title>如何通过Maven的Tomcat插件运行Web工程</title>
-        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
+        <title>如何通过Maven的Jetty插件运行Web工程</title>
+        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
         
         <tag>maven</tag>
          
-        <tag>tomcat</tag>
+        <tag>jetty</tag>
          
          
            
