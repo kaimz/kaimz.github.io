@@ -1,3 +1,5 @@
+http://blog.wuwii.com/python-function.html
+http://blog.wuwii.com/python-list.html
 http://blog.wuwii.com/hadoop-miss-winutils.html
 http://blog.wuwii.com/python-basic-type.html
 http://blog.wuwii.com/python-first.html

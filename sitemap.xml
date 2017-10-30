@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.wuwii.com/hadoop-miss-winutils.html</loc>
+    <loc>http://blog.wuwii.com/python-function.html</loc>
     
-    <lastmod>2017-10-27T06:15:51.879Z</lastmod>
+    <lastmod>2017-10-30T01:22:27.612Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/test.html</loc>
+    
+    <lastmod>2017-10-30T00:31:27.640Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/python-list.html</loc>
+    
+    <lastmod>2017-10-30T00:31:27.636Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.wuwii.com/python-basic-type.html</loc>
     
-    <lastmod>2017-10-27T01:57:56.980Z</lastmod>
+    <lastmod>2017-10-27T11:57:43.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/hadoop-miss-winutils.html</loc>
+    
+    <lastmod>2017-10-27T06:15:51.879Z</lastmod>
     
   </url>
   
@@ -82,13 +103,6 @@
     <loc>http://blog.wuwii.com/about/index.html</loc>
     
     <lastmod>2017-10-24T01:10:21.909Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/test.html</loc>
-    
-    <lastmod>2017-10-24T01:10:21.905Z</lastmod>
     
   </url>
   
@@ -177,13 +191,6 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/20171015.html</loc>
-    
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.wuwii.com/really-love.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
@@ -191,14 +198,21 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/20171015.html</loc>
+    
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
@@ -226,14 +240,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
