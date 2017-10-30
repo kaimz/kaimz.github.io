@@ -4,14 +4,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/java-stream.html</loc>
-    <lastmod>2017-10-30T02:51:59.002Z</lastmod>
+    <loc>http://blog.wuwii.com/python-function.html</loc>
+    <lastmod>2017-10-30T02:57:28.190Z</lastmod>
     <data>
         <display>
-        <title>Java8 新特性Stream 的学习和使用方法</title>
-        <pubTime>2017-10-25T14:18:03.000Z</pubTime>
+        <title>python中函数</title>
+        <pubTime>2017-10-29T13:48:03.000Z</pubTime>
         
-        <tag>java</tag>
+        <tag>python学习之路</tag>
          
          
            
@@ -24,14 +24,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/python-function.html</loc>
-    <lastmod>2017-10-30T02:10:06.304Z</lastmod>
+    <loc>http://blog.wuwii.com/java-stream.html</loc>
+    <lastmod>2017-10-30T02:55:01.238Z</lastmod>
     <data>
         <display>
-        <title>python中函数</title>
-        <pubTime>2017-10-29T13:48:03.000Z</pubTime>
+        <title>Java8 新特性Stream 的学习和使用方法</title>
+        <pubTime>2017-10-25T14:18:03.000Z</pubTime>
         
-        <tag>python学习之路</tag>
+        <tag>java</tag>
          
          
            
@@ -545,26 +545,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/20171015.html</loc>
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    <data>
-        <display>
-        <title>20171015</title>
-        <pubTime>2017-10-15T13:43:03.000Z</pubTime>
-        
-        <tag>心情</tag>
-         
-         
-           
-             
-              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/really-love.html</loc>
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
@@ -585,21 +565,19 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
-    <lastmod>2017-10-16T00:44:51.451Z</lastmod>
+    <loc>http://blog.wuwii.com/20171015.html</loc>
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
         <display>
-        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
-        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        <title>20171015</title>
+        <pubTime>2017-10-15T13:43:03.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
-        <tag>JUnitGenerator</tag>
+        <tag>心情</tag>
          
          
            
              
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
           
         </display>
     </data>
@@ -615,6 +593,28 @@
         <pubTime>2017-10-15T07:40:03.000Z</pubTime>
         
         <tag>maven</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <lastmod>2017-10-16T00:44:51.451Z</lastmod>
+    <data>
+        <display>
+        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        
+        <tag>Intellij</tag>
+         
+        <tag>JUnitGenerator</tag>
          
          
            
@@ -689,14 +689,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>关于SEO</title>
-        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
+        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
+        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
         
-        <tag>SEO</tag>
+        <tag>postman</tag>
          
          
            
@@ -709,14 +709,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
-        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
+        <title>关于SEO</title>
+        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
         
-        <tag>postman</tag>
+        <tag>SEO</tag>
          
          
            
@@ -814,16 +814,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     <data>
         <display>
-        <title>如何通过Maven的Tomcat插件运行Web工程</title>
-        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
+        <title>如何通过Maven的Jetty插件运行Web工程</title>
+        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
         
         <tag>maven</tag>
          
-        <tag>tomcat</tag>
+        <tag>jetty</tag>
          
          
            
@@ -836,16 +836,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     <data>
         <display>
-        <title>如何通过Maven的Jetty插件运行Web工程</title>
-        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
+        <title>如何通过Maven的Tomcat插件运行Web工程</title>
+        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
         
         <tag>maven</tag>
          
-        <tag>jetty</tag>
+        <tag>tomcat</tag>
          
          
            
