@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-10-31T08:45:01.978Z</updated>
+  <updated>2017-10-31T08:54:20.497Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.wuwii.com/java-concurrent-thread-pool.html"/>
     <id>http://blog.wuwii.com/java-concurrent-thread-pool.html</id>
     <published>2017-10-31T08:38:03.000Z</published>
-    <updated>2017-10-31T08:45:01.978Z</updated>
+    <updated>2017-10-31T08:54:20.497Z</updated>
     
     <content type="html"><![CDATA[<p>当Java处理高并发的时候，线程数量特别的多的时候，而且每个线程都是执行很短的时间就结束了，频繁创建线程和销毁线程需要占用很多系统的资源和时间，会降低系统的工作效率。</p>
 <p>参考<a rel="external nofollow" target="_blank" href="http://www.cnblogs.com/dolphin0520/p/3932921.html">http://www.cnblogs.com/dolphin0520/p/3932921.html</a></p>
@@ -130,7 +130,7 @@
 <li>如果池中已经工作的线程大于等于corePoolSize，就向队列里存task，而不是继续增加线程。</li>
 <li>当workQueue.offer失败时，也就是说task不能再向队列里放的时候，而此时工作线程大于等于corePoolSize，那么新进的task，就要新开一个线程来接待了。</li>
 <li>线程池工作机制是这样：<br>  a.如果正在运行的线程数小于 <code>corePoolSize</code>，那就马上创建线程并运行这个任务，而不会进行排队。<br>  b. 如果正在运行的线程数不小于 <code>corePoolSize</code>，那就把这个任务放入队列。<br>  c. 如果队列满了，并且正在运行的线程数小于 <code>maximumPoolSize</code>，那么还是要创建线程并运行这个任务。<br>  d.如果队列满了，并且正在运行的线程数不小于 <code>maximumPoolSize</code>，那么线程池就会调用handler里方法。(采用<code>LinkedBlockingDeque</code>就不会出现队列满情况)。</li>
-<li>使用线程池的时候，需要注意先分配好线程池的大小，大约每个线程占用10M内存，就是空间换时间。</li>
+<li>使用线程池的时候，需要注意先分配好线程池的大小，大约每个线程占用10M内存，就是空间换时间，如果不控制的不好，会存在内存溢出的问题，导致机器宕机。</li>
 </ol>
 ]]></content>
     

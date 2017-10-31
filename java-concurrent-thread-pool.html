@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="当Java处理高并发的时候，线程数量特别的多的时候，而且每个线程都是执行很短的时间就结束了，频繁创建线程和销毁线程需要占用很多系统的资源和时间，会降低系统的工作效率。 参考http://www.cnblogs.com/dolphin0520/p/3932921.html 由于原文作者使用的API 是1.6 版本的，参考他的文章，做了一些修改成 jdk 1.8版本的方法，涉及到的内容比较多，可能有少">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-31T08:45:01.978Z">
+<meta property="og:updated_time" content="2017-10-31T08:54:20.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java并发编程中线程池源码分析及使用">
 <meta name="twitter:description" content="当Java处理高并发的时候，线程数量特别的多的时候，而且每个线程都是执行很短的时间就结束了，频繁创建线程和销毁线程需要占用很多系统的资源和时间，会降低系统的工作效率。 参考http://www.cnblogs.com/dolphin0520/p/3932921.html 由于原文作者使用的API 是1.6 版本的，参考他的文章，做了一些修改成 jdk 1.8版本的方法，涉及到的内容比较多，可能有少">
@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  6,044
+                  6,068
                 </span>
               
 
@@ -609,7 +609,7 @@
 <li>如果池中已经工作的线程大于等于corePoolSize，就向队列里存task，而不是继续增加线程。</li>
 <li>当workQueue.offer失败时，也就是说task不能再向队列里放的时候，而此时工作线程大于等于corePoolSize，那么新进的task，就要新开一个线程来接待了。</li>
 <li>线程池工作机制是这样：<br>  a.如果正在运行的线程数小于 <code>corePoolSize</code>，那就马上创建线程并运行这个任务，而不会进行排队。<br>  b. 如果正在运行的线程数不小于 <code>corePoolSize</code>，那就把这个任务放入队列。<br>  c. 如果队列满了，并且正在运行的线程数小于 <code>maximumPoolSize</code>，那么还是要创建线程并运行这个任务。<br>  d.如果队列满了，并且正在运行的线程数不小于 <code>maximumPoolSize</code>，那么线程池就会调用handler里方法。(采用<code>LinkedBlockingDeque</code>就不会出现队列满情况)。</li>
-<li>使用线程池的时候，需要注意先分配好线程池的大小，大约每个线程占用10M内存，就是空间换时间。</li>
+<li>使用线程池的时候，需要注意先分配好线程池的大小，大约每个线程占用10M内存，就是空间换时间，如果不控制的不好，会存在内存溢出的问题，导致机器宕机。</li>
 </ol>
 
       
@@ -1012,7 +1012,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共71.9k字</span>
+  <span class="post-count">博客全站共72.0k字</span>
 </div>
 
 <script>
