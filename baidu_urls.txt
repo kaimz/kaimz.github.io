@@ -1,4 +1,7 @@
+http://blog.wuwii.com/java-concurrent-thread-pool.html
+http://blog.wuwii.com/python-features.html
 http://blog.wuwii.com/python-function.html
+http://blog.wuwii.com/donot-trouble.html
 http://blog.wuwii.com/python-list.html
 http://blog.wuwii.com/hadoop-miss-winutils.html
 http://blog.wuwii.com/python-basic-type.html

@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="流（Stream）流是java 8 中新引入的特性，用来处理集合中的数据，Stream 是一个来自数据源的元素队列并支持聚合操作。  Java 中 Stream 不会存储元素。 数据源 流的来源。 可以是集合，数组，I/O channel， 产生器generator 等。 聚合操作 类似SQL语句一样的操作， 比如filter, map, reduce, find, match, sorted等。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-30T02:55:01.238Z">
+<meta property="og:updated_time" content="2017-10-31T02:27:14.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8 新特性Stream 的学习和使用方法">
 <meta name="twitter:description" content="流（Stream）流是java 8 中新引入的特性，用来处理集合中的数据，Stream 是一个来自数据源的元素队列并支持聚合操作。  Java 中 Stream 不会存储元素。 数据源 流的来源。 可以是集合，数组，I/O channel， 产生器generator 等。 聚合操作 类似SQL语句一样的操作， 比如filter, map, reduce, find, match, sorted等。">
@@ -505,10 +505,11 @@
 <ul>
 <li>Java 中 Stream 不会存储元素。</li>
 <li>数据源 流的来源。 可以是集合，数组，I/O channel， 产生器generator 等。</li>
-<li><p>聚合操作 类似SQL语句一样的操作， 比如filter, map, reduce, find, match, sorted等。</p>
+<li>聚合操作 类似SQL语句一样的操作， 比如filter, map, reduce, find, match, sorted等。</li>
+</ul>
 <a id="more"></a>
-<p>Stream操作还有几个特征：</p>
-</li>
+<p> Stream操作还有几个特征：</p>
+<ul>
 <li><strong>只遍历一次</strong>。我们可以把流想象成一条流水线，流水线的源头是我们的数据源(一个集合)，数据源中的元素依次被输送到流水线上，我们可以在流水线上对元素进行各种操作。一旦元素走到了流水线的另一头，那么这些元素就被“消费掉了”，我们无法再对这个流进行操作。当然，我们可以从数据源那里再获得一个新的流重新遍历一遍。</li>
 <li><strong>Pipelining</strong>: 中间操作都会返回流对象本身。 这样多个操作可以串联成一个管道， 如同流式风格（fluent style）。 这样做可以对操作进行优化， 比如延迟执行(laziness)和短路( short-circuiting)。</li>
 <li><strong>内部迭代</strong>： 以前对集合遍历都是通过Iterator或者For-Each的方式, 显式的在集合外部进行迭代， 这叫做外部迭代。 Stream提供了内部迭代的方式， 通过访问者模式(Visitor)实现。</li>
@@ -751,7 +752,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">78</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -976,7 +977,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共64.1k字</span>
+  <span class="post-count">博客全站共71.9k字</span>
 </div>
 
 <script>

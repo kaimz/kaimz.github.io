@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/java-concurrent-thread-pool.html</loc>
+    
+    <lastmod>2017-10-31T08:45:01.978Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/python-features.html</loc>
+    
+    <lastmod>2017-10-31T02:27:14.688Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/java-stream.html</loc>
+    
+    <lastmod>2017-10-31T02:27:14.683Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/donot-trouble.html</loc>
+    
+    <lastmod>2017-10-31T02:27:14.677Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/java-log4j.html</loc>
     
     <lastmod>2017-10-30T06:36:44.132Z</lastmod>
@@ -12,13 +40,6 @@
     <loc>http://blog.wuwii.com/python-function.html</loc>
     
     <lastmod>2017-10-30T02:57:28.190Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/java-stream.html</loc>
-    
-    <lastmod>2017-10-30T02:55:01.238Z</lastmod>
     
   </url>
   
@@ -289,14 +310,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
