@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/java-thread-return.html</loc>
+    <lastmod>2017-11-01T02:19:22.986Z</lastmod>
+    <data>
+        <display>
+        <title>Java中使用有返回值的线程</title>
+        <pubTime>2017-11-01T02:18:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/java-concurrent-thread-pool.html</loc>
     <lastmod>2017-10-31T08:54:20.497Z</lastmod>
     <data>
@@ -605,26 +625,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    <data>
-        <display>
-        <title>他真的很喜欢你</title>
-        <pubTime>2017-10-14T15:30:03.000Z</pubTime>
-        
-        <tag>他真的很喜欢你</tag>
-         
-         
-           
-             
-              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/20171015.html</loc>
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
@@ -645,19 +645,19 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
-    <lastmod>2017-10-16T00:44:51.451Z</lastmod>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>他真的很喜欢你</title>
+        <pubTime>2017-10-14T15:30:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>他真的很喜欢你</tag>
          
          
            
              
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
           
         </display>
     </data>
@@ -675,6 +675,26 @@
         <tag>Intellij</tag>
          
         <tag>JUnitGenerator</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <lastmod>2017-10-16T00:44:51.451Z</lastmod>
+    <data>
+        <display>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        
+        <tag>maven</tag>
          
          
            
@@ -749,14 +769,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
-        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
+        <title>关于SEO</title>
+        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
         
-        <tag>postman</tag>
+        <tag>SEO</tag>
          
          
            
@@ -769,14 +789,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>关于SEO</title>
-        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
+        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
+        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
         
-        <tag>SEO</tag>
+        <tag>postman</tag>
          
          
            
