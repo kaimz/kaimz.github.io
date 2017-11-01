@@ -1,3 +1,4 @@
+http://blog.wuwii.com/user-daemon-thread.html
 http://blog.wuwii.com/java-thread-return.html
 http://blog.wuwii.com/java-concurrent-thread-pool.html
 http://blog.wuwii.com/python-features.html
