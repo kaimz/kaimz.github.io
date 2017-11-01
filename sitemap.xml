@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.wuwii.com/java-concurrent-thread-pool.html</loc>
+    <loc>http://blog.wuwii.com/java-thread-return.html</loc>
     
-    <lastmod>2017-11-01T02:39:44.064Z</lastmod>
+    <lastmod>2017-11-01T02:41:31.183Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/java-thread-return.html</loc>
+    <loc>http://blog.wuwii.com/java-concurrent-thread-pool.html</loc>
     
-    <lastmod>2017-11-01T02:39:30.890Z</lastmod>
+    <lastmod>2017-11-01T02:39:44.064Z</lastmod>
     
   </url>
   
@@ -233,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
@@ -268,14 +268,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
