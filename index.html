@@ -505,7 +505,7 @@
 
       
         
-          <p>在创建多线程程序的时候，我们常实现Runnable接口，Runnable没有返回值，要想获得返回值，Java5提供了一个新的接口Callable，可以获取线程中的返回值，但是获取线程的返回值的时候，需要注意，我们的方法是异步的，获取返回值的时候，线程任务不一定有返回值，所以，需要判断是否已经有返回值，才去取值。</p>
+          <p>在创建多线程程序的时候，我们常实现Runnable接口，Runnable没有返回值，要想获得返回值，Java5提供了一个新的接口Callable，可以获取线程中的返回值，但是获取线程的返回值的时候，需要注意，我们的方法是异步的，获取返回值的时候，线程任务不一定有返回值，所以，需要判断线程是否结束，才能够去取值。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/java-thread-return.html#more" rel="contents">
@@ -654,7 +654,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  6,068
+                  6,067
                 </span>
               
 
