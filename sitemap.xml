@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/java-create-pool.html</loc>
+    
+    <lastmod>2017-11-01T09:01:57.473Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/java-concurrent-thread-pool.html</loc>
     
-    <lastmod>2017-11-01T07:09:13.818Z</lastmod>
+    <lastmod>2017-11-01T07:14:31.049Z</lastmod>
     
   </url>
   
@@ -247,14 +254,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     

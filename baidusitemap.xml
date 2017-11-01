@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/java-create-pool.html</loc>
+    <lastmod>2017-11-01T09:01:57.473Z</lastmod>
+    <data>
+        <display>
+        <title>Java中创建线程池的常用方法</title>
+        <pubTime>2017-11-01T09:08:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/java-concurrent-thread-pool.html</loc>
-    <lastmod>2017-11-01T07:09:13.818Z</lastmod>
+    <lastmod>2017-11-01T07:14:31.049Z</lastmod>
     <data>
         <display>
         <title>Java并发编程中线程池源码分析及使用</title>
@@ -707,14 +727,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>Intellij</tag>
+         
+        <tag>JUnitGenerator</tag>
          
          
            
@@ -727,16 +749,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
-        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
-        <tag>JUnitGenerator</tag>
+        <tag>maven</tag>
          
          
            
