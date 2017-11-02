@@ -4,7 +4,7 @@
   <url>
     <loc>http://blog.wuwii.com/spring-config.html</loc>
     
-    <lastmod>2017-11-02T07:23:50.801Z</lastmod>
+    <lastmod>2017-11-02T07:25:57.361Z</lastmod>
     
   </url>
   
@@ -254,13 +254,6 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
-    
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.wuwii.com/20171015.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
@@ -268,14 +261,21 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
+    
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
