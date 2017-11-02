@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://blog.wuwii.com/spring-config.html</loc>
-    <lastmod>2017-11-02T10:07:38.265Z</lastmod>
+    <lastmod>2017-11-02T13:05:58.713Z</lastmod>
     <data>
         <display>
         <title>Spring中使用Configuration注入Bean</title>
@@ -729,26 +729,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    <data>
-        <display>
-        <title>他真的很喜欢你</title>
-        <pubTime>2017-10-14T15:30:03.000Z</pubTime>
-        
-        <tag>他真的很喜欢你</tag>
-         
-         
-           
-             
-              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/20171015.html</loc>
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
@@ -769,21 +749,19 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
-    <lastmod>2017-10-16T00:44:51.451Z</lastmod>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
         <display>
-        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
-        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        <title>他真的很喜欢你</title>
+        <pubTime>2017-10-14T15:30:03.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
-        <tag>JUnitGenerator</tag>
+        <tag>他真的很喜欢你</tag>
          
          
            
              
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
           
         </display>
     </data>
@@ -799,6 +777,28 @@
         <pubTime>2017-10-15T07:40:03.000Z</pubTime>
         
         <tag>maven</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <lastmod>2017-10-16T00:44:51.451Z</lastmod>
+    <data>
+        <display>
+        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        
+        <tag>Intellij</tag>
+         
+        <tag>JUnitGenerator</tag>
          
          
            
