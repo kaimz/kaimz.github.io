@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/java-mqtt.html</loc>
+    
+    <lastmod>2017-11-02T01:45:30.184Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/java-create-pool.html</loc>
     
     <lastmod>2017-11-01T09:14:32.240Z</lastmod>
@@ -254,14 +261,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
@@ -278,13 +285,6 @@
     <loc>http://blog.wuwii.com/tomcat-error01.html</loc>
     
     <lastmod>2017-10-13T00:54:55.276Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/java-mqtt.html</loc>
-    
-    <lastmod>2017-10-12T08:29:33.655Z</lastmod>
     
   </url>
   
