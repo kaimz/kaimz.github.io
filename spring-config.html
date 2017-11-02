@@ -129,18 +129,18 @@
 
 
 
-<meta name="description" content="今天是周日，本来一直想着的是她还欠我一餐饭，什么时候能给我，虽然我要不是一餐饭，只是想去见见她，但是想到最近打扰她的时候，没怎么想和我聊天了；我这个人就是这么的多想的吧，感觉是太打扰到了你了，我想的也是很可笑的很啊，我是个这么慢热的人，平时根本不愿意多说话的人，哪怕是一句晚安，现在，感觉多说了几年的话。在想以后是不是要少活好多年了。 忍不住下午，还是去她的学校了，但是还是忍住了没去打扰她，我想我这">
+<meta name="description" content="在Spring容器中使用applicationContext.xml中来给对应的类注入对应的属性，来完成初始化，最典型的就是配置数据库连接池了。">
 <meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最想的人是你，最不想打扰的也是你">
-<meta property="og:url" content="http://blog.wuwii.com/donot-trouble.html">
+<meta property="og:title" content="Spring中使用Configuration注入Bean">
+<meta property="og:url" content="http://blog.wuwii.com/spring-config.html">
 <meta property="og:site_name" content="喃声细语">
-<meta property="og:description" content="今天是周日，本来一直想着的是她还欠我一餐饭，什么时候能给我，虽然我要不是一餐饭，只是想去见见她，但是想到最近打扰她的时候，没怎么想和我聊天了；我这个人就是这么的多想的吧，感觉是太打扰到了你了，我想的也是很可笑的很啊，我是个这么慢热的人，平时根本不愿意多说话的人，哪怕是一句晚安，现在，感觉多说了几年的话。在想以后是不是要少活好多年了。 忍不住下午，还是去她的学校了，但是还是忍住了没去打扰她，我想我这">
+<meta property="og:description" content="在Spring容器中使用applicationContext.xml中来给对应的类注入对应的属性，来完成初始化，最典型的就是配置数据库连接池了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-31T02:27:14.677Z">
+<meta property="og:updated_time" content="2017-11-02T07:02:52.516Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最想的人是你，最不想打扰的也是你">
-<meta name="twitter:description" content="今天是周日，本来一直想着的是她还欠我一餐饭，什么时候能给我，虽然我要不是一餐饭，只是想去见见她，但是想到最近打扰她的时候，没怎么想和我聊天了；我这个人就是这么的多想的吧，感觉是太打扰到了你了，我想的也是很可笑的很啊，我是个这么慢热的人，平时根本不愿意多说话的人，哪怕是一句晚安，现在，感觉多说了几年的话。在想以后是不是要少活好多年了。 忍不住下午，还是去她的学校了，但是还是忍住了没去打扰她，我想我这">
+<meta name="twitter:title" content="Spring中使用Configuration注入Bean">
+<meta name="twitter:description" content="在Spring容器中使用applicationContext.xml中来给对应的类注入对应的属性，来完成初始化，最典型的就是配置数据库连接池了。">
 
 
 
@@ -168,13 +168,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.wuwii.com/donot-trouble.html"/>
+  <link rel="canonical" href="http://blog.wuwii.com/spring-config.html"/>
 
 
 
 
 
-  <title>最想的人是你，最不想打扰的也是你 | 喃声细语</title>
+  <title>Spring中使用Configuration注入Bean | 喃声细语</title>
   
 
 
@@ -374,7 +374,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/donot-trouble.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/spring-config.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="一棵树站在原野上">
@@ -391,7 +391,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">最想的人是你，最不想打扰的也是你</h1>
+          <h1 class="post-title" itemprop="name headline">Spring中使用Configuration注入Bean</h1>
         
 
         <div class="post-meta">
@@ -403,8 +403,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T21:08:03+08:00">
-                2017-10-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-02T15:08:03+08:00">
+                2017-11-02
               </time>
             
 
@@ -426,8 +426,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/碎碎念/" itemprop="url" rel="index">
-                    <span itemprop="name">碎碎念</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
 
@@ -445,8 +445,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/donot-trouble.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="donot-trouble.html" itemprop="commentsCount"></span>
+                <a href="/spring-config.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="spring-config.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  715
+                  978
                 </span>
               
 
@@ -485,7 +485,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2
+                  5
                 </span>
               
             </div>
@@ -501,12 +501,22 @@
       
 
       
-        <p>今天是周日，本来一直想着的是她还欠我一餐饭，什么时候能给我，虽然我要不是一餐饭，只是想去见见她，但是想到最近打扰她的时候，没怎么想和我聊天了；我这个人就是这么的多想的吧，感觉是太打扰到了你了，我想的也是很可笑的很啊，我是个这么慢热的人，平时根本不愿意多说话的人，哪怕是一句晚安，现在，感觉多说了几年的话。在想以后是不是要少活好多年了。</p>
-<p>忍不住下午，还是去她的学校了，但是还是忍住了没去打扰她，我想我这个人很烦人的吧，还是把愉快的周末留给她自己，不要去打扰了，随便在学校逛了逛，就忍不住的逃离了，其实我的内心还是有些害怕的，真是像个做了亏心事的小偷啊，我这个人这个毛病看来今生没希望改过来了，搞不好要单一辈子了。但是我真的感觉做不到，她总是很忙的样子，实在是怕做错了什么，导致朋友也做不成，我这个人就是适合想念吧，不要把我一点想念的空间也给剥夺了，也不想让她知道我在这里，在这里关心她。</p>
-<p>感觉我这个是有点作了吧，很认真的想去吸引她，关心她。也有过动摇，但是还是在想她，还是执念让我坚持吧，不是坚持，给她发的消息，人很开心，等着也高兴，就像是做了什么有意义的事情了，但是有时候也很犹豫，怕她要是在忙了，打扰到了别人，该多不好，人总是有点自私的，说不打扰，我就不去打扰啊，时刻多看两个笑话，给她发过去，要是能到到回应就很好了，然而很多时候没有，我想可能是打扰到她了吧，可能她不是那么喜欢看笑话啊，我也不知道她喜欢着什么吧，虽然很费劲，但是不能给她制造不开心得事情，所以时刻都得忍着点吧。</p>
-<p>乐此不疲的去做些事情吧，可能我跟她之间还没开始过，就存在了太多的空白格，不太可能填补上，但是总是想试一试，不管是不甘还是执念吧，我只是关心，不放心的是她。</p>
-<p>现在我想可能真的打扰到了，一次次打扰只会消耗一个人的热情，最好的就是舍不得打扰了，未来要做的就是要改掉这个坏毛病。</p>
-<p>想，却不去打扰；念，却不去纠缠；只为祝福和守候。</p>
+        <p>在Spring容器中使用<code>applicationContext.xml</code>中来给对应的类注入对应的属性，来完成初始化，最典型的就是配置数据库连接池了。</p>
+<a id="more"></a>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.alibaba.druid.pool.DruidDataSource"</span></span></div><div class="line"><span class="tag">		<span class="attr">init-method</span>=<span class="string">"init"</span> <span class="attr">destroy-method</span>=<span class="string">"close"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 基本属性 url、user、password --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;connection.url&#125;"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;connection.username&#125;"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;connection.password&#125;"</span> /&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 配置初始化大小、最小、最大 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"initialSize"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.initialSize&#125;"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"minIdle"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.minIdle&#125;"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxActive"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.maxActive&#125;"</span> /&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 配置获取连接等待超时的时间 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxWait"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.maxWait&#125;"</span> /&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"timeBetweenEvictionRunsMillis"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.timeBetweenEvictionRunsMillis&#125;"</span> /&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 配置一个连接在池中最小生存的时间，单位是毫秒 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"minEvictableIdleTimeMillis"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.minEvictableIdleTimeMillis&#125;"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"removeAbandoned"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.removeAbandoned&#125;"</span> /&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 超时时间；单位为秒。180秒=3分钟 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"removeAbandonedTimeout"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.removeAbandonedTimeoutSeconds&#125;"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"validationQuery"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.validationQuery&#125;"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"testWhileIdle"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.testWhileIdle&#125;"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"testOnBorrow"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.testOnBorrow&#125;"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"testOnReturn"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.testOnReturn&#125;"</span> /&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 打开PSCache，并且指定每个连接上PSCache的大小 如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"poolPreparedStatements"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.poolPreparedStatements&#125;"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxPoolPreparedStatementPerConnectionSize"</span></span></div><div class="line"><span class="tag">			<span class="attr">value</span>=<span class="string">"$&#123;druid.maxPoolPreparedStatementPerConnectionSize&#125;"</span> /&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 配置监控统计拦截的filters --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"filters"</span> <span class="attr">value</span>=<span class="string">"$&#123;druid.filters&#125;"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>配置参数就不贴出。</p>
+<h3 id="使用-Configuration创建Bean"><a href="#使用-Configuration创建Bean" class="headerlink" title="使用@Configuration创建Bean"></a>使用<code>@Configuration</code>创建Bean</h3><p><code>@Configuration</code>可理解为用spring的时候xml里面的<code>&lt;beans&gt;</code>标签；</p>
+<p><code>@Bean</code>可理解为用spring的时候xml里面的<code>&lt;bean&gt;</code>标签。</p>
+<p>这样就很好理解了。</p>
+<p>需要注意的时配置<code>spring</code> 扫描的包 <code>&lt;context:component-scan base-package=&quot;com.xxx.xxx&quot; /&gt;</code> 不然注解不起效果（springboot不需要设置）。</p>
+<p>这次使用Json文件来配置bean；</p>
+<p>首先写出实体类，和需要配置的数据。</p>
+<h4 id="创建Bean："><a href="#创建Bean：" class="headerlink" title="创建Bean："></a>创建Bean：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/2 11:31&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServerCfg</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">    <span class="keyword">private</span> String city;</div><div class="line">    <span class="keyword">private</span> List&lt;Contact&gt; contacts;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"ServerCfg&#123;"</span> +</div><div class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</div><div class="line">                <span class="string">", age="</span> + age +</div><div class="line">                <span class="string">", city='"</span> + city + <span class="string">'\''</span> +</div><div class="line">                <span class="string">", contacts="</span> + contacts +</div><div class="line">                <span class="string">", hobby="</span> + hobby +</div><div class="line">                <span class="string">'&#125;'</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Contact&gt; <span class="title">getContacts</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> contacts;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContacts</span><span class="params">(List&lt;Contact&gt; contacts)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.contacts = contacts;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">getHobby</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> hobby;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHobby</span><span class="params">(List hobby)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.hobby = hobby;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> List hobby;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCity</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> city;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCity</span><span class="params">(String city)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.city = city;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Contact</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String phone;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String email;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPhone</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> phone;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPhone</span><span class="params">(String phone)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.phone = phone;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getEmail</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> email;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmail</span><span class="params">(String email)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.email = email;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Contact&#123;"</span> +</div><div class="line">                <span class="string">"phone='"</span> + phone + <span class="string">'\''</span> +</div><div class="line">                <span class="string">", email='"</span> + email + <span class="string">'\''</span> +</div><div class="line">                <span class="string">'&#125;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="需要注入的数据"><a href="#需要注入的数据" class="headerlink" title="需要注入的数据"></a>需要注入的数据</h4><p>创建文件命名<code>data.json</code>，(注意属性名对应):<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"wuwii"</span>,</div><div class="line">  <span class="attr">"age"</span>: <span class="number">23</span>,</div><div class="line">  <span class="attr">"city"</span>: <span class="string">"WuHan"</span>,</div><div class="line">  <span class="attr">"hobby"</span>: [<span class="string">"骑行"</span>, <span class="string">"跑步"</span>,<span class="string">"足球"</span>],</div><div class="line">  <span class="attr">"contacts"</span>: [&#123;</div><div class="line">    <span class="attr">"phone"</span>: <span class="string">"18772383543"</span>,</div><div class="line">    <span class="attr">"email"</span>: <span class="string">"k@wuwii.com"</span></div><div class="line">  &#125;,&#123;</div><div class="line">    <span class="attr">"phone"</span>: <span class="string">"12345678912"</span>,</div><div class="line">    <span class="attr">"email"</span>: <span class="string">"1075199251@qq.com"</span></div><div class="line">  &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="创建Beans"><a href="#创建Beans" class="headerlink" title="创建Beans"></a>创建Beans</h4><p>spring 容器初始化，自动扫描，去初始化Bean，加载进Environment，后面调用的直接自动装配（Autowired）；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/2 11:23&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Configs</span> </span>&#123;</div><div class="line">    <span class="meta">@Value</span>(<span class="string">"classpath:data.json"</span>)</div><div class="line">    <span class="keyword">protected</span> File configFile;</div><div class="line"></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ServerCfg <span class="title">readServerConfig</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ObjectMapper().readValue(configFile, ServerCfg.class);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>直接使用spring-test 的JUnit4 单元测试;<br>直接装配Bean ，来输出它的属性，查看是否装配成功。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.util; </div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test; </div><div class="line"><span class="keyword">import</span> org.junit.Before; </div><div class="line"><span class="keyword">import</span> org.junit.After;</div><div class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"><span class="keyword">import</span> org.springframework.test.context.ContextConfiguration;</div><div class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line"><span class="comment">* Configs Tester. </span></div><div class="line"><span class="comment">* </span></div><div class="line"><span class="comment">* <span class="doctag">@author</span> Zhang Kai </span></div><div class="line"><span class="comment">* <span class="doctag">@since</span> &lt;pre&gt;11/02/2017&lt;/pre&gt; </span></div><div class="line"><span class="comment">* <span class="doctag">@version</span> 1.0 </span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</div><div class="line"><span class="meta">@ContextConfiguration</span>(locations = &#123;<span class="string">"classpath:spring/applicationContext-base.xml"</span>&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigsTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="keyword">private</span> ServerCfg serverCfg;</div><div class="line"></div><div class="line"><span class="meta">@Before</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123; </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="meta">@After</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">after</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123; </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line"><span class="comment">* </span></div><div class="line"><span class="comment">* Method: 名字随便起的，不规范。</span></div><div class="line"><span class="comment">* </span></div><div class="line"><span class="comment">*/</span> </div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testConfigBeans</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    System.out.printf(<span class="string">"Use '@Configuration' autowired beans : %s%n"</span>, serverCfg);</div><div class="line">&#125; </div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>测试结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Use <span class="string">'@Configuration'</span> autowired beans : ServerCfg&#123;name=<span class="string">'wuwii'</span>, age=<span class="number">23</span>, city=<span class="string">'WuHan'</span>, contacts=[Contact&#123;phone=<span class="string">'18772383543'</span>, email=<span class="string">'k@wuwii.com'</span>&#125;, Contact&#123;phone=<span class="string">'12345678912'</span>, email=<span class="string">'1075199251@qq.com'</span>&#125;], hobby=[骑行, 跑步]&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>还可以读取xml文件进行装配，当然也不使用配置文件，直接在Beans的<code>@Value</code>注解上写出需要注解的值，但是那样后期部署修改起来麻烦。</p>
 
       
     </div>
@@ -545,7 +555,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://blog.wuwii.com/donot-trouble.html" title="最想的人是你，最不想打扰的也是你">http://blog.wuwii.com/donot-trouble.html</a>
+      <a href="http://blog.wuwii.com/spring-config.html" title="Spring中使用Configuration注入Bean">http://blog.wuwii.com/spring-config.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -561,7 +571,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/心情/" rel="tag"><i class="fa fa-tag"></i> 心情</a>
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
         </div>
       
@@ -574,8 +584,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/python-list.html" rel="next" title="python中集合列表和dict、set">
-                <i class="fa fa-chevron-left"></i> python中集合列表和dict、set
+              <a href="/java-create-pool.html" rel="next" title="Java中创建线程池的常用方法">
+                <i class="fa fa-chevron-left"></i> Java中创建线程池的常用方法
               </a>
             
           </div>
@@ -583,10 +593,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/python-function.html" rel="prev" title="python中函数">
-                python中函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -662,8 +668,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg"
@@ -846,6 +861,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Configuration创建Bean"><span class="nav-number">1.</span> <span class="nav-text">使用@Configuration创建Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建Bean："><span class="nav-number">1.1.</span> <span class="nav-text">创建Bean：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#需要注入的数据"><span class="nav-number">1.2.</span> <span class="nav-text">需要注入的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建Beans"><span class="nav-number">1.3.</span> <span class="nav-text">创建Beans</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">1.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1011,7 +1042,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 		_hcwp.push({widget:"Bloggerstream", widget_id: 95150, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 95150, xid: "donot-trouble.html"});
+		_hcwp.push({widget:"Stream", widget_id: 95150, xid: "spring-config.html"});
 		
 
 		(function() {

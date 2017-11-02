@@ -1,3 +1,4 @@
+http://blog.wuwii.com/spring-config.html
 http://blog.wuwii.com/java-create-pool.html
 http://blog.wuwii.com/user-daemon-thread.html
 http://blog.wuwii.com/java-thread-return.html
