@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://blog.wuwii.com/spring-config.html</loc>
-    <lastmod>2017-11-02T13:05:58.713Z</lastmod>
+    <lastmod>2017-11-03T06:14:46.151Z</lastmod>
     <data>
         <display>
         <title>Spring中使用Configuration注入Bean</title>
@@ -769,14 +769,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>Intellij</tag>
+         
+        <tag>JUnitGenerator</tag>
          
          
            
@@ -789,16 +791,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
-        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
-        <tag>JUnitGenerator</tag>
+        <tag>maven</tag>
          
          
            
