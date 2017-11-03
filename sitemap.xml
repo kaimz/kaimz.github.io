@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/slf4j-manager.html</loc>
+    
+    <lastmod>2017-11-03T09:32:12.351Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/spring-config.html</loc>
     
     <lastmod>2017-11-03T06:14:46.151Z</lastmod>
@@ -254,14 +261,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/20171015.html</loc>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
+    <loc>http://blog.wuwii.com/20171015.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     

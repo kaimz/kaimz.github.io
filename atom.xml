@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-11-03T06:14:46.151Z</updated>
+  <updated>2017-11-03T09:32:12.351Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用slf4j管理log4j中遇到的问题</title>
+    <link href="http://blog.wuwii.com/slf4j-manager.html"/>
+    <id>http://blog.wuwii.com/slf4j-manager.html</id>
+    <published>2017-11-03T09:38:03.000Z</published>
+    <updated>2017-11-03T09:32:12.351Z</updated>
+    
+    <content type="html"><![CDATA[<p>项目中使用SLF4J管理LOG4J日志的，突然出现问题，不能打印日志了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.</div><div class="line">SLF4J: Defaulting to no-operation (NOP) logger implementation</div><div class="line">SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>意思就是无法加载<code>org.slf4j.impl.StaticLoggerBinder</code> 这么类。</p>
+<p>但是这个类在哪里半天看不懂，点进它给出的链接中，开头发现这么一段话：</p>
+<blockquote>
+<p>This warning message is reported when the org.slf4j.impl.StaticLoggerBinder class could not be loaded into memory. This happens when no appropriate SLF4J binding could be found on the class path. Placing one (and only one) of slf4j-nop.jar slf4j-simple.jar, slf4j-log4j12.jar, slf4j-jdk14.jar or logback-classic.jar on the class path should solve the problem.</p>
+</blockquote>
+<p>这个警告信息告诉我们，<code>org.slf4j.impl.StaticLoggerBinder</code>无法加载到内存中，当在类路径上找不到合适的SLF4J绑定时，就会出现这种情况。在他给出的几个jar 包中选择一个可以解决问题。</p>
+<p>所以maven 中配置为:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">log4j.version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">log4j.version</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">slf4j.version</span>&gt;</span>1.7.21<span class="tag">&lt;/<span class="name">slf4j.version</span>&gt;</span></div><div class="line"></div><div class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;log4j.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-log4j12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;slf4j.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-nop<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;slf4j.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>还发现一个东西，记录下，以后注意点：</p>
+<blockquote>
+<p><strong>SLF4J versions 1.4.0 and later requires log4j 1.2.12 or later</strong><br>The trace level was added to log4j in version 1.2.12 released on August 29, 2005. The trace level was added to the SLF4J API in version 1.4.0 on May 16th, 2007. Thus, starting with SLF4J 1.4.0, the log4j binding for SLF4J requires log4j version 1.2.12 or above.</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;项目中使用SLF4J管理LOG4J日志的，突然出现问题，不能打印日志了：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;SLF4J: Failed to load class &amp;quot;org.slf4j.impl.StaticLoggerBinder&amp;quot;.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;SLF4J: Defaulting to no-operation (NOP) logger implementation&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
+    
+      <category term="log4j" scheme="http://blog.wuwii.com/tags/log4j/"/>
+    
+      <category term="slf4j" scheme="http://blog.wuwii.com/tags/slf4j/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring中使用Configuration注入Bean</title>
@@ -1174,49 +1213,6 @@
       <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
     
       <category term="Hadoop" scheme="http://blog.wuwii.com/tags/Hadoop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7 安装JDK和环境变量的配置</title>
-    <link href="http://blog.wuwii.com/linux-jdk.html"/>
-    <id>http://blog.wuwii.com/linux-jdk.html</id>
-    <published>2017-10-19T03:18:03.000Z</published>
-    <updated>2017-10-19T03:18:40.443Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>系统环境：centos7</li>
-<li>安装方式：rpm安装</li>
-<li>版本：jdk1.8.0_144</li>
-</ul>
-<a id="more"></a>
-<h4 id="首先查看电脑的-jdk"><a href="#首先查看电脑的-jdk" class="headerlink" title="首先查看电脑的 jdk"></a>首先查看电脑的 jdk</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@server2 ~]<span class="comment"># java -version</span></div><div class="line">openjdk version <span class="string">"1.8.0_102"</span></div><div class="line">OpenJDK Runtime Environment (build 1.8.0_102-b14)</div><div class="line">OpenJDK 64-Bit Server VM (build 25.102-b14, mixed mode)</div></pre></td></tr></table></figure>
-<p>是默认安装的openjdk 不是我们需要的oracle 版本的，安装前需要卸载 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">[root@server2 ~]<span class="comment"># rpm -qa | grep java</span></div><div class="line">javapackages-tools-3.4.1-11.el7.noarch</div><div class="line">java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64</div><div class="line">java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</div><div class="line">tzdata-java-2016g-2.el7.noarch</div><div class="line">java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64</div><div class="line">java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64</div><div class="line">python-javapackages-3.4.1-11.el7.noarch</div><div class="line"></div><div class="line">[root@server2 ~]<span class="comment"># rpm -e --nodeps tzdata-java-2016g-2.el7.noarch</span></div><div class="line">[root@server2 ~]<span class="comment"># rpm -e -nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</span></div><div class="line">rpm: -nodeps: unknown option</div><div class="line">[root@server2 ~]<span class="comment"># rpm -e -nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64</span></div><div class="line">rpm: -nodeps: unknown option</div><div class="line">[root@server2 ~]<span class="comment"># rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64</span></div><div class="line">^[[A[root@server2 rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</div><div class="line">[root@server2 ~]<span class="comment"># rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64</span></div><div class="line">[root@server2 ~]<span class="comment"># rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64</span></div></pre></td></tr></table></figure></p>
-<p>最后查看卸载完成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@server2 ~]<span class="comment"># java -version</span></div><div class="line">-bash: /usr/bin/java: No such file or directory</div></pre></td></tr></table></figure></p>
-<h4 id="下载jdk"><a href="#下载jdk" class="headerlink" title="下载jdk"></a>下载jdk</h4><p>官网下载</p>
-<h4 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h4><p>我下载的是rpm 文件，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@server2 opt]<span class="comment"># rpm -ivh jdk-8u144-linux-x64.rpm </span></div><div class="line">Preparing...                          <span class="comment">################################# [100%]</span></div><div class="line">Updating / installing...</div><div class="line">   1:jdk1.8.0_144-2000:1.8.0_144-fcs  rpm                                  (  1%<span class="comment">################################# [100%]</span></div><div class="line">Unpacking JAR files...</div><div class="line">        tools.jar...</div><div class="line">        plugin.jar...</div><div class="line">        javaws.jar...</div><div class="line">        deploy.jar...</div><div class="line">        rt.jar...</div><div class="line">        jsse.jar...</div><div class="line">        charsets.jar...</div><div class="line">        localedata.jar...</div></pre></td></tr></table></figure></p>
-<p>默认安装的是路径是 <code>/usr/java</code></p>
-<h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4><p>在 <code>/etc/profile</code> 文件中加入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/usr/java/jdk1.8.0_144 PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span> CLASSPATH=<span class="variable">$JAVA_HOME</span>/</div><div class="line">jre/lib/ext:<span class="variable">$JAVA_HOME</span>/lib/tools.jar <span class="built_in">export</span> PATH JAVA_HOME CLASSPATH</div></pre></td></tr></table></figure>
-<p>使生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@server2 opt]<span class="comment"># source /etc/profile</span></div><div class="line">-bash: jre/lib/ext:/usr/java/jdk1.8.0_144/lib/tools.jar: No such file or directory</div></pre></td></tr></table></figure></p>
-<p>查看系统环境状态path 是否生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@server2 opt]<span class="comment">#  echo $PATH </span></div><div class="line">/usr/java/jdk1.8.0_144/bin:/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/root/bin</div></pre></td></tr></table></figure></p>
-<p>完成。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;系统环境：centos7&lt;/li&gt;
-&lt;li&gt;安装方式：rpm安装&lt;/li&gt;
-&lt;li&gt;版本：jdk1.8.0_144&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
     
   </entry>
   

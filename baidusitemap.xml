@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/slf4j-manager.html</loc>
+    <lastmod>2017-11-03T09:32:12.351Z</lastmod>
+    <data>
+        <display>
+        <title>使用slf4j管理log4j中遇到的问题</title>
+        <pubTime>2017-11-03T09:38:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>log4j</tag>
+         
+        <tag>slf4j</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/spring-config.html</loc>
     <lastmod>2017-11-03T06:14:46.151Z</lastmod>
     <data>
@@ -729,26 +753,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/20171015.html</loc>
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    <data>
-        <display>
-        <title>20171015</title>
-        <pubTime>2017-10-15T13:43:03.000Z</pubTime>
-        
-        <tag>心情</tag>
-         
-         
-           
-             
-              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/really-love.html</loc>
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
@@ -762,6 +766,26 @@
            
              
               <breadCrumb title="那些很美的句子" url="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/20171015.html</loc>
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
+    <data>
+        <display>
+        <title>20171015</title>
+        <pubTime>2017-10-15T13:43:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
           
         </display>
     </data>
