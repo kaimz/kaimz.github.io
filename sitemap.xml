@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/catch-jedis.html</loc>
+    
+    <lastmod>2017-11-03T10:08:51.757Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/slf4j-manager.html</loc>
     
     <lastmod>2017-11-03T09:32:12.351Z</lastmod>
@@ -166,13 +173,6 @@
     <loc>http://blog.wuwii.com/programmer-day.html</loc>
     
     <lastmod>2017-10-24T05:42:32.512Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/catch-jedis.html</loc>
-    
-    <lastmod>2017-10-24T02:47:55.749Z</lastmod>
     
   </url>
   
@@ -352,14 +352,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
