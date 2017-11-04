@@ -9,7 +9,7 @@
   <id>http://blog.wuwii.com/</id>
   
   <author>
-    <name>一棵树站在原野上</name>
+    <name>Slience</name>
     <email>k@wuwii.com</email>
   </author>
   
@@ -59,7 +59,7 @@
     <link href="http://blog.wuwii.com/spring-config.html"/>
     <id>http://blog.wuwii.com/spring-config.html</id>
     <published>2017-11-02T07:08:03.000Z</published>
-    <updated>2017-11-03T06:14:46.151Z</updated>
+    <updated>2017-11-04T00:40:38.462Z</updated>
     
     <content type="html"><![CDATA[<p>在Spring容器中使用<code>applicationContext.xml</code>中来给对应的类注入对应的属性，来完成初始化，最典型的就是配置数据库连接池了。</p>
 <a id="more"></a>
@@ -100,8 +100,8 @@
 <p>就可以在类中的属性上使用@Value占位符 注入了。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
 <li>还可以读取xml文件进行装配，当然也不使用配置文件，直接在Beans的<code>@Value</code>注解上写出需要注解的值，但是那样后期部署修改起来麻烦。</li>
-<li>常用的应该时这么两个 比较好，properties 可能用的多点吧；因为平时使用这个外部需要修改的参数 的基本都是一些常量，不会存在这么多转换，这个只是我的测试。</li>
-<li>还有我使用properties 中为什么没使用中文，因为乱码了。。需要注意的地方。</li>
+<li>常用的应该时这么两个 比较好，properties 可能用的多点吧；因为平时使用这个外部需要修改的参数 的基本都是一些常量，不会存在这么多转换，这个只是我的测试的代码，所以有一些鬼转换。</li>
+<li>还有我使用properties 中为什么没使用中文，因为乱码了。尴尬。这是需要注意的地方。</li>
 </ol>
 ]]></content>
     
