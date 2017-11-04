@@ -79,5 +79,6 @@ http://blog.wuwii.com/fetter-tears.html
 http://blog.wuwii.com/centos-fastDFS.html
 http://blog.wuwii.com/maven-jetty.html
 http://blog.wuwii.com/maven-tomcat.html
+http://blog.wuwii.com/qzone.html
 http://blog.wuwii.com/test.html
 http://blog.wuwii.com/hello-world.html
