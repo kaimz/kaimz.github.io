@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/java-synchronized.html</loc>
+    
+    <lastmod>2017-11-05T02:12:43.125Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/others-hk.html</loc>
     
     <lastmod>2017-11-05T01:08:01.408Z</lastmod>
@@ -324,14 +331,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     

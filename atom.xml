@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-11-05T01:08:01.408Z</updated>
+  <updated>2017-11-05T02:12:43.125Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java多线程中synchronized</title>
+    <link href="http://blog.wuwii.com/java-synchronized.html"/>
+    <id>http://blog.wuwii.com/java-synchronized.html</id>
+    <published>2017-11-05T02:08:03.000Z</published>
+    <updated>2017-11-05T02:12:43.125Z</updated>
+    
+    <content type="html"><![CDATA[<p>在多线程中，当多个线程同时访问同一个资源对象的时候，由于线程在处理中是不可控的，导致，执行的结果可能出现不可控的错误。</p>
+<p>例如：两个线程thread-1和thread-2，同时要数据入库，需要判断数据字段a，不重复，所以当插入数据的时候先去检查数据库中a字段，当我们的两个线程中字段a相同的时候，出现thread1先执行查询，在thread2查询，两个线程同时都会得到a字段没重复，这个时候，数据入库，肯定会有问题的。</p>
+<p>有线程安全的问题，这个资源叫做<code>临界资源</code>。</p>
+<a id="more"></a>
+<p>当多个线程同时访问临界资源（一个对象，对象中的属性，一个文件，一个数据库等）时，就可能会产生线程安全问题。</p>
+<p>解决办法有两个，一个是让线程同步synchronized， 一个是lock。</p>
+<h4 id="synchronized关键字"><a href="#synchronized关键字" class="headerlink" title="synchronized关键字"></a>synchronized关键字</h4><p>使用 <code>synchronized</code>关键字来修饰一个方法和方法块，当线程访问这个对象的synchronized修饰的方法的时候，会锁住这个方法，其他线程无法访问，等待这个线程执行完毕，其他线程才排队进来依次执行，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.wuwii.test.thread;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/5 9:39&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ThreadData threadData = <span class="keyword">new</span> ThreadData();</div><div class="line">        ThreadData threadData1 = <span class="keyword">new</span> ThreadData();</div><div class="line">        <span class="keyword">new</span> Thread(() -&gt; threadData.data1()).start();</div><div class="line">        <span class="keyword">new</span> Thread(() -&gt; ThreadData.data2()).start();</div><div class="line">        <span class="keyword">new</span> Thread(() -&gt; threadData.data3()).start();</div><div class="line">        <span class="keyword">new</span> Thread(() -&gt; threadData1.data1()).start();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadData</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">data1</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"begin data1"</span>);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Thread.sleep(<span class="number">3000</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"end data1"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">data2</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"data2"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">data3</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"begin data3"</span>);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Thread.sleep(<span class="number">1000</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"end data3"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>打印结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">begin data1</div><div class="line">data2</div><div class="line">begin data1</div><div class="line">end data1</div><div class="line">begin data3</div><div class="line">end data1</div><div class="line">end data3</div></pre></td></tr></table></figure></p>
+<h4 id="总计"><a href="#总计" class="headerlink" title="总计"></a>总计</h4><ol>
+<li>当一个线程正在访问一个对象的synchronized方法，那么其他线程不能访问该对象的其他synchronized方法。</li>
+<li>如果一个线程A需要访问对象object1的synchronized方法fun1，另外一个线程B需要访问对象object2的synchronized方法fun1，即使object1和object2是同一类型），也不会产生线程安全问题，因为他们访问的是不同的对象，所以不存在互斥问题。</li>
+<li>如果一个线程执行一个对象的非static synchronized方法，另外一个线程需要执行这个对象所属类的static synchronized方法，此时不会发生互斥现象，因为访问static synchronized方法占用的是类锁，而访问非static synchronized方法占用的是对象锁，所以不存在互斥现象。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在多线程中，当多个线程同时访问同一个资源对象的时候，由于线程在处理中是不可控的，导致，执行的结果可能出现不可控的错误。&lt;/p&gt;
+&lt;p&gt;例如：两个线程thread-1和thread-2，同时要数据入库，需要判断数据字段a，不重复，所以当插入数据的时候先去检查数据库中a字段，当我们的两个线程中字段a相同的时候，出现thread1先执行查询，在thread2查询，两个线程同时都会得到a字段没重复，这个时候，数据入库，肯定会有问题的。&lt;/p&gt;
+&lt;p&gt;有线程安全的问题，这个资源叫做&lt;code&gt;临界资源&lt;/code&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="hexo" scheme="http://blog.wuwii.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>他人的面试经历文章</title>
@@ -1140,33 +1177,6 @@
       <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
     
       <category term="lambda" scheme="http://blog.wuwii.com/tags/lambda/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Intellij Idea 的maven 项目设置 默认java编译版本</title>
-    <link href="http://blog.wuwii.com/compiler-version.html"/>
-    <id>http://blog.wuwii.com/compiler-version.html</id>
-    <published>2017-10-20T03:28:03.000Z</published>
-    <updated>2017-10-20T09:23:14.938Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用 Intellij Idea 创建maven 项目后，每次 reimport 都会回归默认 java 版本 1.5 ，每次都要重新设置版本，很麻烦。下面的方法同样适用Eclipse。<br><a id="more"></a></p>
-<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><p>修改该项目的pom.xml , 只对该项目有效。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">maven.compiler.version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="name">maven.compiler.version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;maven.compiler.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">source</span>&gt;</span>$&#123;maven.compiler.source&#125;<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">target</span>&gt;</span>$&#123;maven.compiler.target&#125;<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">encoding</span>&gt;</span>$&#123;project.build.sourceEncoding&#125;<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span>	</div><div class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>保存，eclipse 是Update maven 项目， Intellij  reimport。</p>
-<h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h5><p>修改 maven 的 配置文件 <code>settings.xml</code>，在<code>profiles</code>节点中加入自己的Jdk版本：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span>      </div><div class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>jdk-1.8<span class="tag">&lt;/<span class="name">id</span>&gt;</span>      </div><div class="line">    <span class="tag">&lt;<span class="name">activation</span>&gt;</span>      </div><div class="line">        <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span>      </div><div class="line">        <span class="tag">&lt;<span class="name">jdk</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span>      </div><div class="line">    <span class="tag">&lt;/<span class="name">activation</span>&gt;</span>      </div><div class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span>      </div><div class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span>      </div><div class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span>      </div><div class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span>      </div><div class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><strong>这个方法对于所有使用这个maven 插件的项目都有效。</strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用 Intellij Idea 创建maven 项目后，每次 reimport 都会回归默认 java 版本 1.5 ，每次都要重新设置版本，很麻烦。下面的方法同样适用Eclipse。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="maven" scheme="http://blog.wuwii.com/tags/maven/"/>
     
   </entry>
   
