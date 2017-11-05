@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/miss-you.html</loc>
+    <lastmod>2017-11-05T01:04:12.441Z</lastmod>
+    <data>
+        <display>
+        <title>我想她，是那么的美好吧</title>
+        <pubTime>2017-10-04T04:15:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/others-hk.html</loc>
+    <lastmod>2017-11-05T00:57:59.840Z</lastmod>
+    <data>
+        <display>
+        <title>他人的面试经历文章</title>
+        <pubTime>2017-11-05T00:08:03.000Z</pubTime>
+        
+        <tag>面试</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/java-arraylist.html</loc>
     <lastmod>2017-11-04T09:28:35.568Z</lastmod>
     <data>
@@ -502,26 +542,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/miss-you.html</loc>
-    <lastmod>2017-10-24T09:56:09.442Z</lastmod>
-    <data>
-        <display>
-        <title>我想她，是那么的美好吧</title>
-        <pubTime>2017-10-04T04:15:03.000Z</pubTime>
-        
-        <tag>心情</tag>
-         
-         
-           
-             
-              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/20171017.html</loc>
     <lastmod>2017-10-24T09:54:44.208Z</lastmod>
     <data>
@@ -915,14 +935,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
-        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
+        <title>关于SEO</title>
+        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
         
-        <tag>postman</tag>
+        <tag>SEO</tag>
          
          
            
@@ -935,14 +955,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>关于SEO</title>
-        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
+        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
+        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
         
-        <tag>SEO</tag>
+        <tag>postman</tag>
          
          
            

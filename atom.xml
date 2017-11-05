@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-11-04T09:28:35.568Z</updated>
+  <updated>2017-11-05T00:57:59.840Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>他人的面试经历文章</title>
+    <link href="http://blog.wuwii.com/others-hk.html"/>
+    <id>http://blog.wuwii.com/others-hk.html</id>
+    <published>2017-11-05T00:08:03.000Z</published>
+    <updated>2017-11-05T00:57:59.840Z</updated>
+    
+    <content type="html"><![CDATA[<p>自己的面试经历比较少，积累下别人的面试经验，了解自己不足，加油。</p>
+<h2 id="开一篇文章，记录，有空就去看看。"><a href="#开一篇文章，记录，有空就去看看。" class="headerlink" title="开一篇文章，记录，有空就去看看。"></a>开一篇文章，记录，有空就去看看。</h2><p><a rel="external nofollow" target="_blank" href="http://www.cnblogs.com/brolanda/p/4837565.html">简单而不普通的，很有感觉</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自己的面试经历比较少，积累下别人的面试经验，了解自己不足，加油。&lt;/p&gt;
+&lt;h2 id=&quot;开一篇文章，记录，有空就去看看。&quot;&gt;&lt;a href=&quot;#开一篇文章，记录，有空就去看看。&quot; class=&quot;headerlink&quot; title=&quot;开一篇文章，记录，有空就去看看。&quot;&gt;&lt;/
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="面试" scheme="http://blog.wuwii.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 8 中ArrayList源码分析</title>
@@ -1138,35 +1163,6 @@
     
     
       <category term="maven" scheme="http://blog.wuwii.com/tags/maven/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>别太懂事了</title>
-    <link href="http://blog.wuwii.com/sensible.html"/>
-    <id>http://blog.wuwii.com/sensible.html</id>
-    <published>2017-10-19T14:25:03.000Z</published>
-    <updated>2017-10-20T00:48:26.059Z</updated>
-    
-    <content type="html"><![CDATA[<p>不知不觉，又想起了她，自从上次见过她了，心里总是那么时刻的泛起她的影子吧，虽然说好久没见再相见，但是彼此应该没什么深刻的记忆吧，而且排斥的我很厉害，这让我心疼得厉害，到底是什么成为这样的她，不想懂了。</p>
-<p>或许吧，是以前一个人久了，什么事都得自己撑着吧，什么事情都得面对，她也是一个很拼的女孩子，什么事情都得抢在前头吧，最后了，有了委屈自己忍，有了眼泪只好自己吞。总是在乎别人的感受，然而不知道自己会有多疼的人，就是这样太懂事的人吧。明明她也很脆弱，无关外表，还是心里，却总要装作坚强的样子，明明她也有时候表现的无所适从的害怕，却还要表现得无所畏惧的淡然。可是，在别人面前，她一直装作那么懂事，别人都不相信她会难过，会流泪了吧。但是，她不这么认为的，相信自己能够修复所有的伤疤，可以完成所有的事情。</p>
-<p>但是，太懂事的人，常常会不太幸福吧，常常顾及别人得感受，不懂得去拒绝别人，更不忍心看别人难过，宁可自己委屈，宁可自己疲惫，也不想给任何人带来麻烦，这样真的会活得很累很累，考虑得太多，却总是忽略了自己。这也是我为什么总是说好担心你呀。</p>
-<p>别太懂事了，不要太善良了，给别人一次心疼自己的机会，卸下面具，天 塌下来了也不用自己去抗；别再逞强了，你也值得被人疼人。别把所有的事情都揽到自己身上，你只是你自己，不需要活成别人，也可以不管不顾一切，活成自己的模样。</p>
-<p>加油，姑娘。真希望你能好好的生活下去，忘了一切烦恼。</p>
-<p>晚安。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;不知不觉，又想起了她，自从上次见过她了，心里总是那么时刻的泛起她的影子吧，虽然说好久没见再相见，但是彼此应该没什么深刻的记忆吧，而且排斥的我很厉害，这让我心疼得厉害，到底是什么成为这样的她，不想懂了。&lt;/p&gt;
-&lt;p&gt;或许吧，是以前一个人久了，什么事都得自己撑着吧，什么事情都
-    
-    </summary>
-    
-      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
