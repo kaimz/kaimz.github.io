@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/tobe-gentle.html</loc>
+    <lastmod>2017-11-06T00:35:11.689Z</lastmod>
+    <data>
+        <display>
+        <title>做个温柔的人</title>
+        <pubTime>2017-11-05T13:51:03.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/java-lock.html</loc>
-    <lastmod>2017-11-05T06:56:28.567Z</lastmod>
+    <lastmod>2017-11-05T07:22:24.913Z</lastmod>
     <data>
         <display>
         <title>Java多线程中Lock</title>
@@ -853,26 +873,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/20171015.html</loc>
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    <data>
-        <display>
-        <title>20171015</title>
-        <pubTime>2017-10-15T13:43:03.000Z</pubTime>
-        
-        <tag>心情</tag>
-         
-         
-           
-             
-              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/really-love.html</loc>
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
@@ -893,19 +893,19 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
-    <lastmod>2017-10-16T00:44:51.451Z</lastmod>
+    <loc>http://blog.wuwii.com/20171015.html</loc>
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>20171015</title>
+        <pubTime>2017-10-15T13:43:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>心情</tag>
          
          
            
              
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
           
         </display>
     </data>
@@ -923,6 +923,26 @@
         <tag>Intellij</tag>
          
         <tag>JUnitGenerator</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <lastmod>2017-10-16T00:44:51.451Z</lastmod>
+    <data>
+        <display>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        
+        <tag>maven</tag>
          
          
            

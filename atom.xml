@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-11-05T06:56:28.567Z</updated>
+  <updated>2017-11-06T00:35:11.689Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -16,11 +16,48 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>做个温柔的人</title>
+    <link href="http://blog.wuwii.com/tobe-gentle.html"/>
+    <id>http://blog.wuwii.com/tobe-gentle.html</id>
+    <published>2017-11-05T13:51:03.000Z</published>
+    <updated>2017-11-06T00:35:11.689Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>要有在迷茫沮丧的时期，不对自己下结论的能力；在苦楚绝望的时期，不对世界下结论的操守。你要相信，一切都是暂时的，我们唯一需要做的，就是静静地好给世界看。</p>
+</blockquote>
+<a id="more"></a>
+<p>最近感觉生活过的一团糟，书看不下去，博客也写不下去，我想我是个脾气有点爆的人，感觉生活就是很失望一般。</p>
+<p>可能就是这样吧，这段时间真想对曾经自己的说声对不起，自己真的是很难过，非得逞强去安慰别人，是什么让人这样，真是不撞南墙不回头，把南墙装得头破血流，也回不了头，只能往前走。</p>
+<p>生活就是这样，一边安慰着鄙人，一边悄悄自愈着，自己糟糕，安慰别人却头头是道。</p>
+<p>可能是曾经期望太高，导致现在一点一点的失望，失望到，似乎看到那个结局。继续安慰别人，下去就是忍受孤独吧。</p>
+<p>不知不觉中，顾虑似乎多了不少，身上的包袱就称重了许多，有些事情，虽然跟自己无关，但是会上去悉心照顾下她人的感受，可是安慰完这个世界后，感觉没人会安慰自己了，也没人能够懂得自己现在的感受。</p>
+<p>可能习惯一个人在外面打拼久了，什么都是自己一个人，没事什么都可以撑得下，已经习惯用坚强来安慰自己。</p>
+<p>努力把自己最好的一面留给别人，不要去祈求来的关系，只会是同情，还不如自己吞下所有的难过。</p>
+<p>世界上有种傻子，在最难过的时候，还在想着怎么安慰别人，虽然没有关系，也不用在意。</p>
+<p>只求往后的日子里，希望自己能想明白事情，再去做吧，这样就不会出现这么多的问题，即辜负了别人，也辜负了自己。<br>往后的日子里做个温柔的人，无惧黑暗与严寒，只会把温暖带给世界，然后花点时间温暖自己，变得更加优秀。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;要有在迷茫沮丧的时期，不对自己下结论的能力；在苦楚绝望的时期，不对世界下结论的操守。你要相信，一切都是暂时的，我们唯一需要做的，就是静静地好给世界看。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java多线程中Lock</title>
     <link href="http://blog.wuwii.com/java-lock.html"/>
     <id>http://blog.wuwii.com/java-lock.html</id>
     <published>2017-11-05T06:48:03.000Z</published>
-    <updated>2017-11-05T06:56:28.567Z</updated>
+    <updated>2017-11-05T07:22:24.913Z</updated>
     
     <content type="html"><![CDATA[<p>如果一个代码块被synchronized修饰了，当一个线程获取了对应的锁，并执行该代码块时，其他线程便只能一直等待，等待获取锁的线程释放锁，而这里获取锁的线程释放锁只会有两种情况：</p>
 <ol>
@@ -52,7 +89,7 @@
 <h5 id="lockInterruptibly"><a href="#lockInterruptibly" class="headerlink" title="lockInterruptibly"></a>lockInterruptibly</h5><p>lockInterruptibly()方法比较特殊，当通过这个方法去获取锁时，如果线程正在等待获取锁，则这个线程能够响应中断，即中断线程的等待状态。也就使说，当两个线程同时通过lock.lockInterruptibly()想获取某个锁时，假若此时线程A获取到了锁，而线程B只有在等待，那么对线程B调用threadB.interrupt()方法能够中断线程B的等待过程。</p>
 <p>　　由于lockInterruptibly()的声明中抛出了异常，所以lock.lockInterruptibly()必须放在try块中或者在调用lockInterruptibly()的方法外声明抛出InterruptedException。</p>
 <p>　　因此lockInterruptibly()一般的使用形式如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">    lock.lockInterruptibly();</div><div class="line">    <span class="keyword">try</span> &#123;  </div><div class="line">     <span class="comment">//.....</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">finally</span> &#123;</div><div class="line">        lock.unlock();</div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="ReentrantLock类"><a href="#ReentrantLock类" class="headerlink" title="ReentrantLock类"></a>ReentrantLock类</h4><p>ReentrantLock，意思是“可重入锁”，关于可重入锁的概念在下一节讲述。ReentrantLock是唯一实现了Lock接口的类，并且ReentrantLock提供了更多的方法。下面通过一些实例看具体看一下如何使用ReentrantLock。</p>
+<h4 id="ReentrantLock类"><a href="#ReentrantLock类" class="headerlink" title="ReentrantLock类"></a>ReentrantLock类</h4><p>ReentrantLock，意思是“可重入锁”。ReentrantLock是唯一实现了Lock接口的类，并且ReentrantLock提供了更多的方法。下面通过一些实例看具体看一下如何使用ReentrantLock。</p>
 <h5 id="例子1，lock-的正确使用方法"><a href="#例子1，lock-的正确使用方法" class="headerlink" title="例子1，lock()的正确使用方法:"></a>例子1，lock()的正确使用方法:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> ArrayList&lt;Integer&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span>&#123;</div><div class="line">        <span class="keyword">final</span> Test test = <span class="keyword">new</span> Test();</div><div class="line">         </div><div class="line">        <span class="keyword">new</span> Thread()&#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                test.insert(Thread.currentThread());</div><div class="line">            &#125;;</div><div class="line">        &#125;.start();</div><div class="line">         </div><div class="line">        <span class="keyword">new</span> Thread()&#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                test.insert(Thread.currentThread());</div><div class="line">            &#125;;</div><div class="line">        &#125;.start();</div><div class="line">    &#125;  </div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(Thread thread)</span> </span>&#123;</div><div class="line">        Lock lock = <span class="keyword">new</span> ReentrantLock();    <span class="comment">//注意这个地方</span></div><div class="line">        lock.lock();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            System.out.println(thread.getName()+<span class="string">"得到了锁"</span>);</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) &#123;</div><div class="line">                arrayList.add(i);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            <span class="comment">// <span class="doctag">TODO:</span> handle exception</span></div><div class="line">        &#125;<span class="keyword">finally</span> &#123;</div><div class="line">            System.out.println(thread.getName()+<span class="string">"释放了锁"</span>);</div><div class="line">            lock.unlock();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>输出结果是什么:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Thread-0得到了锁</div><div class="line">Thread-1得到了锁</div><div class="line">Thread-0释放了锁</div><div class="line">Thread-1释放了锁</div></pre></td></tr></table></figure></p>
 <p>也许有朋友会问，怎么会输出这个结果？第二个线程怎么会在第一个线程释放锁之前得到了锁？原因在于，在insert方法中的lock变量是局部变量，每个线程执行该方法时都会保存一个副本，那么理所当然每个线程执行到lock.lock()处获取的是不同的锁，所以就不会发生冲突。</p>
@@ -1187,42 +1224,6 @@
     
     
       <category term="桔子" scheme="http://blog.wuwii.com/tags/%E6%A1%94%E5%AD%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Programmer&#39;s Day</title>
-    <link href="http://blog.wuwii.com/programmer-day.html"/>
-    <id>http://blog.wuwii.com/programmer-day.html</id>
-    <published>2017-10-23T13:18:03.000Z</published>
-    <updated>2017-10-24T05:42:32.512Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天议论关注最多的就是1024，程序猿节日，可怕，什么时候程序猿都有节日了。。。</p>
-<p>当然公司明天还有活动，很高兴有这么个节日，作为一个单身狗，最讨厌的估计就是加班，尼玛，单身狗还害怕什么加班，太没志气了，怎么能跟那些秀恩爱的去比高低，逃。</p>
-<a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.wuwii.test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NoOT</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        List&lt;String&gt; list = Arrays.asList(</div><div class="line">                <span class="string">"1024不加班的理由："</span>,</div><div class="line">                <span class="string">"Cannot find the object"</span>,</div><div class="line">                <span class="string">"Cannot find the object"</span>,</div><div class="line">                <span class="string">"Cannot find the object"</span>,</div><div class="line">                <span class="string">"太冷，我选择睡觉！！！   "</span>,</div><div class="line">                <span class="string">"                    ☽   "</span>,</div><div class="line">                <span class="string">"   //   /￣'- 、_      "</span>,</div><div class="line">                <span class="string">"  // ℂ/ &lt;_/ _____/    "</span>,</div><div class="line">                <span class="string">"  ￣￣￣￣￣￣￣     "</span></div><div class="line">        );</div><div class="line">        list.stream().forEach(System.out::println);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个是今年自己写在 华为云 论坛上的一个回帖，当然是为了福利的，其实我是为了混个华为P10，实在不行，给个鼠标垫算了，原谅了。</p>
-<p>另外附几张论坛好玩的几个图（侵删）</p>
-<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/23/1822231n1o90ucduykj2nw.png" alt="image"></p>
-<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/23/1537080ctfww4nlkmentap.png" alt="image"></p>
-<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/23/142101oq4bb8bljw4dumuv.jpg" alt="image"></p>
-<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/23/1104512bbyq3whcaxxal26.png" alt="image"></p>
-<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/23/102951fa586egackcjw4xl.png" alt="image"></p>
-<p><img src="http://forum-img.huaweicloud.com/data/attachment/forum/201710/22/200553auslkcexi5ohlhua.png" alt="image"></p>
-<p>就发这么多了，，该洗洗睡了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天议论关注最多的就是1024，程序猿节日，可怕，什么时候程序猿都有节日了。。。&lt;/p&gt;
-&lt;p&gt;当然公司明天还有活动，很高兴有这么个节日，作为一个单身狗，最讨厌的估计就是加班，尼玛，单身狗还害怕什么加班，太没志气了，怎么能跟那些秀恩爱的去比高低，逃。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   

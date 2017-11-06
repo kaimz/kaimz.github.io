@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/tobe-gentle.html</loc>
+    
+    <lastmod>2017-11-06T00:35:11.689Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/java-lock.html</loc>
     
-    <lastmod>2017-11-05T06:56:28.567Z</lastmod>
+    <lastmod>2017-11-05T07:22:24.913Z</lastmod>
     
   </url>
   
@@ -296,13 +303,6 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/20171015.html</loc>
-    
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.wuwii.com/really-love.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
@@ -310,14 +310,21 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/20171015.html</loc>
+    
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
