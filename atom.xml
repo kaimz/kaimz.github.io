@@ -208,13 +208,14 @@
     <link href="http://blog.wuwii.com/others-hk.html"/>
     <id>http://blog.wuwii.com/others-hk.html</id>
     <published>2017-11-05T00:08:03.000Z</published>
-    <updated>2017-11-05T01:08:01.408Z</updated>
+    <updated>2017-11-07T03:46:39.463Z</updated>
     
     <content type="html"><![CDATA[<p>自己的面试经历比较少，积累下别人的面试经验，了解自己不足，加油。</p>
 <p>开一篇文章，记录，有空就去看看。</p>
 <hr>
 <a id="more"></a>
 <p><a rel="external nofollow" target="_blank" href="http://www.cnblogs.com/brolanda/p/4837565.html">简单而不普通的，很有感觉</a></p>
+<p><a rel="external nofollow" target="_blank" href="http://blog.csdn.net/qw7501312/article/details/51851166">经验之谈</a></p>
 ]]></content>
     
     <summary type="html">
@@ -945,7 +946,7 @@
     <link href="http://blog.wuwii.com/hadoop-miss-winutils.html"/>
     <id>http://blog.wuwii.com/hadoop-miss-winutils.html</id>
     <published>2017-10-27T03:48:03.000Z</published>
-    <updated>2017-10-27T06:15:51.879Z</updated>
+    <updated>2017-11-07T07:47:27.402Z</updated>
     
     <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在windows 环境使用<code>Java</code>下调试远程虚拟机中的Hadoop集群报错，问题很奇怪，说是少了 <code>winutils.exe</code> 文件，而且少了<code>HADOOP_HOME</code> 的环境变量；我是部署在虚拟机CentOS 7 上的集群，难道Windows 上使用 它的Hadoop还需要自己安装环境，事实上，是真的。。</p>
 <a id="more"></a>
@@ -960,7 +961,7 @@
 <p>You can fix this problem in two ways</p>
 <ul>
 <li>Install a full native windows Hadoop version. The ASF does not currently (September 2015) release such a version; releases are available externally.</li>
-<li>Or: get the WINUTILS.EXE binary from a Hadoop redistribution. There is a repository of this for some Hadoop versions  <a href="https://github.com/steveloughran/winutils" target="_blank" rel="external">on github</a>.</li>
+<li>Or: get the WINUTILS.EXE binary from a Hadoop redistribution. There is a repository of this for some Hadoop versions  <a rel="external nofollow" target="_blank" href="https://github.com/steveloughran/winutils">on github</a>.</li>
 </ul>
 <p>Then</p>
 <ul>
@@ -971,7 +972,7 @@
 <p>上面的意思是说Hadoop使用一些Windows api来实现文件访问。</p>
 <p>必要 hadoop.DLL和WINUTILS.EXE，这两个文件。</p>
 <p>还需要配置 <code>% HADOOP_HOME %</code>的环境变量，来定位 <code>WINUTILS.EXE</code>;</p>
-<p>解决办法就是去它给的GitHub上 下载对应版本的 文件，将 adoop.DLL和WINUTILS.EXE 文件拷到本地 （Windows）的<code>Hadoop</code> 文件夹下的<code>bin</code>文件夹中。</p>
+<p>解决办法就是去上面它给的GitHub上 下载对应版本的 文件，将 adoop.DLL和WINUTILS.EXE 文件拷到本地 （Windows）的<code>Hadoop</code> 文件夹下的<code>bin</code>文件夹中。</p>
 <h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><h4 id="在Windows-上配置本地Hadoop-环境"><a href="#在Windows-上配置本地Hadoop-环境" class="headerlink" title="在Windows 上配置本地Hadoop 环境"></a>在Windows 上配置本地Hadoop 环境</h4><h5 id="本地安装Hadoop"><a href="#本地安装Hadoop" class="headerlink" title="本地安装Hadoop"></a>本地安装Hadoop</h5><p> 将对应版本的 Hadoop 压缩包，拷一份到Windows 电脑的D盘中解压，我的是Hadoop2.8.1 版本的，将<code>hadoop-2.8.1.tar.gz</code> 解压完就是这样的：</p>
 <p><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171027110633.png" alt="image"></p>
 <p>然后将自己从上面引用地址 GitHub 中 下载对应版本的文件，将  hadoop.DLL和WINUTILS.EXE 拷贝到 bin 目录中。</p>

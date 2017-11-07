@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/hadoop-miss-winutils.html</loc>
+    
+    <lastmod>2017-11-07T07:47:27.402Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/others-hk.html</loc>
+    
+    <lastmod>2017-11-07T03:46:39.463Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/tobe-gentle.html</loc>
     
     <lastmod>2017-11-06T00:35:11.689Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>http://blog.wuwii.com/java-synchronized.html</loc>
     
     <lastmod>2017-11-05T02:22:31.204Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/others-hk.html</loc>
-    
-    <lastmod>2017-11-05T01:08:01.408Z</lastmod>
     
   </url>
   
@@ -177,13 +184,6 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/hadoop-miss-winutils.html</loc>
-    
-    <lastmod>2017-10-27T06:15:51.879Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.wuwii.com/python-first.html</loc>
     
     <lastmod>2017-10-27T01:01:04.993Z</lastmod>
@@ -317,14 +317,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
@@ -345,14 +345,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
