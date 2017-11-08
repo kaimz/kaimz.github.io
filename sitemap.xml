@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/test.html</loc>
+    
+    <lastmod>2017-11-08T05:24:56.059Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/20171107.html</loc>
+    
+    <lastmod>2017-11-08T05:07:12.433Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/tobe-gentle.html</loc>
+    
+    <lastmod>2017-11-07T10:34:22.749Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/java-stream.html</loc>
+    
+    <lastmod>2017-11-07T10:34:22.742Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/2017left.html</loc>
+    
+    <lastmod>2017-11-07T10:34:22.734Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/hadoop-miss-winutils.html</loc>
     
     <lastmod>2017-11-07T07:47:27.402Z</lastmod>
@@ -12,13 +47,6 @@
     <loc>http://blog.wuwii.com/others-hk.html</loc>
     
     <lastmod>2017-11-07T03:46:39.463Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/tobe-gentle.html</loc>
-    
-    <lastmod>2017-11-06T00:35:11.689Z</lastmod>
     
   </url>
   
@@ -47,13 +75,6 @@
     <loc>http://blog.wuwii.com/java-arraylist.html</loc>
     
     <lastmod>2017-11-04T09:28:35.568Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/test.html</loc>
-    
-    <lastmod>2017-11-04T09:14:20.430Z</lastmod>
     
   </url>
   
@@ -138,13 +159,6 @@
     <loc>http://blog.wuwii.com/python-features.html</loc>
     
     <lastmod>2017-10-31T02:27:14.688Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/java-stream.html</loc>
-    
-    <lastmod>2017-10-31T02:27:14.683Z</lastmod>
     
   </url>
   
@@ -303,14 +317,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
+    <loc>http://blog.wuwii.com/20171015.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/20171015.html</loc>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
     
@@ -345,14 +359,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
@@ -394,14 +408,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     

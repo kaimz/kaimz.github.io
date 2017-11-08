@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="流（Stream）流是java 8 中新引入的特性，用来处理集合中的数据，Stream 是一个来自数据源的元素队列并支持聚合操作。  Java 中 Stream 不会存储元素。 数据源 流的来源。 可以是集合，数组，I/O channel， 产生器generator 等。 聚合操作 类似SQL语句一样的操作， 比如filter, map, reduce, find, match, sorted等。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-31T02:27:14.683Z">
+<meta property="og:updated_time" content="2017-11-07T10:34:22.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8 新特性Stream 的学习和使用方法">
 <meta name="twitter:description" content="流（Stream）流是java 8 中新引入的特性，用来处理集合中的数据，Stream 是一个来自数据源的元素队列并支持聚合操作。  Java 中 Stream 不会存储元素。 数据源 流的来源。 可以是集合，数组，I/O channel， 产生器generator 等。 聚合操作 类似SQL语句一样的操作， 比如filter, map, reduce, find, match, sorted等。">
@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,314
+                  2,367
                 </span>
               
 
@@ -541,6 +541,8 @@
 <p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">冷暖</div><div class="line">珊瑚</div><div class="line">细腻</div><div class="line">阳光</div><div class="line">阳光</div></pre></td></tr></table></figure></p>
 <p>java8 以前排序：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Before Java 8 sorted</span></div><div class="line">       System.out.println(<span class="string">"java8以前排序："</span>);</div><div class="line">       List&lt;String&gt; list1 = Arrays.asList(strings);</div><div class="line">       list1.sort(<span class="keyword">new</span> Comparator&lt;String&gt;() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(String o1, String o2)</span> </span>&#123;</div><div class="line">               <span class="keyword">return</span> o1.compareTo(o2);</div><div class="line">           &#125;</div><div class="line">       &#125;);</div><div class="line">       System.out.printf(<span class="string">"java8 以前的排序：%s%n"</span>, list1);</div></pre></td></tr></table></figure></p>
 <p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">java8以前排序：</div><div class="line">java8 以前的排序：[冷暖, 珊瑚, 细腻, 阳光, 阳光]</div></pre></td></tr></table></figure></p>
+<p>HashMap根据value值排序key：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">map.put(<span class="string">"spring"</span>, <span class="number">1</span>);</div><div class="line">map.put(<span class="string">"summer"</span>, <span class="number">2</span>);</div><div class="line">map.put(<span class="string">"autumn"</span>, <span class="number">3</span>);</div><div class="line">map.put(<span class="string">"winter"</span>, <span class="number">4</span>);</div><div class="line">map.entrySet().stream()</div><div class="line">    .sorted((a, b) -&gt; b.getValue().compareTo(a.getValue()))</div><div class="line">    .forEach(a -&gt; System.out.println(a.getKey()));</div></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">winter</div><div class="line">autumn</div><div class="line">summer</div><div class="line">spring</div></pre></td></tr></table></figure></p>
 <h5 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//统计</span></div><div class="line">        List&lt;Integer&gt; list4 = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>);</div><div class="line">        IntSummaryStatistics stats = list4.stream().mapToInt((x) -&gt; x).summaryStatistics();</div><div class="line">        System.out.println(<span class="string">"Highest number in List : "</span> + stats.getMax());</div><div class="line">        System.out.println(<span class="string">"Lowest  number in List : "</span> + stats.getMin());</div><div class="line">        System.out.println(<span class="string">"Sum of all numbers : "</span> + stats.getSum());</div><div class="line">        System.out.println(<span class="string">"Average of all numbers : "</span> + stats.getAverage());</div></pre></td></tr></table></figure>
 <p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Highest number in List : 4</div><div class="line">Lowest  number in List : 1</div><div class="line">Sum of all numbers : 11</div><div class="line">Average of all numbers : 2.2</div></pre></td></tr></table></figure></p>
 <h5 id="match-匹配"><a href="#match-匹配" class="headerlink" title="match 匹配"></a>match 匹配</h5><ul>
@@ -737,7 +739,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">89</span>
+                <span class="site-state-item-count">91</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -958,7 +960,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共89.4k字</span>
+  <span class="post-count">博客全站共90.7k字</span>
 </div>
 
 <script>
