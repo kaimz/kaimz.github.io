@@ -324,13 +324,6 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/really-love.html</loc>
-    
-    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.wuwii.com/20171015.html</loc>
     
     <lastmod>2017-10-16T00:44:51.482Z</lastmod>
@@ -338,14 +331,21 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/really-love.html</loc>
+    
+    <lastmod>2017-10-16T00:44:51.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
@@ -366,14 +366,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
@@ -415,14 +415,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
