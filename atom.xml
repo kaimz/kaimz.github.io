@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-11-08T05:07:12.433Z</updated>
+  <updated>2017-11-09T09:49:05.187Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -16,21 +16,60 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JPA多表查询的解决办法</title>
+    <link href="http://blog.wuwii.com/jpa-query-muti.html"/>
+    <id>http://blog.wuwii.com/jpa-query-muti.html</id>
+    <published>2017-11-09T09:50:03.000Z</published>
+    <updated>2017-11-09T09:49:05.187Z</updated>
+    
+    <content type="html"><![CDATA[<p>实际业务中，多表关联查询应用实例很多，怎么使用JPA进行多表查询，可以选择不同的方法优化。<br>记下在JPA中多表查询的有效使用方法。<br><a id="more"></a></p>
+<h3 id="使用关系映射"><a href="#使用关系映射" class="headerlink" title="使用关系映射"></a>使用关系映射</h3><p>就是使用一对多，多对一，一对一这种关系进行关联映射，</p>
+<p>一个一对多迭代Tree的例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> javax.persistence.*;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 根据组织取得实时轨迹Tree的业务类</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/9 15:21&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="meta">@Table</span>(name = <span class="string">"\"DEV_ORGANIZE\""</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrganizeMappedEntity</span> <span class="keyword">extends</span> <span class="title">BaseEntity</span> </span>&#123;</div><div class="line">    <span class="comment">// 名称，为了前面取出数据的key一致性，换个名称。</span></div><div class="line">    <span class="meta">@Column</span>(name = <span class="string">"\"NAME\""</span>)</div><div class="line">    <span class="keyword">private</span> String no;</div><div class="line">    <span class="comment">// 父组织外键</span></div><div class="line">    <span class="meta">@Column</span>(name = <span class="string">"\"PARENTID\""</span>)</div><div class="line">    <span class="keyword">private</span> String parentid;</div><div class="line"></div><div class="line">    <span class="meta">@OneToMany</span>(targetEntity = OrganizeMappedEntity.class,</div><div class="line">            mappedBy = <span class="string">"parentid"</span>, cascade = &#123;CascadeType.ALL&#125;, fetch = FetchType.EAGER)</div><div class="line">    <span class="keyword">private</span> List children;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNo</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> no;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNo</span><span class="params">(String no)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.no = no;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getParentid</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> parentid;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setParentid</span><span class="params">(String parentid)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.parentid = parentid;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">getChildren</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> children;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setChildren</span><span class="params">(List children)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.children = children;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>平常使用这种方法最多了，因为方便，少写代码，但是平时不一定需要查询所有，而且在数据比较多的情况下，开销比较大，就得使用下面第二种方法。</p>
+<h3 id="使用JPQL多表查询"><a href="#使用JPQL多表查询" class="headerlink" title="使用JPQL多表查询"></a>使用JPQL多表查询</h3><p><code>JPQL</code>全称<code>Java Presistence Query Language</code>，Java持久化查询语言。和Hibernate的HQL语句差不多。</p>
+<p>现在测试下，从A表和B表各取出一个字段吧。<br>创建一个业务实体DTO：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.Serializable;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//学习学习</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestEntity</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * </span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">        <span class="comment">//A表字段No</span></div><div class="line">	<span class="keyword">private</span> String no;</div><div class="line">	<span class="comment">//B表字段tel</span></div><div class="line">	<span class="keyword">private</span> String tel;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> Long num;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span>  <span class="title">TestEntity</span><span class="params">(Long num)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.num = num;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getNum</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> num;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNum</span><span class="params">(Long num)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.num = num;</div><div class="line">	&#125;</div><div class="line">    <span class="comment">//通过构造函数注入值</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TestEntity</span> <span class="params">(String no, String tel)</span> </span>&#123;</div><div class="line">    	<span class="keyword">this</span>.no = no;</div><div class="line">    	<span class="keyword">this</span>.tel = tel;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getSerialversionuid</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> serialVersionUID;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getNo</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> no;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNo</span><span class="params">(String no)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.no = no;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getTel</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> tel;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTel</span><span class="params">(String tel)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.tel = tel;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//重写写，</span></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"TestEntity&#123;"</span> +</div><div class="line">				<span class="string">"no='"</span> + no + <span class="string">'\''</span> +</div><div class="line">				<span class="string">", tel='"</span> + tel + <span class="string">'\''</span> +</div><div class="line">				<span class="string">", num="</span> + num +</div><div class="line">				<span class="string">'&#125;'</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样可以使用业务实体类的构造函数就行绑定数据了。</p>
+<p>Dao层查询数据库的JPQL语句：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> com.devframe.database.BasePagingAndSortingRepository;</div><div class="line"><span class="keyword">import</span> com.devframe.entity.DeviceEntity;</div><div class="line"><span class="keyword">import</span> com.devframe.entity.TestEntity;</div><div class="line"><span class="keyword">import</span> org.springframework.data.jpa.repository.Query;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="meta">@Repository</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DeviceDao</span> <span class="keyword">extends</span> <span class="title">PagingAndSortingRepository</span>&lt;<span class="title">DeviceEntity</span>, <span class="title">String</span>&gt; </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 只为学习。。。</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> List&lt;TestEntity&gt;</span></div><div class="line"><span class="comment">     */</span></div><div class="line">	<span class="meta">@Query</span>(value = <span class="string">"SELECT new com.devframe.entity.TestEntity(a.no, b.tel) FROM com.devframe.entity.DeviceEntity a, com.devframe.entity.OrganizeEntity b WHERE a.orgid = b.id"</span>)</div><div class="line">	<span class="function">List&lt;TestEntity&gt; <span class="title">gettest</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用join查询出两个表相关联的所有列。</p>
+<p>单元测试：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> com.devframe.dao.DeviceDao;</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</div><div class="line"><span class="keyword">import</span> org.springframework.test.context.ContextConfiguration;</div><div class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.annotation.Resource;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/9 17:40&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</div><div class="line"><span class="meta">@ContextConfiguration</span>(locations = &#123;<span class="string">"classpath:spring/applicationContext-base.xml"</span>&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeviceDaoTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Resource</span></div><div class="line">    <span class="keyword">private</span> DeviceDao dao;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGettest</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(dao.gettest());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>数据有点多<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TestEntity&#123;no=&apos;N57008&apos;, tel=&apos;null&apos;, num=null&#125;, TestEntity&#123;no=&apos;N33505&apos;, tel=&apos;null&apos;, num=null&#125;, TestEntity&#123;no=&apos;N88001&apos;, tel=&apos;null&apos;, num=null&#125;,省略...</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;实际业务中，多表关联查询应用实例很多，怎么使用JPA进行多表查询，可以选择不同的方法优化。&lt;br&gt;记下在JPA中多表查询的有效使用方法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
+    
+      <category term="jpa" scheme="http://blog.wuwii.com/tags/jpa/"/>
+    
+  </entry>
+  
+  <entry>
     <title>20171107</title>
     <link href="http://blog.wuwii.com/20171107.html"/>
     <id>http://blog.wuwii.com/20171107.html</id>
     <published>2017-11-07T15:12:03.000Z</published>
-    <updated>2017-11-08T05:07:12.433Z</updated>
+    <updated>2017-11-08T05:30:37.777Z</updated>
     
     <content type="html"><![CDATA[<p>今天乱的一匹，也没怎么学习，日记也没写，故事也没写。</p>
 <p>什么都别想，<br>管这个世界明天会怎样，<br>卸下今天的一切，<br>在艰难的时光里，<br>将人生变得美好而辽阔。</p>
+<hr>
+<p>最近任务有点杂乱，效率低下。回想起最近，学的东西太杂乱了</p>
+<p>回想起最近这么几个月，学的东西太杂乱了，分布式存储，分布式缓存，hadoop，python等等，没一个弄清楚明白的，剩下的时间里，先把python放下，把Java中这么几个重要的东西仔细研究一下，只要掌握一门，以后工作就好了。</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;今天乱的一匹，也没怎么学习，日记也没写，故事也没写。&lt;/p&gt;
 &lt;p&gt;什么都别想，&lt;br&gt;管这个世界明天会怎样，&lt;br&gt;卸下今天的一切，&lt;br&gt;在艰难的时光里，&lt;br&gt;将人生变得美好而辽阔。&lt;/p&gt;
-
+&lt;hr&gt;
+&lt;p&gt;最近任务有点杂乱，效率低下。回想起最近，学的东西太杂乱了&lt;/
     
     </summary>
     
@@ -305,7 +344,7 @@
     <link href="http://blog.wuwii.com/java-arraylist.html"/>
     <id>http://blog.wuwii.com/java-arraylist.html</id>
     <published>2017-11-04T13:08:03.000Z</published>
-    <updated>2017-11-04T09:28:35.568Z</updated>
+    <updated>2017-11-09T03:33:05.472Z</updated>
     
     <content type="html"><![CDATA[<p>这次简单看下ArrayList的实现过程，以及它拥有的操作方法。<br>在Java 8 中 ArrayList 的实现 较以前有很大的改变。</p>
 <a id="more"></a>
@@ -332,8 +371,10 @@
 <ol>
 <li>Iterator可以应用于所有的集合，Set、List和Map和这些集合的子类型。而ListIterator只能用于List及其子类型；</li>
 <li>Iterator只能实现顺序向后遍历，ListIterator可实现顺序向后遍历和逆向（顺序向前）遍历；</li>
-<li>Iterator只能实现remove操作，ListIterator可以实现remove操作，add操作，set操作。</li>
+<li>Iterator只能实现remove操作，ListIterator可以实现remove操作，add操作，set操作。<h4 id="多线程中使用ArrayList"><a href="#多线程中使用ArrayList" class="headerlink" title="多线程中使用ArrayList"></a>多线程中使用ArrayList</h4>当多个线程同时修改一个ArrayList对象的时候，必须要保持外部同步操作，但是ArrayList不是同步的，非线程安全，有一种办法就是可以使用<code>Collections.synchronizedList</code>进行包装：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List list = Collections.synchronizedList(<span class="keyword">new</span> ArrayList(...));</div></pre></td></tr></table></figure>
+</li>
 </ol>
+<p>但是在平时开发中，多线程开发中多选择使用<code>Vector</code>或者<code>CopyOnWriteArrayList</code>。</p>
 ]]></content>
     
     <summary type="html">
@@ -1120,47 +1161,6 @@
     
       &lt;h3 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot; class=&quot;headerlink&quot; title=&quot;数据类型&quot;&gt;&lt;/a&gt;数据类型&lt;/h3&gt;&lt;p&gt;数据类型在数据结构中的定义是一个值的集合以及定义在这个值集上的一组操作。&lt;/p&gt;
 &lt;p&gt;计算机顾名思义就是可以做数学计算的机器，因此，计算机程序理所当然地可以处理各种数值。但是，计算机能处理的远不止数值，还可以处理文本、图形、音频、视频、网页等各种各样的数据，不同的数据，需要定义不同的数据类型。在Python中，能够直接处理的数据类型有以下几种：&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="python学习之路" scheme="http://blog.wuwii.com/tags/python%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初识python</title>
-    <link href="http://blog.wuwii.com/python-first.html"/>
-    <id>http://blog.wuwii.com/python-first.html</id>
-    <published>2017-10-26T15:08:03.000Z</published>
-    <updated>2017-10-27T01:01:04.993Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Write-In-the-Front"><a href="#Write-In-the-Front" class="headerlink" title="Write In the Front"></a>Write In the Front</h3><p>本来很早打算就要学习python的，这几个月发生了一些事，导致耽误下来，现在开始重新拾起这个梦想吧。</p>
-<p>学习<code>python3</code> 都是从<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="external">廖雪峰博客网站</a>上学习的，自己新建一栏<code>python学习之路</code>，写下学习笔记，记录学习过程。</p>
-<a id="more"></a>
-<hr>
-<h3 id="Study"><a href="#Study" class="headerlink" title="Study"></a>Study</h3><p>我安装的<code>pyhon</code> 版本是<code>3.7</code><br>去官网下载最新版的3.X版本，需要<strong>注意</strong>的是：安装的时候记得勾选下方的<code>Add Python 3.7 to PATH</code>，将python的环境变量配置到系统中，就可以直接使用python 命令进入 python 交互模式，然后<code>Install Now</code>；当然手快没勾选的百度自己配置，也是没问题的。<br>在 <code>Windows PowerShell</code> 下进入 python 交互模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PS C:\Users\server&gt; python</div><div class="line">Python 3.7.0a2 (v3.7.0a2:f7ac4fe, Oct 17 2017, 17:06:29) [MSC v.1900 64 bit</div><div class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> <span class="keyword">for</span> more information.</div></pre></td></tr></table></figure></p>
-<p>运行打印 hello world<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; <span class="built_in">print</span> (<span class="string">'hello world'</span>)</div><div class="line">hello world</div></pre></td></tr></table></figure></p>
-<p>使用编辑器编辑python ，不能使用记事本。</p>
-<p>我目前使用的是 Notepad++ ；</p>
-<p>新建一个页面，写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print (&apos;hello world&apos;)</div></pre></td></tr></table></figure></p>
-<p>保存文件名为 <code>helloWorld.py</code> 一定要以py 结尾，以python 文件保存起来。</p>
-<p><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171026171501.png" alt="image"></p>
-<p><img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171026172010.png" alt="image"></p>
-<p>保存完毕后，可以运行这个脚本文件了，命令进入文件所在位置，我是放在桌面的，执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PS C:\Users\server\Desktop&gt; python helloWorld.py</div><div class="line">hello world</div></pre></td></tr></table></figure></p>
-<p>输出成功。</p>
-<h3 id="Summary："><a href="#Summary：" class="headerlink" title="Summary："></a>Summary：</h3><ul>
-<li>用文本编辑器写Python程序，然后保存为后缀为.py的文件，在Windows下就可以使用命令Python直接运行这个程序。</li>
-<li>直接输入python进入交互模式，相当于启动了Python解释器，但是等待你一行一行地输入源代码，每输入一行就执行一行。<br>直接运行.py文件相当于启动了Python解释器，然后一次性把.py文件的源代码给执行了，你是没有机会输入源代码的。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Write-In-the-Front&quot;&gt;&lt;a href=&quot;#Write-In-the-Front&quot; class=&quot;headerlink&quot; title=&quot;Write In the Front&quot;&gt;&lt;/a&gt;Write In the Front&lt;/h3&gt;&lt;p&gt;本来很早打算就要学习python的，这几个月发生了一些事，导致耽误下来，现在开始重新拾起这个梦想吧。&lt;/p&gt;
-&lt;p&gt;学习&lt;code&gt;python3&lt;/code&gt; 都是从&lt;a href=&quot;https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;廖雪峰博客网站&lt;/a&gt;上学习的，自己新建一栏&lt;code&gt;python学习之路&lt;/code&gt;，写下学习笔记，记录学习过程。&lt;/p&gt;
     
     </summary>
     

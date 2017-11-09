@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="这次简单看下ArrayList的实现过程，以及它拥有的操作方法。在Java 8 中 ArrayList 的实现 较以前有很大的改变。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-04T09:28:35.568Z">
+<meta property="og:updated_time" content="2017-11-09T03:33:05.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 8 中ArrayList源码分析">
 <meta name="twitter:description" content="这次简单看下ArrayList的实现过程，以及它拥有的操作方法。在Java 8 中 ArrayList 的实现 较以前有很大的改变。">
@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,795
+                  2,889
                 </span>
               
 
@@ -485,7 +485,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  13
+                  14
                 </span>
               
             </div>
@@ -526,8 +526,10 @@
 <ol>
 <li>Iterator可以应用于所有的集合，Set、List和Map和这些集合的子类型。而ListIterator只能用于List及其子类型；</li>
 <li>Iterator只能实现顺序向后遍历，ListIterator可实现顺序向后遍历和逆向（顺序向前）遍历；</li>
-<li>Iterator只能实现remove操作，ListIterator可以实现remove操作，add操作，set操作。</li>
+<li>Iterator只能实现remove操作，ListIterator可以实现remove操作，add操作，set操作。<h4 id="多线程中使用ArrayList"><a href="#多线程中使用ArrayList" class="headerlink" title="多线程中使用ArrayList"></a>多线程中使用ArrayList</h4>当多个线程同时修改一个ArrayList对象的时候，必须要保持外部同步操作，但是ArrayList不是同步的，非线程安全，有一种办法就是可以使用<code>Collections.synchronizedList</code>进行包装：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List list = Collections.synchronizedList(<span class="keyword">new</span> ArrayList(...));</div></pre></td></tr></table></figure>
+</li>
 </ol>
+<p>但是在平时开发中，多线程开发中多选择使用<code>Vector</code>或者<code>CopyOnWriteArrayList</code>。</p>
 
       
     </div>
@@ -693,7 +695,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">91</span>
+                <span class="site-state-item-count">92</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -715,7 +717,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -866,7 +868,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList-拥有的属性"><span class="nav-number">1.</span> <span class="nav-text">ArrayList 拥有的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数"><span class="nav-number">2.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加元素add"><span class="nav-number">3.</span> <span class="nav-text">添加元素add</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#扩容"><span class="nav-number">3.1.</span> <span class="nav-text">扩容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其余的add方法，addAll"><span class="nav-number">3.2.</span> <span class="nav-text">其余的add方法，addAll</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove-删除元素"><span class="nav-number">4.</span> <span class="nav-text">remove 删除元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改元素-set"><span class="nav-number">5.</span> <span class="nav-text">修改元素 set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">6.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他方法"><span class="nav-number">7.</span> <span class="nav-text">其他方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历方法"><span class="nav-number">8.</span> <span class="nav-text">遍历方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList-拥有的属性"><span class="nav-number">1.</span> <span class="nav-text">ArrayList 拥有的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数"><span class="nav-number">2.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加元素add"><span class="nav-number">3.</span> <span class="nav-text">添加元素add</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#扩容"><span class="nav-number">3.1.</span> <span class="nav-text">扩容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其余的add方法，addAll"><span class="nav-number">3.2.</span> <span class="nav-text">其余的add方法，addAll</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove-删除元素"><span class="nav-number">4.</span> <span class="nav-text">remove 删除元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改元素-set"><span class="nav-number">5.</span> <span class="nav-text">修改元素 set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">6.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他方法"><span class="nav-number">7.</span> <span class="nav-text">其他方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历方法"><span class="nav-number">8.</span> <span class="nav-text">遍历方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多线程中使用ArrayList"><span class="nav-number">9.</span> <span class="nav-text">多线程中使用ArrayList</span></a></li></ol></div>
             
 
           </div>
@@ -914,7 +916,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共90.7k字</span>
+  <span class="post-count">博客全站共91.6k字</span>
 </div>
 
 <script>
