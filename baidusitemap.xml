@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/java-create-pool.html</loc>
+    <lastmod>2017-11-10T01:11:27.921Z</lastmod>
+    <data>
+        <display>
+        <title>Java中创建线程池的常用方法</title>
+        <pubTime>2017-11-01T09:08:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/test.html</loc>
+    <lastmod>2017-11-10T01:05:18.289Z</lastmod>
+    <data>
+        <display>
+        <title>关于博客改动</title>
+        <pubTime>2017-07-04T02:08:03.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/jpa-query-muti.html</loc>
     <lastmod>2017-11-09T09:49:05.187Z</lastmod>
     <data>
@@ -59,26 +99,6 @@
            
              
               <breadCrumb title="碎碎念" url="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/test.html</loc>
-    <lastmod>2017-11-08T05:24:56.059Z</lastmod>
-    <data>
-        <display>
-        <title>关于博客改动</title>
-        <pubTime>2017-07-04T02:08:03.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -344,26 +364,6 @@
         <tag>java</tag>
          
         <tag>MQTT</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/java-create-pool.html</loc>
-    <lastmod>2017-11-01T09:14:32.240Z</lastmod>
-    <data>
-        <display>
-        <title>Java中创建线程池的常用方法</title>
-        <pubTime>2017-11-01T09:08:03.000Z</pubTime>
-        
-        <tag>java</tag>
          
          
            
@@ -1182,16 +1182,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     <data>
         <display>
-        <title>如何通过Maven的Jetty插件运行Web工程</title>
-        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
+        <title>如何通过Maven的Tomcat插件运行Web工程</title>
+        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
         
         <tag>maven</tag>
          
-        <tag>jetty</tag>
+        <tag>tomcat</tag>
          
          
            
@@ -1204,16 +1204,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     <data>
         <display>
-        <title>如何通过Maven的Tomcat插件运行Web工程</title>
-        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
+        <title>如何通过Maven的Jetty插件运行Web工程</title>
+        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
         
         <tag>maven</tag>
          
-        <tag>tomcat</tag>
+        <tag>jetty</tag>
          
          
            
