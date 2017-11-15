@@ -1,3 +1,8 @@
+http://blog.wuwii.com/consistent-hashing.html
+http://blog.wuwii.com/java-optional.html
+http://blog.wuwii.com/innocence-year.html
+http://blog.wuwii.com/20171111.html
+http://blog.wuwii.com/grow-up.html
 http://blog.wuwii.com/jpa-query-muti.html
 http://blog.wuwii.com/20171107.html
 http://blog.wuwii.com/2017left.html
