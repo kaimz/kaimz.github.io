@@ -143,7 +143,7 @@
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/hashMap%201.8%20%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E4%BE%8B%E5%9B%BE1.png">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/hashMap%201.8%20%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E4%BE%8B%E5%9B%BE2.png">
 <meta property="og:image" content="http://ov62kaxkk.bkt.clouddn.com/jdk1.8%20hashMap%E6%89%A9%E5%AE%B9%E4%BE%8B%E5%9B%BE.png">
-<meta property="og:updated_time" content="2017-11-16T02:46:42.030Z">
+<meta property="og:updated_time" content="2017-11-16T02:50:03.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 8 中HashMap源码分析">
 <meta name="twitter:description" content="HashMap 文档 　HashMap是基于哈希表的Map接口实现的,此实现提供所有可选的映射操作。存储的是&amp;lt;key，value&amp;gt;对的映射，允许多个null值和一个null键。但此类不保证映射的顺序，特别是它不保证该顺序恒久不变。 　除了HashMap是非同步以及允许使用null外，HashMap 类与 Hashtable大致相同。　 此实现假定哈希函数将元素适当地分布在各桶之间，可为">
@@ -476,7 +476,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  6,341
+                  6,343
                 </span>
               
 
@@ -573,8 +573,8 @@
 <li>扩容特别消耗性能，初始化的时候，尽量控制好HashMap的大小，避免频繁扩容；</li>
 <li>HashMap 在 new 后并不会立即分配哈希桶数组，而是第一次 put 时初始化，类似 ArrayList 在第一次 add 时分配空间。</li>
 <li>HashMap 在 put 的元素数量大于 <code>Capacity * LoadFactor</code>（默认<code>16 * 0.75</code>） 之后会进行扩容。</li>
-<li>JDK8在哈希碰撞的链表长度达到TREEIFY_THRESHOLD（默认8)后，会把该链表转变成树结构，提高了性能。</li>
-<li>JDK8在 resize 的时候，通过巧妙的设计，减少了 rehash 的性能消耗。</li>
+<li>Java 8在哈希碰撞的链表长度达到TREEIFY_THRESHOLD（默认8)后，会把该链表转变成树结构，提高了性能。</li>
+<li>Java 8在 resize() 的时候，通过巧妙的设计，减少了 rehash 的性能消耗。</li>
 </ol>
 <p><strong>参考文章</strong></p>
 <p><a rel="external nofollow" target="_blank" href="http://blog.csdn.net/qq_27093465/article/details/52207135">Java 8系列之重新认识HashMap</a><br><a rel="external nofollow" target="_blank" href="http://www.cnblogs.com/CherishFX/p/4739712.html">jdk1.8.0_45源码解读——HashMap的实现</a><br><a rel="external nofollow" target="_blank" href="https://www.cnblogs.com/rogerluo1986/p/5851300.html">HashMap数据结构</a><br><a rel="external nofollow" target="_blank" href="http://blog.csdn.net/u011411283/article/details/48024999">HashMap的性能提升从之链表到二叉树</a></p>
