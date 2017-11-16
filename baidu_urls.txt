@@ -1,3 +1,4 @@
+http://blog.wuwii.com/java-hashmap.html
 http://blog.wuwii.com/hash-crash.html
 http://blog.wuwii.com/consistent-hashing.html
 http://blog.wuwii.com/java-optional.html
