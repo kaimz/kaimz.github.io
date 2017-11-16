@@ -129,18 +129,20 @@
 
 
 
-<meta name="description" content="实际业务中，多表关联查询应用实例很多，怎么使用JPA进行多表查询，可以选择不同的方法优化。记下在JPA中多表查询的有效使用方法。">
+<meta name="description" content="Hash碰撞冲突我们知道，对象Hash的前提是实现equals()和hashCode()两个方法，那么HashCode()的作用就是保证对象返回唯一hash值，但当两个对象计算值一样时，这就发生了碰撞冲突。如下将介绍如何处理冲突，当然其前提是一致性hash。">
 <meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上,Slience">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JPA多表查询的解决办法">
-<meta property="og:url" content="http://blog.wuwii.com/jpa-query-muti.html">
+<meta property="og:title" content="解决Hash碰撞冲突方法总结">
+<meta property="og:url" content="http://blog.wuwii.com/hash-crash.html">
 <meta property="og:site_name" content="喃声细语">
-<meta property="og:description" content="实际业务中，多表关联查询应用实例很多，怎么使用JPA进行多表查询，可以选择不同的方法优化。记下在JPA中多表查询的有效使用方法。">
+<meta property="og:description" content="Hash碰撞冲突我们知道，对象Hash的前提是实现equals()和hashCode()两个方法，那么HashCode()的作用就是保证对象返回唯一hash值，但当两个对象计算值一样时，这就发生了碰撞冲突。如下将介绍如何处理冲突，当然其前提是一致性hash。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-09T09:49:05.187Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20160918154444663?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2017-11-16T01:13:47.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JPA多表查询的解决办法">
-<meta name="twitter:description" content="实际业务中，多表关联查询应用实例很多，怎么使用JPA进行多表查询，可以选择不同的方法优化。记下在JPA中多表查询的有效使用方法。">
+<meta name="twitter:title" content="解决Hash碰撞冲突方法总结">
+<meta name="twitter:description" content="Hash碰撞冲突我们知道，对象Hash的前提是实现equals()和hashCode()两个方法，那么HashCode()的作用就是保证对象返回唯一hash值，但当两个对象计算值一样时，这就发生了碰撞冲突。如下将介绍如何处理冲突，当然其前提是一致性hash。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160918154444663?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 
 
 
@@ -168,13 +170,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.wuwii.com/jpa-query-muti.html"/>
+  <link rel="canonical" href="http://blog.wuwii.com/hash-crash.html"/>
 
 
 
 
 
-  <title>JPA多表查询的解决办法 | 喃声细语</title>
+  <title>解决Hash碰撞冲突方法总结 | 喃声细语</title>
   
 
 
@@ -374,7 +376,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/jpa-query-muti.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/hash-crash.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Slience">
@@ -391,7 +393,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JPA多表查询的解决办法</h1>
+          <h1 class="post-title" itemprop="name headline">解决Hash碰撞冲突方法总结</h1>
         
 
         <div class="post-meta">
@@ -403,8 +405,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T17:50:03+08:00">
-                2017-11-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T21:08:03+08:00">
+                2017-11-15
               </time>
             
 
@@ -445,8 +447,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/jpa-query-muti.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="jpa-query-muti.html" itemprop="commentsCount"></span>
+                <a href="/hash-crash.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="hash-crash.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -469,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  703
+                  846
                 </span>
               
 
@@ -501,17 +503,21 @@
       
 
       
-        <p>实际业务中，多表关联查询应用实例很多，怎么使用JPA进行多表查询，可以选择不同的方法优化。<br>记下在JPA中多表查询的有效使用方法。<br><a id="more"></a></p>
-<h3 id="使用关系映射"><a href="#使用关系映射" class="headerlink" title="使用关系映射"></a>使用关系映射</h3><p>就是使用一对多，多对一，一对一这种关系进行关联映射，</p>
-<p>一个一对多迭代Tree的例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> javax.persistence.*;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 根据组织取得实时轨迹Tree的业务类</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/9 15:21&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="meta">@Table</span>(name = <span class="string">"\"DEV_ORGANIZE\""</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrganizeMappedEntity</span> <span class="keyword">extends</span> <span class="title">BaseEntity</span> </span>&#123;</div><div class="line">    <span class="comment">// 名称，为了前面取出数据的key一致性，换个名称。</span></div><div class="line">    <span class="meta">@Column</span>(name = <span class="string">"\"NAME\""</span>)</div><div class="line">    <span class="keyword">private</span> String no;</div><div class="line">    <span class="comment">// 父组织外键</span></div><div class="line">    <span class="meta">@Column</span>(name = <span class="string">"\"PARENTID\""</span>)</div><div class="line">    <span class="keyword">private</span> String parentid;</div><div class="line"></div><div class="line">    <span class="meta">@OneToMany</span>(targetEntity = OrganizeMappedEntity.class,</div><div class="line">            mappedBy = <span class="string">"parentid"</span>, cascade = &#123;CascadeType.ALL&#125;, fetch = FetchType.EAGER)</div><div class="line">    <span class="keyword">private</span> List children;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNo</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> no;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNo</span><span class="params">(String no)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.no = no;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getParentid</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> parentid;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setParentid</span><span class="params">(String parentid)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.parentid = parentid;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">getChildren</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> children;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setChildren</span><span class="params">(List children)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.children = children;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>平常使用这种方法最多了，因为方便，少写代码，但是平时不一定需要查询所有，而且在数据比较多的情况下，开销比较大，就得使用下面第二种方法。</p>
-<h3 id="使用JPQL多表查询"><a href="#使用JPQL多表查询" class="headerlink" title="使用JPQL多表查询"></a>使用JPQL多表查询</h3><p><code>JPQL</code>全称<code>Java Presistence Query Language</code>，Java持久化查询语言。和Hibernate的HQL语句差不多。</p>
-<p>现在测试下，从A表和B表各取出一个字段吧。<br>创建一个业务实体DTO：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.Serializable;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//学习学习</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestEntity</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * </span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">        <span class="comment">//A表字段No</span></div><div class="line">	<span class="keyword">private</span> String no;</div><div class="line">	<span class="comment">//B表字段tel</span></div><div class="line">	<span class="keyword">private</span> String tel;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> Long num;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span>  <span class="title">TestEntity</span><span class="params">(Long num)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.num = num;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getNum</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> num;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNum</span><span class="params">(Long num)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.num = num;</div><div class="line">	&#125;</div><div class="line">    <span class="comment">//通过构造函数注入值</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TestEntity</span> <span class="params">(String no, String tel)</span> </span>&#123;</div><div class="line">    	<span class="keyword">this</span>.no = no;</div><div class="line">    	<span class="keyword">this</span>.tel = tel;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getSerialversionuid</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> serialVersionUID;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getNo</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> no;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNo</span><span class="params">(String no)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.no = no;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getTel</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> tel;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTel</span><span class="params">(String tel)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.tel = tel;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//重写写，</span></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"TestEntity&#123;"</span> +</div><div class="line">				<span class="string">"no='"</span> + no + <span class="string">'\''</span> +</div><div class="line">				<span class="string">", tel='"</span> + tel + <span class="string">'\''</span> +</div><div class="line">				<span class="string">", num="</span> + num +</div><div class="line">				<span class="string">'&#125;'</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样可以使用业务实体类的构造函数就行绑定数据了。</p>
-<p>Dao层查询数据库的JPQL语句：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> com.devframe.database.BasePagingAndSortingRepository;</div><div class="line"><span class="keyword">import</span> com.devframe.entity.DeviceEntity;</div><div class="line"><span class="keyword">import</span> com.devframe.entity.TestEntity;</div><div class="line"><span class="keyword">import</span> org.springframework.data.jpa.repository.Query;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="meta">@Repository</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DeviceDao</span> <span class="keyword">extends</span> <span class="title">PagingAndSortingRepository</span>&lt;<span class="title">DeviceEntity</span>, <span class="title">String</span>&gt; </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 只为学习。。。</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> List&lt;TestEntity&gt;</span></div><div class="line"><span class="comment">     */</span></div><div class="line">	<span class="meta">@Query</span>(value = <span class="string">"SELECT new com.devframe.entity.TestEntity(a.no, b.tel) FROM com.devframe.entity.DeviceEntity a, com.devframe.entity.OrganizeEntity b WHERE a.orgid = b.id"</span>)</div><div class="line">	<span class="function">List&lt;TestEntity&gt; <span class="title">gettest</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用join查询出两个表相关联的所有列。</p>
-<p>单元测试：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> com.devframe.dao.DeviceDao;</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</div><div class="line"><span class="keyword">import</span> org.springframework.test.context.ContextConfiguration;</div><div class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.annotation.Resource;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/9 17:40&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</div><div class="line"><span class="meta">@ContextConfiguration</span>(locations = &#123;<span class="string">"classpath:spring/applicationContext-base.xml"</span>&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeviceDaoTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Resource</span></div><div class="line">    <span class="keyword">private</span> DeviceDao dao;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGettest</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(dao.gettest());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>数据有点多<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TestEntity&#123;no=&apos;N57008&apos;, tel=&apos;null&apos;, num=null&#125;, TestEntity&#123;no=&apos;N33505&apos;, tel=&apos;null&apos;, num=null&#125;, TestEntity&#123;no=&apos;N88001&apos;, tel=&apos;null&apos;, num=null&#125;,省略...</div></pre></td></tr></table></figure></p>
+        <h3 id="Hash碰撞冲突"><a href="#Hash碰撞冲突" class="headerlink" title="Hash碰撞冲突"></a>Hash碰撞冲突</h3><p>我们知道，对象Hash的前提是实现equals()和hashCode()两个方法，那么HashCode()的作用就是保证对象返回唯一hash值，但当两个对象计算值一样时，这就发生了碰撞冲突。如下将介绍如何处理冲突，当然其前提是一致性hash。</p>
+<a id="more"></a>
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><h4 id="开放地址法"><a href="#开放地址法" class="headerlink" title="开放地址法"></a>开放地址法</h4><p>开放地执法有一个公式:<code>Hi=(H(key)+di) MOD m i=1,2,…,k(k&lt;=m-1)</code><br>其中，m为哈希表的表长。di 是产生冲突的时候的增量序列。如果di值可能为1,2,3,…m-1，称线性探测再散列。<br>如果di取1，则每次冲突之后，向后移动1个位置.如果di取值可能为1,-1,2,-2,4,-4,9,-9,16,-16,…k<em>k,-k</em>k(k&lt;=m/2)，称二次探测再散列。<br>如果di取值可能为伪随机数列。称伪随机探测再散列。</p>
+<h4 id="再哈希法"><a href="#再哈希法" class="headerlink" title="再哈希法"></a>再哈希法</h4><p>当发生冲突时，使用第二个、第三个、哈希函数计算地址，直到无冲突时。缺点：计算时间增加。<br>比如上面第一次按照姓首字母进行哈希，如果产生冲突可以按照姓字母首字母第二位进行哈希，再冲突，第三位，直到不冲突为止</p>
+<h4 id="链地址法（拉链法）"><a href="#链地址法（拉链法）" class="headerlink" title="链地址法（拉链法）"></a>链地址法（拉链法）</h4><p>将所有关键字为同义词的记录存储在同一<code>线性链表</code>中。如下：</p>
+<p><img src="http://img.blog.csdn.net/20160918154444663?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="image"></p>
+<h4 id="建立一个公共溢出区"><a href="#建立一个公共溢出区" class="headerlink" title="建立一个公共溢出区"></a>建立一个公共溢出区</h4><p>假设哈希函数的值域为<code>[0,m-1]</code>,则设向量<code>HashTable[0..m-1]</code>为基本表，另外设立存储空间向量<code>OverTable[0..v]</code>用以存储发生冲突的记录。</p>
+<h4 id="拉链法的优缺点"><a href="#拉链法的优缺点" class="headerlink" title="拉链法的优缺点"></a>拉链法的优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ol>
+<li>拉链法处理冲突简单，且无堆积现象，即非同义词决不会发生冲突，因此平均查找长度较短；</li>
+<li>由于拉链法中各链表上的结点空间是动态申请的，故它更适合于造表前无法确定表长的情况；</li>
+<li>开放定址法为减少冲突，要求装填因子α较小，故当结点规模较大时会浪费很多空间。而拉链法中可取α≥1，且结点较大时，拉链法中增加的指针域可忽略不计，因此节省空间；</li>
+<li>在用拉链法构造的散列表中，删除结点的操作易于实现。只要简单地删去链表上相应的结点即可。而对开放地址法构造的散列表，删除结点不能简单地将被删结 点的空间置为空，否则将截断在它之后填人散列表的同义词结点的查找路径。这是因为各种开放地址法中，空地址单元(即开放地址)都是查找失败的条件。因此在 用开放地址法处理冲突的散列表上执行删除操作，只能在被删结点上做删除标记，而不能真正删除结点。</li>
+</ol>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><p>指针需要额外的空间，故当结点规模较小时，开放定址法较为节省空间，而若将节省的指针空间用来扩大散列表的规模，可使装填因子变小，这又减少了开放定址法中的冲突，从而提高平均查找速度。</p>
+<p><strong>文章转载 <a rel="external nofollow" target="_blank" href="http://blog.csdn.net/zeb_perfect/article/details/52574915">解决Hash碰撞冲突方法总结</a></strong></p>
 
       
     </div>
@@ -551,9 +557,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
-          
-            <a href="/tags/jpa/" rel="tag"><i class="fa fa-tag"></i> jpa</a>
+            <a href="/tags/哈希算法/" rel="tag"><i class="fa fa-tag"></i> 哈希算法</a>
           
         </div>
       
@@ -566,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/20171107.html" rel="next" title="20171107">
-                <i class="fa fa-chevron-left"></i> 20171107
+              <a href="/consistent-hashing.html" rel="next" title="理解一致性哈希算法(consistent hashing)">
+                <i class="fa fa-chevron-left"></i> 理解一致性哈希算法(consistent hashing)
               </a>
             
           </div>
@@ -575,10 +579,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/grow-up.html" rel="prev" title="成长">
-                成长 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -852,7 +852,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用关系映射"><span class="nav-number">1.</span> <span class="nav-text">使用关系映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用JPQL多表查询"><span class="nav-number">2.</span> <span class="nav-text">使用JPQL多表查询</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash碰撞冲突"><span class="nav-number">1.</span> <span class="nav-text">Hash碰撞冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决冲突"><span class="nav-number">2.</span> <span class="nav-text">解决冲突</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开放地址法"><span class="nav-number">2.1.</span> <span class="nav-text">开放地址法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#再哈希法"><span class="nav-number">2.2.</span> <span class="nav-text">再哈希法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链地址法（拉链法）"><span class="nav-number">2.3.</span> <span class="nav-text">链地址法（拉链法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建立一个公共溢出区"><span class="nav-number">2.4.</span> <span class="nav-text">建立一个公共溢出区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉链法的优缺点"><span class="nav-number">2.5.</span> <span class="nav-text">拉链法的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点"><span class="nav-number">2.5.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">2.5.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1024,7 +1024,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 		_hcwp.push({widget:"Bloggerstream", widget_id: 95150, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 95150, xid: "jpa-query-muti.html"});
+		_hcwp.push({widget:"Stream", widget_id: 95150, xid: "hash-crash.html"});
 		
 
 		(function() {
