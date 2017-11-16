@@ -69,7 +69,7 @@
 <li>HashMap是线程不安全的，不要在并发的环境中同时操作HashMap，建议使用ConcurrentHashMap，HashTable的并发性不如ConcurrentHashMap；</li>
 <li>扩容特别消耗性能，初始化的时候，尽量控制好HashMap的大小，避免频繁扩容；</li>
 <li>HashMap 在 new 后并不会立即分配哈希桶数组，而是第一次 put 时初始化，类似 ArrayList 在第一次 add 时分配空间。</li>
-<li>HashMap 在 put 的元素数量大于 Capacity <em> LoadFactor（默认16 </em> 0.75） 之后会进行扩容。</li>
+<li>HashMap 在 put 的元素数量大于 <code>Capacity * LoadFactor</code>（默认<code>16 * 0.75</code>） 之后会进行扩容。</li>
 <li>JDK8在哈希碰撞的链表长度达到TREEIFY_THRESHOLD（默认8)后，会把该链表转变成树结构，提高了性能。</li>
 <li>JDK8在 resize 的时候，通过巧妙的设计，减少了 rehash 的性能消耗。</li>
 </ol>
