@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="在Spring容器中使用applicationContext.xml中来给对应的类注入对应的属性，来完成初始化，最典型的就是配置数据库连接池了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-04T00:40:38.462Z">
+<meta property="og:updated_time" content="2017-11-17T05:48:50.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring中使用Configuration注入Bean">
 <meta name="twitter:description" content="在Spring容器中使用applicationContext.xml中来给对应的类注入对应的属性，来完成初始化，最典型的就是配置数据库连接池了。">
@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,494
+                  2,577
                 </span>
               
 
@@ -541,7 +541,8 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
 <li>还可以读取xml文件进行装配，当然也不使用配置文件，直接在Beans的<code>@Value</code>注解上写出需要注解的值，但是那样后期部署修改起来麻烦。</li>
 <li>常用的应该时这么两个 比较好，properties 可能用的多点吧；因为平时使用这个外部需要修改的参数 的基本都是一些常量，不会存在这么多转换，这个只是我的测试的代码，所以有一些鬼转换。</li>
-<li>还有我使用properties 中为什么没使用中文，因为乱码了。尴尬。这是需要注意的地方。</li>
+<li>还有我使用properties 中为什么没使用中文，因为乱码了。尴尬。这是需要注意的地方，因为电脑默认编码是gbk，但是读的时候，又没有设置编码。解决办法：在读取properties文件的工具类上，加上指定编码格式<code>utf-8</code>:<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">URL url = PropertyUtil.class.getResource(<span class="string">"/config.properties"</span>);</div><div class="line">FileInputStream in = <span class="keyword">new</span> FileInputStream(url.getPath());</div><div class="line"><span class="comment">//这段代码不是 以前的  PROP.load(in);</span></div><div class="line">PROP.load(<span class="keyword">new</span> InputStreamReader(in, <span class="string">"utf-8"</span>));</div><div class="line">in.close();</div></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -929,7 +930,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共104.2k字</span>
+  <span class="post-count">博客全站共104.3k字</span>
 </div>
 
 <script>
