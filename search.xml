@@ -3,6 +3,34 @@
   
     
     <entry>
+      <title><![CDATA[我的蛋碎了一个]]></title>
+      <url>/20171120.html</url>
+      <content type="html"><![CDATA[<p>真的。。</p>
+<a id="more"></a>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/IMG_20171120_203908.jpg" alt="image"></p>
+<p>看到这个蛋，随口喊出那句话，被自己蠢哭了。</p>
+<p>支付宝刮了一张卡，感觉到马云爸爸深深的恶意。</p>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/Screenshot.png" alt="image"></p>
+<p>用穷逼会员咋的，</p>
+<p><img src="http://ov62kaxkk.bkt.clouddn.com/u=3069228711,3931262156&amp;fm=27&amp;gp=0.jpg" alt="image"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 碎碎念 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 心情 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[使用Redis完成分布式锁]]></title>
       <url>/redis-lock.html</url>
       <content type="html"><![CDATA[<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><blockquote>
