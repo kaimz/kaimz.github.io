@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="猛然发现，2017，转眼就要过完了，我这个人从来不喜欢记什么节日，自己的生日有时候都要老爸老妈操心的，我也不太喜欢倒计时，最特别的就是高考倒计时吧。当人从出生的那一刻起，就过上了讨厌的倒计时的生活。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-13T02:09:45.358Z">
+<meta property="og:updated_time" content="2017-11-27T00:50:14.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017年，仅剩60天不到了">
 <meta name="twitter:description" content="猛然发现，2017，转眼就要过完了，我这个人从来不喜欢记什么节日，自己的生日有时候都要老爸老妈操心的，我也不太喜欢倒计时，最特别的就是高考倒计时吧。当人从出生的那一刻起，就过上了讨厌的倒计时的生活。">
@@ -157,9 +157,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
+      applicationID: 'TWXZ15WRBL',
+      apiKey: 'c272bd4b810c8b43773a3f1d3c6b8d27',
+      indexName: 'wuwii',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -330,22 +330,26 @@
   
     <div class="site-search">
       
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
   </div>
-  <div id="local-search-result"></div>
-</div>
+
 
 
 
@@ -439,18 +443,6 @@
 
           
             
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017left.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017left.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
           
 
           
@@ -469,7 +461,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,190
+                  1,157
                 </span>
               
 
@@ -507,16 +499,16 @@
 <p>也是刚好，项目的事情没那么多，可以好好写下论文了，大概三月中旬我就开始着手自己毕业设计，直接想了一个以前准备做的OA系统，其实这个还是挺难的，因为最后做得有点失败，后面说。整整四月份都在做这个项目，中间遇到过很多问题，大多数都解决了（有的敷衍了），也有十多万行代码吧（虽然质量很差），没仔细统计过，就是公司上班没什么事，一天到晚写毕业设计一个月，直到五月初才开始写论文。然后就是毕业设计熬过去。然后就是答辩了，so easy，毕竟全篇都是自己完成的，只不过我是小组最后一个答辩，弄完都快晚上八点了。</p>
 <p>六月份到公司重新报道吧，没什么可说的，开始接到一个很坑的项目，直接导致我想离开的原因。</p>
 <p>七月份就是做那个苦逼的项目，室友封闭一个月，我一个人生活了一个多月，感觉习惯了孤独。</p>
-<p>还有一件事情就是，也是我想直接留在武汉的原因吧，主要还是想那个她吧，可是我当时又不敢见她，聊天也怕没话题，知道她还是单身，我多次尝试去找她，但是她对我很冷吧，所以又没去联系，还是不打破美好吧，后来她有男友，虽然让我消沉一阵子，当然这是后话了。</p>
-<p>八月份中旬，经前任经历推荐，来到了新的公司，虽然是做农业的，不是真正的互联网公司，但是在武汉待遇还很好，经理待人也不错，就是很少加班，但是IT行业不学习的话，感觉人就要倒退了，所以呀，每天至少得在公司蹭一个小时的网，来学习学习。部门的员工很和谐，感觉很轻松，让我工作动力十足，相信可以成长很快的。</p>
+<p>还有一件事情就是，也是我想直接留在武汉的原因吧，说多都是套路，自私点，好点发展。</p>
+<p>八月份中旬，经经理推荐，来到了新的公司，虽然是做农业的，不是真正的互联网公司，但是在武汉待遇还很好，经理待人也不错，就是很少加班，但是IT行业不学习的话，感觉人就要倒退了，所以呀，每天至少得在公司蹭一个小时的网，来学习学习。部门的员工很和谐，感觉很轻松，让我工作动力十足，相信可以成长很快的。</p>
 <p>在新公司已经两个月了，学习了不少，这个博客笔记也是进入到这个公司才开始正式写的，希望能够陪伴着我进步。</p>
-<p>最后的梦想就是，当然是快点成为技术大牛，拿高薪。<br>工作方向的话，主Java开发，物联网，互联网，再就是大数据，补算法，python，人工智能。<br>说起以后工作的城市，人生路还长，现在才刚开始，自己努力了，总有个地方能给你安稳的地方。<br>说起工作城市，还不是面向工资，主要是武汉工资确实太低了，但真的很喜欢武汉的这个城市。不知道明年继续待在武汉，有机会税前过万吗？<br>说起以后的希望实现财富自由的期望工资，标准是超一线年薪30万起吧，一线20万吧，才算合格。当然是以目前的背景基础看的，程序猿的工资只会越来越高的，要坚持努力工作，学习，加油，希望三年能完成一个阶段吧。</p>
+<p>最后的梦想就是，当然是快点成为技术大牛，拿高薪。<br>工作方向的话，主Java开发，物联网，互联网，再就是大数据，补算法，python，人工智能。<br>说起以后工作的城市，人生路还长，现在才刚开始，自己努力了，总有个地方能给你安稳的地方。<br>说起工作城市，还不是面向工资，主要是武汉工资确实太低了，但真的很喜欢武汉的这个城市。不知道明年继续在武汉，有机会税前过万吗？</p>
+<p>说起以后的希望实现财富自由的期望工资，标准是超一线年薪30万起吧，一线20万吧，才算合格。当然是以目前的背景基础看的，程序猿的工资只会越来越高的，要坚持努力工作，学习，加油，希望三年能完成一个阶段吧。</p>
 <p>当然最希望能遇到一个对的人，我有好多故事要跟你讲啊，想去好多地方，虽然害怕自己习惯了孤独，只要是对的人，还是等得起，不是不想去喜欢一个人，害怕自己再也付出不了真心，真的是好犹豫啊，人真是病态的厉害。</p>
 <p>今年总结这么快就开始写了，其实没什么，好多牢骚，完全扭曲了人生观，就这样，加油，努力，现在每天只好自己对自己说声晚安了，我相信这种状况不会太久，希望不会太远，真的好累。</p>
 <p>有点矫情了。。。</p>
 <p>晚安！</p>
-<hr>
-<p>(continue:</p>
+<h2 id="20171125-感觉还剩一个月的时候，人完成沉静不下来了，哎，一晚上写了一篇博客，写到凌晨最后不知道写的什么。"><a href="#20171125-感觉还剩一个月的时候，人完成沉静不下来了，哎，一晚上写了一篇博客，写到凌晨最后不知道写的什么。" class="headerlink" title="20171125 感觉还剩一个月的时候，人完成沉静不下来了，哎，一晚上写了一篇博客，写到凌晨最后不知道写的什么。"></a>20171125 感觉还剩一个月的时候，人完成沉静不下来了，哎，一晚上写了一篇博客，写到凌晨最后不知道写的什么。</h2><p>(continue:</p>
 
       
     </div>
@@ -633,8 +625,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="hypercomments_widget"></div>
-    
   </div>
 
 
@@ -657,8 +647,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg"
@@ -673,7 +672,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">107</span>
+                <span class="site-state-item-count">111</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -841,6 +840,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#20171125-感觉还剩一个月的时候，人完成沉静不下来了，哎，一晚上写了一篇博客，写到凌晨最后不知道写的什么。"><span class="nav-number">1.</span> <span class="nav-text">20171125 感觉还剩一个月的时候，人完成沉静不下来了，哎，一晚上写了一篇博客，写到凌晨最后不知道写的什么。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -882,7 +897,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共120.0k字</span>
+  <span class="post-count">博客全站共122.9k字</span>
 </div>
 
 <script>
@@ -1000,31 +1015,17 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 	
 
-		<script type="text/javascript">
-		_hcwp = window._hcwp || [];
-
-		_hcwp.push({widget:"Bloggerstream", widget_id: 95150, selector:".hc-comment-count", label: "{\%COUNT%\}" });
-
-		
-		_hcwp.push({widget:"Stream", widget_id: 95150, xid: "2017left.html"});
-		
-
-		(function() {
-		if("HC_LOAD_INIT" in window)return;
-		HC_LOAD_INIT = true;
-		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
-		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
-		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/95150/"+lang+"/widget.js";
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(hcc, s.nextSibling);
-		})();
-		</script>
-
-	
 
 
 
 
+  
+
+
+
+
+
+  
 
 
 
@@ -1033,324 +1034,20 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
   
 
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
 
 
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
 
 
 

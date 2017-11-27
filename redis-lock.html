@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="实现原理 分布式的CAP理论告诉我们“任何一个分布式系统都无法同时满足一致性（Consistency）、可用性（Availability）和分区容错性（Partition tolerance），最多只能同时满足两项。”所以，很多系统在设计之初就要对这三者做出取舍。在互联网领域的绝大多数的场景中，都需要牺牲强一致性来换取系统的高可用性，系统往往只需要保证“最终一致性”，只要这个最终时间是在用户可以接">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-21T12:34:42.104Z">
+<meta property="og:updated_time" content="2017-11-27T02:42:53.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Redis完成分布式锁">
 <meta name="twitter:description" content="实现原理 分布式的CAP理论告诉我们“任何一个分布式系统都无法同时满足一致性（Consistency）、可用性（Availability）和分区容错性（Partition tolerance），最多只能同时满足两项。”所以，很多系统在设计之初就要对这三者做出取舍。在互联网领域的绝大多数的场景中，都需要牺牲强一致性来换取系统的高可用性，系统往往只需要保证“最终一致性”，只要这个最终时间是在用户可以接">
@@ -157,9 +157,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
+      applicationID: 'TWXZ15WRBL',
+      apiKey: 'c272bd4b810c8b43773a3f1d3c6b8d27',
+      indexName: 'wuwii',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -330,22 +330,26 @@
   
     <div class="site-search">
       
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
   </div>
-  <div id="local-search-result"></div>
-</div>
+
 
 
 
@@ -439,18 +443,6 @@
 
           
             
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/redis-lock.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="redis-lock.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
           
 
           
@@ -469,7 +461,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,010
+                  2,023
                 </span>
               
 
@@ -523,7 +515,7 @@
 <h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.slf4j.Logger;</div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</div><div class="line"><span class="keyword">import</span> java.util.concurrent.locks.Condition;</div><div class="line"><span class="keyword">import</span> java.util.concurrent.locks.Lock;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * &lt;b&gt;redis分布式锁的实现&lt;/b&gt;&lt;/br&gt;</span></div><div class="line"><span class="comment"> * 还有一些失败机制没处理，以后在使用测试阶段，完善。</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/20 9:22&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisLock</span> <span class="keyword">implements</span> <span class="title">Lock</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Logger logger = LoggerFactory.getLogger(RedisLock.class);</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * redis连接</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Jedis jedis;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 锁定资源名，锁key，保证唯一。</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String lockName;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 资源上锁的最长时间，超时自动解锁单位秒，&lt;/br&gt;</span></div><div class="line"><span class="comment">     * 建议设置成死的，如果设置不当容易影响效率，严重造成死锁。</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> expireTime = Integer.valueOf(PropertyUtil.get(<span class="string">"redisLock.expireTime"</span>));</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 线程获取不到锁，休眠的时间，单位ms</span></div><div class="line"><span class="comment">     * 避免系统资源浪费</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">long</span> sleepTime = Long.valueOf(PropertyUtil.get(<span class="string">"redisLock.sleepTime"</span>));</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 当前锁超时的时间戳，单位毫秒</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> expireTimeOut = <span class="number">0</span>;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 获取锁状态，锁中断状态&lt;/br&gt;</span></div><div class="line"><span class="comment">     * 值为false的时候中断获取锁&lt;/br&gt;</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> interrupted = <span class="keyword">true</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 构造方法</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> jedis    redis连接</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> lockName 上锁key，唯一标识</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RedisLock</span><span class="params">(Jedis jedis, String lockName)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (lockName == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"lockName is required"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.jedis = jedis;</div><div class="line">        <span class="comment">// 重命名的前缀，可以不加，也可以自定义，保证唯一即可。</span></div><div class="line">        <span class="keyword">this</span>.lockName = <span class="string">"lock"</span> + lockName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 获取锁。如果锁已被其他线程获取，则进行等待，直到拿到锁为止。</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">            <span class="keyword">this</span>.lockCheck();</div><div class="line">            <span class="keyword">long</span> id = jedis.setnx(lockName, lockName);</div><div class="line">            <span class="keyword">if</span> (id == <span class="number">0L</span>) &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="comment">/**</span></div><div class="line"><span class="comment">                     * 没有获取到锁则进行等待睡眠时间，再去重新获取锁&lt;/br&gt;</span></div><div class="line"><span class="comment">                     * 这里使用随机时间可能会好一点,可以防止饥饿进程的出现,即,当同时到达多个进程,</span></div><div class="line"><span class="comment">                     * 只会有一个进程获得锁,其他的都用同样的频率进行尝试,后面有来了一些进行,</span></div><div class="line"><span class="comment">                     * 也以同样的频率申请锁,这将可能导致前面来的锁得不到满足.</span></div><div class="line"><span class="comment">                     * 使用随机的等待时间可以一定程度上保证公平性</span></div><div class="line"><span class="comment">                     */</span></div><div class="line">                    Thread.sleep(<span class="keyword">this</span>.sleepTime);</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    logger.error(<span class="string">"Thread is interrupted"</span>, e);</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                expireTimeOut = System.currentTimeMillis() + expireTimeOut * <span class="number">1000</span> + <span class="number">1</span>;</div><div class="line">                <span class="comment">//设置redis中key的过期时间</span></div><div class="line">                jedis.expire(<span class="keyword">this</span>.lockName, expireTime);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 中断锁获取</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@throws</span> InterruptedException 中断异常</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lockInterruptibly</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">        <span class="keyword">this</span>.interrupted = <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 它表示用来尝试获取锁，会立即返回，如果获取成功，则返回true，如果获取失败（即锁已被其他线程获取），则返回false，&lt;/br&gt;</span></div><div class="line"><span class="comment">     * 也就说这个方法无论如何都会立即返回。在拿不到锁时不会一直在那等待。</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> boolean</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.lockCheck();</div><div class="line">        <span class="comment">//尝试获取锁</span></div><div class="line">        <span class="keyword">long</span> id = jedis.setnx(lockName, lockName);</div><div class="line">        <span class="comment">//返回结果为0 则已经存在key，已经存在锁。</span></div><div class="line">        <span class="keyword">if</span> (id == <span class="number">0L</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            expireTimeOut = System.currentTimeMillis() + expireTimeOut * <span class="number">1000</span> + <span class="number">1</span>;</div><div class="line">            <span class="comment">//设置redis中key的过期时间</span></div><div class="line">            jedis.expire(<span class="keyword">this</span>.lockName, expireTime);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 它表示用来尝试获取锁，如果获取成功，则返回true，如果获取失败（即锁已被其他线程获取），则返回false，&lt;/br&gt;</span></div><div class="line"><span class="comment">     * 这个方法在拿不到锁时会等待一定的时间，在时间期限之内如果还拿不到锁，就返回false。&lt;/br&gt;</span></div><div class="line"><span class="comment">     * 如果如果一开始拿到锁或者在等待期间内拿到了锁，则返回true。&lt;/br&gt;</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> time 等待时间</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> unit 时间单位</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> boolean</span></div><div class="line"><span class="comment">     * <span class="doctag">@throws</span> InterruptedException 中断异常</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">(<span class="keyword">long</span> time, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">        <span class="keyword">if</span> (time == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (unit == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"TimeUnit is required."</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">long</span> now = System.currentTimeMillis();</div><div class="line">        <span class="keyword">long</span> timeOutAt = now + calcSeconds(time, unit);</div><div class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">            <span class="keyword">this</span>.lockCheck();</div><div class="line">            <span class="keyword">long</span> id = jedis.setnx(<span class="keyword">this</span>.lockName, <span class="keyword">this</span>.lockName);</div><div class="line">            <span class="comment">// id = 0 表示加锁失败</span></div><div class="line">            <span class="keyword">if</span> (id == <span class="number">0</span>) &#123;</div><div class="line">                <span class="comment">// 获取锁超时</span></div><div class="line">                <span class="keyword">if</span> (System.currentTimeMillis() &gt; timeOutAt) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="comment">// 休眠一段时间，线程再继续获取锁。</span></div><div class="line">                Thread.sleep(<span class="keyword">this</span>.sleepTime);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">//获取锁成功，设置锁过期时间戳</span></div><div class="line">                expireTimeOut = System.currentTimeMillis() + expireTimeOut * <span class="number">1000</span> + <span class="number">1</span>;</div><div class="line">                jedis.expireAt(<span class="keyword">this</span>.lockName, expireTimeOut);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * &lt;b&gt;释放锁&lt;b/&gt;</span></div><div class="line"><span class="comment">     * 当前时间小于过期时间，则锁未超时，删除锁，&lt;/br&gt;</span></div><div class="line"><span class="comment">     * 过了超时时间，redis已经删除了该key。</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (System.currentTimeMillis() &lt; expireTimeOut) &#123;</div><div class="line">            jedis.del(lockName);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Condition <span class="title">newCondition</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//TODO 涉及到 Condition 例外一个重要内容，以后再实现这个方法</span></div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException(<span class="string">"did not supported."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 检查当前线程资源redis连接和锁的状态</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">lockCheck</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (jedis == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"Jedis is required."</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (!interrupted) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Thread is interrupted."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * TimeUnit单位时间转换成毫秒</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> time 时间</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> unit 时间单位</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> long</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">calcSeconds</span><span class="params">(<span class="keyword">long</span> time, TimeUnit unit)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (unit == TimeUnit.DAYS) &#123;</div><div class="line">            <span class="keyword">return</span> time * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (unit == TimeUnit.HOURS) &#123;</div><div class="line">            <span class="keyword">return</span> time * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (unit == TimeUnit.MINUTES) &#123;</div><div class="line">            <span class="keyword">return</span> time * <span class="number">60</span> * <span class="number">1000</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (unit == TimeUnit.SECONDS) &#123;</div><div class="line">            <span class="keyword">return</span> time * <span class="number">1000</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (unit == TimeUnit.MILLISECONDS) &#123;</div><div class="line">            <span class="keyword">return</span> time;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//后面的不实现了，基本上用不到。</span></div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException(<span class="string">"cannot be resolved."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># redis lock</div><div class="line"># s</div><div class="line">redisLock.expireTime=1</div><div class="line"># ms</div><div class="line">redisLock.sleepTime=100</div></pre></td></tr></table></figure></p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>测试就选用最经典的秒杀系统吧，使用分布式锁可以控制资源。</p>
-<p>下面模拟500人秒杀100件商品。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/20 14:12&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisLockTest</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 100件物品</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> goodsNum = <span class="number">100</span>;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 500人</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> personNum = <span class="number">500</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 不加锁的情况</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; personNum; i++) &#123;</div><div class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</div><div class="line">                <span class="keyword">if</span> (goodsNum &gt; <span class="number">0</span>) &#123;</div><div class="line">                    System.out.println(Thread.currentThread().getName() + <span class="string">"获取了锁"</span>);</div><div class="line">                    System.out.println(<span class="string">"商品剩余："</span> + --goodsNum);</div><div class="line">                &#125;</div><div class="line">            &#125;).start();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 加上分布锁</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> args</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; personNum; i++) &#123;</div><div class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</div><div class="line">                Jedis jedis = RedisUtil.getJedis();</div><div class="line">                <span class="comment">//初始化锁，key保持一致</span></div><div class="line">                Lock lock = <span class="keyword">new</span> RedisLock(jedis, <span class="string">"aa"</span>);</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    lock.lock();</div><div class="line">                    <span class="keyword">if</span> (goodsNum &gt; <span class="number">0</span>) &#123;</div><div class="line">                        System.out.println(Thread.currentThread().getName() + <span class="string">"获取了锁"</span>);</div><div class="line">                        System.out.println(<span class="string">"商品剩余："</span> + --goodsNum);</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">finally</span> &#123;</div><div class="line">                    lock.unlock();</div><div class="line">                &#125;</div><div class="line">            &#125;).start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>下面模拟500人秒杀100件商品。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/20 14:12&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisLockTest</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 100件物品</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> goodsNum = <span class="number">100</span>;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 500人</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> personNum = <span class="number">500</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 不加锁的情况</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; personNum; i++) &#123;</div><div class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</div><div class="line">                <span class="keyword">if</span> (goodsNum &gt; <span class="number">0</span>) &#123;</div><div class="line">                    System.out.println(Thread.currentThread().getName() + <span class="string">"获取了锁"</span>);</div><div class="line">                    System.out.println(<span class="string">"商品剩余："</span> + --goodsNum);</div><div class="line">                &#125;</div><div class="line">            &#125;).start();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 加上分布锁</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> args</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; personNum; i++) &#123;</div><div class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</div><div class="line">                Jedis jedis = RedisUtil.getJedis();</div><div class="line">                <span class="comment">//初始化锁，key保持一致</span></div><div class="line">                Lock lock = <span class="keyword">new</span> RedisLock(jedis, <span class="string">"aa"</span>);</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    lock.lock();</div><div class="line">                    <span class="keyword">if</span> (goodsNum &gt; <span class="number">0</span>) &#123;</div><div class="line">                        System.out.println(Thread.currentThread().getName() + <span class="string">"获取了锁"</span>);</div><div class="line">                        System.out.println(<span class="string">"商品剩余："</span> + --goodsNum);</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">finally</span> &#123;</div><div class="line">                    <span class="comment">//释放锁，并且释放redis连接</span></div><div class="line">                    lock.unlock();</div><div class="line">                    RedisUtil.returnResource(jedis);</div><div class="line">					</div><div class="line">                &#125;</div><div class="line">            &#125;).start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>不加锁的部分结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Thread-100获取了锁</div><div class="line">商品剩余：-3</div><div class="line">Thread-99获取了锁</div><div class="line">商品剩余：5</div><div class="line">商品剩余：6</div><div class="line">Thread-98获取了锁</div><div class="line">商品剩余：-5</div><div class="line">商品剩余：7</div><div class="line">商品剩余：-4</div><div class="line">商品剩余：0</div><div class="line">商品剩余：1</div><div class="line">Thread-105获取了锁</div><div class="line">商品剩余：-6</div></pre></td></tr></table></figure></p>
 <p>上锁的结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Thread-8获取了锁</div><div class="line">商品剩余：5</div><div class="line">Thread-238获取了锁</div><div class="line">商品剩余：4</div><div class="line">Thread-72获取了锁</div><div class="line">商品剩余：3</div><div class="line">Thread-137获取了锁</div><div class="line">商品剩余：2</div><div class="line">Thread-402获取了锁</div><div class="line">商品剩余：1</div><div class="line">Thread-337获取了锁</div><div class="line">商品剩余：0</div></pre></td></tr></table></figure></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
@@ -648,8 +640,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="hypercomments_widget"></div>
-    
   </div>
 
 
@@ -697,7 +687,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">107</span>
+                <span class="site-state-item-count">111</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -922,7 +912,7 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共120.0k字</span>
+  <span class="post-count">博客全站共122.9k字</span>
 </div>
 
 <script>
@@ -1040,31 +1030,17 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
 	
 
-		<script type="text/javascript">
-		_hcwp = window._hcwp || [];
-
-		_hcwp.push({widget:"Bloggerstream", widget_id: 95150, selector:".hc-comment-count", label: "{\%COUNT%\}" });
-
-		
-		_hcwp.push({widget:"Stream", widget_id: 95150, xid: "redis-lock.html"});
-		
-
-		(function() {
-		if("HC_LOAD_INIT" in window)return;
-		HC_LOAD_INIT = true;
-		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
-		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
-		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/95150/"+lang+"/widget.js";
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(hcc, s.nextSibling);
-		})();
-		</script>
-
-	
 
 
 
 
+  
+
+
+
+
+
+  
 
 
 
@@ -1073,324 +1049,20 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
 
   
 
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
 
 
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
 
 
 
