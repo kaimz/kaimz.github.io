@@ -727,7 +727,7 @@
     <link href="http://blog.wuwii.com/java-hashmap.html"/>
     <id>http://blog.wuwii.com/java-hashmap.html</id>
     <published>2017-11-16T03:08:03.000Z</published>
-    <updated>2017-11-16T02:50:03.461Z</updated>
+    <updated>2017-11-27T07:55:24.652Z</updated>
     
     <content type="html"><![CDATA[<h3 id="HashMap-文档"><a href="#HashMap-文档" class="headerlink" title="HashMap 文档"></a>HashMap 文档</h3><blockquote>
 <p>　HashMap是基于哈希表的Map接口实现的,此实现提供所有可选的映射操作。存储的是<code>&lt;key，value&gt;</code>对的映射，允许多个null值和一个null键。但此类不保证映射的顺序，特别是它不保证该顺序恒久不变。<br> 　除了HashMap是非同步以及允许使用null外，HashMap 类与 Hashtable大致相同。<br>　 此实现假定哈希函数将元素适当地分布在各桶之间，可为基本操作（get 和 put）提供稳定的性能。迭代collection 视图所需的时间与 HashMap 实例的“容量”（桶的数量）及其大小（键-值映射关系数）成比例。所以，如果迭代性能很重要，则不要将初始容量设置得太高（或将加载因子设置得太低）。</p>
@@ -789,7 +789,7 @@
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
 <li>Java 8 中HashMap是数组+链表+红黑树；</li>
 <li>哈希桶数组table的长度length大小必须为2的n次方，也就是我想要创建一个长度为19的HashMap，那么它需要创建的大小为32；HashMap 的 bucket 数组大小一定是2的幂，如果 new 的时候指定了容量且不是2的幂，实际容量会是最接近(大于)指定容量的2的幂，比如 new HashMap&lt;&gt;(19)，比19大且最接近的2的幂是32，实际容量就是32。</li>
-<li>没有特殊要求，负载因子使用默认值0.75，并且它可以大于1；</li>
+<li>没有特殊要求，负载因子使用默认值0.75，并且它可以大于1；加载因子是表示Hsah表中元素的填满的程度。若加载因子越大，填满的元素越多，好处是，空间利用率高了，但冲突的机会加大了。反之，加载因子越小，填满的元素越少，好处是，冲突的机会减小了，但空间浪费多了。冲突的机会越大，则查找的成本越高；反之,查找的成本越小，因而,查找时间就越小.</li>
 <li>HashMap是线程不安全的，不要在并发的环境中同时操作HashMap，建议使用ConcurrentHashMap，HashTable的并发性不如ConcurrentHashMap；</li>
 <li>扩容特别消耗性能，初始化的时候，尽量控制好HashMap的大小，避免频繁扩容；</li>
 <li>HashMap 在 new 后并不会立即分配哈希桶数组，而是第一次 put 时初始化，类似 ArrayList 在第一次 add 时分配空间。</li>
