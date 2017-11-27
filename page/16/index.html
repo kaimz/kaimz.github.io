@@ -148,7 +148,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -243,7 +243,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">开始</p>
+        <h1 class="site-subtitle" itemprop="description">开始</h1>
       
   </div>
 
@@ -396,9 +396,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/yunfu-event.html" itemprop="url">关于难产孕妇跳楼事件</a></h1>
+                <a class="post-title-link" href="/yunfu-event.html" itemprop="url">关于难产孕妇跳楼事件</a></h2>
         
 
         <div class="post-meta">
@@ -497,10 +497,15 @@
 
       
         
+          
           看到新闻，难产孕妇跳楼身亡，真的很难想象，这个产妇经历了什么，才选择了这么个结果，一尸两命。
+可能传统的文化，在大多数人眼里，顺产对孩子比较好吧。
+整个事情我可能不是很了解，但是这是这个家庭的悲剧，也是社会的一个反射。一个女人，怀孕了都不能决定自己的命运，是在多么绝望的情况下，才跳下楼。
+反思就不多
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/yunfu-event.html">
+            <a class="btn" href="/yunfu-event.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -566,9 +571,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/jiao-hun-awakening.html" itemprop="url">叫魂</a></h1>
+                <a class="post-title-link" href="/jiao-hun-awakening.html" itemprop="url">叫魂</a></h2>
         
 
         <div class="post-meta">
@@ -667,10 +672,10 @@
 
       
         
-          最近人的心很杂乱，总是回忆起以前的种种，加上今天是``中元节``，想起了以前的一件事，正式说法应该是``叫魂``。
+          <p>最近人的心很杂乱，总是回忆起以前的种种，加上今天是<code>中元节</code>，想起了以前的一件事，正式说法应该是<code>叫魂</code>。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/jiao-hun-awakening.html">
+            <a class="btn" href="/jiao-hun-awakening.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -736,9 +741,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/enumeration-package-design.html" itemprop="url">枚举的封装设计</a></h1>
+                <a class="post-title-link" href="/enumeration-package-design.html" itemprop="url">枚举的封装设计</a></h2>
         
 
         <div class="post-meta">
@@ -908,9 +913,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/kaifu-love-story.html" itemprop="url">分享：李开复：我的爱情故事</a></h1>
+                <a class="post-title-link" href="/kaifu-love-story.html" itemprop="url">分享：李开复：我的爱情故事</a></h2>
         
 
         <div class="post-meta">
@@ -1080,9 +1085,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hexo_install_error.html" itemprop="url">关于npm install hexo出错</a></h1>
+                <a class="post-title-link" href="/hexo_install_error.html" itemprop="url">关于npm install hexo出错</a></h2>
         
 
         <div class="post-meta">
@@ -1252,9 +1257,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/linux_user_default_path.html" itemprop="url">Linux下如何修改用户默认目录</a></h1>
+                <a class="post-title-link" href="/linux_user_default_path.html" itemprop="url">Linux下如何修改用户默认目录</a></h2>
         
 
         <div class="post-meta">
@@ -1440,8 +1445,8 @@
                alt="Slience" />
           <p class="site-author-name" itemprop="name">Slience</p>
            
-              <p class="site-description motion-element" itemprop="description">Good things should last forever.</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -1686,6 +1691,8 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     

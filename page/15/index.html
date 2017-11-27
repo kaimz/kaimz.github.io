@@ -148,7 +148,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -243,7 +243,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">开始</p>
+        <h1 class="site-subtitle" itemprop="description">开始</h1>
       
   </div>
 
@@ -396,9 +396,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/maven-error-one.html" itemprop="url">maven错误 Plugin execution not covered by lifecycle configuration org.codehaus.mo...</a></h1>
+                <a class="post-title-link" href="/maven-error-one.html" itemprop="url">maven错误 Plugin execution not covered by lifecycle configuration org.codehaus.mo...</a></h2>
         
 
         <div class="post-meta">
@@ -566,9 +566,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/java-mqtt.html" itemprop="url">MQTT在JAVA中使用</a></h1>
+                <a class="post-title-link" href="/java-mqtt.html" itemprop="url">MQTT在JAVA中使用</a></h2>
         
 
         <div class="post-meta">
@@ -739,9 +739,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/mqtt-user.html" itemprop="url">Mosquitto用户名密码配置</a></h1>
+                <a class="post-title-link" href="/mqtt-user.html" itemprop="url">Mosquitto用户名密码配置</a></h2>
         
 
         <div class="post-meta">
@@ -909,9 +909,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/install-mosquitto.html" itemprop="url">CentOS 7 下安装mosquitto</a></h1>
+                <a class="post-title-link" href="/install-mosquitto.html" itemprop="url">CentOS 7 下安装mosquitto</a></h2>
         
 
         <div class="post-meta">
@@ -1081,9 +1081,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/heart00.html" itemprop="url">心</a></h1>
+                <a class="post-title-link" href="/heart00.html" itemprop="url">心</a></h2>
         
 
         <div class="post-meta">
@@ -1182,10 +1182,10 @@
 
       
         
-          不知道现在你过得到底怎么样，看到你的签名又换了“心比长相好，懂比爱重要”。
+          <p>不知道现在你过得到底怎么样，看到你的签名又换了“心比长相好，懂比爱重要”。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/heart00.html">
+            <a class="btn" href="/heart00.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1251,9 +1251,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/geotools-over-analyze.html" itemprop="url">Geotools做个最简单叠加分析</a></h1>
+                <a class="post-title-link" href="/geotools-over-analyze.html" itemprop="url">Geotools做个最简单叠加分析</a></h2>
         
 
         <div class="post-meta">
@@ -1437,8 +1437,8 @@
                alt="Slience" />
           <p class="site-author-name" itemprop="name">Slience</p>
            
-              <p class="site-description motion-element" itemprop="description">Good things should last forever.</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -1683,6 +1683,8 @@ Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
