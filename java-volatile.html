@@ -833,7 +833,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">111</span>
+                <span class="site-state-item-count">112</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1010,7 +1010,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存模型的相关概念"><span class="nav-number">1.</span> <span class="nav-text">内存模型的相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发编程中的三个概念"><span class="nav-number">2.</span> <span class="nav-text">并发编程中的三个概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原子性"><span class="nav-number">2.1.</span> <span class="nav-text">原子性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可见性"><span class="nav-number">2.2.</span> <span class="nav-text">可见性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有序性"><span class="nav-number">2.3.</span> <span class="nav-text">有序性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java内存模型"><span class="nav-number">3.</span> <span class="nav-text">Java内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原子性-1"><span class="nav-number">3.1.</span> <span class="nav-text">原子性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可见性-1"><span class="nav-number">3.2.</span> <span class="nav-text">可见性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有序性-1"><span class="nav-number">3.3.</span> <span class="nav-text">有序性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入剖析volatile关键字"><span class="nav-number">4.</span> <span class="nav-text">深入剖析volatile关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile关键字的两层语义"><span class="nav-number">4.1.</span> <span class="nav-text">volatile关键字的两层语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile保证原子性吗？"><span class="nav-number">4.2.</span> <span class="nav-text">volatile保证原子性吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile能保证有序性吗？"><span class="nav-number">4.3.</span> <span class="nav-text">volatile能保证有序性吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile的原理和实现机制"><span class="nav-number">4.4.</span> <span class="nav-text">volatile的原理和实现机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用volatile关键字的场景"><span class="nav-number">5.</span> <span class="nav-text">使用volatile关键字的场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#状态标记量"><span class="nav-number">5.1.</span> <span class="nav-text">状态标记量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#double-check"><span class="nav-number">5.2.</span> <span class="nav-text">double check</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感谢"><span class="nav-number">6.</span> <span class="nav-text">感谢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后附上自己的学习代码"><span class="nav-number">7.</span> <span class="nav-text">最后附上自己的学习代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存模型的相关概念"><span class="nav-text">内存模型的相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发编程中的三个概念"><span class="nav-text">并发编程中的三个概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原子性"><span class="nav-text">原子性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可见性"><span class="nav-text">可见性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有序性"><span class="nav-text">有序性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java内存模型"><span class="nav-text">Java内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原子性-1"><span class="nav-text">原子性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可见性-1"><span class="nav-text">可见性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有序性-1"><span class="nav-text">有序性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入剖析volatile关键字"><span class="nav-text">深入剖析volatile关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile关键字的两层语义"><span class="nav-text">volatile关键字的两层语义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile保证原子性吗？"><span class="nav-text">volatile保证原子性吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile能保证有序性吗？"><span class="nav-text">volatile能保证有序性吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile的原理和实现机制"><span class="nav-text">volatile的原理和实现机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用volatile关键字的场景"><span class="nav-text">使用volatile关键字的场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#状态标记量"><span class="nav-text">状态标记量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#double-check"><span class="nav-text">double check</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感谢"><span class="nav-text">感谢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后附上自己的学习代码"><span class="nav-text">最后附上自己的学习代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -1041,24 +1041,12 @@
 </div>
 
 
+
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
-</div>
+Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages</a></div>
 
 <div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
-    NexT.Mist
-  </a>
-</div>
-
-<div class="theme-info">
-<div class="powered-by"></div>
-Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages</a> & <a href="https://github.com" rel="external nofollow">Github</a></div>
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">博客全站共123.0k字</span>
+  <span class="post-count">博客全站共124.6k字</span>
 </div>
 
 <script>
