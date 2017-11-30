@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/java-volatile.html</loc>
+    
+    <lastmod>2017-11-30T05:54:16.248Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/love-of-soft.html</loc>
+    
+    <lastmod>2017-11-30T00:37:33.995Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/about/index.html</loc>
     
     <lastmod>2017-11-29T00:38:11.821Z</lastmod>
@@ -16,14 +30,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/miss-you.html</loc>
+    <loc>http://blog.wuwii.com/princekin.html</loc>
     
     <lastmod>2017-11-28T00:57:23.726Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/princekin.html</loc>
+    <loc>http://blog.wuwii.com/miss-you.html</loc>
     
     <lastmod>2017-11-28T00:57:23.726Z</lastmod>
     
@@ -138,13 +152,6 @@
     <loc>http://blog.wuwii.com/warm-the-world.html</loc>
     
     <lastmod>2017-11-20T07:52:27.527Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/java-volatile.html</loc>
-    
-    <lastmod>2017-11-20T07:52:27.522Z</lastmod>
     
   </url>
   
@@ -492,14 +499,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
@@ -520,14 +527,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
@@ -569,14 +576,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     
