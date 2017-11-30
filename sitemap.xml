@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/java-transactional.html</loc>
+    
+    <lastmod>2017-11-30T07:27:12.143Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/java-volatile.html</loc>
     
     <lastmod>2017-11-30T05:54:16.248Z</lastmod>
@@ -499,14 +506,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     

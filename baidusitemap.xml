@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/java-transactional.html</loc>
+    <lastmod>2017-11-30T07:27:12.143Z</lastmod>
+    <data>
+        <display>
+        <title>事务的特性和@Transactional注解的使用</title>
+        <pubTime>2017-11-30T08:08:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/java-volatile.html</loc>
     <lastmod>2017-11-30T05:54:16.248Z</lastmod>
     <data>
@@ -1449,16 +1469,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
-        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
-        <tag>JUnitGenerator</tag>
+        <tag>maven</tag>
          
          
            
@@ -1471,14 +1489,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>Intellij</tag>
+         
+        <tag>JUnitGenerator</tag>
          
          
            

@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+    (function(){
+        if(''){
+            if (prompt('不好意思，这篇文章需要密码！') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上,Slience" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="喃声细语" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="@Transactional如何工作实现了EntityManager接口的持久化上下文代理并不是声明式事务管理的唯一部分，事实上包含三个组成部分：  事务的切面 事务管理器 EntityManager Proxy本身">
+<meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上,Slience">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事务的特性和@Transactional注解的使用">
+<meta property="og:url" content="http://blog.wuwii.com/java-transactional.html">
+<meta property="og:site_name" content="喃声细语">
+<meta property="og:description" content="@Transactional如何工作实现了EntityManager接口的持久化上下文代理并不是声明式事务管理的唯一部分，事实上包含三个组成部分：  事务的切面 事务管理器 EntityManager Proxy本身">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-30T07:27:12.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="事务的特性和@Transactional注解的使用">
+<meta name="twitter:description" content="@Transactional如何工作实现了EntityManager接口的持久化上下文代理并不是声明式事务管理的唯一部分，事实上包含三个组成部分：  事务的切面 事务管理器 EntityManager Proxy本身">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'TWXZ15WRBL',
+      apiKey: 'c272bd4b810c8b43773a3f1d3c6b8d27',
+      indexName: 'wuwii',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.wuwii.com/java-transactional.html"/>
+
+
+
+
+
+  <title>事务的特性和@Transactional注解的使用 | 喃声细语</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b847762b9271725a63131e554978de0a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63798915";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1264593822&web_id=1264593822" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+  
+  <link href="http://blog.wuwii.com/harlem-shake-style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">喃声细语</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">一个人的独白，成为最好的自己，遇到最好的那个人。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/java-transactional.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Slience">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">事务的特性和@Transactional注解的使用</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T16:08:03+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,533
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Transactional如何工作"><a href="#Transactional如何工作" class="headerlink" title="@Transactional如何工作"></a>@Transactional如何工作</h3><p>实现了EntityManager接口的持久化上下文代理并不是声明式事务管理的唯一部分，事实上包含三个组成部分：</p>
+<ol>
+<li>事务的切面</li>
+<li>事务管理器</li>
+<li>EntityManager Proxy本身</li>
+</ol>
+<a id="more"></a>
+<h4 id="事务切面"><a href="#事务切面" class="headerlink" title="事务切面"></a>事务切面</h4><p>事务的切面是一个“around（环绕）”切面，在注解的业务方法前后都可以被调用。实现切面的具体类是<code>TransactionInterceptor</code>。</p>
+<p>事务的切面的主要职责：<br>在’before’时，切面提供一个调用点，来决定被调用业务方法应该在正在进行事务的范围内运行，还是开始一个新的独立事务。<br>在’after’时，切面需要确定事务被提交，回滚或者继续运行。<br>在’before’时，事务切面自身不包含任何决策逻辑，是否开始新事务的决策委派给事务管理器完成。</p>
+<ul>
+<li>新的Entity Manager是否应该被创建？</li>
+<li>是否应该开始新的事务？<br><strong>这些需要事务切面’before’逻辑被调用时决定。事务管理器的决策基于以下两点：</strong></li>
+</ul>
+<ol>
+<li>事务是否正在进行；</li>
+<li>事务方法的propagation属性（比如REQUIRES_NEW总要开始新事务）。</li>
+</ol>
+<h4 id="事务管理器"><a href="#事务管理器" class="headerlink" title="事务管理器"></a>事务管理器</h4><p>如果事务管理器确定要创建新事务，那么将：</p>
+<p>创建一个新的entity manager<br>entity manager绑定到当前线程<br>从数据库连接池中获取连接<br>将连接绑定到当前线程<br>使用ThreadLocal变量将entity manager和数据库连接都绑定到当前线程。</p>
+<p>事务运行时他们存储在线程中，当它们不再被使用时，事务管理器决定是否将他们清除。</p>
+<p>程序的任何部分如果需要当前的entity manager和数据库连接都可以从线程中获取。</p>
+<h4 id="EntityManager-proxy"><a href="#EntityManager-proxy" class="headerlink" title="EntityManager proxy"></a>EntityManager proxy</h4><p>当业务方法调用entityManager.persist()时，这不是由entity manager直接调用的。<br>而是业务方法调用代理，代理从线程获取当前的entity manager事务管理器将entity manager绑定到线程。</p>
+<h3 id="spring-中配置JPA事务"><a href="#spring-中配置JPA事务" class="headerlink" title="spring 中配置JPA事务"></a>spring 中配置JPA事务</h3><p>在spring 的配置文件中配置jpa的事务：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Jpa 事务管理器 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.jpa.JpaTransactionManager"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"entityManagerFactory"</span> <span class="attr">ref</span>=<span class="string">"entityManagerFactory"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 打开事务注解 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<p>当然可以使用aop配置事务：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Jpa 事务管理器 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.jpa.JpaTransactionManager"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"entityManagerFactory"</span> <span class="attr">ref</span>=<span class="string">"entityManagerFactory"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 声明式事务配置 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">"txAdvice"</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"get*"</span> <span class="attr">propagation</span>=<span class="string">"NOT_SUPPORTED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"count*"</span> <span class="attr">propagation</span>=<span class="string">"NOT_SUPPORTED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"find*"</span> <span class="attr">propagation</span>=<span class="string">"NOT_SUPPORTED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"query*"</span> <span class="attr">propagation</span>=<span class="string">"NOT_SUPPORTED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span> <span class="attr">rollback-for</span>=<span class="string">"Exception"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 只对业务逻辑层实施事务--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"txPointcut"</span> <span class="attr">expression</span>=<span class="string">"execution(* com.devframe.service.impl.*.*(..))"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">"txAdvice"</span> <span class="attr">pointcut-ref</span>=<span class="string">"txPointcut"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="spring中事务的几个特性"><a href="#spring中事务的几个特性" class="headerlink" title="spring中事务的几个特性"></a>spring中事务的几个特性</h3><h4 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h4><p>隔离级别是指若干个并发的事务之间的隔离程度。<code>TransactionDefinition</code> 接口中定义了五个表示隔离级别的常量：</p>
+<ul>
+<li><code>TransactionDefinition.ISOLATION_DEFAULT</code>：这是默认值，表示使用底层数据库的默认隔离级别。对大部分数据库而言，通常这值就是TransactionDefinition.ISOLATION_READ_COMMITTED。</li>
+<li><code>TransactionDefinition.ISOLATION_READ_UNCOMMITTED</code>：该隔离级别表示一个事务可以读取另一个事务修改但还没有提交的数据。该级别不能防止脏读，不可重复读和幻读，因此很少使用该隔离级别。比如PostgreSQL实际上并没有此级别。</li>
+<li><code>TransactionDefinition.ISOLATION_READ_COMMITTED</code>：该隔离级别表示一个事务只能读取另一个事务已经提交的数据。该级别可以防止脏读，这也是大多数情况下的推荐值。</li>
+<li><code>TransactionDefinition.ISOLATION_REPEATABLE_READ</code>：该隔离级别表示一个事务在整个过程中可以多次重复执行某个查询，并且每次返回的记录都相同。该级别可以防止脏读和不可重复读。</li>
+<li><code>TransactionDefinition.ISOLATION_SERIALIZABLE</code>：所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。但是这将严重影响程序的性能。通常情况下也不会用到该级别。</li>
+</ul>
+<h4 id="事务传播行为"><a href="#事务传播行为" class="headerlink" title="事务传播行为"></a>事务传播行为</h4><p>所谓事务的传播行为是指，如果在开始当前事务之前，一个事务上下文已经存在，此时有若干选项可以指定一个事务性方法的执行行为。在<code>TransactionDefinition</code>定义中包括了如下几个表示传播行为的常量：</p>
+<ul>
+<li><code>TransactionDefinition.PROPAGATION_REQUIRED</code>：如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务。这是默认值。</li>
+<li><code>TransactionDefinition.PROPAGATION_REQUIRES_NEW</code>：创建一个新的事务，如果当前存在事务，则把当前事务挂起。</li>
+<li><code>TransactionDefinition.PROPAGATION_SUPPORTS</code>：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。</li>
+<li><code>TransactionDefinition.PROPAGATION_NOT_SUPPORTED</code>：以非事务方式运行，如果当前存在事务，则把当前事务挂起。</li>
+<li><code>TransactionDefinition.PROPAGATION_NEVER</code>：以非事务方式运行，如果当前存在事务，则抛出异常。</li>
+<li><code>TransactionDefinition.PROPAGATION_MANDATORY</code>：如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。</li>
+<li><code>TransactionDefinition.PROPAGATION_NESTED</code>：如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行；如果当前没有事务，则该取值等价于TransactionDefinition.PROPAGATION_REQUIRED。</li>
+</ul>
+<p>选择默认的，即<code>PROPAGATION_REQUIRED</code>，事务具有传播机制，多个事务，对于已经存在的事务，下一个事务会加入当前事务。</p>
+<h4 id="事务超时"><a href="#事务超时" class="headerlink" title="事务超时"></a>事务超时</h4><p>所谓事务超时，就是指一个事务所允许执行的最长时间，如果超过该时间限制但事务还没有完成，则自动回滚事务。在 TransactionDefinition 中以 int 的值来表示超时时间，其单位是秒。</p>
+<p>默认设置为底层事务系统的超时值，如果底层数据库事务系统没有设置超时值，那么就是none，没有超时限制。</p>
+<h4 id="事务只读属性"><a href="#事务只读属性" class="headerlink" title="事务只读属性"></a>事务只读属性</h4><p>只读事务用于客户代码只读但不修改数据的情形，只读事务用于特定情景下的优化，比如使用Hibernate的时候。 默认为读写事务。</p>
+<p><em>“只读事务”并不是一个强制选项，它只是一个“暗示”，提示数据库驱动程序和数据库系统，这个事务并不包含更改数据的操作，那么JDBC驱动程序和数据库就有可能根据这种情况对该事务进行一些特定的优化，比方说不安排相应的数据库锁，以减轻事务对数据库的压力，毕竟事务也是要消耗数据库的资源的。<br>但是你非要在“只读事务”里面修改数据，也并非不可以，只不过对于数据一致性的保护不像“读写事务”那样保险而已。<br>因此，“只读事务”仅仅是一个性能优化的推荐配置而已，并非强制你要这样做不可。</em></p>
+<h4 id="spring事务回滚规则"><a href="#spring事务回滚规则" class="headerlink" title="spring事务回滚规则"></a>spring事务回滚规则</h4><p>指示spring事务管理器回滚一个事务的推荐方法是在当前事务的上下文内抛出异常。spring事务管理器会捕捉任何未处理的异常，然后依据规则决定是否回滚抛出异常的事务。</p>
+<p>默认配置下，spring只有在抛出的异常为运行时unchecked异常时才回滚该事务，也就是抛出的异常为RuntimeException的子类(Errors也会导致事务回滚)，而抛出checked异常则不会导致事务回滚。可以明确的配置在抛出那些异常时回滚事务，包括checked异常。也可以明确定义那些异常抛出时不回滚事务。还可以编程性的通过setRollbackOnly()方法来指示一个事务必须回滚，在调用完setRollbackOnly()后你所能执行的唯一操作就是回滚。</p>
+<h3 id="Transactional注解"><a href="#Transactional注解" class="headerlink" title="@Transactional注解"></a>@Transactional注解</h3><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>String</td>
+<td>可选的限定描述符，指定使用的事务管理器</td>
+</tr>
+<tr>
+<td>propagation</td>
+<td>enum: Propagation</td>
+<td>可选的事务传播行为设置</td>
+</tr>
+<tr>
+<td>isolation</td>
+<td>enum: Isolation</td>
+<td>可选的事务隔离级别设置</td>
+</tr>
+<tr>
+<td>readOnly</td>
+<td>boolean</td>
+<td>读写或只读事务，默认读写</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>int (in seconds granularity)</td>
+<td>事务超时时间设置</td>
+</tr>
+<tr>
+<td>rollbackFor</td>
+<td>Class对象数组，必须继承自Throwable</td>
+<td>导致事务回滚的异常类数组</td>
+</tr>
+<tr>
+<td>rollbackForClassName</td>
+<td>类名数组，必须继承自Throwable</td>
+<td>导致事务回滚的异常类名字数组</td>
+</tr>
+<tr>
+<td>noRollbackFor</td>
+<td>Class对象数组，必须继承自Throwable</td>
+<td>不会导致事务回滚的异常类数组</td>
+</tr>
+<tr>
+<td>noRollbackForClassName</td>
+<td>类名数组，必须继承自Throwable</td>
+<td>不会导致事务回滚的异常类名字数组</td>
+</tr>
+</tbody>
+</table>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p> @Transactional 可以作用于接口、接口方法、类以及类方法上。当作用于类上时，该类的所有 public 方法将都具有该类型的事务属性，同时，我们也可以在方法级别使用该标注来覆盖类级别的定义。</p>
+<p>虽然 @Transactional 注解可以作用于接口、接口方法、类以及类方法上，但是 Spring 建议不要在接口或者接口方法上使用该注解，因为这只有在使用基于接口的代理时它才会生效。另外， @Transactional 注解应该只被应用到 public 方法上，这是由 Spring AOP 的本质决定的。如果你在 protected、private 或者默认可见性的方法上使用 @Transactional 注解，这将被忽略，也不会抛出任何异常。</p>
+<p>默认情况下，只有来自外部的方法调用才会被AOP代理捕获，也就是，类内部方法调用本类内部的其他方法并不会引起事务行为。</p>
+<p>只要方法内部抛出<code>rollbackFor</code>设置的异常，就会回滚。</p>
+<p>例如：<br>在方法上加上<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Transactional</span>(value=<span class="string">"transactionManager"</span>, rollbackFor = Exception.class)</div></pre></td></tr></table></figure></p>
+<p>方法内部只要抛出异常，就全部回滚。</p>
+<p>参考文章：</p>
+<ul>
+<li><a rel="external nofollow" target="_blank" href="http://blog.csdn.net/bao19901210/article/details/41724355">spring事物配置，声明式事务管理和基于@Transactional注解的使用</a></li>
+<li><a rel="external nofollow" target="_blank" href="https://www.cnblogs.com/wangyonglong/p/5178450.html">JPA和事务管理</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://blog.csdn.net/hy6688_/article/details/44763869">Spring事务传播特性的浅析——事务方法嵌套调用的迷茫</a></li>
+</ul>
+
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 🖐 感谢阅读------</div>
+    
+</div>
+
+		
+	</div>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/love-of-soft.html" rel="next" title="心底最柔软的爱">
+                <i class="fa fa-chevron-left"></i> 心底最柔软的爱
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg"
+               alt="Slience" />
+          <p class="site-author-name" itemprop="name">Slience</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+			
+			<a title="收藏到书签，偶尔High一下^_^" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+    
+      var songs = [
+          "http://ov62kaxkk.bkt.clouddn.com/%E6%9C%A8%E6%9D%91%E5%BC%93%20-%20%E3%81%84%E3%81%A4%E3%82%82%E4%BD%95%E5%BA%A6%E3%81%A7%E3%82%82.mp3",       
+          "......"
+      ];
+ 
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+    
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> 听音乐</a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kaimz" target="_blank" title="GitHub" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/p/1005053974218109" target="_blank" title="Weibo" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/zhang-kai-89-51-58" target="_blank" title="知乎" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hexo.io/zh-cn/" title="Hexo" target="_blank" rel="external nofollow">Hexo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.google.com" title="Google" target="_blank" rel="external nofollow">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sdll.club" title="闪电拉拉" target="_blank" rel="external nofollow">闪电拉拉</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+		<!--20170726添加网易云音乐标签 -->
+		<!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=86 src="//music.163.com/outchain/player?type=2&id=356034&auto=0&height=66"></iframe> -->
+        <!--20170726添加网易云音乐标签 end-->
+		
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Transactional如何工作"><span class="nav-number">1.</span> <span class="nav-text">@Transactional如何工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事务切面"><span class="nav-number">1.1.</span> <span class="nav-text">事务切面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务管理器"><span class="nav-number">1.2.</span> <span class="nav-text">事务管理器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EntityManager-proxy"><span class="nav-number">1.3.</span> <span class="nav-text">EntityManager proxy</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring-中配置JPA事务"><span class="nav-number">2.</span> <span class="nav-text">spring 中配置JPA事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring中事务的几个特性"><span class="nav-number">3.</span> <span class="nav-text">spring中事务的几个特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事务隔离级别"><span class="nav-number">3.1.</span> <span class="nav-text">事务隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务传播行为"><span class="nav-number">3.2.</span> <span class="nav-text">事务传播行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务超时"><span class="nav-number">3.3.</span> <span class="nav-text">事务超时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务只读属性"><span class="nav-number">3.4.</span> <span class="nav-text">事务只读属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring事务回滚规则"><span class="nav-number">3.5.</span> <span class="nav-text">spring事务回滚规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transactional注解"><span class="nav-number">4.</span> <span class="nav-text">@Transactional注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性"><span class="nav-number">4.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法"><span class="nav-number">4.2.</span> <span class="nav-text">使用方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Slience</span>
+</div>
+
+
+
+<div class="powered-by">
+Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages</a></div>
+
+<div class="theme-info">
+  <span class="post-count">博客全站共128.6k字</span>
+</div>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+	
+	var src360 = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?f62559b2127396ecb27f4ed4f4652ea1":"https://jspassport.ssl.qhimg.com/11.0.1.js?f62559b2127396ecb27f4ed4f4652ea1";
+	document.write('<script src="' + src360 + '" id="sozz"><\/script>');
+})();
+</script>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
