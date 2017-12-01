@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="@Transactional如何工作实现了EntityManager接口的持久化上下文代理并不是声明式事务管理的唯一部分，事实上包含三个组成部分：  事务的切面 事务管理器 EntityManager Proxy本身">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-30T07:27:12.143Z">
+<meta property="og:updated_time" content="2017-12-01T00:36:57.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事务的特性和@Transactional注解的使用">
 <meta name="twitter:description" content="@Transactional如何工作实现了EntityManager接口的持久化上下文代理并不是声明式事务管理的唯一部分，事实上包含三个组成部分：  事务的切面 事务管理器 EntityManager Proxy本身">
@@ -461,7 +461,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,533
+                  3,478
                 </span>
               
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  9
+                  12
                 </span>
               
             </div>
@@ -504,8 +504,9 @@
 <p>事务的切面的主要职责：<br>在’before’时，切面提供一个调用点，来决定被调用业务方法应该在正在进行事务的范围内运行，还是开始一个新的独立事务。<br>在’after’时，切面需要确定事务被提交，回滚或者继续运行。<br>在’before’时，事务切面自身不包含任何决策逻辑，是否开始新事务的决策委派给事务管理器完成。</p>
 <ul>
 <li>新的Entity Manager是否应该被创建？</li>
-<li>是否应该开始新的事务？<br><strong>这些需要事务切面’before’逻辑被调用时决定。事务管理器的决策基于以下两点：</strong></li>
+<li>是否应该开始新的事务？</li>
 </ul>
+<p><strong>这些需要事务切面’before’逻辑被调用时决定。事务管理器的决策基于以下两点：</strong></p>
 <ol>
 <li>事务是否正在进行；</li>
 <li>事务方法的propagation属性（比如REQUIRES_NEW总要开始新事务）。</li>
@@ -517,13 +518,26 @@
 <h4 id="EntityManager-proxy"><a href="#EntityManager-proxy" class="headerlink" title="EntityManager proxy"></a>EntityManager proxy</h4><p>当业务方法调用entityManager.persist()时，这不是由entity manager直接调用的。<br>而是业务方法调用代理，代理从线程获取当前的entity manager事务管理器将entity manager绑定到线程。</p>
 <h3 id="spring-中配置JPA事务"><a href="#spring-中配置JPA事务" class="headerlink" title="spring 中配置JPA事务"></a>spring 中配置JPA事务</h3><p>在spring 的配置文件中配置jpa的事务：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Jpa 事务管理器 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.jpa.JpaTransactionManager"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"entityManagerFactory"</span> <span class="attr">ref</span>=<span class="string">"entityManagerFactory"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 打开事务注解 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
 <p>当然可以使用aop配置事务：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Jpa 事务管理器 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.jpa.JpaTransactionManager"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"entityManagerFactory"</span> <span class="attr">ref</span>=<span class="string">"entityManagerFactory"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 声明式事务配置 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">"txAdvice"</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"get*"</span> <span class="attr">propagation</span>=<span class="string">"NOT_SUPPORTED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"count*"</span> <span class="attr">propagation</span>=<span class="string">"NOT_SUPPORTED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"find*"</span> <span class="attr">propagation</span>=<span class="string">"NOT_SUPPORTED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"query*"</span> <span class="attr">propagation</span>=<span class="string">"NOT_SUPPORTED"</span> <span class="attr">read-only</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span> <span class="attr">rollback-for</span>=<span class="string">"Exception"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 只对业务逻辑层实施事务--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"txPointcut"</span> <span class="attr">expression</span>=<span class="string">"execution(* com.devframe.service.impl.*.*(..))"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">"txAdvice"</span> <span class="attr">pointcut-ref</span>=<span class="string">"txPointcut"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h3 id="spring中事务的几个特性"><a href="#spring中事务的几个特性" class="headerlink" title="spring中事务的几个特性"></a>spring中事务的几个特性</h3><h4 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h4><p>隔离级别是指若干个并发的事务之间的隔离程度。<code>TransactionDefinition</code> 接口中定义了五个表示隔离级别的常量：</p>
+<h3 id="spring中事务的几个特性"><a href="#spring中事务的几个特性" class="headerlink" title="spring中事务的几个特性"></a>spring中事务的几个特性</h3><p><strong>补充下，数据库中的事务的四大特性：</strong></p>
+<ul>
+<li><code>原子性（Atomicity）</code>：原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚，这和前面两篇博客介绍事务的功能是一样的概念，因此事务的操作如果成功就必须要完全应用到数据库，如果操作失败则不能对数据库有任何影响。</li>
+<li><code>一致性（Consistency）</code>：一致性是指事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态。</li>
+<li><code>隔离性（Isolation）</code>：隔离性是当多个用户并发访问数据库时，比如操作同一张表时，数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离。</li>
+<li><code>持久性（Durability）</code>：持久性是指一个事务一旦被提交了，那么对数据库中的数据的改变就是永久性的，即便是在数据库系统遇到故障的情况下也不会丢失提交事务的操作。</li>
+</ul>
+<h4 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h4><p>隔离级别是指若干个并发的事务之间的隔离程度。<code>TransactionDefinition</code> 接口中定义了五个表示隔离级别的常量：</p>
 <ul>
 <li><code>TransactionDefinition.ISOLATION_DEFAULT</code>：这是默认值，表示使用底层数据库的默认隔离级别。对大部分数据库而言，通常这值就是TransactionDefinition.ISOLATION_READ_COMMITTED。</li>
 <li><code>TransactionDefinition.ISOLATION_READ_UNCOMMITTED</code>：该隔离级别表示一个事务可以读取另一个事务修改但还没有提交的数据。该级别不能防止脏读，不可重复读和幻读，因此很少使用该隔离级别。比如PostgreSQL实际上并没有此级别。</li>
 <li><code>TransactionDefinition.ISOLATION_READ_COMMITTED</code>：该隔离级别表示一个事务只能读取另一个事务已经提交的数据。该级别可以防止脏读，这也是大多数情况下的推荐值。</li>
 <li><code>TransactionDefinition.ISOLATION_REPEATABLE_READ</code>：该隔离级别表示一个事务在整个过程中可以多次重复执行某个查询，并且每次返回的记录都相同。该级别可以防止脏读和不可重复读。</li>
 <li><code>TransactionDefinition.ISOLATION_SERIALIZABLE</code>：所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。但是这将严重影响程序的性能。通常情况下也不会用到该级别。</li>
+</ul>
+<p><strong>补充下数据库中，如果不考虑事务的隔离性，会发生的几种问题：</strong></p>
+<ul>
+<li><code>脏读</code>：脏读是指在一个事务处理过程里读取了另一个未提交的事务中的数据。<br>当一个事务正在多次修改某个数据，而在这个事务中这多次的修改都还未提交，这时一个并发的事务来访问该数据，就会造成两个事务得到的数据不一致。</li>
+<li><code>不可重复读</code>：不可重复读是指在对于数据库中的某个数据，一个事务范围内多次查询却返回了不同的数据值，这是由于在查询间隔，被另一个事务修改并提交了。<br>例如事务T1在读取某一数据，而事务T2立马修改了这个数据并且提交事务给数据库，事务T1再次读取该数据就得到了不同的结果，发送了不可重复读。<br>不可重复读和脏读的区别是，脏读是某一事务读取了另一个事务未提交的脏数据，而不可重复读则是读取了前一事务提交的数据。<br>在某些情况下，不可重复读并不是问题，比如我们多次查询某个数据当然以最后查询得到的结果为主。但在另一些情况下就有可能发生问题，例如对于同一个数据A和B依次查询就可能不同，A和B就可能打起来了……</li>
+<li><code>虚读(幻读)</code>：幻读是事务非独立执行时发生的一种现象。例如事务T1对一个表中所有的行的某个数据项做了从“1”修改为“2”的操作，这时事务T2又对这个表中插入了一行数据项，而这个数据项的数值还是为“1”并且提交给数据库。而操作事务T1的用户如果再查看刚刚修改的数据，会发现还有一行没有修改，其实这行是从事务T2中添加的，就好像产生幻觉一样，这就是发生了幻读。幻读和不可重复读都是读取了另一条已经提交的事务（这点就脏读不同），所不同的是不可重复读查询的都是同一个数据项，而幻读针对的是一批数据整体（比如数据的个数）。</li>
 </ul>
 <h4 id="事务传播行为"><a href="#事务传播行为" class="headerlink" title="事务传播行为"></a>事务传播行为</h4><p>所谓事务的传播行为是指，如果在开始当前事务之前，一个事务上下文已经存在，此时有若干选项可以指定一个事务性方法的执行行为。在<code>TransactionDefinition</code>定义中包括了如下几个表示传播行为的常量：</p>
 <ul>
@@ -604,11 +618,12 @@
 <p>只要方法内部抛出<code>rollbackFor</code>设置的异常，就会回滚。</p>
 <p>例如：<br>在方法上加上<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Transactional</span>(value=<span class="string">"transactionManager"</span>, rollbackFor = Exception.class)</div></pre></td></tr></table></figure></p>
 <p>方法内部只要抛出异常，就全部回滚。</p>
-<p>参考文章：</p>
+<p><strong>参考文章：</strong></p>
 <ul>
 <li><a rel="external nofollow" target="_blank" href="http://blog.csdn.net/bao19901210/article/details/41724355">spring事物配置，声明式事务管理和基于@Transactional注解的使用</a></li>
 <li><a rel="external nofollow" target="_blank" href="https://www.cnblogs.com/wangyonglong/p/5178450.html">JPA和事务管理</a></li>
 <li><a rel="external nofollow" target="_blank" href="http://blog.csdn.net/hy6688_/article/details/44763869">Spring事务传播特性的浅析——事务方法嵌套调用的迷茫</a></li>
+<li><a rel="external nofollow" target="_blank" href="https://www.cnblogs.com/fjdingsd/p/5273008.html">数据库事务的四大特性以及事务的隔离级别</a></li>
 </ul>
 
       
@@ -925,6 +940,22 @@
                   <a href="http://sdll.club" title="闪电拉拉" target="_blank" rel="external nofollow">闪电拉拉</a>
                 </li>
               
+                <li class="links-of-blogroll-item">
+                  <a href="https://stackoverflow.com/" title="stackoverflow" target="_blank" rel="external nofollow">stackoverflow</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.processon.com/" title="processon" target="_blank" rel="external nofollow">processon</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.importnew.com/" title="ImportNew" target="_blank" rel="external nofollow">ImportNew</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ifeve.com/" title="ifeve" target="_blank" rel="external nofollow">ifeve</a>
+                </li>
+              
             </ul>
           </div>
         
@@ -982,7 +1013,7 @@
 Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages</a></div>
 
 <div class="theme-info">
-  <span class="post-count">博客全站共128.6k字</span>
+  <span class="post-count">博客全站共129.6k字</span>
 </div>
 
 <script>
