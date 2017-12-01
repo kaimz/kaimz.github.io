@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="简介 FastDFS是一个开源的轻量级分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题。特别适合以文件为载体的在线服务，如相册网站、视频网站等等。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-05T09:11:35.694Z">
+<meta property="og:updated_time" content="2017-12-01T07:30:08.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建fastDFS单实例服务器">
 <meta name="twitter:description" content="简介 FastDFS是一个开源的轻量级分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题。特别适合以文件为载体的在线服务，如相册网站、视频网站等等。">
@@ -383,7 +383,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Slience">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg">
+      <meta itemprop="image" content="http://image.wuwii.com/MTXX_20170504095121_mr1493862851443.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -461,7 +461,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,352
+                  2,393
                 </span>
               
 
@@ -524,6 +524,11 @@
 </tbody>
 </table>
 <h3 id="安装FastDFS"><a href="#安装FastDFS" class="headerlink" title="安装FastDFS"></a>安装FastDFS</h3><h4 id="首先创建工具目录（非必须）"><a href="#首先创建工具目录（非必须）" class="headerlink" title="首先创建工具目录（非必须）"></a>首先创建工具目录（非必须）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage ~]<span class="comment"># mkdir -p /home/oldcat/tools</span></div><div class="line">[root@fastdfs-storage ~]<span class="comment"># cd /home/oldcat/tools/</span></div></pre></td></tr></table></figure>
+<p>首先安装一些必须的的工具：</p>
+<ul>
+<li>libevent库文件： <code>yum -y install libevent</code>；</li>
+<li>系统没有安装make、vim等常用命令: <code>yum -y install gcc automake autoconf libtool make</code></li>
+</ul>
 <h4 id="下载并安装FastDFS依赖包libfastcommon"><a href="#下载并安装FastDFS依赖包libfastcommon" class="headerlink" title="下载并安装FastDFS依赖包libfastcommon"></a>下载并安装FastDFS依赖包libfastcommon</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-storage tools]<span class="comment"># wget https://codeload.github.com/happyfish100/libfastcommon/zip/master</span></div><div class="line">[root@fastdfs-storage tools]<span class="comment"># unzip master</span></div><div class="line">[root@fastdfs-storage tools]<span class="comment"># cd libfastcommon-master/</span></div><div class="line">[root@fastdfs-storage libfastcommon-master]<span class="comment"># ls</span></div><div class="line">HISTORY  INSTALL  libfastcommon.spec  make.sh  php-fastcommon  README  src</div><div class="line">[root@fastdfs-storage libfastcommon-master]<span class="comment"># ./make.sh</span></div><div class="line">[root@fastdfs-storage libfastcommon-master]<span class="comment"># ./make.sh install</span></div></pre></td></tr></table></figure>
 <h4 id="下载并安装FastDFS"><a href="#下载并安装FastDFS" class="headerlink" title="下载并安装FastDFS"></a>下载并安装FastDFS</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker tools]<span class="comment"># wget http://jaist.dl.sourceforge.net/project/fastdfs/FastDFS%20Server%20Source%20Code/FastDFS%20Server%20with%20PHP%20Extension%20Source%20Code%20V5.08/FastDFS_v5.08.tar.gz</span></div><div class="line">[root@fastdfs-tracker tools]<span class="comment"># tar xf FastDFS_v5.08.tar.gz</span></div><div class="line">[root@fastdfs-tracker tools]<span class="comment"># cd FastDFS</span></div><div class="line">[root@fastdfs-tracker FastDFS]<span class="comment"># ./make.sh &amp;&amp; ./make.sh install</span></div></pre></td></tr></table></figure>
 <h4 id="采用默认方式安装后的文件及目录："><a href="#采用默认方式安装后的文件及目录：" class="headerlink" title="采用默认方式安装后的文件及目录："></a>采用默认方式安装后的文件及目录：</h4><h5 id="服务脚本："><a href="#服务脚本：" class="headerlink" title="服务脚本："></a>服务脚本：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker ~]<span class="comment"># ll /etc/init.d/ |grep fdfs</span></div><div class="line">-rwxr-xr-x. 1 root root   918 4月  22 22:08 fdfs_storaged</div><div class="line">-rwxr-xr-x. 1 root root   920 4月  22 22:08 fdfs_trackerd</div></pre></td></tr></table></figure>
@@ -542,10 +547,10 @@
 <h4 id="验证storage是否登记到tracker服务器"><a href="#验证storage是否登记到tracker服务器" class="headerlink" title="验证storage是否登记到tracker服务器~"></a>验证storage是否登记到tracker服务器~</h4><ul>
 <li>使用/usr/bin/fdfs_monitor /etc/fdfs/storage.conf，运行fdfs_monitor查看storage服务器是否已经登记到tracker服务器。</li>
 <li>如果出现ip_addr = <ip> Active, 则表明storage服务器已经登记到tracker服务器~</ip></li>
-<li>Storage 1:<br>  id = 192.168.0.1<br>  ip_addr = 192.168.0.1  ==ACTIVE==<h3 id="文件上传测试"><a href="#文件上传测试" class="headerlink" title="文件上传测试"></a>文件上传测试</h3><ul>
-<li>执行如下上传命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker ~]<span class="comment"># /usr/bin/fdfs_upload_file /etc/fdfs/client.conf /etc/fdfs/client.conf</span></div><div class="line">group1/M00/00/00/rBIK6VcaP0aARXXvAAHrUgHEviQ394.conf</div><div class="line">返回文件ID即说明文件已经上传成功</div></pre></td></tr></table></figure>
-</li>
+<li>Storage 1:<br>  id = 192.168.0.1<br>  ip_addr = 192.168.0.1  ==ACTIVE==</li>
 </ul>
+<h3 id="文件上传测试"><a href="#文件上传测试" class="headerlink" title="文件上传测试"></a>文件上传测试</h3><ul>
+<li>执行如下上传命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@fastdfs-tracker ~]<span class="comment"># /usr/bin/fdfs_upload_file /etc/fdfs/client.conf /etc/fdfs/client.conf</span></div><div class="line">group1/M00/00/00/rBIK6VcaP0aARXXvAAHrUgHEviQ394.conf</div><div class="line">返回文件ID即说明文件已经上传成功</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
@@ -722,7 +727,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="http://ov62kaxkk.bkt.clouddn.com/MTXX_20170504095121_mr1493862851443.jpg"
+               src="http://image.wuwii.com/MTXX_20170504095121_mr1493862851443.jpg"
                alt="Slience" />
           <p class="site-author-name" itemprop="name">Slience</p>
            
@@ -879,11 +884,15 @@
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="https://hexo.io/zh-cn/" title="Hexo" target="_blank" rel="external nofollow">Hexo</a>
+                  <a href="https://www.processon.com/" title="processon" target="_blank" rel="external nofollow">processon</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="https://www.google.com" title="Google" target="_blank" rel="external nofollow">Google</a>
+                  <a href="http://asciiflow.com/" title="asciiflow" target="_blank" rel="external nofollow">asciiflow</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://codepen.io/pen" title="codepen.io" target="_blank" rel="external nofollow">codepen.io</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
@@ -892,10 +901,6 @@
               
                 <li class="links-of-blogroll-item">
                   <a href="https://stackoverflow.com/" title="stackoverflow" target="_blank" rel="external nofollow">stackoverflow</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://www.processon.com/" title="processon" target="_blank" rel="external nofollow">processon</a>
                 </li>
               
                 <li class="links-of-blogroll-item">

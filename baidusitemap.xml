@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/redis.html</loc>
+    <lastmod>2017-12-01T09:21:17.559Z</lastmod>
+    <data>
+        <display>
+        <title>redies安装</title>
+        <pubTime>2017-09-26T14:08:03.000Z</pubTime>
+        
+        <tag>redis</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/centos-fastDFS.html</loc>
+    <lastmod>2017-12-01T07:30:08.643Z</lastmod>
+    <data>
+        <display>
+        <title>搭建fastDFS单实例服务器</title>
+        <pubTime>2017-07-18T02:08:03.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>fastDFS</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/java-transactional.html</loc>
     <lastmod>2017-12-01T00:36:57.218Z</lastmod>
     <data>
@@ -1676,16 +1720,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
+    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     <data>
         <display>
-        <title>如何通过Maven的Jetty插件运行Web工程</title>
-        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
+        <title>如何通过Maven的Tomcat插件运行Web工程</title>
+        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
         
         <tag>maven</tag>
          
-        <tag>jetty</tag>
+        <tag>tomcat</tag>
          
          
            
@@ -1698,16 +1742,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/maven-tomcat.html</loc>
+    <loc>http://blog.wuwii.com/maven-jetty.html</loc>
     <lastmod>2017-10-10T00:30:59.567Z</lastmod>
     <data>
         <display>
-        <title>如何通过Maven的Tomcat插件运行Web工程</title>
-        <pubTime>2017-07-11T02:08:03.000Z</pubTime>
+        <title>如何通过Maven的Jetty插件运行Web工程</title>
+        <pubTime>2017-07-11T14:08:03.000Z</pubTime>
         
         <tag>maven</tag>
          
-        <tag>tomcat</tag>
+        <tag>jetty</tag>
          
          
            
@@ -1817,26 +1861,6 @@
            
              
               <breadCrumb title="分享" url="http://blog.wuwii.com/categories/%E5%88%86%E4%BA%AB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/redis.html</loc>
-    <lastmod>2017-10-07T10:06:36.012Z</lastmod>
-    <data>
-        <display>
-        <title>redies安装</title>
-        <pubTime>2017-09-26T14:08:03.000Z</pubTime>
-        
-        <tag>redis</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -2242,28 +2266,6 @@
         <tag>java</tag>
          
         <tag>枚举</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.wuwii.com/centos-fastDFS.html</loc>
-    <lastmod>2017-09-05T09:11:35.694Z</lastmod>
-    <data>
-        <display>
-        <title>搭建fastDFS单实例服务器</title>
-        <pubTime>2017-07-18T02:08:03.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>fastDFS</tag>
          
          
            
