@@ -5,13 +5,35 @@
     
   <url>
     <loc>http://blog.wuwii.com/alibaba-java-prochip.html</loc>
-    <lastmod>2017-12-06T04:35:36.921Z</lastmod>
+    <lastmod>2017-12-06T09:25:19.374Z</lastmod>
     <data>
         <display>
         <title>阿里巴巴Java开发手册中容易踩的坑</title>
         <pubTime>2017-12-06T03:48:03.000Z</pubTime>
         
         <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.wuwii.com/java-thread-cooperation.html</loc>
+    <lastmod>2017-12-06T09:25:03.157Z</lastmod>
+    <data>
+        <display>
+        <title>Java并发编程：线程间协作的两种方式：wait、notify、notifyAll和Condition</title>
+        <pubTime>2017-12-06T09:28:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>并发编程</tag>
          
          
            
@@ -84,6 +106,26 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/java-transactional.html</loc>
+    <lastmod>2017-12-04T00:27:53.596Z</lastmod>
+    <data>
+        <display>
+        <title>事务的特性和@Transactional注解的使用</title>
+        <pubTime>2017-11-30T08:08:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/java-copyonwrite.html</loc>
     <lastmod>2017-12-04T00:27:53.596Z</lastmod>
     <data>
@@ -126,26 +168,6 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/java-transactional.html</loc>
-    <lastmod>2017-12-04T00:27:53.596Z</lastmod>
-    <data>
-        <display>
-        <title>事务的特性和@Transactional注解的使用</title>
-        <pubTime>2017-11-30T08:08:03.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.wuwii.com/redis.html</loc>
     <lastmod>2017-12-01T09:21:17.559Z</lastmod>
     <data>
@@ -153,9 +175,9 @@
         <title>redies安装</title>
         <pubTime>2017-09-26T14:08:03.000Z</pubTime>
         
-        <tag>redis</tag>
-         
         <tag>linux</tag>
+         
+        <tag>redis</tag>
          
          
            
@@ -486,9 +508,9 @@
         <title>Easyui异步ComboTree加载到指定子节点展开</title>
         <pubTime>2017-11-22T15:08:03.000Z</pubTime>
         
-        <tag>Web前端</tag>
-         
         <tag>easyui</tag>
+         
+        <tag>Web前端</tag>
          
          
            
@@ -1573,14 +1595,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>Intellij</tag>
+         
+        <tag>JUnitGenerator</tag>
          
          
            
@@ -1593,16 +1617,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
-        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
-        <tag>JUnitGenerator</tag>
+        <tag>maven</tag>
          
          
            
@@ -1655,14 +1677,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>关于SEO</title>
-        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
+        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
+        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
         
-        <tag>SEO</tag>
+        <tag>postman</tag>
          
          
            
@@ -1675,14 +1697,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
-        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
+        <title>关于SEO</title>
+        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
         
-        <tag>postman</tag>
+        <tag>SEO</tag>
          
          
            
