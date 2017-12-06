@@ -137,7 +137,7 @@
 <meta property="og:site_name" content="喃声细语">
 <meta property="og:description" content="@Transactional如何工作实现了EntityManager接口的持久化上下文代理并不是声明式事务管理的唯一部分，事实上包含三个组成部分：  事务的切面 事务管理器 EntityManager Proxy本身">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-01T00:36:57.218Z">
+<meta property="og:updated_time" content="2017-12-04T00:27:53.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事务的特性和@Transactional注解的使用">
 <meta name="twitter:description" content="@Transactional如何工作实现了EntityManager接口的持久化上下文代理并不是声明式事务管理的唯一部分，事实上包含三个组成部分：  事务的切面 事务管理器 EntityManager Proxy本身">
@@ -461,7 +461,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3,478
+                  3,557
                 </span>
               
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  12
+                  13
                 </span>
               
             </div>
@@ -617,7 +617,8 @@
 <p>默认情况下，只有来自外部的方法调用才会被AOP代理捕获，也就是，类内部方法调用本类内部的其他方法并不会引起事务行为。</p>
 <p>只要方法内部抛出<code>rollbackFor</code>设置的异常，就会回滚。</p>
 <p>例如：<br>在方法上加上<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Transactional</span>(value=<span class="string">"transactionManager"</span>, rollbackFor = Exception.class)</div></pre></td></tr></table></figure></p>
-<p>方法内部只要抛出异常，就全部回滚。</p>
+<p>方法内部只要抛出指定的异常或者错误，就全部回滚。</p>
+<p>补充，回滚异常是自己定义的异常类，最好按照要求继承<code>RuntimeException</code>。<br>如果非常有必要在事务中捕捉异常，而且需要回滚事务，那么直接再将这个异常抛出就可以了，但是不建议这么使用。</p>
 <p><strong>参考文章：</strong></p>
 <ul>
 <li><a rel="external nofollow" target="_blank" href="http://blog.csdn.net/bao19901210/article/details/41724355">spring事物配置，声明式事务管理和基于@Transactional注解的使用</a></li>
@@ -686,6 +687,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/omelette.html" rel="prev" title="20171203">
+                20171203 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -784,7 +789,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-count">118</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1029,7 +1034,7 @@
 Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages</a></div>
 
 <div class="theme-info">
-  <span class="post-count">博客全站共129.6k字</span>
+  <span class="post-count">博客全站共136.9k字</span>
 </div>
 
 <script>

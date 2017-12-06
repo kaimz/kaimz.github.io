@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/alibaba-java-prochip.html</loc>
+    
+    <lastmod>2017-12-06T03:57:20.658Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/spring-beanutils.html</loc>
+    
+    <lastmod>2017-12-05T03:08:13.981Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/miss-you.html</loc>
+    
+    <lastmod>2017-12-04T00:27:53.611Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/omelette.html</loc>
+    
+    <lastmod>2017-12-04T00:27:53.611Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/java-transactional.html</loc>
+    
+    <lastmod>2017-12-04T00:27:53.596Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/java-copyonwrite.html</loc>
+    
+    <lastmod>2017-12-04T00:27:53.596Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.wuwii.com/angels-wear-white.html</loc>
+    
+    <lastmod>2017-12-04T00:27:53.596Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/redis.html</loc>
     
     <lastmod>2017-12-01T09:21:17.559Z</lastmod>
@@ -12,20 +61,6 @@
     <loc>http://blog.wuwii.com/centos-fastDFS.html</loc>
     
     <lastmod>2017-12-01T07:30:08.643Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/java-transactional.html</loc>
-    
-    <lastmod>2017-12-01T00:36:57.218Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/angels-wear-white.html</loc>
-    
-    <lastmod>2017-11-30T08:27:06.731Z</lastmod>
     
   </url>
   
@@ -47,13 +82,6 @@
     <loc>http://blog.wuwii.com/about/index.html</loc>
     
     <lastmod>2017-11-29T00:38:11.821Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/miss-you.html</loc>
-    
-    <lastmod>2017-11-28T00:57:23.726Z</lastmod>
     
   </url>
   
@@ -110,13 +138,6 @@
     <loc>http://blog.wuwii.com/java-synchronized.html</loc>
     
     <lastmod>2017-11-27T00:50:14.249Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/java-copyonwrite.html</loc>
-    
-    <lastmod>2017-11-27T00:50:14.242Z</lastmod>
     
   </url>
   
@@ -520,14 +541,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
@@ -548,14 +569,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     

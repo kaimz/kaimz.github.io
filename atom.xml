@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-12-01T00:36:57.218Z</updated>
+  <updated>2017-12-06T03:57:20.658Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -16,11 +16,438 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>阿里巴巴Java开发手册中容易踩的坑</title>
+    <link href="http://blog.wuwii.com/alibaba-java-prochip.html"/>
+    <id>http://blog.wuwii.com/alibaba-java-prochip.html</id>
+    <published>2017-12-06T03:48:03.000Z</published>
+    <updated>2017-12-06T03:57:20.658Z</updated>
+    
+    <content type="html"><![CDATA[<p>阿里巴巴Java开发手册地址：<a rel="external nofollow" target="_blank" href="https://github.com/alibaba/p3c/blob/master/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E7%BA%AA%E5%BF%B5%E7%89%88%EF%BC%89.pdf">阿里巴巴Java开发手册（纪念版）.pdf</a></p>
+<p>开始看的时候还是<strong>终极版</strong>，不知道什么时候又出到了<strong>纪念版</strong>，听说之前还有个<strong>完美版</strong>，感觉词穷了，期待下一版本<strong>狗年限定版</strong>。<br>撇开了，<strong>很实用的规范内容，值得看</strong>。</p>
+<p>记录下个人容易出问题的地方。</p>
+<hr>
+<h2 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h2><h3 id="命名风格"><a href="#命名风格" class="headerlink" title="命名风格"></a>命名风格</h3><h4 id="各层命名规约"><a href="#各层命名规约" class="headerlink" title="各层命名规约"></a>各层命名规约</h4><h5 id="Service-DAO-层方法命名规约"><a href="#Service-DAO-层方法命名规约" class="headerlink" title="Service/DAO 层方法命名规约"></a>Service/DAO 层方法命名规约</h5><ol>
+<li>获取单个对象的方法用 get 做前缀。   </li>
+<li>获取多个对象的方法用 list 做前缀。  </li>
+<li>获取统计值的方法用 count 做前缀。   </li>
+<li>插入的方法用 save/insert 做前缀。   </li>
+<li>删除的方法用 remove/delete 做前缀。    </li>
+<li>修改的方法用 update 做前缀。 </li>
+</ol>
+<h5 id="领域模型命名规约"><a href="#领域模型命名规约" class="headerlink" title="领域模型命名规约"></a>领域模型命名规约</h5><ol>
+<li>数据对象：xxxDO，xxx 即为数据表名。    </li>
+<li>数据传输对象：xxxDTO，xxx 为业务领域相关的名称。 </li>
+<li>展示对象：xxxVO，xxx 一般为网页名称。  </li>
+<li>POJO 是 DO/DTO/BO/VO 的统称，禁止命名成 xxxPOJO。 </li>
+</ol>
+<h3 id="常量定义"><a href="#常量定义" class="headerlink" title="常量定义"></a>常量定义</h3><ol>
+<li>不允许任何魔法值（即未经定义的常量）直接出现在代码中。 </li>
+<li>将包或者工程内部的共享变量，放在相应的constant 下，例如，一个模块下的常量：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> io.renren.utils;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 常量</span></div><div class="line"><span class="comment"> * <span class="doctag">@date</span> 2016年11月15日 下午1:23:52</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Constant</span> </span>&#123;</div><div class="line">	<span class="comment">/** 超级管理员ID */</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SUPER_ADMIN = <span class="number">1</span>;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 菜单类型</span></div><div class="line"><span class="comment">	 * </span></div><div class="line"><span class="comment">	 * <span class="doctag">@date</span> 2016年11月15日 下午1:24:29</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> MenuType &#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 目录</span></div><div class="line"><span class="comment">         */</span></div><div class="line">    	CATALOG(<span class="number">0</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 菜单</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        MENU(<span class="number">1</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 按钮</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        BUTTON(<span class="number">2</span>);</div><div class="line"></div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> value;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">MenuType</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 定时任务状态</span></div><div class="line"><span class="comment">     * </span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> ScheduleStatus &#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 正常</span></div><div class="line"><span class="comment">         */</span></div><div class="line">    	NORMAL(<span class="number">0</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 暂停</span></div><div class="line"><span class="comment">         */</span></div><div class="line">    	PAUSE(<span class="number">1</span>);</div><div class="line"></div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> value;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">ScheduleStatus</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 云服务商</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> CloudService &#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 七牛云</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        QINIU(<span class="number">1</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 阿里云</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        ALIYUN(<span class="number">2</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 腾讯云</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        QCLOUD(<span class="number">3</span>);</div><div class="line"></div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> value;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">CloudService</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="OOP归约"><a href="#OOP归约" class="headerlink" title="OOP归约"></a>OOP归约</h3><h4 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h4><p>【强制】Object 的 equals 方法容易抛空指针异常，应使用常量或确定有值的对象来调用 equals。</p>
+<ul>
+<li>正例：”test”.equals(object); </li>
+<li>反例：object.equals(“test”); </li>
+<li>说明：推荐使用 java.util.Objects#equals（JDK7 引入的工具类）。</li>
+</ul>
+<hr>
+<p>【强制】所有的相同类型的包装类对象之间值的比较，全部使用 equals 方法比较。 </p>
+<ul>
+<li>说明：对于 Integer var = ?  在-128 至 127 范围内的赋值，Integer 对象是在<br>IntegerCache.cache 产生，会复用已有对象，这个区间内的 Integer 值可以直接使用==进行 判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑， 推荐使用 equals 方法进行判断。</li>
+</ul>
+<hr>
+<p>关于基本数据类型与包装数据类型的使用标准如下： </p>
+<ul>
+<li>【强制】所有的 POJO 类属性必须使用包装数据类型。</li>
+<li>【强制】RPC 方法的返回值和参数必须使用包装数据类型。 </li>
+<li><p>【推荐】所有的局部变量使用基本数据类型。</p>
+<ul>
+<li>说明：POJO 类属性没有初值是提醒使用者在需要使用时，必须自己显式地进行赋值，任何 NPE 问题，或者入库检查，都由使用者来保证。</li>
+<li>正例：数据库的查询结果可能是 null，因为自动拆箱，用基本数据类型接收有 NPE 风险。  </li>
+<li>反例：比如显示成交总额涨跌情况，即正负 x%，x 为基本数据类型，调用的 RPC 服务，调用 不成功时，返回的是默认值，页面显示为 0%，这是不合理的，应该显示成中划线。所以包装 数据类型的 null 值，能够表示额外的信息，如：远程调用失败，异常退出。 </li>
+</ul>
+</li>
+</ul>
+<hr>
+<p> 【强制】POJO 类必须写 toString 方法。使用 IDE 的中工具：source&gt; generate toString 时，如果继承了另一个 POJO 类，注意在前面加一下 super.toString。</p>
+<p> 说明：在方法执行抛出异常时，可以直接调用 POJO 的 toString()方法打印其属性值，便于排 查问题。 </p>
+<hr>
+<p> 【推荐】使用索引访问用 String 的 split 方法得到的数组时，需做最后一个分隔符后有无 内容的检查，否则会有抛 IndexOutOfBoundsException 的风险。 </p>
+<p> 说明：<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String str = <span class="string">"a,b,c,,"</span>; </div><div class="line">String[] ary = str.split(<span class="string">","</span>); </div><div class="line"><span class="comment">// 预期大于 3，结果是 3</span></div><div class="line">System.out.println(ary.length);</div></pre></td></tr></table></figure></p>
+<hr>
+<p> 【推荐】final 可以声明类、成员变量、方法、以及本地变量，下列情况使用 final 关键字： </p>
+<ol>
+<li>不允许被继承的类，如：String 类。 </li>
+<li>不允许修改引用的域对象，如：POJO 类的域变量。  </li>
+<li>不允许被重写的方法，如：POJO 类的 setter 方法。 </li>
+<li>不允许运行过程中重新赋值的局部变量。</li>
+<li>避免上下文重复使用一个变量，使用 final 描述可以强制重新定义一个变量，方便更好 地进行重构。 </li>
+</ol>
+<hr>
+<p>【推荐】类成员与方法访问控制从严： </p>
+<ol>
+<li>如果不允许外部直接通过 new 来创建对象，那么构造方法必须是 private。  </li>
+<li>工具类不允许有 public 或 default 构造方法。  </li>
+<li>类非 static 成员变量并且与子类共享，必须是 protected。  </li>
+<li>类非 static 成员变量并且仅在本类使用，必须是 private。</li>
+<li>类 static 成员变量如果仅在本类使用，必须是 private。 </li>
+<li>若是 static 成员变量，必须考虑是否为 final。  </li>
+<li>类成员方法只供类内部调用，必须是 private。</li>
+<li>类成员方法只对继承类公开，那么限制为 protected。 </li>
+</ol>
+<ul>
+<li>说明：任何类、方法、参数、变量，严控访问范围。过于宽泛的访问范围，不利于模块解耦。 思考：如果是一个 private 的方法，想删除就删除，可是一个 public 的 service 方法，或者 一个 public 的成员变量，删除一下，不得手心冒点汗吗？变量像自己的小孩，尽量在自己的 视线内，变量作用域太大，无限制的到处跑，那么你会担心的。 </li>
+</ul>
+<h3 id="集合处理"><a href="#集合处理" class="headerlink" title="集合处理"></a>集合处理</h3><p>【强制】关于 hashCode 和 equals 的处理，遵循如下规则：</p>
+<ol>
+<li>只要重写 equals，就必须重写 hashCode。 </li>
+<li>因为 Set 存储的是不重复的对象，依据 hashCode 和 equals 进行判断，所以 Set 存储的 对象必须重写这两个方法。</li>
+<li>如果自定义对象做为 Map 的键，那么必须重写 hashCode 和 equals。 说明：String 重写了 hashCode 和 equals 方法，所以我们可以非常愉快地使用 String 对象 作为 key 来使用。</li>
+</ol>
+<p>没有特需要求，使用编辑器自动生成的就好，这个对Hash表相关的数据结构的存储和读取有着很大的影响，重写的好，可以减少Hash碰撞。</p>
+<hr>
+<ul>
+<li>【强制】使用集合转数组的方法，必须使用集合的 toArray(T[] array)，传入的是类型完全 一样的数组，大小就是 list.size()。 </li>
+<li>说明：使用 toArray 带参方法，入参分配的数组空间不够大时，toArray 方法内部将重新分配 内存空间，并返回新数组地址；如果数组元素大于实际所需，下标为[ list.size() ]的数组 元素将被置为 null，其它数组元素保持原值，因此最好将方法入参数组大小定义与集合元素 个数一致。 </li>
+<li>反例：直接使用 toArray 无参方法存在问题，此方法返回值只能是 Object[]类，若强转其它 类型数组将出现 ClassCastException 错误。 </li>
+<li>正例： <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;(<span class="number">2</span>);   </div><div class="line">list.add(<span class="string">"guan"</span>);      </div><div class="line">list.add(<span class="string">"bao"</span>);      </div><div class="line">String[] array = <span class="keyword">new</span> String[list.size()];    </div><div class="line">array = list.toArray(array);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>【强制】使用工具类 Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方 法，它的 add/remove/clear 方法会抛出 UnsupportedOperationException 异常。 说明：asList 的返回对象是一个 Arrays 内部类，并没有实现集合的修改方法。Arrays.asList 体现的是适配器模式，只是转换接口，后台的数据仍是数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String[] str = new String[] &#123; &quot;you&quot;, &quot;wu&quot; &#125;;  </div><div class="line">List list = Arrays.asList(str);</div></pre></td></tr></table></figure></p>
+<ul>
+<li>第一种情况：list.add(“yangguanbao”); 运行时异常。</li>
+<li>第二种情况：str[0] = “gujin”; 那么 list.get(0)也会随之修改。 </li>
+</ul>
+<hr>
+<p>【强制】泛型通配符<code>&lt;? extends T&gt;</code>来接收返回的数据，此写法的泛型集合不能使用 add 方 法，而<code>&lt;? super T&gt;</code>不能使用 get 方法，做为接口调用赋值时易出错。 </p>
+<hr>
+<p>【强制】不要在 foreach 循环里进行元素的 remove/add 操作。remove 元素请使用 Iterator 方式，如果并发操作，需要对 Iterator 对象加锁。 </p>
+<ul>
+<li>正例： <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Iterator&lt;String&gt; iterator = list.iterator();  </div><div class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;              </div><div class="line">    String item = iterator.next();                       </div><div class="line">    <span class="keyword">if</span> (删除元素的条件) &#123;                              </div><div class="line">        iterator.remove();                 </div><div class="line">    &#125;      </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>【强制】 在 JDK7 版本及以上，Comparator 要满足如下三个条件，不然 Arrays.sort， Collections.sort 会报 IllegalArgumentException 异常。 说明：三个条件如下</p>
+<ol>
+<li>x，y 的比较结果和 y，x 的比较结果相反。 </li>
+<li>x&gt;y，y&gt;z，则 x&gt;z。 </li>
+<li>x=y，则 x，z 比较结果和 y，z 比较结果相同。 </li>
+</ol>
+<ul>
+<li>反例：下例中没有处理相等的情况，实际使用中可能会出现异常： <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Comparator&lt;Student&gt;() &#123;      </div><div class="line">    <span class="meta">@Override</span>         </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1, Student o2)</span> </span>&#123;    </div><div class="line">        <span class="keyword">return</span> o1.getId() &gt; o2.getId() ? <span class="number">1</span> : -<span class="number">1</span>;        </div><div class="line">    &#125;      </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>【推荐】使用 entrySet 遍历 Map 类集合 KV，而不是 keySet 方式进行遍历。 </p>
+<ul>
+<li>说明：keySet 其实是遍历了 2 次，一次是转为 Iterator 对象，另一次是从 hashMap 中取出 key 所对应的 value。而 entrySet 只是遍历了一次就把 key 和 value 都放到了 entry 中，效 率更高。如果是 JDK8，使用 Map.foreach 方法。 </li>
+<li>正例：values()返回的是 V 值集合，是一个 list 集合对象；keySet()返回的是 K 值集合，是 一个 Set 集合对象；entrySet()返回的是 K-V 值组合集合。 </li>
+</ul>
+<hr>
+<p>【推荐】高度注意 Map 类集合 K/V 能不能存储 null 值的情况，如下表格： </p>
+<table>
+<thead>
+<tr>
+<th>集合类</th>
+<th>Key</th>
+<th>Value</th>
+<th>Super</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hashtable</td>
+<td>不允许为 null</td>
+<td>不允许为 null</td>
+<td>Dictionary</td>
+<td>线程安全 </td>
+</tr>
+<tr>
+<td>ConcurrentHashMap</td>
+<td>不允许为 null</td>
+<td>不允许为 null</td>
+<td>AbstractMap</td>
+<td>锁分段技术（JDK8:CAS） </td>
+</tr>
+<tr>
+<td>TreeMap</td>
+<td>不允许为 null</td>
+<td>允许为 null</td>
+<td>AbstractMap</td>
+<td>线程不安全 </td>
+</tr>
+<tr>
+<td>HashMap</td>
+<td>允许为 null</td>
+<td>允许为 null</td>
+<td>AbstractMap</td>
+<td>线程不安全 </td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>反例： 由于 HashMap 的干扰，很多人认为 ConcurrentHashMap 是可以置入 null 值，而事实上， 存储 null 值时会抛出 NPE 异常。 </li>
+</ul>
+<hr>
+<p>【参考】合理利用好集合的有序性(sort)和稳定性(order)，避免集合的无序性(unsort)和 不稳定性(unorder)带来的负面影响。 </p>
+<ul>
+<li>说明：有序性是指遍历的结果是按某种比较规则依次排列的。稳定性指集合每次遍历的元素次 序是一定的。如：ArrayList 是 order/unsort；HashMap 是 unorder/unsort；TreeSet 是 order/sort。 </li>
+</ul>
+<hr>
+<p>【参考】利用 Set 元素唯一的特性，可以快速对一个集合进行去重操作，避免使用 List 的 contains 方法进行遍历、对比、去重操作。 </p>
+<h3 id="并发处理"><a href="#并发处理" class="headerlink" title="并发处理"></a>并发处理</h3><p>【强制】获取单例对象需要保证线程安全，其中的方法也要保证线程安全。 说明：资源驱动类、工具类、单例工厂类都需要注意。 </p>
+<hr>
+<p>【强制】线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，这样 的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。 说明：Executors 返回的线程池对象的弊端如下：</p>
+<ol>
+<li>FixedThreadPool 和 SingleThreadPool:   允许的请求队列长度为 Integer.MAX_VALUE，可能会堆积大量的请求，从而导致 OOM。 </li>
+<li>CachedThreadPool 和 ScheduledThreadPool:   允许的创建线程数量为 Integer.MAX_VALUE，可能会创建大量的线程，从而导致 OOM。 </li>
+</ol>
+<hr>
+<p>【强制】高并发时，同步调用应该去考量锁的性能损耗。能用无锁数据结构，就不要用锁；能 锁区块，就不要锁整个方法体；能用对象锁，就不要用类锁。 </p>
+<hr>
+<p> 【强制】对多个资源、数据库表、对象同时加锁时，需要保持一致的加锁顺序，否则可能会造 成死锁。 </p>
+<ul>
+<li>说明：线程一需要对表 A、B、C 依次全部加锁后才可以进行更新操作，那么线程二的加锁顺序 也必须是 A、B、C，否则可能出现死锁。</li>
+</ul>
+<hr>
+<p>【推荐】使用 CountDownLatch 进行异步转同步操作，每个线程退出前必须调用 countDown 方法，线程执行代码注意 catch 异常，确保 countDown 方法被执行到，避免主线程无法执行 至 await 方法，直到超时才返回结果。</p>
+<ul>
+<li>说明：注意，子线程抛出异常堆栈，不能在主线程 try-catch 到。</li>
+</ul>
+<hr>
+<p>【推荐】在并发场景下，通过双重检查锁（double-checked locking）实现延迟初始化的优 化问题隐患(可参考 The “Double-Checked Locking is Broken” Declaration)，推荐解 决方案中较为简单一种（适用于 JDK5 及以上版本），将目标属性声明为 volatile 型。 </p>
+<hr>
+<p>【参考】volatile 解决多线程内存不可见问题。对于一写多读，是可以解决变量同步问题， 但是如果多写，同样无法解决线程安全问题。如果是 count++操作，使用如下类实现： AtomicInteger count = new AtomicInteger(); count.addAndGet(1); 如果是 JDK8，推 荐使用 LongAdder 对象，比 AtomicLong 性能更好（减少乐观锁的重试次数）。 </p>
+<hr>
+<p>【参考】ThreadLocal 无法解决共享对象的更新问题，ThreadLocal 对象建议使用 static 修饰。这个变量是针对一个线程内所有操作共享的，所以设置为静态变量，所有此类实例共享 此静态变量 ，也就是说在类第一次被使用时装载，只分配一块存储空间，所有此类的对象(只 要是这个线程内定义的)都可以操控这个变量。 </p>
+<hr>
+<h3 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h3><p>【强制】在 if/else/for/while/do 语句中必须使用大括号。即使只有一行代码，避免采用 单行的编码方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if (condition) statements;</div></pre></td></tr></table></figure></p>
+<hr>
+<p>超过 3 层的 if-else 的逻辑判断代码可以使用卫语句、策略模式、状态模式等来实现</p>
+<hr>
+<p>【参考】下列情形，需要进行参数校验： </p>
+<ol>
+<li>调用频次低的方法。  </li>
+<li>执行时间开销很大的方法。此情形中，参数校验时间几乎可以忽略不计，但如果因为参 数错误导致中间执行回退，或者错误，那得不偿失。  </li>
+<li>需要极高稳定性和可用性的方法。 </li>
+<li>对外提供的开放接口，不管是 RPC/API/HTTP 接口。  </li>
+<li>敏感权限入口。 </li>
+</ol>
+<hr>
+<p>【参考】下列情形，不需要进行参数校验： </p>
+<ol>
+<li>极有可能被循环调用的方法。但在方法说明里必须注明外部参数检查要求。  </li>
+<li>底层调用频度比较高的方法。毕竟是像纯净水过滤的最后一道，参数错误不太可能到底 层才会暴露问题。一般 DAO 层与 Service 层都在同一个应用中，部署在同一台服务器中，所 以 DAO 的参数校验，可以省略。 </li>
+<li>被声明成 private 只会被自己代码所调用的方法，如果能够确定调用方法的代码传入参 数已经做过检查或者肯定不会有问题，此时可以不校验参数。 </li>
+</ol>
+<h3 id="注释归约"><a href="#注释归约" class="headerlink" title="注释归约"></a>注释归约</h3><p>【参考】特殊注释标记，请注明标记人与标记时间。注意及时处理这些标记，通过标记扫描， 经常清理此类标记。线上故障有时候就是来源于这些标记处的代码。</p>
+<ol>
+<li>待办事宜<code>（TODO）</code>:<code>（ 标记人，标记时间，[预计处理时间]）</code>    表示需要实现，但目前还未实现的功能。这实际上是一个 Javadoc 的标签，目前的 Javadoc 还没有实现，但已经被广泛使用。只能应用于类，接口和方法（因为它是一个 Javadoc 标签）。</li>
+<li>错误，不能工作<code>（FIXME）</code>:<code>（标记人，标记时间，[预计处理时间]）</code>    在注释中用 FIXME 标记某代码是错误的，而且不能工作，需要及时纠正的情况。 </li>
+</ol>
+<hr>
+<p>【推荐】方法的返回值可以为 null，不强制返回空集合，或者空对象等，必须添加注释充分 说明什么情况下会返回 null 值。调用方需要进行 null 判断防止 NPE 问题。 说明：本手册明确<strong>防止 NPE 是调用者的责任</strong>。即使被调用方法返回空集合或者空对象，对调用<br>者来说，也并非高枕无忧，必须考虑到远程调用失败、序列化失败、运行时异常等场景返回 null 的情况。 </p>
+<hr>
+<p> 【推荐】防止 NPE，是程序员的基本修养，注意 NPE 产生的场景：  </p>
+<ol>
+<li>返回类型为基本数据类型，return 包装数据类型的对象时，自动拆箱有可能产生 NPE。     反例：public int f() { return Integer 对象}， 如果为 null，自动解箱抛 NPE。 </li>
+<li>数据库的查询结果可能为 null。  </li>
+<li>集合里的元素即使 isNotEmpty，取出的数据元素也可能为 null。  </li>
+<li>远程调用返回对象时，一律要求进行空指针判断，防止 NPE。</li>
+<li>对于 Session 中获取的数据，建议 NPE 检查，避免空指针。</li>
+<li>级联调用 obj.getA().getB().getC()；一连串调用，易产生 NPE。 </li>
+</ol>
+<ul>
+<li>正例：<strong>使用 JDK8 的 Optional 类来防止 NPE 问题。</strong></li>
+</ul>
+<hr>
+<p>【推荐】定义时区分 unchecked / checked 异常，<strong>避免直接抛出 new RuntimeException()， 更不允许抛出 Exception 或者 Throwable</strong>，应使用有业务含义的自定义异常。推荐业界已定义 过的自定义异常，如：DAOException / ServiceException 等。 </p>
+<hr>
+<p>【参考】<strong>避免出现重复的代码（Don’t Repeat Yourself），即 DRY 原则</strong>。</p>
+<ul>
+<li>说明：随意复制和粘贴代码，必然会导致代码的重复，在以后需要修改时，需要修改所有的副 本，容易遗漏。必要时抽取共性方法，或者抽象公共类，甚至是组件化。 </li>
+<li>正例：一个类中有多个 public 方法，都需要进行数行相同的参数校验操作，这个时候请抽取</li>
+</ul>
+<h2 id="日志规约"><a href="#日志规约" class="headerlink" title="日志规约"></a>日志规约</h2><p>【强制】应用中不可直接使用日志系统（Log4j、Logback）中的 API，而应依赖使用日志框架 SLF4J 中的 API，使用门面模式的日志框架，有利于维护和各个类的日志处理方式统一。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.slf4j.Logger; </div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(Abc.class);</div></pre></td></tr></table></figure></p>
+<hr>
+<p>【强制】对 trace/debug/info 级别的日志输出，必须使用条件输出形式或者使用占位符的方 式。 </p>
+<ul>
+<li>说明：logger.debug(“Processing trade with id: “ + id + “ and symbol: “ + symbol); 如果日志级别是 warn，上述日志不会打印，但是会执行字符串拼接操作，如果 symbol 是对象， 会执行 toString()方法，浪费了系统资源，执行了上述操作，最终日志却没有打印。 </li>
+<li><p>正例：（条件） </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (logger.isDebugEnabled()) &#123;    </div><div class="line">    logger.debug(<span class="string">"Processing trade with id: "</span> + id + <span class="string">" and symbol: "</span> + symbol);   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>正例：（占位符） </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logger.debug(<span class="string">"Processing trade with id: &#123;&#125; and symbol : &#123;&#125; "</span>, id, symbol);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>【强制】避免重复打印日志，浪费磁盘空间，务必在 log4j.xml 中设置 <code>additivity=false</code></p>
+<hr>
+<p>【强制】异常信息应该包括两类信息：案发现场信息和异常堆栈信息。如果不处理，那么通过 关键字 throws 往上抛出。 </p>
+<ul>
+<li>正例：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logger.error(各类参数或者对象 toString + <span class="string">"_"</span> + e.getMessage(), e);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>【参考】可以使用 warn 日志级别来记录用户输入参数错误的情况，避免用户投诉时，无所适 从。注意日志输出的级别，error 级别只记录系统逻辑出错、异常等重要的错误信息。如非必 要，请不要在此场景打出 error 级别。 </p>
+<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><p>【强制】好的单元测试必须遵守<code>AIR 原则</code>。 说明：单元测试在线上运行时，感觉像空气（AIR）一样并不存在，但在测试质量的保障上， 却是非常关键的。好的单元测试宏观上来说，<strong>具有自动化、独立性、可重复执行的特点。</strong></p>
+<ul>
+<li><code>A</code>：Automatic（自动化） </li>
+<li><code>I</code>：Independent（独立性） </li>
+<li><code>R</code>：Repeatable（可重复） </li>
+</ul>
+<hr>
+<p>【强制】单元测试应该是全自动执行的，并且非交互式的。测试框架通常是定期执行的，执行 过程必须完全自动化才有意义。输出结果需要人工检查的测试不是一个好的单元测试。<strong>单元测 试中不准使用 <code>System.out```来进行人肉验证，必须使用</code>assert`` 来验证。</strong> </p>
+<hr>
+<p>【推荐】单元测试的基本目标：<strong>语句覆盖率达到 70%；核心模块的语句覆盖率和分支覆盖率都 要达到 100%</strong></p>
+<ul>
+<li>说明：在工程规约的应用分层中提到的 DAO 层，Manager 层，可重用度高的 Service，都应该 进行单元测试。 </li>
+</ul>
+<hr>
+<p>【推荐】编写单元测试代码遵守 BCDE 原则，以保证被测试模块的交付质量。 </p>
+<ul>
+<li><strong>B</strong>：Border，边界值测试，包括循环边界、特殊取值、特殊时间点、数据顺序等。</li>
+<li><strong>C</strong>：Correct，正确的输入，并得到预期的结果。 </li>
+<li><strong>D</strong>：Design，与设计文档相结合，来编写单元测试。 </li>
+<li><strong>E</strong>：Error，强制错误信息输入（如：非法数据、异常流程、非业务允许输入等），并得 到预期的结果。</li>
+</ul>
+<hr>
+<p>【推荐】对于数据库相关的查询，更新，删除等操作，不能假设数据库里的数据是存在的， 或者直接操作数据库把数据插入进去，请使用程序插入或者导入数据的方式来准备数据。 </p>
+<ul>
+<li>反例：删除某一行数据的单元测试，在数据库中，先直接手动增加一行作为删除目标，但是这 一行新增数据并不符合业务插入规则，导致测试结果异常。</li>
+</ul>
+<hr>
+<p>【推荐】<strong>和数据库相关的单元测试，可以设定自动回滚机制，不给数据库造成脏数据。或者 对单元测试产生的数据有明确的前后缀标识</strong>。 </p>
+<ul>
+<li>正例：在 RDC 内部单元测试中，使用 RDC_UNIT<em>TEST</em>的前缀标识数据。 </li>
+</ul>
+<hr>
+<p>【推荐】<strong>对于不可测的代码建议做必要的重构，使代码变得可测</strong>，避免为了达到测试要求而 书写不规范测试代码。 </p>
+<hr>
+<p>【参考】为了更方便地进行单元测试，业务代码应避免以下情况： </p>
+<ul>
+<li>构造方法中做的事情过多。 </li>
+<li>存在过多的全局变量和静态方法。 </li>
+<li>存在过多的外部依赖。</li>
+<li>存在过多的条件语句。</li>
+</ul>
+<p><strong>说明：多层条件语句建议使用卫语句、策略模式、状态模式等方式重构。</strong> </p>
+<hr>
+<p>【参考】不要对单元测试存在如下误解： </p>
+<ul>
+<li>那是测试同学干的事情。本文是开发手册，凡是本文内容都是与开发同学强相关的。 </li>
+<li>单元测试代码是多余的。汽车的整体功能与各单元部件的测试正常与否是强相关的。 </li>
+<li>单元测试代码不需要维护。一年半载后，那么单元测试几乎处于废弃状态。</li>
+<li>单元测试与线上故障没有辩证关系。好的单元测试能够最大限度地规避线上故障。 </li>
+</ul>
+<h2 id="安全规约"><a href="#安全规约" class="headerlink" title="安全规约"></a>安全规约</h2><p>【强制】隶属于用户个人的页面或者功能必须进行权限控制校验。</p>
+<ul>
+<li>说明：防止没有做水平权限校验就可随意访问、修改、删除别人的数据，比如查看他人的私信 内容、修改他人的订单。 </li>
+</ul>
+<hr>
+<p>【强制】用户敏感数据禁止直接展示，必须对展示数据进行脱敏。 </p>
+<ul>
+<li>说明：查看个人手机号码会显示成:158<em>**</em>9119，隐藏中间 4 位，防止隐私泄露。 </li>
+</ul>
+<hr>
+<p> 【强制】用户请求传入的任何参数必须做有效性验证。</p>
+<ul>
+<li>说明：忽略参数校验可能导致： <ul>
+<li>page size 过大导致内存溢出 </li>
+<li>恶意 order by 导致数据库慢查询 </li>
+<li>任意重定向  SQL 注入 </li>
+<li>反序列化注入 </li>
+<li>正则输入源串拒绝服务 ReDoS </li>
+</ul>
+</li>
+</ul>
+<p><strong>说明</strong>：Java 代码用正则来验证客户端的输入，有些正则写法验证普通用户输入没有问题， 但是如果攻击人员使用的是特殊构造的字符串来验证，有可能导致死循环的结果。</p>
+<hr>
+<p>【强制】在使用平台资源，譬如短信、邮件、电话、下单、支付，必须实现正确的<strong>防重放限制</strong>， 如数量限制、疲劳度控制、验证码校验，避免被滥刷、资损。 </p>
+<ul>
+<li>说明：如注册时发送验证码到手机，如果没有限制次数和频率，那么可以利用此功能骚扰到其 它用户，并造成短信平台资源浪费。</li>
+</ul>
+<hr>
+<p>【推荐】发贴、评论、发送即时消息等用户生成内容的场景必须<strong>实现防刷、文本内容违禁词过 滤等风控策略</strong>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;阿里巴巴Java开发手册地址：&lt;a rel=&quot;external nofollow&quot; target=&quot;_blank&quot; href=&quot;https://github.com/alibaba/p3c/blob/master/%E9%98%BF%E9%87%8C%E5%B7%B4%E5
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BeanUtils的复制</title>
+    <link href="http://blog.wuwii.com/spring-beanutils.html"/>
+    <id>http://blog.wuwii.com/spring-beanutils.html</id>
+    <published>2017-12-03T14:08:03.000Z</published>
+    <updated>2017-12-05T03:08:13.981Z</updated>
+    
+    <content type="html"><![CDATA[<p>有一个子类继承了父类的属性，但是有很多属性值需要复制，单纯的靠set 或者构造函数肯定很不美观，出于“懒”的目的，了解到spring beans里面提供了BeanUtils工具类，看下copyProperties方法满足需要，是用反射做的。</p>
+<a id="more"></a>
+<h4 id="方法源码"><a href="#方法源码" class="headerlink" title="方法源码"></a>方法源码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">	 * Copy the property values of the given source bean into the given target bean.</span></div><div class="line"><span class="comment">	 * &lt;p&gt;Note: The source and target classes do not have to match or even be derived</span></div><div class="line"><span class="comment">	 * from each other, as long as the properties match. Any bean properties that the</span></div><div class="line"><span class="comment">	 * source bean exposes but the target bean does not will silently be ignored.</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> source the source bean</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> target the target bean</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> editable the class (or interface) to restrict property setting to</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> ignoreProperties array of property names to ignore</span></div><div class="line"><span class="comment">	 * <span class="doctag">@throws</span> BeansException if the copying failed</span></div><div class="line"><span class="comment">	 * <span class="doctag">@see</span> BeanWrapper</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyProperties</span><span class="params">(Object source, Object target, Class&lt;?&gt; editable, String... ignoreProperties)</span></span></div><div class="line"><span class="function">			<span class="keyword">throws</span> BeansException </span>&#123;</div><div class="line"></div><div class="line">		Assert.notNull(source, <span class="string">"Source must not be null"</span>);</div><div class="line">		Assert.notNull(target, <span class="string">"Target must not be null"</span>);</div><div class="line"></div><div class="line">		Class&lt;?&gt; actualEditable = target.getClass();</div><div class="line">		<span class="keyword">if</span> (editable != <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">if</span> (!editable.isInstance(target)) &#123;</div><div class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Target class ["</span> + target.getClass().getName() +</div><div class="line">						<span class="string">"] not assignable to Editable class ["</span> + editable.getName() + <span class="string">"]"</span>);</div><div class="line">			&#125;</div><div class="line">			actualEditable = editable;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//获取targetCLass所有属性及属性的它set,get的方法，描述属性</span></div><div class="line">		PropertyDescriptor[] targetPds = getPropertyDescriptors(actualEditable);</div><div class="line">		List&lt;String&gt; ignoreList = (ignoreProperties != <span class="keyword">null</span> ? Arrays.asList(ignoreProperties) : <span class="keyword">null</span>);</div><div class="line"></div><div class="line">        <span class="comment">//遍历每个属性</span></div><div class="line">		<span class="keyword">for</span> (PropertyDescriptor targetPd : targetPds) &#123;</div><div class="line">		    <span class="comment">//根据 这个属性 获取目标类的set方法</span></div><div class="line">			Method writeMethod = targetPd.getWriteMethod();</div><div class="line">			<span class="comment">//检测</span></div><div class="line">			<span class="keyword">if</span> (writeMethod != <span class="keyword">null</span> &amp;&amp; (ignoreList == <span class="keyword">null</span> || !ignoreList.contains(targetPd.getName()))) &#123;</div><div class="line">				<span class="comment">// 获取 源类 的相应的描述属性</span></div><div class="line">				PropertyDescriptor sourcePd = getPropertyDescriptor(source.getClass(), targetPd.getName());</div><div class="line">				<span class="keyword">if</span> (sourcePd != <span class="keyword">null</span>) &#123;</div><div class="line">				    <span class="comment">// 获取源类的get方法</span></div><div class="line">					Method readMethod = sourcePd.getReadMethod();</div><div class="line">					<span class="comment">//检测方法，然后获取值，写入</span></div><div class="line">					<span class="keyword">if</span> (readMethod != <span class="keyword">null</span> &amp;&amp;</div><div class="line">							ClassUtils.isAssignable(writeMethod.getParameterTypes()[<span class="number">0</span>], readMethod.getReturnType())) &#123;</div><div class="line">						<span class="keyword">try</span> &#123;</div><div class="line">							<span class="keyword">if</span> (!Modifier.isPublic(readMethod.getDeclaringClass().getModifiers())) &#123;</div><div class="line">								readMethod.setAccessible(<span class="keyword">true</span>);</div><div class="line">							&#125;</div><div class="line">							Object value = readMethod.invoke(source);</div><div class="line">							<span class="keyword">if</span> (!Modifier.isPublic(writeMethod.getDeclaringClass().getModifiers())) &#123;</div><div class="line">								writeMethod.setAccessible(<span class="keyword">true</span>);</div><div class="line">							&#125;</div><div class="line">							writeMethod.invoke(target, value);</div><div class="line">						&#125;</div><div class="line">						<span class="keyword">catch</span> (Throwable ex) &#123;</div><div class="line">							<span class="keyword">throw</span> <span class="keyword">new</span> FatalBeanException(</div><div class="line">									<span class="string">"Could not copy property '"</span> + targetPd.getName() + <span class="string">"' from source to target"</span>, ex);</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>方法前面的文档告诉了我们：将源Bean复制到指定的Bean中，两个类不需要有关联，也不必是派生关系，只需要属性匹配即可。</p>
+<h4 id="学习代码"><a href="#学习代码" class="headerlink" title="学习代码"></a>学习代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> org.springframework.beans.BeanUtils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Date;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/12/1 14:13&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestBeans</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">//首先设置一个学生，将它的基本属性复制给大学生，很方便的操作，不用set</span></div><div class="line">            Student student = <span class="keyword">new</span> Student(<span class="string">"wuwii"</span>, <span class="keyword">new</span> Date(<span class="number">1994</span> - <span class="number">1990</span>, <span class="number">2</span> -<span class="number">1</span>, <span class="number">19</span>),</div><div class="line">                    <span class="string">"WuHan"</span>, <span class="string">"123456"</span>);</div><div class="line">            UniversityStudent universityStudent = <span class="keyword">new</span> UniversityStudent();</div><div class="line">            BeanUtils.copyProperties(student, universityStudent);</div><div class="line">            System.out.println(universityStudent);</div><div class="line"></div><div class="line">            <span class="comment">//源和目标没有关联，部分属性也可以复制，有些属性没有也行。</span></div><div class="line">            String[] ignoreProperties = &#123;<span class="string">"name"</span>&#125;;</div><div class="line">            Adult_ adult = <span class="keyword">new</span> Adult_();</div><div class="line">            BeanUtils.copyProperties(student, adult, ignoreProperties);</div><div class="line">            System.out.printf(<span class="string">"adule： %s%n"</span>, adult);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//还有一些其他的实用方法</span></div><div class="line"></div><div class="line">        <span class="comment">//建立一个字符串Date</span></div><div class="line">        String date = <span class="string">"2008-8-8"</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 学生实体</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 姓名</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 出生年月</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> Date birthDate;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 住址</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> String address;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 身份证号</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> String IDNumber;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, Date birthDate, String address, String IDNumber)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.birthDate = birthDate;</div><div class="line">        <span class="keyword">this</span>.address = address;</div><div class="line">        <span class="keyword">this</span>.IDNumber = IDNumber;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// copyProperties是调用的set方法</span></div><div class="line">    <span class="comment">/*public void setName(String name) &#123;</span></div><div class="line"><span class="comment">        this.name = "keen";</span></div><div class="line"><span class="comment">    &#125;*/</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getBirthDate</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> birthDate;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBirthDate</span><span class="params">(Date birthDate)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.birthDate = birthDate;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> address;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAddress</span><span class="params">(String address)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.address = address;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getIDNumber</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> IDNumber;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIDNumber</span><span class="params">(String IDNumber)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.IDNumber = IDNumber;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Student&#123;"</span> +</div><div class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</div><div class="line">                <span class="string">", birthDate="</span> + birthDate +</div><div class="line">                <span class="string">", address='"</span> + address + <span class="string">'\''</span> +</div><div class="line">                <span class="string">", IDNumber='"</span> + IDNumber + <span class="string">'\''</span> +</div><div class="line">                <span class="string">'&#125;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 大学生继承学生&lt;/br&gt;</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UniversityStudent</span> <span class="keyword">extends</span> <span class="title">Student</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 专业</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> String major;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMajor</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> major;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMajor</span><span class="params">(String major)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.major = major;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.toString() + <span class="string">" UniversityStudent&#123;"</span> +</div><div class="line">                <span class="string">"major='"</span> + major + <span class="string">'\''</span> +</div><div class="line">                <span class="string">'&#125;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 成年人</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Adult_</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 姓名</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 出生年月</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> Date birthDate;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Adult_</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Adult_</span><span class="params">(String name, Date birthDate)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.birthDate = birthDate;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getBirthDate</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> birthDate;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBirthDate</span><span class="params">(Date birthDate)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.birthDate = birthDate;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Adult_&#123;"</span> +</div><div class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</div><div class="line">                <span class="string">", birthDate="</span> + birthDate +</div><div class="line">                <span class="string">'&#125;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>打印结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Student&#123;name=&apos;wuwii&apos;, birthDate=Fri Feb 19 00:00:00 CST 1904, address=&apos;WuHan&apos;, IDNumber=&apos;123456&apos;&#125; UniversityStudent&#123;major=&apos;null&apos;&#125;</div><div class="line">adule： Adule_&#123;name=&apos;null&apos;, birthDate=Fri Feb 19 00:00:00 CST 1904&#125;</div></pre></td></tr></table></figure></p>
+<p>出如反射机制的性能问题，如果有要求的话，还是建议使用构造函数吧，或者更换设计。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有一个子类继承了父类的属性，但是有很多属性值需要复制，单纯的靠set 或者构造函数肯定很不美观，出于“懒”的目的，了解到spring beans里面提供了BeanUtils工具类，看下copyProperties方法满足需要，是用反射做的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>20171203</title>
+    <link href="http://blog.wuwii.com/omelette.html"/>
+    <id>http://blog.wuwii.com/omelette.html</id>
+    <published>2017-12-03T12:08:03.000Z</published>
+    <updated>2017-12-04T00:27:53.611Z</updated>
+    
+    <content type="html"><![CDATA[<p>周末宅了下，肚子就饿得不行呀，动下手做点吃的，第一次做坑的不行啊。</p>
+<a id="more"></a>
+<p><img src="http://image.wuwii.com/omelette-1.jpg" alt="image"><br><img src="http://image.wuwii.com/omelette-2.jpg" alt="image"><br><img src="http://image.wuwii.com/omelette-3.jpg" alt="image"></p>
+<p>这么多，傻眼了，糊了糊了。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;周末宅了下，肚子就饿得不行呀，动下手做点吃的，第一次做坑的不行啊。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>事务的特性和@Transactional注解的使用</title>
     <link href="http://blog.wuwii.com/java-transactional.html"/>
     <id>http://blog.wuwii.com/java-transactional.html</id>
     <published>2017-11-30T08:08:03.000Z</published>
-    <updated>2017-12-01T00:36:57.218Z</updated>
+    <updated>2017-12-04T00:27:53.596Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Transactional如何工作"><a href="#Transactional如何工作" class="headerlink" title="@Transactional如何工作"></a>@Transactional如何工作</h3><p>实现了EntityManager接口的持久化上下文代理并不是声明式事务管理的唯一部分，事实上包含三个组成部分：</p>
 <ol>
@@ -146,7 +573,8 @@
 <p>默认情况下，只有来自外部的方法调用才会被AOP代理捕获，也就是，类内部方法调用本类内部的其他方法并不会引起事务行为。</p>
 <p>只要方法内部抛出<code>rollbackFor</code>设置的异常，就会回滚。</p>
 <p>例如：<br>在方法上加上<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Transactional</span>(value=<span class="string">"transactionManager"</span>, rollbackFor = Exception.class)</div></pre></td></tr></table></figure></p>
-<p>方法内部只要抛出异常，就全部回滚。</p>
+<p>方法内部只要抛出指定的异常或者错误，就全部回滚。</p>
+<p>补充，回滚异常是自己定义的异常类，最好按照要求继承<code>RuntimeException</code>。<br>如果非常有必要在事务中捕捉异常，而且需要回滚事务，那么直接再将这个异常抛出就可以了，但是不建议这么使用。</p>
 <p><strong>参考文章：</strong></p>
 <ul>
 <li><a rel="external nofollow" target="_blank" href="http://blog.csdn.net/bao19901210/article/details/41724355">spring事物配置，声明式事务管理和基于@Transactional注解的使用</a></li>
@@ -208,19 +636,20 @@
     <link href="http://blog.wuwii.com/angels-wear-white.html"/>
     <id>http://blog.wuwii.com/angels-wear-white.html</id>
     <published>2017-11-28T14:08:03.000Z</published>
-    <updated>2017-11-30T08:27:06.731Z</updated>
+    <updated>2017-12-04T00:27:53.596Z</updated>
     
     <content type="html"><![CDATA[<p>看了嘉年华，这次没去电影院，主要是周末一直有事情，是通过网上非正规渠道看的，网址就不暴露了，私聊也不给。</p>
 <p>感觉今年也贡献了好多张电影票了，实在是现在电影看得爆米花形式的，我只想去上厕所……</p>
 <p>这个电影还是没打算去电影院看，一个人去看电影好无聊呀；它是一个以女性的口吻来贯穿的。通过这个“幼女性侵”去讲述这个当前社会下这类人的生活状况。给人很大的震撼。</p>
 <a id="more"></a>
-<p>电影中小文，经历这个恶魔的桥段，她在什么都不懂的情况下，身边的人却对她的排斥，父母的异样，政府和社会的妥协，让社会底层的人只能忍气吞声，最终她渐渐的脱离了这个社会，让她感觉到世界都塌下了  。在单纯的年龄里，她呢其实和正常的孩子们是一样的生活，学习，正式这种不平等的眼光，小文和小米只能不断的渴求着成长，渴望着用化妆品和衣服等等来装饰着自己，让自己变得更加成熟，让自己能够战胜内心中的黑暗和恐惧。</p>
+<p>电影中小文和新新，经历这个恶魔的桥段，她们在什么都不懂的情况下，身边的人却对她们的排斥，父母的异样，政府和社会的妥协，让社会底层的人只能忍气吞声，最终她们渐渐的脱离了这个社会，让她们感觉到世界都塌下了。在单纯的年龄里，她们呢其实和正常的孩子们是一样的生活，学习，正式这种不平等的眼光，小文只能不断的渴求着成长，渴望着用化妆品和衣服等等来装饰着自己，让自己变得更加成熟，让自己能够战胜内心中的黑暗和恐惧。</p>
 <p>看到电影里的让人更加痛心疾首的不是女孩子们的遭遇，而是男人的懦弱，自私自利，有各种形态的人利用女性，殴打女性。无可厚非，虽然现在各种强调男女平等，总是有各种调查显示好像女性地位还要高些，但是现实中，女性在当今社会上地位还是很不平等。就拿经常被提起的，离婚的女性，其实 承受了很大的社会压力，就像小文妈的样子，同样不被社会所接纳，像是融合了所有离婚女人的不美好。因为社会上的一部分人，甚至说是那种传统思想吧，总是把一个女人和她的身体联系在一起，理解成，一个女人的价值就是她的身体。</p>
-<p>真的很可笑了，现在越来越发掘是男性的问题了，女人不应该承受这些，老一辈的三从四德，至今可能还在影响着我们这一辈的人。当然社会总是光明的，律师，让她们看到了希望，提升女性的权力和安全，在整个社会中接受，理性对待她们。我想，这起码也是社会文明的一大进步。</p>
+<p>真的很可笑了，现在越来越发掘是男性的问题了，女人不应该承受这些，老一辈的三从四德，至今可能还在影响着我们这一辈的人。当然社会总是光明的，律师，让她们看到了希望，最终逃过一劫的刘会长受到了法律的制裁。提升女性的权力和安全，在整个社会中接受，理性对待她们。我想，这起码也是社会文明的一大进步。</p>
 <blockquote>
 <p>“现在大家特别喜欢把脏和女孩子放在一起说，但这是为什么？在我眼里没有女孩是脏的。”</p>
 </blockquote>
-<p>但是世俗的偏见却让她们举步维艰，可是那又如何，快乐最重要，活出你们的态度。</p>
+<p>最后，穿着白裙子的小米，骑着电动车，未来将是一个美好的故事。</p>
+<p>虽然世俗的偏见却让她们举步维艰，可是那又如何，快乐最重要，活出你们的态度。</p>
 <p>美好的事情，需要所有的人努力才能改变。这部电影将会是个开始，因为它发出的声音，重新激发了人们的认知。</p>
 ]]></content>
     
@@ -328,7 +757,7 @@
     <link href="http://blog.wuwii.com/java-copyonwrite.html"/>
     <id>http://blog.wuwii.com/java-copyonwrite.html</id>
     <published>2017-11-26T13:08:03.000Z</published>
-    <updated>2017-11-27T00:50:14.242Z</updated>
+    <updated>2017-12-04T00:27:53.596Z</updated>
     
     <content type="html"><![CDATA[<p>Copy-On-Write简称COW，是一种用于程序设计中的<code>优化策略</code>。其基本思路是，从一开始大家都在共享同一个内容，当某个人想要修改这个内容的时候，才会真正把内容Copy出去形成一个新的内容然后再改，这是一种延时懒惰策略。从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOnWriteArrayList和CopyOnWriteArraySet。CopyOnWrite容器非常有用，可以在非常多的并发场景中使用到。</p>
 <h3 id="什么是CopyOnWrite容器"><a href="#什么是CopyOnWrite容器" class="headerlink" title="什么是CopyOnWrite容器"></a>什么是CopyOnWrite容器</h3><p>CopyOnWrite容器即写时复制的容器。通俗的理解是当我们往一个容器添加元素的时候，不直接往当前容器添加，而是先将当前容器进行Copy，复制出一个新的容器，然后新的容器里添加元素，添加完元素之后，再将原容器的引用指向新的容器。这样做的好处是我们可以对CopyOnWrite容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器。</p>
@@ -337,9 +766,9 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</div><div class="line">    <span class="comment">//1、先加锁</span></div><div class="line">    <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</div><div class="line">    lock.lock();</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Object[] elements = getArray();</div><div class="line">        <span class="keyword">int</span> len = elements.length;</div><div class="line">        <span class="comment">//2、拷贝数组</span></div><div class="line">        Object[] newElements = Arrays.copyOf(elements, len + <span class="number">1</span>);</div><div class="line">        <span class="comment">//3、将元素加入到新数组中</span></div><div class="line">        newElements[len] = e;</div><div class="line">        <span class="comment">//4、将array引用指向到新数组</span></div><div class="line">        setArray(newElements);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">       <span class="comment">//5、解锁</span></div><div class="line">        lock.unlock();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>可以看出来CopyOnWriteArrayList的整个add操作都是在锁的保护下进行的。</p>
 <p>当有新元素加入的时候，如下图，创建新数组，并往新数组中加入一个新元素,这个时候，array这个引用仍然是指向原数组的。</p>
-<p><img src="http://img.blog.csdn.net/20170117145928110?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGluc29uZ2JpbjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"></p>
+<p><img src="http://img.blog.csdn.net/20170117145928110?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGluc29uZ2JpbjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"><br><em>图片来自水印</em></p>
 <p>当元素在新数组添加成功后，将array这个引用指向新数组。</p>
-<p><img src="http://img.blog.csdn.net/20170117150336836?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGluc29uZ2JpbjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"></p>
+<p><img src="http://img.blog.csdn.net/20170117150336836?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGluc29uZ2JpbjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"><br><em>图片来自水印</em></p>
 <p>读取操作：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> get(getArray(), index);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>但是它的读操作并没有同步，因此读取它的数据的时候不一定是最新的数据。</strong></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
@@ -1139,200 +1568,6 @@
     
     
       <category term="哈希算法" scheme="http://blog.wuwii.com/tags/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>理解一致性哈希算法(consistent hashing)</title>
-    <link href="http://blog.wuwii.com/consistent-hashing.html"/>
-    <id>http://blog.wuwii.com/consistent-hashing.html</id>
-    <published>2017-11-15T06:14:03.000Z</published>
-    <updated>2017-11-15T06:14:33.835Z</updated>
-    
-    <content type="html"><![CDATA[<p>一致性哈希算法在1997年由麻省理工学院提出的一种分布式哈希（DHT）实现算法，设计目标是为了解决因特网中的热点(Hot spot)问题，初衷和CARP十分类似。一致性哈希修正了CARP使用的简 单哈希算法带来的问题，使得分布式哈希（DHT）可以在P2P环境中真正得到应用。<br>一致性hash算法提出了在动态变化的Cache环境中，判定哈希算法好坏的四个定义：  </p>
-<a id="more"></a>
-<ol>
-<li><code>平衡性(Balance)</code>：平衡性是指哈希的结果能够尽可能分布到所有的缓冲中去，这样可以使得所有的缓冲空间都得到利用。很多哈希算法都能够满足这一条件。</li>
-<li><code>单调性(Monotonicity)</code>：单调性是指如果已经有一些内容通过哈希分派到了相应的缓冲中，又有新的缓冲加入到系统中。哈希的结果应能够保证原有已分配的内容可以被映射到原有的或者新的缓冲中去，而不会被映射到旧的缓冲集合中的其他缓冲区。 </li>
-<li><code>分散性(Spread)</code>：在分布式环境中，终端有可能看不到所有的缓冲，而是只能看到其中的一部分。当终端希望通过哈希过程将内容映射到缓冲上时，由于不同终端所见的缓冲范围有可能不同，从而导致哈希的结果不一致，最终的结果是相同的内容被不同的终端映射到不同的缓冲区中。这种情况显然是应该避免的，因为它导致相同内容被存储到不同缓冲中去，降低了系统存储的效率。分散性的定义就是上述情况发生的严重程度。好的哈希算法应能够尽量避免不一致的情况发生，也就是尽量降低分散性。 </li>
-<li><code>负载(Load)</code>：负载问题实际上是从另一个角度看待分散性问题。既然不同的终端可能将相同的内容映射到不同的缓冲区中，那么对于一个特定的缓冲区而言，也可能被不同的用户映射为不同 的内容。与分散性一样，这种情况也是应当避免的，因此好的哈希算法应能够尽量降低缓冲的负荷。<h3 id="分布式集群中，对机器的添加删除"><a href="#分布式集群中，对机器的添加删除" class="headerlink" title="分布式集群中，对机器的添加删除"></a>分布式集群中，对机器的添加删除</h3>在分布式集群中，对机器的添加删除，或者机器故障后自动脱离集群这些操作是分布式集群管理最基本的功能。如果采用常用的hash(object)%N算法，那么在有机器添加或者删除后，很多原有的数据就无法找到了，这样严重的违反了单调性原则。接下来主要讲解一下一致性哈希算法是如何设计的：</li>
-</ol>
-<h4 id="环形Hash空间"><a href="#环形Hash空间" class="headerlink" title="环形Hash空间"></a>环形Hash空间</h4><p>按照常用的hash算法来将对应的key哈希到一个具有2^32次方个桶的空间中，即0~(2^32)-1的数字空间中。现在我们可以将这些数字头尾相连，想象成一个闭合的环形。如下图：</p>
-<p><img src="http://img.blog.csdn.net/20140411000507734?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3l3b3Nw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"></p>
-<h4 id="把数据通过一定的hash算法处理后映射到环上"><a href="#把数据通过一定的hash算法处理后映射到环上" class="headerlink" title="把数据通过一定的hash算法处理后映射到环上"></a>把数据通过一定的hash算法处理后映射到环上</h4><p>现在我们将object1、object2、object3、object4四个对象通过特定的Hash函数计算出对应的key值，然后散列到Hash环上。如下图：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Hash(object1) = key1；</div><div class="line">Hash(object2) = key2；</div><div class="line">Hash(object3) = key3；</div><div class="line">Hash(object4) = key4；</div></pre></td></tr></table></figure></p>
-<p><img src="http://img.blog.csdn.net/20140411000620656?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3l3b3Nw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"></p>
-<h4 id="将机器通过hash算法映射到环上"><a href="#将机器通过hash算法映射到环上" class="headerlink" title="将机器通过hash算法映射到环上"></a>将机器通过hash算法映射到环上</h4><p>在采用一致性哈希算法的分布式集群中将新的机器加入，其原理是通过使用与对象存储一样的Hash算法将机器也映射到环中（一般情况下对机器的hash计算是采用机器的IP或者机器唯一的别名作为输入值），然后以顺时针的方向计算，将所有对象存储到离自己最近的机器中。<br>假设现在有NODE1，NODE2，NODE3三台机器，通过Hash算法得到对应的KEY值，映射到环中，其示意图如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Hash(NODE1) = KEY1;</div><div class="line">Hash(NODE2) = KEY2;</div><div class="line">Hash(NODE3) = KEY3;</div></pre></td></tr></table></figure></p>
-<p><img src="http://img.blog.csdn.net/20140411000853609?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3l3b3Nw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"></p>
-<p>通过上图可以看出对象与机器处于同一哈希空间中，这样按顺时针转动object1存储到了NODE1中，object3存储到了NODE2中，object2、object4存储到了NODE3中。在这样的部署环境中，hash环是不会变更的，因此，通过算出对象的hash值就能快速的定位到对应的机器中，这样就能找到对象真正的存储位置了。</p>
-<h4 id="机器的删除与添加"><a href="#机器的删除与添加" class="headerlink" title="机器的删除与添加"></a>机器的删除与添加</h4><p>普通hash求余算法最为不妥的地方就是在有机器的添加或者删除之后会照成大量的对象存储位置失效，这样就大大的不满足单调性了。下面来分析一下一致性哈希算法是如何处理的。</p>
-<h5 id="节点（机器）的删除"><a href="#节点（机器）的删除" class="headerlink" title="节点（机器）的删除"></a>节点（机器）的删除</h5><p>以上面的分布为例，如果NODE2出现故障被删除了，那么按照顺时针迁移的方法，object3将会被迁移到NODE3中，这样仅仅是object3的映射位置发生了变化，其它的对象没有任何的改动。如下图：</p>
-<p><img src="http://img.blog.csdn.net/20140411001033656?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3l3b3Nw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"></p>
-<h5 id="节点（机器）的添加"><a href="#节点（机器）的添加" class="headerlink" title="节点（机器）的添加"></a>节点（机器）的添加</h5><p> 如果往集群中添加一个新的节点NODE4，通过对应的哈希算法得到KEY4，并映射到环中，如下图：</p>
-<p> <img src="http://img.blog.csdn.net/20140411001211062?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3l3b3Nw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"></p>
-<p>  通过按顺时针迁移的规则，那么object2被迁移到了NODE4中，其它对象还保持这原有的存储位置。通过对节点的添加和删除的分析，一致性哈希算法在保持了单调性的同时，还是数据的迁移达到了最小，这样的算法对分布式集群来说是非常合适的，避免了大量数据迁移，减小了服务器的的压力。</p>
-<h4 id="平衡性"><a href="#平衡性" class="headerlink" title="平衡性"></a>平衡性</h4><p>根据上面的图解分析，一致性哈希算法满足了单调性和负载均衡的特性以及一般hash算法的分散性，但这还并不能当做其被广泛应用的原由，因为还缺少了平衡性。下面将分析一致性哈希算法是如何满足平衡性的。hash算法是不保证平衡的，如上面只部署了NODE1和NODE3的情况（NODE2被删除的图），object1存储到了NODE1中，而object2、object3、object4都存储到了NODE3中，这样就照成了非常不平衡的状态。在一致性哈希算法中，为了尽可能的满足平衡性，其引入了虚拟节点。</p>
-<blockquote>
-<p>——“虚拟节点”（ virtual node ）是实际节点（机器）在 hash 空间的复制品（ replica ），一实际个节点（机器）对应了若干个“虚拟节点”，这个对应个数也成为“复制个数”，“虚拟节点”在 hash 空间中以hash值排列。</p>
-</blockquote>
-<p>以上面只部署了NODE1和NODE3的情况（NODE2被删除的图）为例，之前的对象在机器上的分布很不均衡，现在我们以2个副本（复制个数）为例，这样整个hash环中就存在了4个虚拟节点，最后对象映射的关系图如下：</p>
-<p><img src="http://img.blog.csdn.net/20140411001433375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3l3b3Nw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"></p>
-<p>根据上图可知对象的映射关系：<code>object1-&gt;NODE1-1</code>，<code>object2-&gt;NODE1-2</code>，<code>object3-&gt;NODE3-2</code>，<code>object4-&gt;NODE3-1</code>。通过虚拟节点的引入，对象的分布就比较均衡了。那么在实际操作中，正真的对象查询是如何工作的呢？对象从hash到虚拟节点到实际节点的转换如下图：</p>
-<p><img src="http://img.blog.csdn.net/20140411001540656?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3l3b3Nw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"></p>
-<p><code>虚拟节点</code>的hash计算可以采用对应节点的IP地址加数字后缀的方式。例如假设NODE1的IP地址为192.168.1.100。引入“虚拟节点”前，计算 cache A 的 hash 值：<br><code>Hash(“192.168.1.100”)</code>;<br>引入“虚拟节点”后，计算“虚拟节”点NODE1-1和NODE1-2的hash值：<br><code>Hash(“192.168.1.100#1”); // NODE1-1</code><br><code>Hash(“192.168.1.100#2”); // NODE1-2</code></p>
-<p><strong>文章转载 <a rel="external nofollow" target="_blank" href="http://blog.csdn.net/cywosp/article/details/23397179">每天进步一点点——五分钟理解一致性哈希算法(consistent hashing)</a></strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一致性哈希算法在1997年由麻省理工学院提出的一种分布式哈希（DHT）实现算法，设计目标是为了解决因特网中的热点(Hot spot)问题，初衷和CARP十分类似。一致性哈希修正了CARP使用的简 单哈希算法带来的问题，使得分布式哈希（DHT）可以在P2P环境中真正得到应用。&lt;br&gt;一致性hash算法提出了在动态变化的Cache环境中，判定哈希算法好坏的四个定义：  &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="算法" scheme="http://blog.wuwii.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="哈希算法" scheme="http://blog.wuwii.com/tags/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 8 Optional类的分析与使用</title>
-    <link href="http://blog.wuwii.com/java-optional.html"/>
-    <id>http://blog.wuwii.com/java-optional.html</id>
-    <published>2017-11-12T13:08:03.000Z</published>
-    <updated>2017-11-13T02:09:45.476Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>Optional</code> 类 是<code>jdk 1.8</code>后新添加的特性，阿里巴巴的代码规范也明确说明了使用 Optional 来防止NPE。</p>
-<blockquote>
-<p>Optional 类是一个可以为null的容器对象。如果值存在则isPresent()方法会返回true，调用get()方法会返回该对象。<br>Optional 是个容器：它可以保存类型T的值，或者仅仅保存null。Optional提供很多有用的方法，这样我们就不用显式进行空值检测。<br>Optional 类的引入很好的解决空指针异常。</p>
-</blockquote>
-<a id="more"></a>
-<p>它拥有的方法：<img src="http://ov62kaxkk.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171112172632.png" alt="image"></p>
-<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// @since 1.8</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Optional</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * Common instance for &#123;<span class="doctag">@code</span> empty()&#125;.</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Optional&lt;?&gt; EMPTY = <span class="keyword">new</span> Optional&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * If non-null, the value; if null, indicates no value is present</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> T value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>value 属性就是存储数据的地方。如果为null，表示没有值的存在，取值的时候如果没有默认值，会抛出空指针。</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><p>它拥有两个构造方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Constructs an empty instance.</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * <span class="doctag">@implNote</span> Generally only one empty instance, &#123;<span class="doctag">@link</span> Optional#EMPTY&#125;,</span></div><div class="line"><span class="comment"> * should exist per VM.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="title">Optional</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.value = <span class="keyword">null</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Constructs an instance with the value present.</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> value the non-null value to be present</span></div><div class="line"><span class="comment"> * <span class="doctag">@throws</span> NullPointerException if value is null</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="title">Optional</span><span class="params">(T value)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.value = Objects.requireNonNull(value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>第一个构造一个空的Optional；</li>
-<li>第二个构造一个值为value的Optional，值为null会抛出NPE；</li>
-</ul>
-<h4 id="of"><a href="#of" class="headerlink" title="of"></a>of</h4><blockquote>
-<p>为非null的值创建一个Optional。</p>
-</blockquote>
-<p>of方法通过工厂方法创建Optional类。需要注意的是，创建对象时传入的参数不能为null。如果传入参数为null，则抛出NullPointerException。<br>源码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Optional&lt;T&gt; <span class="title">of</span><span class="params">(T value)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Optional&lt;&gt;(value);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>可以看出它最后调用的是第二个有参的构造函数，所以它传入的参数也为null会抛出空指针。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Optional&lt;String&gt; spring = Optional.of(<span class="string">"SPRING"</span>);</div><div class="line">Optional&lt;String&gt; emptyStr = Optional.of(<span class="string">""</span>);</div><div class="line">Optional&lt;String&gt; nullValue = Optional.of(<span class="keyword">null</span>);</div></pre></td></tr></table></figure>
-<p>最后个创建Optional实例会抛出空指针异常。</p>
-<h4 id="ofNullable"><a href="#ofNullable" class="headerlink" title="ofNullable"></a>ofNullable</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Returns an &#123;<span class="doctag">@code</span> Optional&#125; describing the specified value, if non-null,</span></div><div class="line"><span class="comment"> * otherwise returns an empty &#123;<span class="doctag">@code</span> Optional&#125;.</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> &lt;T&gt; the class of the value</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> value the possibly-null value to describe</span></div><div class="line"><span class="comment"> * <span class="doctag">@return</span> an &#123;<span class="doctag">@code</span> Optional&#125; with a present value if the specified value</span></div><div class="line"><span class="comment"> * is non-null, otherwise an empty &#123;<span class="doctag">@code</span> Optional&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Optional&lt;T&gt; <span class="title">ofNullable</span><span class="params">(T value)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> value == <span class="keyword">null</span> ? empty() : of(value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>为指定的值创建一个Optional，如果指定的值为null，则返回一个空的Optional。<br>相比较of 方法，能够接受 null 参数。</p>
-<h4 id="isPresent"><a href="#isPresent" class="headerlink" title="isPresent"></a>isPresent</h4><p>判断值是否存在。值不为null，返回true。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPresent</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> value != <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><p>取出存在Optional 中的值，为Null 抛出<code>NoSuchElementException</code>异常<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (value == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException(<span class="string">"No value present"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="ifPresent"><a href="#ifPresent" class="headerlink" title="ifPresent"></a>ifPresent</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * If a value is present, invoke the specified consumer with the value,</span></div><div class="line"><span class="comment"> * otherwise do nothing.</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> consumer block to be executed if a value is present</span></div><div class="line"><span class="comment"> * <span class="doctag">@throws</span> NullPointerException if value is present and &#123;<span class="doctag">@code</span> consumer&#125; is</span></div><div class="line"><span class="comment"> * null</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ifPresent</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> T&gt; consumer)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (value != <span class="keyword">null</span>)</div><div class="line">        consumer.accept(value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对传入的值使用<code>Consumer</code>接口的accept方法进行处理，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Performs this operation on the given argument.</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> t the input argument</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t)</span></span>;</div></pre></td></tr></table></figure></p>
-<p>实际上就是可以使用函数式编程了，使用lambda表达式方法了，前提是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">spring.ifPresent(a -&gt; System.out.println(a.indexOf(&quot;I&quot;)));</div></pre></td></tr></table></figure></p>
-<p>结果为 <code>3</code>。</p>
-<h4 id="orElse"><a href="#orElse" class="headerlink" title="orElse"></a>orElse</h4><p>如果有值则将其返回，否则返回指定的其它值。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.printf(<span class="string">"有值的Optional: %s，没值的Optional：%s%n"</span>,</div><div class="line">                spring.orElse(<span class="string">"summer"</span>), nullValue.orElse(<span class="string">"summer"</span>));</div></pre></td></tr></table></figure>
-<p>打印结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">有值的Optional: SPRING，没值的Optional：summer</div></pre></td></tr></table></figure></p>
-<h4 id="orElseGet"><a href="#orElseGet" class="headerlink" title="orElseGet"></a>orElseGet</h4><p>orElseGet与orElse方法类似，区别在于得到的默认值。orElse方法将传入的字符串作为默认值，orElseGet方法可以接受Supplier接口的实现用来生成默认值，由于参数是接口形式，直接使用lambda表达式，更方便。<br>能接收函数式返回处理的数据。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">System.out.printf(<span class="string">"有值的Optional: %s，没值的Optional：%s%n"</span>,</div><div class="line">                spring.orElseGet(() -&gt; <span class="string">"summer"</span>),</div><div class="line">                nullValue.orElseGet(() -&gt; <span class="string">"summer"</span>));</div></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">有值的Optional: SPRING，没值的Optional：summer</div></pre></td></tr></table></figure></p>
-<h4 id="orElseThrow"><a href="#orElseThrow" class="headerlink" title="orElseThrow"></a>orElseThrow</h4><p>如果有值则将其返回，否则抛出supplier接口创建的异常。<br>在上面的 orElseGet 方法中，传入的是Supplier接口的实现，在orElseThrow中传入一个Throwable ，如果值不存在来抛出传入的指定类型异常，源码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> &lt;X extends Throwable&gt; <span class="function">T <span class="title">orElseThrow</span><span class="params">(Supplier&lt;? extends X&gt; exceptionSupplier)</span> <span class="keyword">throws</span> X </span>&#123;</div><div class="line">    <span class="keyword">if</span> (value != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">throw</span> exceptionSupplier.get();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">        <span class="comment">//orElseThrow</span></div><div class="line">        System.out.printf(<span class="string">"orElseThrow有值的Optional: %s，没值的Optional：%s%n"</span>,</div><div class="line">                spring.orElseThrow(OptionalThrowable::<span class="keyword">new</span>),</div><div class="line">                nullValue.orElseThrow(OptionalThrowable::<span class="keyword">new</span>));</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 自定义的Optional异常类</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">OptionalThrowable</span> <span class="keyword">extends</span> <span class="title">Throwable</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OptionalThrowable</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OptionalThrowable</span><span class="params">(String message)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(message);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//return super.getMessage();</span></div><div class="line">        <span class="keyword">return</span> <span class="string">"这个Optional 是空值"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>结果符合预期错误抛出结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">有值的Optional: SPRING，没值的Optional：summer</div><div class="line">Exception in thread &quot;main&quot; com.wuwii.utils.OptionalThrowable: 这个Optional 是空值</div><div class="line">	at java.util.Optional.orElseThrow(Optional.java:290)</div><div class="line">	at com.wuwii.utils.OptionalTest.main(OptionalTest.java:28)</div></pre></td></tr></table></figure></p>
-<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><blockquote>
-<p>如果有值，则对其执行调用mapping函数得到返回值。如果返回值不为null，则创建包含mapping返回值的Optional作为map方法返回值，否则返回空Optional。</p>
-</blockquote>
-<p>map就是stream中的方法一样的，是用来操作的，用来对Optional实例的值执行一系列操作，所以我们可以灵活的使用Function包的方法和lamdba表达式。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//map</span></div><div class="line">        Optional&lt;String&gt; castedOptional = spring.map(String::toLowerCase);</div><div class="line">        System.out.printf(<span class="string">"转换过后的值：%s%n"</span>, castedOptional.orElseGet(<span class="keyword">null</span>));</div></pre></td></tr></table></figure>
-<p>输出结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">转换过后的值：spring</div></pre></td></tr></table></figure></p>
-<p>可以看出转换成小写的了。</p>
-<h4 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap"></a>flatMap</h4><blockquote>
-<p>如果有值，为其执行mapping函数返回Optional类型返回值，否则返回空Optional。flatMap与map（Funtion）方法类似，区别在于flatMap中的mapper返回值必须是Optional。调用结束时，flatMap不会对结果用Optional封装。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//flatMap</span></div><div class="line">        Optional&lt;String&gt; upperOptional = castedOptional.flatMap(a -&gt; Optional.of(a.toUpperCase()));</div><div class="line">        System.out.printf(<span class="string">"将上面小写的castedOptional 转换成大写：%s%n"</span>, upperOptional.orElseGet(<span class="keyword">null</span>));</div></pre></td></tr></table></figure>
-<p>输出结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">将上面小写的castedOptional 转换成大写：SPRING</div></pre></td></tr></table></figure></p>
-<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><blockquote>
-<p>如果有值并且满足断言条件返回包含该值的Optional，否则返回空Optional。</p>
-</blockquote>
-<p>过滤，对于filter函数我们应该传入实现了Predicate接口的lambda表达式。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/filter</div><div class="line">        <span class="comment">//过滤掉长度不大于10的，SPRING长度小于10，故此被过滤了</span></div><div class="line">        Optional&lt;String&gt; filterOptional = upperOptional.filter(a -&gt; a.length() &gt; <span class="number">10</span>);</div><div class="line">        System.out.printf(<span class="string">"过滤掉长度不大于10的 ：%s%n"</span>, filterOptional.orElse(<span class="string">"Default value"</span>));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>输出结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">过滤掉长度不大于10的结果 ：Default value</div></pre></td></tr></table></figure></p>
-<h3 id="学习的所有代码"><a href="#学习的所有代码" class="headerlink" title="学习的所有代码"></a>学习的所有代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.wuwii.utils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Optional;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 学习Optional</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span>: Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> : 2017/11/12 20:40</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OptionalTest</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//of</span></div><div class="line">        Optional&lt;String&gt; spring = Optional.of(<span class="string">"SPRING"</span>);</div><div class="line">        Optional&lt;String&gt; emptyStr = Optional.of(<span class="string">""</span>);</div><div class="line">		<span class="comment">//会抛出异常NPE</span></div><div class="line">        <span class="comment">//Optional&lt;String&gt; nullValue1 = Optional.of(null); </span></div><div class="line">		<span class="comment">//不会抛异常，做了判断</span></div><div class="line">        Optional&lt;String&gt; nullValue = Optional.ofNullable(<span class="keyword">null</span>);</div><div class="line">		</div><div class="line">        <span class="comment">//ifPresent</span></div><div class="line">        spring.ifPresent(a -&gt; System.out.println(a.indexOf(<span class="string">"I"</span>)));</div><div class="line">		</div><div class="line">        <span class="comment">//orElse</span></div><div class="line">        System.out.printf(<span class="string">"orElse有值的Optional: %s，没值的Optional：%s%n"</span>,</div><div class="line">                spring.orElse(<span class="string">"summer"</span>), nullValue.orElse(<span class="string">"summer"</span>));</div><div class="line">				</div><div class="line">        <span class="comment">//orElseGet</span></div><div class="line">        System.out.printf(<span class="string">"orElseGet有值的Optional: %s，没值的Optional：%s%n"</span>,</div><div class="line">                spring.orElseGet(() -&gt; <span class="string">"summer"</span>),</div><div class="line">                nullValue.orElseGet(() -&gt; <span class="string">"summer"</span>));</div><div class="line">				</div><div class="line">        <span class="comment">//orElseThrow</span></div><div class="line">		<span class="comment">// 这段代码会抛出异常，为了下面能运行，先注释。</span></div><div class="line">        <span class="comment">/*try &#123;</span></div><div class="line"><span class="comment">            System.out.printf("orElseThrow有值的Optional: %s，没值的Optional：%s%n",</span></div><div class="line"><span class="comment">                    spring.orElseThrow(OptionalThrowable::new),</span></div><div class="line"><span class="comment">                    nullValue.orElseThrow(OptionalThrowable::new));</span></div><div class="line"><span class="comment">        &#125; catch (OptionalThrowable optionalThrowable) &#123;</span></div><div class="line"><span class="comment">            optionalThrowable.printStackTrace();</span></div><div class="line"><span class="comment">        &#125;*/</span></div><div class="line"></div><div class="line">        <span class="comment">//map</span></div><div class="line">        Optional&lt;String&gt; castedOptional = spring.map(String::toLowerCase);</div><div class="line">        System.out.printf(<span class="string">"转换成小写的值：%s%n"</span>, castedOptional.orElseGet(<span class="keyword">null</span>));</div><div class="line"></div><div class="line">        <span class="comment">//flatMap</span></div><div class="line">        Optional&lt;String&gt; upperOptional = castedOptional.flatMap(a -&gt; Optional.of(a.toUpperCase()));</div><div class="line">        System.out.printf(<span class="string">"将上面小写的castedOptional 转换成大写：%s%n"</span>, upperOptional.orElseGet(<span class="keyword">null</span>));</div><div class="line"></div><div class="line">        <span class="comment">//filter</span></div><div class="line">        <span class="comment">//过滤掉长度不大于10的，SPRING长度小于10，故此被过滤了</span></div><div class="line">        Optional&lt;String&gt; filterOptional = upperOptional.filter(a -&gt; a.length() &gt; <span class="number">10</span>);</div><div class="line">        System.out.printf(<span class="string">"过滤掉长度不大于10的结果 ：%s%n"</span>, filterOptional.orElse(<span class="string">"Default value"</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 自定义的Optional异常类</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">OptionalThrowable</span> <span class="keyword">extends</span> <span class="title">Throwable</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OptionalThrowable</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OptionalThrowable</span><span class="params">(String message)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(message);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//return super.getMessage();</span></div><div class="line">        <span class="keyword">return</span> <span class="string">"这个Optional 是空值"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;Optional&lt;/code&gt; 类 是&lt;code&gt;jdk 1.8&lt;/code&gt;后新添加的特性，阿里巴巴的代码规范也明确说明了使用 Optional 来防止NPE。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Optional 类是一个可以为null的容器对象。如果值存在则isPresent()方法会返回true，调用get()方法会返回该对象。&lt;br&gt;Optional 是个容器：它可以保存类型T的值，或者仅仅保存null。Optional提供很多有用的方法，这样我们就不用显式进行空值检测。&lt;br&gt;Optional 类的引入很好的解决空指针异常。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>歌词-《清白之年》</title>
-    <link href="http://blog.wuwii.com/innocence-year.html"/>
-    <id>http://blog.wuwii.com/innocence-year.html</id>
-    <published>2017-11-12T07:08:03.000Z</published>
-    <updated>2017-11-13T02:09:45.468Z</updated>
-    
-    <content type="html"><![CDATA[<p>热爱美丽又遗憾的世界，愿你出走半生，归来仍是少年。<br>一直有人，再让我幻想。。</p>
-<p><img src="https://i.loli.net/2017/11/12/5a07fbf87973b.jpg" alt="img"></p>
-<a id="more"></a>
-<blockquote class="blockquote-center"><h3 id="清白之年"><a href="#清白之年" class="headerlink" title="清白之年"></a>清白之年</h3><p>词 : 朴树 </p>
-<hr>
-<p>故事开始以前 </p>
-<p>最初的那些春天<br>阳光洒在杨树上 风吹来 闪银光 </p>
-<p>街道平静而温暖<br>钟走得好慢 </p>
-<p>那是我还不识人生之味的年代 </p>
-<p>我情窦还不开 </p>
-<p>你的衬衣如雪 </p>
-<p>盼着杨树叶落下 眼睛不眨 </p>
-<p>心里像有一些话<br>我们先不讲 </p>
-<p>等待着那将要盛装出场的未来 </p>
-<p>人随风飘荡 </p>
-<p>天各自一方 </p>
-<p>在风尘中遗忘的清白脸庞 </p>
-<p>此生多勉强 </p>
-<p>此身越重洋 </p>
-<p>轻描时光漫长低唱语焉不详 </p>
-<p>数不清的流年 </p>
-<p>似是而非的脸<br>把你的故事对我讲<br>就让我笑出泪光<br>是不是生活太艰难<br>还是活色生香 </p>
-<p>我们都遍体鳞伤 </p>
-<p>也慢慢坏了心肠 </p>
-<p>你得到你想要的吗<br>换来的是铁石心肠 </p>
-<p>可曾还有什么人<br>再让你幻想 </p>
-<p>大风吹来了<br>我们随风飘荡 </p>
-<p>在风尘中遗忘的清白脸庞 </p>
-<p>此生多寒凉 </p>
-<p>此身越重洋 </p>
-<p>轻描时光漫长低唱语焉不详 </p>
-<p>大风吹来了<br>我们随风飘荡 </p>
-<p>在风尘中熄灭的清澈目光 </p>
-<p>我想回头望 </p>
-<p>把故事从头讲<br>时光迟暮不返人生已不再来</p>
-</blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;热爱美丽又遗憾的世界，愿你出走半生，归来仍是少年。&lt;br&gt;一直有人，再让我幻想。。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2017/11/12/5a07fbf87973b.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="那些很美的句子" scheme="http://blog.wuwii.com/categories/%E9%82%A3%E4%BA%9B%E5%BE%88%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/"/>
-    
-    
-      <category term="歌词" scheme="http://blog.wuwii.com/tags/%E6%AD%8C%E8%AF%8D/"/>
     
   </entry>
   

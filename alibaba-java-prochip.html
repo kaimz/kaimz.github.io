@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+    (function(){
+        if(''){
+            if (prompt('不好意思，这篇文章需要密码！') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上,Slience" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="喃声细语" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="阿里巴巴Java开发手册地址：阿里巴巴Java开发手册（纪念版）.pdf 开始看的时候还是终极版，不知道什么时候又出到了纪念版，听说之前还有个完美版，感觉词穷了，期待下一版本狗年限定版。撇开了，很实用的规范内容，值得看。 记录下个人容易出问题的地方。  编码规范命名风格各层命名规约Service/DAO 层方法命名规约 获取单个对象的方法用 get 做前缀。    获取多个对象的方法用 list">
+<meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上,Slience">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里巴巴Java开发手册中容易踩的坑">
+<meta property="og:url" content="http://blog.wuwii.com/alibaba-java-prochip.html">
+<meta property="og:site_name" content="喃声细语">
+<meta property="og:description" content="阿里巴巴Java开发手册地址：阿里巴巴Java开发手册（纪念版）.pdf 开始看的时候还是终极版，不知道什么时候又出到了纪念版，听说之前还有个完美版，感觉词穷了，期待下一版本狗年限定版。撇开了，很实用的规范内容，值得看。 记录下个人容易出问题的地方。  编码规范命名风格各层命名规约Service/DAO 层方法命名规约 获取单个对象的方法用 get 做前缀。    获取多个对象的方法用 list">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-06T03:57:20.658Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿里巴巴Java开发手册中容易踩的坑">
+<meta name="twitter:description" content="阿里巴巴Java开发手册地址：阿里巴巴Java开发手册（纪念版）.pdf 开始看的时候还是终极版，不知道什么时候又出到了纪念版，听说之前还有个完美版，感觉词穷了，期待下一版本狗年限定版。撇开了，很实用的规范内容，值得看。 记录下个人容易出问题的地方。  编码规范命名风格各层命名规约Service/DAO 层方法命名规约 获取单个对象的方法用 get 做前缀。    获取多个对象的方法用 list">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'TWXZ15WRBL',
+      apiKey: 'c272bd4b810c8b43773a3f1d3c6b8d27',
+      indexName: 'wuwii',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.wuwii.com/alibaba-java-prochip.html"/>
+
+
+
+
+
+  <title>阿里巴巴Java开发手册中容易踩的坑 | 喃声细语</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b847762b9271725a63131e554978de0a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63798915";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1264593822&web_id=1264593822" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+  
+  <link href="http://blog.wuwii.com/harlem-shake-style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">喃声细语</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">一个人的独白，成为最好的自己，遇到最好的那个人。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/alibaba-java-prochip.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Slience">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://image.wuwii.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">阿里巴巴Java开发手册中容易踩的坑</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-06T11:48:03+08:00">
+                2017-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  6,216
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  23
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>阿里巴巴Java开发手册地址：<a rel="external nofollow" target="_blank" href="https://github.com/alibaba/p3c/blob/master/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E7%BA%AA%E5%BF%B5%E7%89%88%EF%BC%89.pdf">阿里巴巴Java开发手册（纪念版）.pdf</a></p>
+<p>开始看的时候还是<strong>终极版</strong>，不知道什么时候又出到了<strong>纪念版</strong>，听说之前还有个<strong>完美版</strong>，感觉词穷了，期待下一版本<strong>狗年限定版</strong>。<br>撇开了，<strong>很实用的规范内容，值得看</strong>。</p>
+<p>记录下个人容易出问题的地方。</p>
+<hr>
+<h2 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h2><h3 id="命名风格"><a href="#命名风格" class="headerlink" title="命名风格"></a>命名风格</h3><h4 id="各层命名规约"><a href="#各层命名规约" class="headerlink" title="各层命名规约"></a>各层命名规约</h4><h5 id="Service-DAO-层方法命名规约"><a href="#Service-DAO-层方法命名规约" class="headerlink" title="Service/DAO 层方法命名规约"></a>Service/DAO 层方法命名规约</h5><ol>
+<li>获取单个对象的方法用 get 做前缀。   </li>
+<li>获取多个对象的方法用 list 做前缀。  </li>
+<li>获取统计值的方法用 count 做前缀。   </li>
+<li>插入的方法用 save/insert 做前缀。   </li>
+<li>删除的方法用 remove/delete 做前缀。    </li>
+<li>修改的方法用 update 做前缀。 </li>
+</ol>
+<h5 id="领域模型命名规约"><a href="#领域模型命名规约" class="headerlink" title="领域模型命名规约"></a>领域模型命名规约</h5><ol>
+<li>数据对象：xxxDO，xxx 即为数据表名。    </li>
+<li>数据传输对象：xxxDTO，xxx 为业务领域相关的名称。 </li>
+<li>展示对象：xxxVO，xxx 一般为网页名称。  </li>
+<li>POJO 是 DO/DTO/BO/VO 的统称，禁止命名成 xxxPOJO。 </li>
+</ol>
+<h3 id="常量定义"><a href="#常量定义" class="headerlink" title="常量定义"></a>常量定义</h3><ol>
+<li>不允许任何魔法值（即未经定义的常量）直接出现在代码中。 </li>
+<li>将包或者工程内部的共享变量，放在相应的constant 下，例如，一个模块下的常量：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> io.renren.utils;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 常量</span></div><div class="line"><span class="comment"> * <span class="doctag">@date</span> 2016年11月15日 下午1:23:52</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Constant</span> </span>&#123;</div><div class="line">	<span class="comment">/** 超级管理员ID */</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SUPER_ADMIN = <span class="number">1</span>;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 菜单类型</span></div><div class="line"><span class="comment">	 * </span></div><div class="line"><span class="comment">	 * <span class="doctag">@date</span> 2016年11月15日 下午1:24:29</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> MenuType &#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 目录</span></div><div class="line"><span class="comment">         */</span></div><div class="line">    	CATALOG(<span class="number">0</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 菜单</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        MENU(<span class="number">1</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 按钮</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        BUTTON(<span class="number">2</span>);</div><div class="line"></div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> value;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">MenuType</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 定时任务状态</span></div><div class="line"><span class="comment">     * </span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> ScheduleStatus &#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 正常</span></div><div class="line"><span class="comment">         */</span></div><div class="line">    	NORMAL(<span class="number">0</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 暂停</span></div><div class="line"><span class="comment">         */</span></div><div class="line">    	PAUSE(<span class="number">1</span>);</div><div class="line"></div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> value;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">ScheduleStatus</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 云服务商</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> CloudService &#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 七牛云</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        QINIU(<span class="number">1</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 阿里云</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        ALIYUN(<span class="number">2</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 腾讯云</span></div><div class="line"><span class="comment">         */</span></div><div class="line">        QCLOUD(<span class="number">3</span>);</div><div class="line"></div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> value;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">CloudService</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="OOP归约"><a href="#OOP归约" class="headerlink" title="OOP归约"></a>OOP归约</h3><h4 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h4><p>【强制】Object 的 equals 方法容易抛空指针异常，应使用常量或确定有值的对象来调用 equals。</p>
+<ul>
+<li>正例：”test”.equals(object); </li>
+<li>反例：object.equals(“test”); </li>
+<li>说明：推荐使用 java.util.Objects#equals（JDK7 引入的工具类）。</li>
+</ul>
+<hr>
+<p>【强制】所有的相同类型的包装类对象之间值的比较，全部使用 equals 方法比较。 </p>
+<ul>
+<li>说明：对于 Integer var = ?  在-128 至 127 范围内的赋值，Integer 对象是在<br>IntegerCache.cache 产生，会复用已有对象，这个区间内的 Integer 值可以直接使用==进行 判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑， 推荐使用 equals 方法进行判断。</li>
+</ul>
+<hr>
+<p>关于基本数据类型与包装数据类型的使用标准如下： </p>
+<ul>
+<li>【强制】所有的 POJO 类属性必须使用包装数据类型。</li>
+<li>【强制】RPC 方法的返回值和参数必须使用包装数据类型。 </li>
+<li><p>【推荐】所有的局部变量使用基本数据类型。</p>
+<ul>
+<li>说明：POJO 类属性没有初值是提醒使用者在需要使用时，必须自己显式地进行赋值，任何 NPE 问题，或者入库检查，都由使用者来保证。</li>
+<li>正例：数据库的查询结果可能是 null，因为自动拆箱，用基本数据类型接收有 NPE 风险。  </li>
+<li>反例：比如显示成交总额涨跌情况，即正负 x%，x 为基本数据类型，调用的 RPC 服务，调用 不成功时，返回的是默认值，页面显示为 0%，这是不合理的，应该显示成中划线。所以包装 数据类型的 null 值，能够表示额外的信息，如：远程调用失败，异常退出。 </li>
+</ul>
+</li>
+</ul>
+<hr>
+<p> 【强制】POJO 类必须写 toString 方法。使用 IDE 的中工具：source&gt; generate toString 时，如果继承了另一个 POJO 类，注意在前面加一下 super.toString。</p>
+<p> 说明：在方法执行抛出异常时，可以直接调用 POJO 的 toString()方法打印其属性值，便于排 查问题。 </p>
+<hr>
+<p> 【推荐】使用索引访问用 String 的 split 方法得到的数组时，需做最后一个分隔符后有无 内容的检查，否则会有抛 IndexOutOfBoundsException 的风险。 </p>
+<p> 说明：<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String str = <span class="string">"a,b,c,,"</span>; </div><div class="line">String[] ary = str.split(<span class="string">","</span>); </div><div class="line"><span class="comment">// 预期大于 3，结果是 3</span></div><div class="line">System.out.println(ary.length);</div></pre></td></tr></table></figure></p>
+<hr>
+<p> 【推荐】final 可以声明类、成员变量、方法、以及本地变量，下列情况使用 final 关键字： </p>
+<ol>
+<li>不允许被继承的类，如：String 类。 </li>
+<li>不允许修改引用的域对象，如：POJO 类的域变量。  </li>
+<li>不允许被重写的方法，如：POJO 类的 setter 方法。 </li>
+<li>不允许运行过程中重新赋值的局部变量。</li>
+<li>避免上下文重复使用一个变量，使用 final 描述可以强制重新定义一个变量，方便更好 地进行重构。 </li>
+</ol>
+<hr>
+<p>【推荐】类成员与方法访问控制从严： </p>
+<ol>
+<li>如果不允许外部直接通过 new 来创建对象，那么构造方法必须是 private。  </li>
+<li>工具类不允许有 public 或 default 构造方法。  </li>
+<li>类非 static 成员变量并且与子类共享，必须是 protected。  </li>
+<li>类非 static 成员变量并且仅在本类使用，必须是 private。</li>
+<li>类 static 成员变量如果仅在本类使用，必须是 private。 </li>
+<li>若是 static 成员变量，必须考虑是否为 final。  </li>
+<li>类成员方法只供类内部调用，必须是 private。</li>
+<li>类成员方法只对继承类公开，那么限制为 protected。 </li>
+</ol>
+<ul>
+<li>说明：任何类、方法、参数、变量，严控访问范围。过于宽泛的访问范围，不利于模块解耦。 思考：如果是一个 private 的方法，想删除就删除，可是一个 public 的 service 方法，或者 一个 public 的成员变量，删除一下，不得手心冒点汗吗？变量像自己的小孩，尽量在自己的 视线内，变量作用域太大，无限制的到处跑，那么你会担心的。 </li>
+</ul>
+<h3 id="集合处理"><a href="#集合处理" class="headerlink" title="集合处理"></a>集合处理</h3><p>【强制】关于 hashCode 和 equals 的处理，遵循如下规则：</p>
+<ol>
+<li>只要重写 equals，就必须重写 hashCode。 </li>
+<li>因为 Set 存储的是不重复的对象，依据 hashCode 和 equals 进行判断，所以 Set 存储的 对象必须重写这两个方法。</li>
+<li>如果自定义对象做为 Map 的键，那么必须重写 hashCode 和 equals。 说明：String 重写了 hashCode 和 equals 方法，所以我们可以非常愉快地使用 String 对象 作为 key 来使用。</li>
+</ol>
+<p>没有特需要求，使用编辑器自动生成的就好，这个对Hash表相关的数据结构的存储和读取有着很大的影响，重写的好，可以减少Hash碰撞。</p>
+<hr>
+<ul>
+<li>【强制】使用集合转数组的方法，必须使用集合的 toArray(T[] array)，传入的是类型完全 一样的数组，大小就是 list.size()。 </li>
+<li>说明：使用 toArray 带参方法，入参分配的数组空间不够大时，toArray 方法内部将重新分配 内存空间，并返回新数组地址；如果数组元素大于实际所需，下标为[ list.size() ]的数组 元素将被置为 null，其它数组元素保持原值，因此最好将方法入参数组大小定义与集合元素 个数一致。 </li>
+<li>反例：直接使用 toArray 无参方法存在问题，此方法返回值只能是 Object[]类，若强转其它 类型数组将出现 ClassCastException 错误。 </li>
+<li>正例： <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;(<span class="number">2</span>);   </div><div class="line">list.add(<span class="string">"guan"</span>);      </div><div class="line">list.add(<span class="string">"bao"</span>);      </div><div class="line">String[] array = <span class="keyword">new</span> String[list.size()];    </div><div class="line">array = list.toArray(array);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>【强制】使用工具类 Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方 法，它的 add/remove/clear 方法会抛出 UnsupportedOperationException 异常。 说明：asList 的返回对象是一个 Arrays 内部类，并没有实现集合的修改方法。Arrays.asList 体现的是适配器模式，只是转换接口，后台的数据仍是数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String[] str = new String[] &#123; &quot;you&quot;, &quot;wu&quot; &#125;;  </div><div class="line">List list = Arrays.asList(str);</div></pre></td></tr></table></figure></p>
+<ul>
+<li>第一种情况：list.add(“yangguanbao”); 运行时异常。</li>
+<li>第二种情况：str[0] = “gujin”; 那么 list.get(0)也会随之修改。 </li>
+</ul>
+<hr>
+<p>【强制】泛型通配符<code>&lt;? extends T&gt;</code>来接收返回的数据，此写法的泛型集合不能使用 add 方 法，而<code>&lt;? super T&gt;</code>不能使用 get 方法，做为接口调用赋值时易出错。 </p>
+<hr>
+<p>【强制】不要在 foreach 循环里进行元素的 remove/add 操作。remove 元素请使用 Iterator 方式，如果并发操作，需要对 Iterator 对象加锁。 </p>
+<ul>
+<li>正例： <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Iterator&lt;String&gt; iterator = list.iterator();  </div><div class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;              </div><div class="line">    String item = iterator.next();                       </div><div class="line">    <span class="keyword">if</span> (删除元素的条件) &#123;                              </div><div class="line">        iterator.remove();                 </div><div class="line">    &#125;      </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>【强制】 在 JDK7 版本及以上，Comparator 要满足如下三个条件，不然 Arrays.sort， Collections.sort 会报 IllegalArgumentException 异常。 说明：三个条件如下</p>
+<ol>
+<li>x，y 的比较结果和 y，x 的比较结果相反。 </li>
+<li>x&gt;y，y&gt;z，则 x&gt;z。 </li>
+<li>x=y，则 x，z 比较结果和 y，z 比较结果相同。 </li>
+</ol>
+<ul>
+<li>反例：下例中没有处理相等的情况，实际使用中可能会出现异常： <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Comparator&lt;Student&gt;() &#123;      </div><div class="line">    <span class="meta">@Override</span>         </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1, Student o2)</span> </span>&#123;    </div><div class="line">        <span class="keyword">return</span> o1.getId() &gt; o2.getId() ? <span class="number">1</span> : -<span class="number">1</span>;        </div><div class="line">    &#125;      </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>【推荐】使用 entrySet 遍历 Map 类集合 KV，而不是 keySet 方式进行遍历。 </p>
+<ul>
+<li>说明：keySet 其实是遍历了 2 次，一次是转为 Iterator 对象，另一次是从 hashMap 中取出 key 所对应的 value。而 entrySet 只是遍历了一次就把 key 和 value 都放到了 entry 中，效 率更高。如果是 JDK8，使用 Map.foreach 方法。 </li>
+<li>正例：values()返回的是 V 值集合，是一个 list 集合对象；keySet()返回的是 K 值集合，是 一个 Set 集合对象；entrySet()返回的是 K-V 值组合集合。 </li>
+</ul>
+<hr>
+<p>【推荐】高度注意 Map 类集合 K/V 能不能存储 null 值的情况，如下表格： </p>
+<table>
+<thead>
+<tr>
+<th>集合类</th>
+<th>Key</th>
+<th>Value</th>
+<th>Super</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hashtable</td>
+<td>不允许为 null</td>
+<td>不允许为 null</td>
+<td>Dictionary</td>
+<td>线程安全 </td>
+</tr>
+<tr>
+<td>ConcurrentHashMap</td>
+<td>不允许为 null</td>
+<td>不允许为 null</td>
+<td>AbstractMap</td>
+<td>锁分段技术（JDK8:CAS） </td>
+</tr>
+<tr>
+<td>TreeMap</td>
+<td>不允许为 null</td>
+<td>允许为 null</td>
+<td>AbstractMap</td>
+<td>线程不安全 </td>
+</tr>
+<tr>
+<td>HashMap</td>
+<td>允许为 null</td>
+<td>允许为 null</td>
+<td>AbstractMap</td>
+<td>线程不安全 </td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>反例： 由于 HashMap 的干扰，很多人认为 ConcurrentHashMap 是可以置入 null 值，而事实上， 存储 null 值时会抛出 NPE 异常。 </li>
+</ul>
+<hr>
+<p>【参考】合理利用好集合的有序性(sort)和稳定性(order)，避免集合的无序性(unsort)和 不稳定性(unorder)带来的负面影响。 </p>
+<ul>
+<li>说明：有序性是指遍历的结果是按某种比较规则依次排列的。稳定性指集合每次遍历的元素次 序是一定的。如：ArrayList 是 order/unsort；HashMap 是 unorder/unsort；TreeSet 是 order/sort。 </li>
+</ul>
+<hr>
+<p>【参考】利用 Set 元素唯一的特性，可以快速对一个集合进行去重操作，避免使用 List 的 contains 方法进行遍历、对比、去重操作。 </p>
+<h3 id="并发处理"><a href="#并发处理" class="headerlink" title="并发处理"></a>并发处理</h3><p>【强制】获取单例对象需要保证线程安全，其中的方法也要保证线程安全。 说明：资源驱动类、工具类、单例工厂类都需要注意。 </p>
+<hr>
+<p>【强制】线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，这样 的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。 说明：Executors 返回的线程池对象的弊端如下：</p>
+<ol>
+<li>FixedThreadPool 和 SingleThreadPool:   允许的请求队列长度为 Integer.MAX_VALUE，可能会堆积大量的请求，从而导致 OOM。 </li>
+<li>CachedThreadPool 和 ScheduledThreadPool:   允许的创建线程数量为 Integer.MAX_VALUE，可能会创建大量的线程，从而导致 OOM。 </li>
+</ol>
+<hr>
+<p>【强制】高并发时，同步调用应该去考量锁的性能损耗。能用无锁数据结构，就不要用锁；能 锁区块，就不要锁整个方法体；能用对象锁，就不要用类锁。 </p>
+<hr>
+<p> 【强制】对多个资源、数据库表、对象同时加锁时，需要保持一致的加锁顺序，否则可能会造 成死锁。 </p>
+<ul>
+<li>说明：线程一需要对表 A、B、C 依次全部加锁后才可以进行更新操作，那么线程二的加锁顺序 也必须是 A、B、C，否则可能出现死锁。</li>
+</ul>
+<hr>
+<p>【推荐】使用 CountDownLatch 进行异步转同步操作，每个线程退出前必须调用 countDown 方法，线程执行代码注意 catch 异常，确保 countDown 方法被执行到，避免主线程无法执行 至 await 方法，直到超时才返回结果。</p>
+<ul>
+<li>说明：注意，子线程抛出异常堆栈，不能在主线程 try-catch 到。</li>
+</ul>
+<hr>
+<p>【推荐】在并发场景下，通过双重检查锁（double-checked locking）实现延迟初始化的优 化问题隐患(可参考 The “Double-Checked Locking is Broken” Declaration)，推荐解 决方案中较为简单一种（适用于 JDK5 及以上版本），将目标属性声明为 volatile 型。 </p>
+<hr>
+<p>【参考】volatile 解决多线程内存不可见问题。对于一写多读，是可以解决变量同步问题， 但是如果多写，同样无法解决线程安全问题。如果是 count++操作，使用如下类实现： AtomicInteger count = new AtomicInteger(); count.addAndGet(1); 如果是 JDK8，推 荐使用 LongAdder 对象，比 AtomicLong 性能更好（减少乐观锁的重试次数）。 </p>
+<hr>
+<p>【参考】ThreadLocal 无法解决共享对象的更新问题，ThreadLocal 对象建议使用 static 修饰。这个变量是针对一个线程内所有操作共享的，所以设置为静态变量，所有此类实例共享 此静态变量 ，也就是说在类第一次被使用时装载，只分配一块存储空间，所有此类的对象(只 要是这个线程内定义的)都可以操控这个变量。 </p>
+<hr>
+<h3 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h3><p>【强制】在 if/else/for/while/do 语句中必须使用大括号。即使只有一行代码，避免采用 单行的编码方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if (condition) statements;</div></pre></td></tr></table></figure></p>
+<hr>
+<p>超过 3 层的 if-else 的逻辑判断代码可以使用卫语句、策略模式、状态模式等来实现</p>
+<hr>
+<p>【参考】下列情形，需要进行参数校验： </p>
+<ol>
+<li>调用频次低的方法。  </li>
+<li>执行时间开销很大的方法。此情形中，参数校验时间几乎可以忽略不计，但如果因为参 数错误导致中间执行回退，或者错误，那得不偿失。  </li>
+<li>需要极高稳定性和可用性的方法。 </li>
+<li>对外提供的开放接口，不管是 RPC/API/HTTP 接口。  </li>
+<li>敏感权限入口。 </li>
+</ol>
+<hr>
+<p>【参考】下列情形，不需要进行参数校验： </p>
+<ol>
+<li>极有可能被循环调用的方法。但在方法说明里必须注明外部参数检查要求。  </li>
+<li>底层调用频度比较高的方法。毕竟是像纯净水过滤的最后一道，参数错误不太可能到底 层才会暴露问题。一般 DAO 层与 Service 层都在同一个应用中，部署在同一台服务器中，所 以 DAO 的参数校验，可以省略。 </li>
+<li>被声明成 private 只会被自己代码所调用的方法，如果能够确定调用方法的代码传入参 数已经做过检查或者肯定不会有问题，此时可以不校验参数。 </li>
+</ol>
+<h3 id="注释归约"><a href="#注释归约" class="headerlink" title="注释归约"></a>注释归约</h3><p>【参考】特殊注释标记，请注明标记人与标记时间。注意及时处理这些标记，通过标记扫描， 经常清理此类标记。线上故障有时候就是来源于这些标记处的代码。</p>
+<ol>
+<li>待办事宜<code>（TODO）</code>:<code>（ 标记人，标记时间，[预计处理时间]）</code>    表示需要实现，但目前还未实现的功能。这实际上是一个 Javadoc 的标签，目前的 Javadoc 还没有实现，但已经被广泛使用。只能应用于类，接口和方法（因为它是一个 Javadoc 标签）。</li>
+<li>错误，不能工作<code>（FIXME）</code>:<code>（标记人，标记时间，[预计处理时间]）</code>    在注释中用 FIXME 标记某代码是错误的，而且不能工作，需要及时纠正的情况。 </li>
+</ol>
+<hr>
+<p>【推荐】方法的返回值可以为 null，不强制返回空集合，或者空对象等，必须添加注释充分 说明什么情况下会返回 null 值。调用方需要进行 null 判断防止 NPE 问题。 说明：本手册明确<strong>防止 NPE 是调用者的责任</strong>。即使被调用方法返回空集合或者空对象，对调用<br>者来说，也并非高枕无忧，必须考虑到远程调用失败、序列化失败、运行时异常等场景返回 null 的情况。 </p>
+<hr>
+<p> 【推荐】防止 NPE，是程序员的基本修养，注意 NPE 产生的场景：  </p>
+<ol>
+<li>返回类型为基本数据类型，return 包装数据类型的对象时，自动拆箱有可能产生 NPE。     反例：public int f() { return Integer 对象}， 如果为 null，自动解箱抛 NPE。 </li>
+<li>数据库的查询结果可能为 null。  </li>
+<li>集合里的元素即使 isNotEmpty，取出的数据元素也可能为 null。  </li>
+<li>远程调用返回对象时，一律要求进行空指针判断，防止 NPE。</li>
+<li>对于 Session 中获取的数据，建议 NPE 检查，避免空指针。</li>
+<li>级联调用 obj.getA().getB().getC()；一连串调用，易产生 NPE。 </li>
+</ol>
+<ul>
+<li>正例：<strong>使用 JDK8 的 Optional 类来防止 NPE 问题。</strong></li>
+</ul>
+<hr>
+<p>【推荐】定义时区分 unchecked / checked 异常，<strong>避免直接抛出 new RuntimeException()， 更不允许抛出 Exception 或者 Throwable</strong>，应使用有业务含义的自定义异常。推荐业界已定义 过的自定义异常，如：DAOException / ServiceException 等。 </p>
+<hr>
+<p>【参考】<strong>避免出现重复的代码（Don’t Repeat Yourself），即 DRY 原则</strong>。</p>
+<ul>
+<li>说明：随意复制和粘贴代码，必然会导致代码的重复，在以后需要修改时，需要修改所有的副 本，容易遗漏。必要时抽取共性方法，或者抽象公共类，甚至是组件化。 </li>
+<li>正例：一个类中有多个 public 方法，都需要进行数行相同的参数校验操作，这个时候请抽取</li>
+</ul>
+<h2 id="日志规约"><a href="#日志规约" class="headerlink" title="日志规约"></a>日志规约</h2><p>【强制】应用中不可直接使用日志系统（Log4j、Logback）中的 API，而应依赖使用日志框架 SLF4J 中的 API，使用门面模式的日志框架，有利于维护和各个类的日志处理方式统一。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.slf4j.Logger; </div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(Abc.class);</div></pre></td></tr></table></figure></p>
+<hr>
+<p>【强制】对 trace/debug/info 级别的日志输出，必须使用条件输出形式或者使用占位符的方 式。 </p>
+<ul>
+<li>说明：logger.debug(“Processing trade with id: “ + id + “ and symbol: “ + symbol); 如果日志级别是 warn，上述日志不会打印，但是会执行字符串拼接操作，如果 symbol 是对象， 会执行 toString()方法，浪费了系统资源，执行了上述操作，最终日志却没有打印。 </li>
+<li><p>正例：（条件） </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (logger.isDebugEnabled()) &#123;    </div><div class="line">    logger.debug(<span class="string">"Processing trade with id: "</span> + id + <span class="string">" and symbol: "</span> + symbol);   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>正例：（占位符） </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logger.debug(<span class="string">"Processing trade with id: &#123;&#125; and symbol : &#123;&#125; "</span>, id, symbol);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>【强制】避免重复打印日志，浪费磁盘空间，务必在 log4j.xml 中设置 <code>additivity=false</code></p>
+<hr>
+<p>【强制】异常信息应该包括两类信息：案发现场信息和异常堆栈信息。如果不处理，那么通过 关键字 throws 往上抛出。 </p>
+<ul>
+<li>正例：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logger.error(各类参数或者对象 toString + <span class="string">"_"</span> + e.getMessage(), e);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>【参考】可以使用 warn 日志级别来记录用户输入参数错误的情况，避免用户投诉时，无所适 从。注意日志输出的级别，error 级别只记录系统逻辑出错、异常等重要的错误信息。如非必 要，请不要在此场景打出 error 级别。 </p>
+<h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><p>【强制】好的单元测试必须遵守<code>AIR 原则</code>。 说明：单元测试在线上运行时，感觉像空气（AIR）一样并不存在，但在测试质量的保障上， 却是非常关键的。好的单元测试宏观上来说，<strong>具有自动化、独立性、可重复执行的特点。</strong></p>
+<ul>
+<li><code>A</code>：Automatic（自动化） </li>
+<li><code>I</code>：Independent（独立性） </li>
+<li><code>R</code>：Repeatable（可重复） </li>
+</ul>
+<hr>
+<p>【强制】单元测试应该是全自动执行的，并且非交互式的。测试框架通常是定期执行的，执行 过程必须完全自动化才有意义。输出结果需要人工检查的测试不是一个好的单元测试。<strong>单元测 试中不准使用 <code>System.out```来进行人肉验证，必须使用</code>assert`` 来验证。</strong> </p>
+<hr>
+<p>【推荐】单元测试的基本目标：<strong>语句覆盖率达到 70%；核心模块的语句覆盖率和分支覆盖率都 要达到 100%</strong></p>
+<ul>
+<li>说明：在工程规约的应用分层中提到的 DAO 层，Manager 层，可重用度高的 Service，都应该 进行单元测试。 </li>
+</ul>
+<hr>
+<p>【推荐】编写单元测试代码遵守 BCDE 原则，以保证被测试模块的交付质量。 </p>
+<ul>
+<li><strong>B</strong>：Border，边界值测试，包括循环边界、特殊取值、特殊时间点、数据顺序等。</li>
+<li><strong>C</strong>：Correct，正确的输入，并得到预期的结果。 </li>
+<li><strong>D</strong>：Design，与设计文档相结合，来编写单元测试。 </li>
+<li><strong>E</strong>：Error，强制错误信息输入（如：非法数据、异常流程、非业务允许输入等），并得 到预期的结果。</li>
+</ul>
+<hr>
+<p>【推荐】对于数据库相关的查询，更新，删除等操作，不能假设数据库里的数据是存在的， 或者直接操作数据库把数据插入进去，请使用程序插入或者导入数据的方式来准备数据。 </p>
+<ul>
+<li>反例：删除某一行数据的单元测试，在数据库中，先直接手动增加一行作为删除目标，但是这 一行新增数据并不符合业务插入规则，导致测试结果异常。</li>
+</ul>
+<hr>
+<p>【推荐】<strong>和数据库相关的单元测试，可以设定自动回滚机制，不给数据库造成脏数据。或者 对单元测试产生的数据有明确的前后缀标识</strong>。 </p>
+<ul>
+<li>正例：在 RDC 内部单元测试中，使用 RDC_UNIT<em>TEST</em>的前缀标识数据。 </li>
+</ul>
+<hr>
+<p>【推荐】<strong>对于不可测的代码建议做必要的重构，使代码变得可测</strong>，避免为了达到测试要求而 书写不规范测试代码。 </p>
+<hr>
+<p>【参考】为了更方便地进行单元测试，业务代码应避免以下情况： </p>
+<ul>
+<li>构造方法中做的事情过多。 </li>
+<li>存在过多的全局变量和静态方法。 </li>
+<li>存在过多的外部依赖。</li>
+<li>存在过多的条件语句。</li>
+</ul>
+<p><strong>说明：多层条件语句建议使用卫语句、策略模式、状态模式等方式重构。</strong> </p>
+<hr>
+<p>【参考】不要对单元测试存在如下误解： </p>
+<ul>
+<li>那是测试同学干的事情。本文是开发手册，凡是本文内容都是与开发同学强相关的。 </li>
+<li>单元测试代码是多余的。汽车的整体功能与各单元部件的测试正常与否是强相关的。 </li>
+<li>单元测试代码不需要维护。一年半载后，那么单元测试几乎处于废弃状态。</li>
+<li>单元测试与线上故障没有辩证关系。好的单元测试能够最大限度地规避线上故障。 </li>
+</ul>
+<h2 id="安全规约"><a href="#安全规约" class="headerlink" title="安全规约"></a>安全规约</h2><p>【强制】隶属于用户个人的页面或者功能必须进行权限控制校验。</p>
+<ul>
+<li>说明：防止没有做水平权限校验就可随意访问、修改、删除别人的数据，比如查看他人的私信 内容、修改他人的订单。 </li>
+</ul>
+<hr>
+<p>【强制】用户敏感数据禁止直接展示，必须对展示数据进行脱敏。 </p>
+<ul>
+<li>说明：查看个人手机号码会显示成:158<em>**</em>9119，隐藏中间 4 位，防止隐私泄露。 </li>
+</ul>
+<hr>
+<p> 【强制】用户请求传入的任何参数必须做有效性验证。</p>
+<ul>
+<li>说明：忽略参数校验可能导致： <ul>
+<li>page size 过大导致内存溢出 </li>
+<li>恶意 order by 导致数据库慢查询 </li>
+<li>任意重定向  SQL 注入 </li>
+<li>反序列化注入 </li>
+<li>正则输入源串拒绝服务 ReDoS </li>
+</ul>
+</li>
+</ul>
+<p><strong>说明</strong>：Java 代码用正则来验证客户端的输入，有些正则写法验证普通用户输入没有问题， 但是如果攻击人员使用的是特殊构造的字符串来验证，有可能导致死循环的结果。</p>
+<hr>
+<p>【强制】在使用平台资源，譬如短信、邮件、电话、下单、支付，必须实现正确的<strong>防重放限制</strong>， 如数量限制、疲劳度控制、验证码校验，避免被滥刷、资损。 </p>
+<ul>
+<li>说明：如注册时发送验证码到手机，如果没有限制次数和频率，那么可以利用此功能骚扰到其 它用户，并造成短信平台资源浪费。</li>
+</ul>
+<hr>
+<p>【推荐】发贴、评论、发送即时消息等用户生成内容的场景必须<strong>实现防刷、文本内容违禁词过 滤等风控策略</strong>。</p>
+
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 🖐 感谢阅读------</div>
+    
+</div>
+
+		
+	</div>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/spring-beanutils.html" rel="next" title="BeanUtils的复制">
+                <i class="fa fa-chevron-left"></i> BeanUtils的复制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://image.wuwii.com/MTXX_20170504095121_mr1493862851443.jpg"
+               alt="Slience" />
+          <p class="site-author-name" itemprop="name">Slience</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">118</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+			
+			<a title="收藏到书签，偶尔High一下^_^" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+    
+      var songs = [
+          "http://ov62kaxkk.bkt.clouddn.com/%E6%9C%A8%E6%9D%91%E5%BC%93%20-%20%E3%81%84%E3%81%A4%E3%82%82%E4%BD%95%E5%BA%A6%E3%81%A7%E3%82%82.mp3",       
+          "......"
+      ];
+ 
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+    
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> 听音乐</a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kaimz" target="_blank" title="GitHub" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/p/1005053974218109" target="_blank" title="Weibo" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/zhang-kai-89-51-58" target="_blank" title="知乎" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.processon.com/" title="processon" target="_blank" rel="external nofollow">processon</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://asciiflow.com/" title="asciiflow" target="_blank" rel="external nofollow">asciiflow</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://codepen.io/pen" title="codepen.io" target="_blank" rel="external nofollow">codepen.io</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sdll.club" title="闪电拉拉" target="_blank" rel="external nofollow">闪电拉拉</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://stackoverflow.com/" title="stackoverflow" target="_blank" rel="external nofollow">stackoverflow</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.importnew.com/" title="ImportNew" target="_blank" rel="external nofollow">ImportNew</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ifeve.com/" title="ifeve" target="_blank" rel="external nofollow">ifeve</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.720ui.com/" title="梁桂钊的博客" target="_blank" rel="external nofollow">梁桂钊的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://edu.aliyun.com/" title="阿里云大学" target="_blank" rel="external nofollow">阿里云大学</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iocoder.cn/" title="「芋道源码」" target="_blank" rel="external nofollow">「芋道源码」</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://cmsblogs.com" title="cmsblogs" target="_blank" rel="external nofollow">cmsblogs</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+		<!--20170726添加网易云音乐标签 -->
+		<!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=86 src="//music.163.com/outchain/player?type=2&id=356034&auto=0&height=66"></iframe> -->
+        <!--20170726添加网易云音乐标签 end-->
+		
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编码规范"><span class="nav-number">1.</span> <span class="nav-text">编码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命名风格"><span class="nav-number">1.1.</span> <span class="nav-text">命名风格</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#各层命名规约"><span class="nav-number">1.1.1.</span> <span class="nav-text">各层命名规约</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Service-DAO-层方法命名规约"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Service/DAO 层方法命名规约</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#领域模型命名规约"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">领域模型命名规约</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量定义"><span class="nav-number">1.2.</span> <span class="nav-text">常量定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OOP归约"><span class="nav-number">1.3.</span> <span class="nav-text">OOP归约</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#equals"><span class="nav-number">1.3.1.</span> <span class="nav-text">equals</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合处理"><span class="nav-number">1.4.</span> <span class="nav-text">集合处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发处理"><span class="nav-number">1.5.</span> <span class="nav-text">并发处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制语句"><span class="nav-number">1.6.</span> <span class="nav-text">控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释归约"><span class="nav-number">1.7.</span> <span class="nav-text">注释归约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志规约"><span class="nav-number">2.</span> <span class="nav-text">日志规约</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单元测试"><span class="nav-number">3.</span> <span class="nav-text">单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全规约"><span class="nav-number">4.</span> <span class="nav-text">安全规约</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Slience</span>
+</div>
+
+
+
+<div class="powered-by">
+Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages</a></div>
+
+<div class="theme-info">
+  <span class="post-count">博客全站共136.9k字</span>
+</div>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+	
+	var src360 = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?f62559b2127396ecb27f4ed4f4652ea1":"https://jspassport.ssl.qhimg.com/11.0.1.js?f62559b2127396ecb27f4ed4f4652ea1";
+	document.write('<script src="' + src360 + '" id="sozz"><\/script>');
+})();
+</script>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
