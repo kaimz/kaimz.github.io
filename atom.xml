@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-12-07T00:45:54.762Z</updated>
+  <updated>2017-12-08T00:36:32.282Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leaflet加载谷歌地图</title>
+    <link href="http://blog.wuwii.com/leaflet-load-googlemap.html"/>
+    <id>http://blog.wuwii.com/leaflet-load-googlemap.html</id>
+    <published>2017-12-07T15:08:03.000Z</published>
+    <updated>2017-12-08T00:36:32.282Z</updated>
+    
+    <content type="html"><![CDATA[<p>主要是使用： <a rel="external nofollow" target="_blank" href="https://github.com/htoooth/Leaflet.ChineseTmsProviders">ChineseTmsProviders</a> 插件完成的，详细使用可以进入它的文档了解，它还封装加载各种在线地图的方法，以谷歌地图为例。</p>
+<ul>
+<li><strong>Leaflet</strong>  <em>v-1.2.0</em> </li>
+</ul>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=<span class="string">"en"</span>&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">    &lt;title&gt;Leaflet&lt;<span class="regexp">/title&gt;</span></div><div class="line"><span class="regexp">    &lt;link rel="stylesheet" href="css/</span>leaflet.css<span class="string">"/&gt;</span></div><div class="line"><span class="string">&lt;/head&gt;</span></div><div class="line"><span class="string">&lt;body style="</span>position:absolute; left:<span class="number">0</span>; top:<span class="number">0</span>; display:block; width:<span class="number">100</span>%; height:<span class="number">100</span>%; overflow:hidden;<span class="string">"&gt;</span></div><div class="line"><span class="string">&lt;div style="</span>width:<span class="number">100</span>%; height:<span class="number">100</span>%<span class="string">" id="</span>map<span class="string">"&gt;&lt;/div&gt;</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">&lt;script src="</span>js/leaflet.js<span class="string">"&gt;&lt;/script&gt;</span></div><div class="line"><span class="string">&lt;script src="</span>js/leaflet.ChineseTmsProviders.js<span class="string">"&gt;&lt;/script&gt;</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">&lt;script type='text/javascript'&gt;</span></div><div class="line"><span class="string">    /**</span></div><div class="line"><span class="string">     * 获取谷歌切片图层</span></div><div class="line"><span class="string">     */</span></div><div class="line"><span class="string">    var normalMap = L.tileLayer.chinaProvider('Google.Normal.Map', &#123;</span></div><div class="line"><span class="string">            maxZoom: 18,</span></div><div class="line"><span class="string">            minZoom: 5</span></div><div class="line"><span class="string">        &#125;),</span></div><div class="line"><span class="string">        satelliteMap = L.tileLayer.chinaProvider('Google.Satellite.Map', &#123;</span></div><div class="line"><span class="string">            maxZoom: 18,</span></div><div class="line"><span class="string">            minZoom: 5</span></div><div class="line"><span class="string">        &#125;);</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">    var map = L.map("</span>map<span class="string">", &#123;</span></div><div class="line"><span class="string">        center: [30.460742, 114.416269],</span></div><div class="line"><span class="string">        zoom: 15,</span></div><div class="line"><span class="string">        layers: [satelliteMap],</span></div><div class="line"><span class="string">        zoomControl: false</span></div><div class="line"><span class="string">    &#125;);</span></div><div class="line"><span class="string">    /**</span></div><div class="line"><span class="string">     * 图层组</span></div><div class="line"><span class="string">     */</span></div><div class="line"><span class="string">    var baseLayers = &#123;</span></div><div class="line"><span class="string">        "</span>Google <span class="built_in">Map</span><span class="string">": normalMap,</span></div><div class="line"><span class="string">        "</span>Google Image<span class="string">": satelliteMap</span></div><div class="line"><span class="string">    &#125;;</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">    L.control.layers(baseLayers, null).addTo(map);</span></div><div class="line"><span class="string">    L.control.zoom(&#123;</span></div><div class="line"><span class="string">        zoomInTitle: '放大',</span></div><div class="line"><span class="string">        zoomOutTitle: '缩小'</span></div><div class="line"><span class="string">    &#125;).addTo(map);</span></div><div class="line"><span class="string">&lt;/script&gt;</span></div><div class="line"><span class="string">&lt;/body&gt;</span></div><div class="line"><span class="string">&lt;/html&gt;</span></div></pre></td></tr></table></figure>
+<p>地图：<br><img src="https://i.loli.net/2017/12/07/5a28ab3e0175b.png" alt="image"><br>影像：<br><img src="https://i.loli.net/2017/12/07/5a28ab3f4c7ee.png" alt="image"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要是使用： &lt;a rel=&quot;external nofollow&quot; target=&quot;_blank&quot; href=&quot;https://github.com/htoooth/Leaflet.ChineseTmsProviders&quot;&gt;ChineseTmsProviders&lt;/a&gt; 插件完成的，详细使用可以进入它的文档了解，它还封装加载各种在线地图的方法，以谷歌地图为例。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Leaflet&lt;/strong&gt;  &lt;em&gt;v-1.2.0&lt;/em&gt; &lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="js" scheme="http://blog.wuwii.com/tags/js/"/>
+    
+      <category term="leaflet" scheme="http://blog.wuwii.com/tags/leaflet/"/>
+    
+  </entry>
   
   <entry>
     <title>并发容器ConcurrentHashMap</title>
@@ -1591,35 +1625,6 @@
       <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
     
       <category term="并发编程" scheme="http://blog.wuwii.com/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>20171117</title>
-    <link href="http://blog.wuwii.com/20171117.html"/>
-    <id>http://blog.wuwii.com/20171117.html</id>
-    <published>2017-11-17T14:08:03.000Z</published>
-    <updated>2017-11-21T00:50:48.616Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天天气可真是差啊，下班后出门骑了辆小黄车，没骑到一百米，雨就下起来，只好放下，毕竟大晚上撑伞骑车不太安全，只好选择去公交车站坐公交把。</p>
-<p>我的天，一上公交车，还没坐一站路，堵瞎了，我这人虽然每次都是慢半拍的人，喜欢慢节奏的事情，但是了，堵车我最不喜欢的事情，关键我还坐公交车上。</p>
-<p>后来接到一个消息说她被前男友骚扰了，说实话啊，我最讨厌的就是渣男了，但是还是要注意形象，去安慰下把，我也是搞不懂状况啊，多了不写了，就是堵了半个小时下车了，准备去她学校看看吧，这路人都不让走的，车一辆接一辆的。终于换车后，堵了一会儿，接到消息说她要回家了，长吁一口气了，其实我挺害怕的，但是听到消息的第一刻就是想到江歌案，所以我才想赶过去，不想写下去了，其实女孩子追到被逼回家了的，这也太可恶了吧。</p>
-<p>搞到很晚才回，想到去拿快递，不错，居然没关门，拿回来一看，打开快递，没看码子，拆开试穿了一下，我的妈啊，这么大，我买的衣服全发成大码了，只能去实体店换了，（牌子就不暴露了，好坑。</p>
-<p>今天下个班，搞得好累啊，好好睡个觉，明天周六上午还要去公司培训。</p>
-<p>晚安/。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天天气可真是差啊，下班后出门骑了辆小黄车，没骑到一百米，雨就下起来，只好放下，毕竟大晚上撑伞骑车不太安全，只好选择去公交车站坐公交把。&lt;/p&gt;
-&lt;p&gt;我的天，一上公交车，还没坐一站路，堵瞎了，我这人虽然每次都是慢半拍的人，喜欢慢节奏的事情，但是了，堵车我最不喜欢的事情，关
-    
-    </summary>
-    
-      <category term="碎碎念" scheme="http://blog.wuwii.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-      <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   

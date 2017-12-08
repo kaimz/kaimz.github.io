@@ -3,6 +3,35 @@
   
     
     <entry>
+      <title><![CDATA[leaflet加载谷歌地图]]></title>
+      <url>/leaflet-load-googlemap.html</url>
+      <content type="html"><![CDATA[<p>主要是使用： <a rel="external nofollow" target="_blank" href="https://github.com/htoooth/Leaflet.ChineseTmsProviders">ChineseTmsProviders</a> 插件完成的，详细使用可以进入它的文档了解，它还封装加载各种在线地图的方法，以谷歌地图为例。</p>
+<ul>
+<li><strong>Leaflet</strong>  <em>v-1.2.0</em> </li>
+</ul>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=<span class="string">"en"</span>&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">    &lt;title&gt;Leaflet&lt;<span class="regexp">/title&gt;</span></div><div class="line"><span class="regexp">    &lt;link rel="stylesheet" href="css/</span>leaflet.css<span class="string">"/&gt;</span></div><div class="line"><span class="string">&lt;/head&gt;</span></div><div class="line"><span class="string">&lt;body style="</span>position:absolute; left:<span class="number">0</span>; top:<span class="number">0</span>; display:block; width:<span class="number">100</span>%; height:<span class="number">100</span>%; overflow:hidden;<span class="string">"&gt;</span></div><div class="line"><span class="string">&lt;div style="</span>width:<span class="number">100</span>%; height:<span class="number">100</span>%<span class="string">" id="</span>map<span class="string">"&gt;&lt;/div&gt;</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">&lt;script src="</span>js/leaflet.js<span class="string">"&gt;&lt;/script&gt;</span></div><div class="line"><span class="string">&lt;script src="</span>js/leaflet.ChineseTmsProviders.js<span class="string">"&gt;&lt;/script&gt;</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">&lt;script type='text/javascript'&gt;</span></div><div class="line"><span class="string">    /**</span></div><div class="line"><span class="string">     * 获取谷歌切片图层</span></div><div class="line"><span class="string">     */</span></div><div class="line"><span class="string">    var normalMap = L.tileLayer.chinaProvider('Google.Normal.Map', &#123;</span></div><div class="line"><span class="string">            maxZoom: 18,</span></div><div class="line"><span class="string">            minZoom: 5</span></div><div class="line"><span class="string">        &#125;),</span></div><div class="line"><span class="string">        satelliteMap = L.tileLayer.chinaProvider('Google.Satellite.Map', &#123;</span></div><div class="line"><span class="string">            maxZoom: 18,</span></div><div class="line"><span class="string">            minZoom: 5</span></div><div class="line"><span class="string">        &#125;);</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">    var map = L.map("</span>map<span class="string">", &#123;</span></div><div class="line"><span class="string">        center: [30.460742, 114.416269],</span></div><div class="line"><span class="string">        zoom: 15,</span></div><div class="line"><span class="string">        layers: [satelliteMap],</span></div><div class="line"><span class="string">        zoomControl: false</span></div><div class="line"><span class="string">    &#125;);</span></div><div class="line"><span class="string">    /**</span></div><div class="line"><span class="string">     * 图层组</span></div><div class="line"><span class="string">     */</span></div><div class="line"><span class="string">    var baseLayers = &#123;</span></div><div class="line"><span class="string">        "</span>Google <span class="built_in">Map</span><span class="string">": normalMap,</span></div><div class="line"><span class="string">        "</span>Google Image<span class="string">": satelliteMap</span></div><div class="line"><span class="string">    &#125;;</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">    L.control.layers(baseLayers, null).addTo(map);</span></div><div class="line"><span class="string">    L.control.zoom(&#123;</span></div><div class="line"><span class="string">        zoomInTitle: '放大',</span></div><div class="line"><span class="string">        zoomOutTitle: '缩小'</span></div><div class="line"><span class="string">    &#125;).addTo(map);</span></div><div class="line"><span class="string">&lt;/script&gt;</span></div><div class="line"><span class="string">&lt;/body&gt;</span></div><div class="line"><span class="string">&lt;/html&gt;</span></div></pre></td></tr></table></figure>
+<p>地图：<br><img src="https://i.loli.net/2017/12/07/5a28ab3e0175b.png" alt="image"><br>影像：<br><img src="https://i.loli.net/2017/12/07/5a28ab3f4c7ee.png" alt="image"></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> js </tag>
+            
+            <tag> leaflet </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[并发容器ConcurrentHashMap]]></title>
       <url>/java-concurrenthashmap.html</url>
       <content type="html"><![CDATA[<blockquote>
@@ -4063,6 +4092,35 @@
     </entry>
     
     <entry>
+      <title><![CDATA[一叶知秋]]></title>
+      <url>/trend.html</url>
+      <content type="html"><![CDATA[<p>今天晚上在小区里面慢跑，突然一个东西掉到我眼镜架上，塞在里面了，尬，拿下来一看，看到的是一片树叶。<br><img src="https://i.loli.net/2017/10/08/59da342e1af4a.jpg" alt="image"><br>时间过得真快，已经秋天了，今年国庆八天长假，也过完，我想，今后，再得过多少年，才有八天长假。</p>
+<a id="more"></a>
+<p>事情一直在发生，故事永远也写不完，我想我现在想什么，也许在眺望着什么，犹豫着什么，患得患失着什么。在每一刻，它都是好的。也许有一天，我老了，不再去疯了，就这么平静得下去。</p>
+<p>我想我现在还是这么个人吧，一直以来也是，对身边的事情都是依依不舍的，但是我没有停留，紧跟着前进，真是想去浪迹天涯呀，但是那是不可能的，我有自己的牵挂与责任，我还是放不下，总有一天，我会老去，总是不想放过，但是时常会放弃自己的一些事情，为难着自己，不愿意离开。</p>
+<p><img src="https://ooo.0o0.ooo/2017/10/08/59d9afb316e7f.png" alt="img"></p>
+<p>也许是秋天总是会给人带来一丝惆怅的心情吧，不知不觉的，你就会触景生情，这个时候千万别拍照，别去看镜子，你会发现，不知不觉，多了一份沧桑，心里有一些焦灼，慢慢的会影响你的心绪。走的时候，又会浑然不知。</p>
+<p>我想我现在还是正值好时光的年纪，即使不能清高，也要活出自我，最后像树叶一样洒脱的离开，因为，我想我正在它夏天的这个时候，还没到，还没到，还能享受最热烈的阳光。</p>
+<p><img src="https://i.loli.net/2017/10/08/59da398b58f84.jpg" alt="image"></p>
+<p>恍惚，秋分早已过，不用在意太多孰是孰非，早就没留退路，只能这样不顾一切，而你是否能明白了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 碎碎念 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 心情 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[我想温暖这个有你的世界]]></title>
       <url>/warm-the-world.html</url>
       <content type="html"><![CDATA[<p>平时一个人最喜欢听的故事，很暖心，分享出来，好好睡觉，嗯，晚安。</p>
@@ -4092,35 +4150,6 @@
         <tags>
             
             <tag> 故事 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[一叶知秋]]></title>
-      <url>/trend.html</url>
-      <content type="html"><![CDATA[<p>今天晚上在小区里面慢跑，突然一个东西掉到我眼镜架上，塞在里面了，尬，拿下来一看，看到的是一片树叶。<br><img src="https://i.loli.net/2017/10/08/59da342e1af4a.jpg" alt="image"><br>时间过得真快，已经秋天了，今年国庆八天长假，也过完，我想，今后，再得过多少年，才有八天长假。</p>
-<a id="more"></a>
-<p>事情一直在发生，故事永远也写不完，我想我现在想什么，也许在眺望着什么，犹豫着什么，患得患失着什么。在每一刻，它都是好的。也许有一天，我老了，不再去疯了，就这么平静得下去。</p>
-<p>我想我现在还是这么个人吧，一直以来也是，对身边的事情都是依依不舍的，但是我没有停留，紧跟着前进，真是想去浪迹天涯呀，但是那是不可能的，我有自己的牵挂与责任，我还是放不下，总有一天，我会老去，总是不想放过，但是时常会放弃自己的一些事情，为难着自己，不愿意离开。</p>
-<p><img src="https://ooo.0o0.ooo/2017/10/08/59d9afb316e7f.png" alt="img"></p>
-<p>也许是秋天总是会给人带来一丝惆怅的心情吧，不知不觉的，你就会触景生情，这个时候千万别拍照，别去看镜子，你会发现，不知不觉，多了一份沧桑，心里有一些焦灼，慢慢的会影响你的心绪。走的时候，又会浑然不知。</p>
-<p>我想我现在还是正值好时光的年纪，即使不能清高，也要活出自我，最后像树叶一样洒脱的离开，因为，我想我正在它夏天的这个时候，还没到，还没到，还能享受最热烈的阳光。</p>
-<p><img src="https://i.loli.net/2017/10/08/59da398b58f84.jpg" alt="image"></p>
-<p>恍惚，秋分早已过，不用在意太多孰是孰非，早就没留退路，只能这样不顾一切，而你是否能明白了。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 碎碎念 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 心情 </tag>
             
         </tags>
         
