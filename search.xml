@@ -3,6 +3,233 @@
   
     
     <entry>
+      <title><![CDATA[No Dialect mapping for JDBC type 的问题]]></title>
+      <url>/java-no-dialect-mapping.html</url>
+      <content type="html"><![CDATA[<p>问题很简单，就是方言不能把该数据库类型映射到Java中， 方言不认识这个数据库类型。</p>
+<h4 id="出现原因"><a href="#出现原因" class="headerlink" title="出现原因"></a>出现原因</h4><ol>
+<li>数据库字段类型和JAVA类型不匹配。</li>
+<li>错误地配置了数据库方言。</li>
+</ol>
+<a id="more"></a>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>首先查看java.sql.Types类型，以及各种错误代码。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类型</th>
+<th>状态码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ARRAY</td>
+<td>2003</td>
+</tr>
+<tr>
+<td>2</td>
+<td>BIGINT</td>
+<td>-5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>BINARY</td>
+<td>-2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>BIT</td>
+<td>-7</td>
+</tr>
+<tr>
+<td>5</td>
+<td>BLOB</td>
+<td>2004</td>
+</tr>
+<tr>
+<td>6</td>
+<td>BOOLEAN</td>
+<td>16</td>
+</tr>
+<tr>
+<td>7</td>
+<td>CHAR</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>CLOB</td>
+<td>2005</td>
+</tr>
+<tr>
+<td>9</td>
+<td>DATALINK</td>
+<td>70</td>
+</tr>
+<tr>
+<td>10</td>
+<td>DATE</td>
+<td>91</td>
+</tr>
+<tr>
+<td>11</td>
+<td>DECIMAL</td>
+<td>3</td>
+</tr>
+<tr>
+<td>12</td>
+<td>DISTINCT</td>
+<td>2001</td>
+</tr>
+<tr>
+<td>13</td>
+<td>DOUBLE</td>
+<td>8</td>
+</tr>
+<tr>
+<td>14</td>
+<td>FLOAT</td>
+<td>6</td>
+</tr>
+<tr>
+<td>15</td>
+<td>INTEGER</td>
+<td>4</td>
+</tr>
+<tr>
+<td>16</td>
+<td>JAVA_OBJECT</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>17</td>
+<td>LONGNVARCHAR</td>
+<td>-16</td>
+</tr>
+<tr>
+<td>18</td>
+<td>LONGVARBINARY</td>
+<td>-4</td>
+</tr>
+<tr>
+<td>19</td>
+<td>LONGVARCHAR</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>20</td>
+<td>NCHAR</td>
+<td>-15</td>
+</tr>
+<tr>
+<td>21</td>
+<td>NCLOB</td>
+<td>2011</td>
+</tr>
+<tr>
+<td>22</td>
+<td>NULL</td>
+<td>0</td>
+</tr>
+<tr>
+<td>23</td>
+<td>NUMERIC</td>
+<td>2</td>
+</tr>
+<tr>
+<td>24</td>
+<td>NVARCHAR</td>
+<td>-9</td>
+</tr>
+<tr>
+<td>25</td>
+<td>OTHER</td>
+<td>1111</td>
+</tr>
+<tr>
+<td>26</td>
+<td>REAL</td>
+<td>7</td>
+</tr>
+<tr>
+<td>27</td>
+<td>REF</td>
+<td>2006</td>
+</tr>
+<tr>
+<td>28</td>
+<td>ROWID</td>
+<td>-8</td>
+</tr>
+<tr>
+<td>29</td>
+<td>SMALLINT</td>
+<td>5</td>
+</tr>
+<tr>
+<td>30</td>
+<td>SQLXML</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>31</td>
+<td>STRUCT</td>
+<td>2002</td>
+</tr>
+<tr>
+<td>32</td>
+<td>TIME</td>
+<td>92</td>
+</tr>
+<tr>
+<td>33</td>
+<td>TIMESTAMP</td>
+<td>93</td>
+</tr>
+<tr>
+<td>34</td>
+<td>TINYINT</td>
+<td>-6</td>
+</tr>
+<tr>
+<td>35</td>
+<td>VARBINARY</td>
+<td>-3</td>
+</tr>
+<tr>
+<td>36</td>
+<td>VARCHAR</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h5><p>根据错误代码就可以找到我们是哪一种错误。</p>
+<p>比如：我这次出现的错误的是No Dialect mapping for JDBC type: 1111<br>输入 序号25 中的 other 。<br>复制sql 执行查询发现，它查出的数据库类型是<code>unknown</code>。</p>
+<p>现在知道了问题所在，可以执行sql 的时候指定数据类型，各种数据库都有相应的函数或方法转换。</p>
+<p>例外，如果是方言配置错误，需要配置正确的方言。</p>
+<h5 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h5><p>既然是方言的问题，我们可以取看下方言的实现，我使用的是postgresql，就以它为例，它的实现其实就是这样的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PostgreSQL81Dialect</span> <span class="keyword">extends</span> <span class="title">Dialect</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * Constructs a PostgreSQL81Dialect</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PostgreSQL81Dialect</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">		registerColumnType( Types.BIT, <span class="string">"bool"</span> );</div><div class="line">		registerColumnType( Types.BIGINT, <span class="string">"int8"</span> );</div><div class="line">		registerColumnType( Types.SMALLINT, <span class="string">"int2"</span> );</div><div class="line">		registerColumnType( Types.TINYINT, <span class="string">"int2"</span> );</div><div class="line">		registerColumnType( Types.INTEGER, <span class="string">"int4"</span> );</div><div class="line">		registerColumnType( Types.CHAR, <span class="string">"char(1)"</span> );</div><div class="line">		registerColumnType( Types.VARCHAR, <span class="string">"varchar($l)"</span> );</div><div class="line">		registerColumnType( Types.FLOAT, <span class="string">"float4"</span> );</div><div class="line">		registerColumnType( Types.DOUBLE, <span class="string">"float8"</span> );</div><div class="line">		registerColumnType( Types.DATE, <span class="string">"date"</span> );</div><div class="line">		registerColumnType( Types.TIME, <span class="string">"time"</span> );</div><div class="line">		registerColumnType( Types.TIMESTAMP, <span class="string">"timestamp"</span> );</div><div class="line">		registerColumnType( Types.VARBINARY, <span class="string">"bytea"</span> );</div><div class="line">		registerColumnType( Types.BINARY, <span class="string">"bytea"</span> );</div><div class="line">		registerColumnType( Types.LONGVARCHAR, <span class="string">"text"</span> );</div><div class="line">		registerColumnType( Types.LONGVARBINARY, <span class="string">"bytea"</span> );</div><div class="line">		registerColumnType( Types.CLOB, <span class="string">"text"</span> );</div><div class="line">		registerColumnType( Types.BLOB, <span class="string">"oid"</span> );</div><div class="line">		registerColumnType( Types.NUMERIC, <span class="string">"numeric($p, $s)"</span> );</div><div class="line">		registerColumnType( Types.OTHER, <span class="string">"uuid"</span> );</div><div class="line"></div><div class="line">		registerFunction( <span class="string">"abs"</span>, <span class="keyword">new</span> StandardSQLFunction(<span class="string">"abs"</span>) );</div><div class="line">		registerFunction( <span class="string">"sign"</span>, <span class="keyword">new</span> StandardSQLFunction(<span class="string">"sign"</span>, StandardBasicTypes.INTEGER) );</div><div class="line">        </div><div class="line">       <span class="comment">//  ……太多了，</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>去看下 java.sql.Types的定义<br><img src="http://image.wuwii.com/java-types.png" alt="image"></p>
+<p>明白了它是我们上面表格中状态码定义的地方。</p>
+<p>所以我们做一个方言，只要在构造函数中实现相应类型码的对应类类型就可以了，上面是<code>1111</code> 出现错误，我只要将它的类型重新定义为<code>text</code>即可，就是它怎么写的我们就怎么写。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> org.hibernate.dialect.PostgreSQLDialect;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.sql.Types.OTHER;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 重写方言，指定代码相应的数据库类型</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/12/11 14:28&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserPostgreSQLDialect</span> <span class="keyword">extends</span> <span class="title">PostgreSQLDialect</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserPostgreSQLDialect</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        registerColumnType(OTHER, <span class="string">"text"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后在数据库的配置文件中，将方言的类改成我们自定义的就OK了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[leaflet加载谷歌地图]]></title>
       <url>/leaflet-load-googlemap.html</url>
       <content type="html"><![CDATA[<p>主要是使用： <a rel="external nofollow" target="_blank" href="https://github.com/htoooth/Leaflet.ChineseTmsProviders">ChineseTmsProviders</a> 插件完成的，详细使用可以进入它的文档了解，它还封装加载各种在线地图的方法，以谷歌地图为例。</p>
@@ -4092,35 +4319,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[一叶知秋]]></title>
-      <url>/trend.html</url>
-      <content type="html"><![CDATA[<p>今天晚上在小区里面慢跑，突然一个东西掉到我眼镜架上，塞在里面了，尬，拿下来一看，看到的是一片树叶。<br><img src="https://i.loli.net/2017/10/08/59da342e1af4a.jpg" alt="image"><br>时间过得真快，已经秋天了，今年国庆八天长假，也过完，我想，今后，再得过多少年，才有八天长假。</p>
-<a id="more"></a>
-<p>事情一直在发生，故事永远也写不完，我想我现在想什么，也许在眺望着什么，犹豫着什么，患得患失着什么。在每一刻，它都是好的。也许有一天，我老了，不再去疯了，就这么平静得下去。</p>
-<p>我想我现在还是这么个人吧，一直以来也是，对身边的事情都是依依不舍的，但是我没有停留，紧跟着前进，真是想去浪迹天涯呀，但是那是不可能的，我有自己的牵挂与责任，我还是放不下，总有一天，我会老去，总是不想放过，但是时常会放弃自己的一些事情，为难着自己，不愿意离开。</p>
-<p><img src="https://ooo.0o0.ooo/2017/10/08/59d9afb316e7f.png" alt="img"></p>
-<p>也许是秋天总是会给人带来一丝惆怅的心情吧，不知不觉的，你就会触景生情，这个时候千万别拍照，别去看镜子，你会发现，不知不觉，多了一份沧桑，心里有一些焦灼，慢慢的会影响你的心绪。走的时候，又会浑然不知。</p>
-<p>我想我现在还是正值好时光的年纪，即使不能清高，也要活出自我，最后像树叶一样洒脱的离开，因为，我想我正在它夏天的这个时候，还没到，还没到，还能享受最热烈的阳光。</p>
-<p><img src="https://i.loli.net/2017/10/08/59da398b58f84.jpg" alt="image"></p>
-<p>恍惚，秋分早已过，不用在意太多孰是孰非，早就没留退路，只能这样不顾一切，而你是否能明白了。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 碎碎念 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 心情 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[我想温暖这个有你的世界]]></title>
       <url>/warm-the-world.html</url>
       <content type="html"><![CDATA[<p>平时一个人最喜欢听的故事，很暖心，分享出来，好好睡觉，嗯，晚安。</p>
@@ -4150,6 +4348,35 @@
         <tags>
             
             <tag> 故事 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[一叶知秋]]></title>
+      <url>/trend.html</url>
+      <content type="html"><![CDATA[<p>今天晚上在小区里面慢跑，突然一个东西掉到我眼镜架上，塞在里面了，尬，拿下来一看，看到的是一片树叶。<br><img src="https://i.loli.net/2017/10/08/59da342e1af4a.jpg" alt="image"><br>时间过得真快，已经秋天了，今年国庆八天长假，也过完，我想，今后，再得过多少年，才有八天长假。</p>
+<a id="more"></a>
+<p>事情一直在发生，故事永远也写不完，我想我现在想什么，也许在眺望着什么，犹豫着什么，患得患失着什么。在每一刻，它都是好的。也许有一天，我老了，不再去疯了，就这么平静得下去。</p>
+<p>我想我现在还是这么个人吧，一直以来也是，对身边的事情都是依依不舍的，但是我没有停留，紧跟着前进，真是想去浪迹天涯呀，但是那是不可能的，我有自己的牵挂与责任，我还是放不下，总有一天，我会老去，总是不想放过，但是时常会放弃自己的一些事情，为难着自己，不愿意离开。</p>
+<p><img src="https://ooo.0o0.ooo/2017/10/08/59d9afb316e7f.png" alt="img"></p>
+<p>也许是秋天总是会给人带来一丝惆怅的心情吧，不知不觉的，你就会触景生情，这个时候千万别拍照，别去看镜子，你会发现，不知不觉，多了一份沧桑，心里有一些焦灼，慢慢的会影响你的心绪。走的时候，又会浑然不知。</p>
+<p>我想我现在还是正值好时光的年纪，即使不能清高，也要活出自我，最后像树叶一样洒脱的离开，因为，我想我正在它夏天的这个时候，还没到，还没到，还能享受最热烈的阳光。</p>
+<p><img src="https://i.loli.net/2017/10/08/59da398b58f84.jpg" alt="image"></p>
+<p>恍惚，秋分早已过，不用在意太多孰是孰非，早就没留退路，只能这样不顾一切，而你是否能明白了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 碎碎念 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 心情 </tag>
             
         </tags>
         

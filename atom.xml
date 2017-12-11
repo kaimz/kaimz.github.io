@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-12-08T00:36:32.282Z</updated>
+  <updated>2017-12-11T10:37:36.994Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,239 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>No Dialect mapping for JDBC type 的问题</title>
+    <link href="http://blog.wuwii.com/java-no-dialect-mapping.html"/>
+    <id>http://blog.wuwii.com/java-no-dialect-mapping.html</id>
+    <published>2017-12-11T10:38:03.000Z</published>
+    <updated>2017-12-11T10:37:36.994Z</updated>
+    
+    <content type="html"><![CDATA[<p>问题很简单，就是方言不能把该数据库类型映射到Java中， 方言不认识这个数据库类型。</p>
+<h4 id="出现原因"><a href="#出现原因" class="headerlink" title="出现原因"></a>出现原因</h4><ol>
+<li>数据库字段类型和JAVA类型不匹配。</li>
+<li>错误地配置了数据库方言。</li>
+</ol>
+<a id="more"></a>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>首先查看java.sql.Types类型，以及各种错误代码。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类型</th>
+<th>状态码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ARRAY</td>
+<td>2003</td>
+</tr>
+<tr>
+<td>2</td>
+<td>BIGINT</td>
+<td>-5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>BINARY</td>
+<td>-2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>BIT</td>
+<td>-7</td>
+</tr>
+<tr>
+<td>5</td>
+<td>BLOB</td>
+<td>2004</td>
+</tr>
+<tr>
+<td>6</td>
+<td>BOOLEAN</td>
+<td>16</td>
+</tr>
+<tr>
+<td>7</td>
+<td>CHAR</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>CLOB</td>
+<td>2005</td>
+</tr>
+<tr>
+<td>9</td>
+<td>DATALINK</td>
+<td>70</td>
+</tr>
+<tr>
+<td>10</td>
+<td>DATE</td>
+<td>91</td>
+</tr>
+<tr>
+<td>11</td>
+<td>DECIMAL</td>
+<td>3</td>
+</tr>
+<tr>
+<td>12</td>
+<td>DISTINCT</td>
+<td>2001</td>
+</tr>
+<tr>
+<td>13</td>
+<td>DOUBLE</td>
+<td>8</td>
+</tr>
+<tr>
+<td>14</td>
+<td>FLOAT</td>
+<td>6</td>
+</tr>
+<tr>
+<td>15</td>
+<td>INTEGER</td>
+<td>4</td>
+</tr>
+<tr>
+<td>16</td>
+<td>JAVA_OBJECT</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>17</td>
+<td>LONGNVARCHAR</td>
+<td>-16</td>
+</tr>
+<tr>
+<td>18</td>
+<td>LONGVARBINARY</td>
+<td>-4</td>
+</tr>
+<tr>
+<td>19</td>
+<td>LONGVARCHAR</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>20</td>
+<td>NCHAR</td>
+<td>-15</td>
+</tr>
+<tr>
+<td>21</td>
+<td>NCLOB</td>
+<td>2011</td>
+</tr>
+<tr>
+<td>22</td>
+<td>NULL</td>
+<td>0</td>
+</tr>
+<tr>
+<td>23</td>
+<td>NUMERIC</td>
+<td>2</td>
+</tr>
+<tr>
+<td>24</td>
+<td>NVARCHAR</td>
+<td>-9</td>
+</tr>
+<tr>
+<td>25</td>
+<td>OTHER</td>
+<td>1111</td>
+</tr>
+<tr>
+<td>26</td>
+<td>REAL</td>
+<td>7</td>
+</tr>
+<tr>
+<td>27</td>
+<td>REF</td>
+<td>2006</td>
+</tr>
+<tr>
+<td>28</td>
+<td>ROWID</td>
+<td>-8</td>
+</tr>
+<tr>
+<td>29</td>
+<td>SMALLINT</td>
+<td>5</td>
+</tr>
+<tr>
+<td>30</td>
+<td>SQLXML</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>31</td>
+<td>STRUCT</td>
+<td>2002</td>
+</tr>
+<tr>
+<td>32</td>
+<td>TIME</td>
+<td>92</td>
+</tr>
+<tr>
+<td>33</td>
+<td>TIMESTAMP</td>
+<td>93</td>
+</tr>
+<tr>
+<td>34</td>
+<td>TINYINT</td>
+<td>-6</td>
+</tr>
+<tr>
+<td>35</td>
+<td>VARBINARY</td>
+<td>-3</td>
+</tr>
+<tr>
+<td>36</td>
+<td>VARCHAR</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h5><p>根据错误代码就可以找到我们是哪一种错误。</p>
+<p>比如：我这次出现的错误的是No Dialect mapping for JDBC type: 1111<br>输入 序号25 中的 other 。<br>复制sql 执行查询发现，它查出的数据库类型是<code>unknown</code>。</p>
+<p>现在知道了问题所在，可以执行sql 的时候指定数据类型，各种数据库都有相应的函数或方法转换。</p>
+<p>例外，如果是方言配置错误，需要配置正确的方言。</p>
+<h5 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h5><p>既然是方言的问题，我们可以取看下方言的实现，我使用的是postgresql，就以它为例，它的实现其实就是这样的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PostgreSQL81Dialect</span> <span class="keyword">extends</span> <span class="title">Dialect</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * Constructs a PostgreSQL81Dialect</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PostgreSQL81Dialect</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">		registerColumnType( Types.BIT, <span class="string">"bool"</span> );</div><div class="line">		registerColumnType( Types.BIGINT, <span class="string">"int8"</span> );</div><div class="line">		registerColumnType( Types.SMALLINT, <span class="string">"int2"</span> );</div><div class="line">		registerColumnType( Types.TINYINT, <span class="string">"int2"</span> );</div><div class="line">		registerColumnType( Types.INTEGER, <span class="string">"int4"</span> );</div><div class="line">		registerColumnType( Types.CHAR, <span class="string">"char(1)"</span> );</div><div class="line">		registerColumnType( Types.VARCHAR, <span class="string">"varchar($l)"</span> );</div><div class="line">		registerColumnType( Types.FLOAT, <span class="string">"float4"</span> );</div><div class="line">		registerColumnType( Types.DOUBLE, <span class="string">"float8"</span> );</div><div class="line">		registerColumnType( Types.DATE, <span class="string">"date"</span> );</div><div class="line">		registerColumnType( Types.TIME, <span class="string">"time"</span> );</div><div class="line">		registerColumnType( Types.TIMESTAMP, <span class="string">"timestamp"</span> );</div><div class="line">		registerColumnType( Types.VARBINARY, <span class="string">"bytea"</span> );</div><div class="line">		registerColumnType( Types.BINARY, <span class="string">"bytea"</span> );</div><div class="line">		registerColumnType( Types.LONGVARCHAR, <span class="string">"text"</span> );</div><div class="line">		registerColumnType( Types.LONGVARBINARY, <span class="string">"bytea"</span> );</div><div class="line">		registerColumnType( Types.CLOB, <span class="string">"text"</span> );</div><div class="line">		registerColumnType( Types.BLOB, <span class="string">"oid"</span> );</div><div class="line">		registerColumnType( Types.NUMERIC, <span class="string">"numeric($p, $s)"</span> );</div><div class="line">		registerColumnType( Types.OTHER, <span class="string">"uuid"</span> );</div><div class="line"></div><div class="line">		registerFunction( <span class="string">"abs"</span>, <span class="keyword">new</span> StandardSQLFunction(<span class="string">"abs"</span>) );</div><div class="line">		registerFunction( <span class="string">"sign"</span>, <span class="keyword">new</span> StandardSQLFunction(<span class="string">"sign"</span>, StandardBasicTypes.INTEGER) );</div><div class="line">        </div><div class="line">       <span class="comment">//  ……太多了，</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>去看下 java.sql.Types的定义<br><img src="http://image.wuwii.com/java-types.png" alt="image"></p>
+<p>明白了它是我们上面表格中状态码定义的地方。</p>
+<p>所以我们做一个方言，只要在构造函数中实现相应类型码的对应类类型就可以了，上面是<code>1111</code> 出现错误，我只要将它的类型重新定义为<code>text</code>即可，就是它怎么写的我们就怎么写。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> org.hibernate.dialect.PostgreSQLDialect;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.sql.Types.OTHER;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 重写方言，指定代码相应的数据库类型</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/12/11 14:28&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserPostgreSQLDialect</span> <span class="keyword">extends</span> <span class="title">PostgreSQLDialect</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserPostgreSQLDialect</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        registerColumnType(OTHER, <span class="string">"text"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后在数据库的配置文件中，将方言的类改成我们自定义的就OK了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;问题很简单，就是方言不能把该数据库类型映射到Java中， 方言不认识这个数据库类型。&lt;/p&gt;
+&lt;h4 id=&quot;出现原因&quot;&gt;&lt;a href=&quot;#出现原因&quot; class=&quot;headerlink&quot; title=&quot;出现原因&quot;&gt;&lt;/a&gt;出现原因&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;数据库字段类型和JAVA类型不匹配。&lt;/li&gt;
+&lt;li&gt;错误地配置了数据库方言。&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>leaflet加载谷歌地图</title>
@@ -1422,209 +1655,6 @@
       <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
     
       <category term="redis" scheme="http://blog.wuwii.com/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>volatile关键字解析</title>
-    <link href="http://blog.wuwii.com/java-volatile.html"/>
-    <id>http://blog.wuwii.com/java-volatile.html</id>
-    <published>2017-11-19T03:58:03.000Z</published>
-    <updated>2017-11-30T05:54:16.248Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="内存模型的相关概念"><a href="#内存模型的相关概念" class="headerlink" title="内存模型的相关概念"></a>内存模型的相关概念</h3><p>大家都知道，计算机在执行程序时，每条指令都是在CPU中执行的，而执行指令过程中，势必涉及到数据的读取和写入。由于程序运行过程中的临时数据是存放在主存（物理内存）当中的，这时就存在一个问题，由于CPU执行速度很快，而从内存读取数据和向内存写入数据的过程跟CPU执行指令的速度比起来要慢的多，因此如果任何时候对数据的操作都要通过和内存的交互来进行，会大大降低指令执行的速度。因此在CPU里面就有了高速缓存。</p>
-<a id="more"></a>
-<p>也就是，当程序在运行过程中，会将运算需要的数据从主存复制一份到CPU的高速缓存当中，那么CPU进行计算时就可以直接从它的高速缓存读取数据和向其中写入数据，当运算结束之后，再将高速缓存中的数据刷新到主存当中。举个简单的例子，比如下面的这段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">i = i + 1;</div></pre></td></tr></table></figure></p>
-<p>当线程执行这个语句时，会先从主存当中读取i的值，然后复制一份到高速缓存当中，然后CPU执行指令对i进行加1操作，然后将数据写入高速缓存，最后将高速缓存中i最新的值刷新到主存当中。</p>
-<p>这个代码在单线程中运行是没有任何问题的，但是在多线程中运行就会有问题了。在多核CPU中，每条线程可能运行于不同的CPU中，因此每个线程运行时有自己的高速缓存（对单核CPU来说，其实也会出现这种问题，只不过是以线程调度的形式来分别执行的）。本文我们以多核CPU为例。</p>
-<p>比如同时有2个线程执行这段代码，假如初始时i的值为0，那么我们希望两个线程执行完之后i的值变为2。但是事实会是这样吗？</p>
-<p>可能存在下面一种情况：初始时，两个线程分别读取i的值存入各自所在的CPU的高速缓存当中，然后线程1进行加1操作，然后把i的最新值1写入到内存。此时线程2的高速缓存当中i的值还是0，进行加1操作之后，i的值为1，然后线程2把i的值写入内存。</p>
-<p>最终结果i的值是1，而不是2。这就是著名的缓存一致性问题。通常称这种被多个线程访问的变量为共享变量。</p>
-<p>也就是说，如果一个变量在多个CPU中都存在缓存（一般在多线程编程时才会出现），那么就可能存在缓存不一致的问题。</p>
-<p>为了解决缓存不一致性问题，通常来说有以下2种解决方法：</p>
-<ol>
-<li>通过在总线加LOCK#锁的方式；</li>
-<li>通过缓存一致性协议。</li>
-</ol>
-<p>这2种方式都是硬件层面上提供的方式。</p>
-<p>在早期的CPU当中，是通过在总线上加LOCK#锁的形式来解决缓存不一致的问题。因为CPU和其他部件进行通信都是通过总线来进行的，如果对总线加LOCK#锁的话，也就是说阻塞了其他CPU对其他部件访问（如内存），从而使得只能有一个CPU能使用这个变量的内存。比如上面例子中 如果一个线程在执行 i = i +1，如果在执行这段代码的过程中，在总线上发出了LCOK#锁的信号，那么只有等待这段代码完全执行完毕之后，其他CPU才能从变量i所在的内存读取变量，然后进行相应的操作。这样就解决了缓存不一致的问题。</p>
-<p>但是上面的方式会有一个问题，由于在锁住总线期间，其他CPU无法访问内存，导致效率低下。</p>
-<p>所以就出现了缓存一致性协议。最出名的就是Intel 的MESI协议，MESI协议保证了每个缓存中使用的共享变量的副本是一致的。它核心的思想是：当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，会发出信号通知其他CPU将该变量的缓存行置为无效状态，因此当其他CPU需要读取这个变量时，发现自己缓存中缓存该变量的缓存行是无效的，那么它就会从内存重新读取。</p>
-<p><img src="http://ov62kaxkk.bkt.clouddn.com/212219343783699.jpg" alt="image"></p>
-<h3 id="并发编程中的三个概念"><a href="#并发编程中的三个概念" class="headerlink" title="并发编程中的三个概念"></a>并发编程中的三个概念</h3><p>在并发编程中，我们通常会遇到以下三个问题：原子性问题，可见性问题，有序性问题。我们先看具体看一下这三个概念：</p>
-<h4 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h4><p>原子性：即一个操作或者多个操作 要么全部执行并且执行的过程不会被任何因素打断，要么就都不执行。</p>
-<p>一个很经典的例子就是银行账户转账问题：</p>
-<p>比如从账户A向账户B转1000元，那么必然包括2个操作：从账户A减去1000元，往账户B加上1000元。</p>
-<p>试想一下，如果这2个操作不具备原子性，会造成什么样的后果。假如从账户A减去1000元之后，操作突然中止。然后又从B取出了500元，取出500元之后，再执行 往账户B加上1000元 的操作。这样就会导致账户A虽然减去了1000元，但是账户B没有收到这个转过来的1000元。</p>
-<p>所以这2个操作必须要具备原子性才能保证不出现一些意外的问题。</p>
-<p>同样地反映到并发编程中会出现什么结果呢？<br>举个最简单的例子，大家想一下假如为一个32位的变量赋值过程不具备原子性的话，会发生什么后果？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">i = 9;</div></pre></td></tr></table></figure></p>
-<p>假若一个线程执行到这个语句时，我暂且假设为一个32位的变量赋值包括两个过程：为低16位赋值，为高16位赋值。<br>那么就可能发生一种情况：当将低16位数值写入之后，突然被中断，而此时又有一个线程去读取i的值，那么读取到的就是错误的数据。</p>
-<h4 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h4><p>可见性是指当多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值。</p>
-<p>举个简单的例子，看下面这段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//线程1执行的代码</div><div class="line">int i = 0;</div><div class="line">i = 10;</div><div class="line"> </div><div class="line">//线程2执行的代码</div><div class="line">j = i;</div></pre></td></tr></table></figure></p>
-<p>假若执行线程1的是CPU1，执行线程2的是CPU2。由上面的分析可知，当线程1执行 i =10这句时，会先把i的初始值加载到CPU1的高速缓存中，然后赋值为10，那么在CPU1的高速缓存当中i的值变为10了，却没有立即写入到主存当中。</p>
-<p>此时线程2执行 <code>j = i</code>，它会先去主存读取i的值并加载到CPU2的缓存当中，注意此时内存当中i的值还是0，那么就会使得j的值为0，而不是10.</p>
-<p>这就是可见性问题，线程1对变量i修改了之后，线程2没有立即看到线程1修改的值。</p>
-<h4 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h4><p>有序性：即程序执行的顺序按照代码的先后顺序执行。举个简单的例子，看下面这段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int i = 0;              </div><div class="line">boolean flag = false;</div><div class="line">i = 1;                //语句1  </div><div class="line">flag = true;          //语句2</div></pre></td></tr></table></figure></p>
-<p>上面代码定义了一个int型变量，定义了一个boolean类型变量，然后分别对两个变量进行赋值操作。从代码顺序上看，语句1是在语句2前面的，那么JVM在真正执行这段代码的时候会保证语句1一定会在语句2前面执行吗？不一定，为什么呢？这里可能会发生指令重排序（Instruction Reorder）。</p>
-<p>下面解释一下什么是指令重排序，一般来说，处理器为了提高程序运行效率，可能会对输入代码进行优化，它不保证程序中各个语句的执行先后顺序同代码中的顺序一致，但是它会保证程序最终执行结果和代码顺序执行的结果是一致的。</p>
-<p>比如上面的代码中，语句1和语句2谁先执行对最终的程序结果并没有影响，那么就有可能在执行过程中，语句2先执行而语句1后执行。</p>
-<p>但是要注意，虽然处理器会对指令进行重排序，但是它会保证程序最终结果会和代码顺序执行结果相同，那么它靠什么保证的呢？再看下面一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int a = 10;    //语句1</div><div class="line">int r = 2;    //语句2</div><div class="line">a = a + 3;    //语句3</div><div class="line">r = a*a;     //语句4</div></pre></td></tr></table></figure></p>
-<p>这段代码有4个语句，那么可能的一个执行顺序是：</p>
-<p><img src="http://ov62kaxkk.bkt.clouddn.com/212305263939989.jpg" alt="image"></p>
-<p>那么可不可能是这个执行顺序呢： 语句2   语句1    语句4   语句3</p>
-<p>不可能，因为处理器在进行重排序时是会考虑指令之间的数据依赖性，如果一个指令Instruction 2必须用到Instruction 1的结果，那么处理器会保证Instruction 1会在Instruction 2之前执行。</p>
-<p>虽然重排序不会影响单个线程内程序执行的结果，但是多线程呢？下面看一个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//线程1:</span></div><div class="line">context = loadContext();   <span class="comment">//语句1</span></div><div class="line">inited = <span class="keyword">true</span>;             <span class="comment">//语句2</span></div><div class="line"> </div><div class="line"><span class="comment">//线程2:</span></div><div class="line"><span class="keyword">while</span>(!inited )&#123;</div><div class="line">  sleep()</div><div class="line">&#125;</div><div class="line">doSomethingwithconfig(context);</div></pre></td></tr></table></figure></p>
-<p>上面代码中，由于语句1和语句2没有数据依赖性，因此可能会被重排序。假如发生了重排序，在线程1执行过程中先执行语句2，而此是线程2会以为初始化工作已经完成，那么就会跳出while循环，去执行doSomethingwithconfig(context)方法，而此时context并没有被初始化，就会导致程序出错。</p>
-<p> 从上面可以看出，指令重排序不会影响单个线程的执行，但是会影响到线程并发执行的正确性。</p>
-<p>也就是说，要想并发程序正确地执行，必须要保证原子性、可见性以及有序性。只要有一个没有被保证，就有可能会导致程序运行不正确。</p>
-<h3 id="Java内存模型"><a href="#Java内存模型" class="headerlink" title="Java内存模型"></a>Java内存模型</h3><p>在前面谈到了一些关于内存模型以及并发编程中可能会出现的一些问题。下面我们来看一下Java内存模型，研究一下Java内存模型为我们提供了哪些保证以及在java中提供了哪些方法和机制来让我们在进行多线程编程时能够保证程序执行的正确性。</p>
-<p>在Java虚拟机规范中试图定义一种Java内存模型（Java Memory Model，JMM）来屏蔽各个硬件平台和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。那么Java内存模型规定了哪些东西呢，它定义了程序中变量的访问规则，往大一点说是定义了程序执行的次序。注意，为了获得较好的执行性能，Java内存模型并没有限制执行引擎使用处理器的寄存器或者高速缓存来提升指令执行速度，也没有限制编译器对指令进行重排序。也就是说，在java内存模型中，也会存在缓存一致性问题和指令重排序的问题。</p>
-<p>Java内存模型规定所有的变量都是存在主存当中（类似于前面说的物理内存），每个线程都有自己的工作内存（类似于前面的高速缓存）。线程对变量的所有操作都必须在工作内存中进行，而不能直接对主存进行操作。并且每个线程不能访问其他线程的工作内存。</p>
-<p>举个简单的例子：在java中，执行下面这个语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">i  = 10;</div></pre></td></tr></table></figure>
-<p>执行线程必须先在自己的工作线程中对变量i所在的缓存行进行赋值操作，然后再写入主存当中。而不是直接将数值10写入主存当中。</p>
-<p>那么Java语言 本身对 原子性、可见性以及有序性提供了哪些保证呢？</p>
-<h4 id="原子性-1"><a href="#原子性-1" class="headerlink" title="原子性"></a>原子性</h4><p>在Java中，对基本数据类型的变量的读取和赋值操作是原子性操作，即这些操作是不可被中断的，要么执行，要么不执行。</p>
-<p>上面一句话虽然看起来简单，但是理解起来并不是那么容易。看下面一个例子i：</p>
-<p>请分析以下哪些操作是原子性操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">x = 10;         //语句1</div><div class="line">y = x;         //语句2</div><div class="line">x++;           //语句3</div><div class="line">x = x + 1;     //语句4</div></pre></td></tr></table></figure>
-<p>咋一看，有些朋友可能会说上面的4个语句中的操作都是原子性操作。其实只有语句1是原子性操作，其他三个语句都不是原子性操作。</p>
-<p>语句1是直接将数值10赋值给x，也就是说线程执行这个语句的会直接将数值10写入到工作内存中。</p>
-<p>语句2实际上包含2个操作，它先要去读取x的值，再将x的值写入工作内存，虽然读取x的值以及 将x的值写入工作内存 这2个操作都是原子性操作，但是合起来就不是原子性操作了。</p>
-<p>同样的，x++和 x = x+1包括3个操作：读取x的值，进行加1操作，写入新的值。</p>
-<p>所以上面4个语句只有语句1的操作具备原子性。</p>
-<p>也就是说，只有简单的读取、赋值（而且必须是将数字赋值给某个变量，变量之间的相互赋值不是原子操作）才是原子操作。</p>
-<p>不过这里有一点需要注意：在32位平台下，对64位数据的读取和赋值是需要通过两个操作来完成的，不能保证其原子性。但是好像在最新的JDK中，JVM已经保证对64位数据的读取和赋值也是原子性操作了。</p>
-<p>从上面可以看出，Java内存模型只保证了基本读取和赋值是原子性操作，如果要实现更大范围操作的原子性，可以通过synchronized和Lock来实现。由于synchronized和Lock能够保证任一时刻只有一个线程执行该代码块，那么自然就不存在原子性问题了，从而保证了原子性。</p>
-<h4 id="可见性-1"><a href="#可见性-1" class="headerlink" title="可见性"></a>可见性</h4><p>对于可见性，Java提供了volatile关键字来保证可见性。</p>
-<p>当一个共享变量被volatile修饰时，它会保证修改的值会立即被更新到主存，当有其他线程需要读取时，它会去内存中读取新值。</p>
-<p>而普通的共享变量不能保证可见性，因为普通共享变量被修改之后，什么时候被写入主存是不确定的，当其他线程去读取时，此时内存中可能还是原来的旧值，因此无法保证可见性。</p>
-<p>另外，通过synchronized和Lock也能够保证可见性，synchronized和Lock能保证同一时刻只有一个线程获取锁然后执行同步代码，并且在释放锁之前会将对变量的修改刷新到主存当中。因此可以保证可见性。</p>
-<h4 id="有序性-1"><a href="#有序性-1" class="headerlink" title="有序性"></a>有序性</h4><p>在Java内存模型中，允许编译器和处理器对指令进行重排序，但是重排序过程不会影响到单线程程序的执行，却会影响到多线程并发执行的正确性。</p>
-<p>在Java里面，可以通过volatile关键字来保证一定的“有序性”（具体原理在下一节讲述）。另外可以通过synchronized和Lock来保证有序性，很显然，synchronized和Lock保证每个时刻是有一个线程执行同步代码，相当于是让线程顺序执行同步代码，自然就保证了有序性。</p>
-<p><strong>另外，Java内存模型具备一些先天的“有序性”，即不需要通过任何手段就能够得到保证的有序性，这个通常也称为 happens-before 原则。如果两个操作的执行次序无法从happens-before原则推导出来，那么它们就不能保证它们的有序性，虚拟机可以随意地对它们进行重排序。</strong></p>
-<p>下面就来具体介绍下<code>happens-before</code>原则（先行发生原则）：</p>
-<ol>
-<li>程序次序规则：一个线程内，按照代码顺序，书写在前面的操作先行发生于书写在后面的操作；</li>
-<li>锁定规则：一个unLock操作先行发生于后面对同一个锁额lock操作；</li>
-<li>volatile变量规则：对一个变量的写操作先行发生于后面对这个变量的读操作；</li>
-<li>传递规则：如果操作A先行发生于操作B，而操作B又先行发生于操作C，则可以得出操作A先行发生于操作C；</li>
-<li>线程启动规则：Thread对象的start()方法先行发生于此线程的每个一个动作；</li>
-<li>线程中断规则：对线程interrupt()方法的调用先行发生于被中断线程的代码检测到中断事件的发生；</li>
-<li>线程终结规则：线程中所有的操作都先行发生于线程的终止检测，我们可以通过Thread.join()方法结束、Thread.isAlive()的返回值手段检测到线程已经终止执行；</li>
-<li>对象终结规则：一个对象的初始化完成先行发生于他的finalize()方法的开始。</li>
-</ol>
-<p>这8条原则摘自《深入理解Java虚拟机》。</p>
-<p>这8条规则中，前4条规则是比较重要的，后4条规则都是显而易见的。</p>
-<p>下面我们来解释一下前4条规则：<br>对于程序次序规则来说，我的理解就是一段程序代码的执行在单个线程中看起来是有序的。注意，虽然这条规则中提到“书写在前面的操作先行发生于书写在后面的操作”，这个应该是程序看起来执行的顺序是按照代码顺序执行的，因为虚拟机可能会对程序代码进行指令重排序。虽然进行重排序，但是最终执行的结果是与程序顺序执行的结果一致的，它只会对不存在数据依赖性的指令进行重排序。因此，在单个线程中，程序执行看起来是有序执行的，这一点要注意理解。事实上，这个规则是用来保证程序在单线程中执行结果的正确性，但无法保证程序在多线程中执行的正确性。</p>
-<p>第二条规则也比较容易理解，也就是说无论在单线程中还是多线程中，同一个锁如果出于被锁定的状态，那么必须先对锁进行了释放操作，后面才能继续进行lock操作。</p>
-<p>第三条规则是一条比较重要的规则，也是后文将要重点讲述的内容。直观地解释就是，如果一个线程先去写一个变量，然后一个线程去进行读取，那么写入操作肯定会先行发生于读操作。</p>
-<p>第四条规则实际上就是体现happens-before原则具备传递性。</p>
-<h3 id="深入剖析volatile关键字"><a href="#深入剖析volatile关键字" class="headerlink" title="深入剖析volatile关键字"></a>深入剖析volatile关键字</h3><p>在前面讲述了很多东西，其实都是为讲述volatile关键字作铺垫，那么接下来我们就进入主题。</p>
-<h4 id="volatile关键字的两层语义"><a href="#volatile关键字的两层语义" class="headerlink" title="volatile关键字的两层语义"></a>volatile关键字的两层语义</h4><p>一旦一个共享变量（类的成员变量、类的静态成员变量）被volatile修饰之后，那么就具备了两层语义：</p>
-<ol>
-<li>保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的。</li>
-<li>禁止进行指令重排序。</li>
-</ol>
-<p>先看一段代码，假如线程1先执行，线程2后执行：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//线程1</span></div><div class="line"><span class="keyword">boolean</span> stop = <span class="keyword">false</span>;</div><div class="line"><span class="keyword">while</span>(!stop)&#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">//线程2</span></div><div class="line">stop = <span class="keyword">true</span>;</div></pre></td></tr></table></figure></p>
-<p>这段代码是很典型的一段代码，很多人在中断线程时可能都会采用这种标记办法。但是事实上，这段代码会完全运行正确么？即一定会将线程中断么？不一定，也许在大多数时候，这个代码能够把线程中断，但是也有可能会导致无法中断线程（虽然这个可能性很小，但是只要一旦发生这种情况就会造成死循环了）。</p>
-<p>下面解释一下这段代码为何有可能导致无法中断线程。在前面已经解释过，每个线程在运行过程中都有自己的工作内存，那么线程1在运行的时候，会将stop变量的值拷贝一份放在自己的工作内存当中。</p>
-<p>那么当线程2更改了stop变量的值之后，但是还没来得及写入主存当中，线程2转去做其他事情了，那么线程1由于不知道线程2对stop变量的更改，因此还会一直循环下去。</p>
-<p>但是用volatile修饰之后就变得不一样了：</p>
-<p>第一：使用volatile关键字会强制将修改的值立即写入主存；</p>
-<p>第二：使用volatile关键字的话，当线程2进行修改时，会导致线程1的工作内存中缓存变量stop的缓存行无效（反映到硬件层的话，就是CPU的L1或者L2缓存中对应的缓存行无效）；</p>
-<p>第三：由于线程1的工作内存中缓存变量stop的缓存行无效，所以线程1再次读取变量stop的值时会去主存读取。</p>
-<p>那么在线程2修改stop值时（当然这里包括2个操作，修改线程2工作内存中的值，然后将修改后的值写入内存），会使得线程1的工作内存中缓存变量stop的缓存行无效，然后线程1读取时，发现自己的缓存行无效，它会等待缓存行对应的主存地址被更新之后，然后去对应的主存读取最新的值。</p>
-<p>那么线程1读取到的就是最新的正确的值。</p>
-<h4 id="volatile保证原子性吗？"><a href="#volatile保证原子性吗？" class="headerlink" title="volatile保证原子性吗？"></a>volatile保证原子性吗？</h4><p>从上面知道volatile关键字保证了操作的可见性，但是volatile能保证对变量的操作是原子性吗？<br>下面看一个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">volatile</span> <span class="keyword">int</span> inc = <span class="number">0</span>;</div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</div><div class="line">        inc++;</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> Test test = <span class="keyword">new</span> Test();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">            <span class="keyword">new</span> Thread()&#123;</div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)</div><div class="line">                        test.increase();</div><div class="line">                &#125;;</div><div class="line">            &#125;.start();</div><div class="line">        &#125;</div><div class="line">         </div><div class="line">        <span class="keyword">while</span>(Thread.activeCount()&gt;<span class="number">1</span>)  <span class="comment">//保证前面的线程都执行完</span></div><div class="line">            Thread.yield();</div><div class="line">        System.out.println(test.inc);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>大家想一下这段程序的输出结果是多少？也许有些朋友认为是10000。但是事实上运行它会发现每次运行结果都不一致，都是一个小于10000的数字。</p>
-<p>可能有的朋友就会有疑问，不对啊，上面是对变量inc进行自增操作，由于volatile保证了可见性，那么在每个线程中对inc自增完之后，在其他线程中都能看到修改后的值啊，所以有10个线程分别进行了1000次操作，那么最终inc的值应该是1000*10=10000。</p>
-<p>这里面就有一个误区了，volatile关键字能保证可见性没有错，但是上面的程序错在没能保证原子性。可见性只能保证每次读取的是最新的值，但是volatile没办法保证对变量的操作的原子性。</p>
-<p>在前面已经提到过，自增操作是不具备原子性的，它包括读取变量的原始值、进行加1操作、写入工作内存。那么就是说自增操作的三个子操作可能会分割开执行，就有可能导致下面这种情况出现：</p>
-<p>假如某个时刻变量inc的值为10，</p>
-<p>线程1对变量进行自增操作，线程1先读取了变量inc的原始值，然后线程1被阻塞了；</p>
-<p>然后线程2对变量进行自增操作，线程2也去读取变量inc的原始值，由于线程1只是对变量inc进行读取操作，而没有对变量进行修改操作，所以不会导致线程2的工作内存中缓存变量inc的缓存行无效，所以线程2会直接去主存读取inc的值，发现inc的值时10，然后进行加1操作，并把11写入工作内存，最后写入主存。</p>
-<p>然后线程1接着进行加1操作，由于已经读取了inc的值，注意此时在线程1的工作内存中inc的值仍然为10，所以线程1对inc进行加1操作后inc的值为11，然后将11写入工作内存，最后写入主存。</p>
-<p>那么两个线程分别进行了一次自增操作后，inc只增加了1。</p>
-<p>解释到这里，可能有朋友会有疑问，不对啊，前面不是保证一个变量在修改volatile变量时，会让缓存行无效吗？然后其他线程去读就会读到新的值，对，这个没错。这个就是上面的happens-before规则中的volatile变量规则，但是要注意，线程1对变量进行读取操作之后，被阻塞了的话，并没有对inc值进行修改。然后虽然volatile能保证线程2对变量inc的值读取是从内存中读取的，但是线程1没有进行修改，所以线程2根本就不会看到修改的值。</p>
-<p>根源就在这里，自增操作不是原子性操作，而且volatile也无法保证对变量的任何操作都是原子性的。</p>
-<p>把上面的代码改成以下任何一种都可以达到效果：</p>
-<ol>
-<li><p>采用synchronized：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span>  <span class="keyword">int</span> inc = <span class="number">0</span>;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</div><div class="line">        inc++;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> Test test = <span class="keyword">new</span> Test();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">            <span class="keyword">new</span> Thread()&#123;</div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)</div><div class="line">                        test.increase();</div><div class="line">                &#125;;</div><div class="line">            &#125;.start();</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">while</span>(Thread.activeCount()&gt;<span class="number">1</span>)  <span class="comment">//保证前面的线程都执行完</span></div><div class="line">            Thread.yield();</div><div class="line">        System.out.println(test.inc);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>采用Lock：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span>  <span class="keyword">int</span> inc = <span class="number">0</span>;</div><div class="line">    Lock lock = <span class="keyword">new</span> ReentrantLock();</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</div><div class="line">        lock.lock();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            inc++;</div><div class="line">        &#125; <span class="keyword">finally</span>&#123;</div><div class="line">            lock.unlock();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> Test test = <span class="keyword">new</span> Test();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">            <span class="keyword">new</span> Thread()&#123;</div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)</div><div class="line">                        test.increase();</div><div class="line">                &#125;;</div><div class="line">            &#125;.start();</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">while</span>(Thread.activeCount()&gt;<span class="number">1</span>)  <span class="comment">//保证前面的线程都执行完</span></div><div class="line">            Thread.yield();</div><div class="line">        System.out.println(test.inc);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>采用AtomicInteger：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span>  AtomicInteger inc = <span class="keyword">new</span> AtomicInteger();</div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</div><div class="line">        inc.getAndIncrement();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> Test test = <span class="keyword">new</span> Test();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">            <span class="keyword">new</span> Thread()&#123;</div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1000</span>;j++)</div><div class="line">                        test.increase();</div><div class="line">                &#125;;</div><div class="line">            &#125;.start();</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">while</span>(Thread.activeCount()&gt;<span class="number">1</span>)  <span class="comment">//保证前面的线程都执行完</span></div><div class="line">            Thread.yield();</div><div class="line">        System.out.println(test.inc);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>在java 1.5的<code>java.util.concurrent.atomic</code>包下提供了一些原子操作类，即对基本数据类型的 自增（加1操作），自减（减1操作）、以及加法操作（加一个数），减法操作（减一个数）进行了封装，保证这些操作是原子性操作。atomic是利用CAS来实现原子性操作的（Compare And Swap），CAS实际上是利用处理器提供的CMPXCHG指令实现的，而处理器执行CMPXCHG指令是一个原子性操作。</p>
-<h4 id="volatile能保证有序性吗？"><a href="#volatile能保证有序性吗？" class="headerlink" title="volatile能保证有序性吗？"></a>volatile能保证有序性吗？</h4><p>在前面提到volatile关键字能禁止指令重排序，所以volatile能在一定程度上保证有序性。</p>
-<p>volatile关键字禁止指令重排序有两层意思：</p>
-<ol>
-<li>当程序执行到volatile变量的读操作或者写操作时，在其前面的操作的更改肯定全部已经进行，且结果已经对后面的操作可见；在其后面的操作肯定还没有进行；</li>
-<li>在进行指令优化时，不能将在对volatile变量访问的语句放在其后面执行，也不能把volatile变量后面的语句放到其前面执行。</li>
-</ol>
-<p>可能上面说的比较绕，举个简单的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//x、y为非volatile变量</div><div class="line">//flag为volatile变量</div><div class="line"> </div><div class="line">x = 2;        //语句1</div><div class="line">y = 0;        //语句2</div><div class="line">flag = true;  //语句3</div><div class="line">x = 4;         //语句4</div><div class="line">y = -1;       //语句5</div></pre></td></tr></table></figure></p>
-<p>由于flag变量为volatile变量，那么在进行指令重排序的过程的时候，不会将语句3放到语句1、语句2前面，也不会讲语句3放到语句4、语句5后面。但是要注意语句1和语句2的顺序、语句4和语句5的顺序是不作任何保证的。</p>
-<p>并且volatile关键字能保证，执行到语句3时，语句1和语句2必定是执行完毕了的，且语句1和语句2的执行结果对语句3、语句4、语句5是可见的。</p>
-<p>那么我们回到前面举的一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//线程1:</div><div class="line">context = loadContext();   //语句1</div><div class="line">inited = true;             //语句2</div><div class="line"> </div><div class="line">//线程2:</div><div class="line">while(!inited )&#123;</div><div class="line">  sleep()</div><div class="line">&#125;</div><div class="line">doSomethingwithconfig(context);</div></pre></td></tr></table></figure></p>
-<p>前面举这个例子的时候，提到有可能语句2会在语句1之前执行，那么久可能导致context还没被初始化，而线程2中就使用未初始化的context去进行操作，导致程序出错。</p>
-<p>这里如果用volatile关键字对inited变量进行修饰，就不会出现这种问题了，因为当执行到语句2时，必定能保证context已经初始化完毕。</p>
-<h4 id="volatile的原理和实现机制"><a href="#volatile的原理和实现机制" class="headerlink" title="volatile的原理和实现机制"></a>volatile的原理和实现机制</h4><p>前面讲述了源于volatile关键字的一些使用，下面我们来探讨一下volatile到底如何保证可见性和禁止指令重排序的。</p>
-<p>下面这段话摘自《深入理解Java虚拟机》：</p>
-<blockquote>
-<p>“观察加入volatile关键字和没有加入volatile关键字时所生成的汇编代码发现，加入volatile关键字时，会多出一个lock前缀指令”</p>
-</blockquote>
-<p>lock前缀指令实际上相当于一个内存屏障（也成内存栅栏），内存屏障会提供3个功能：</p>
-<ol>
-<li>它确保指令重排序时不会把其后面的指令排到内存屏障之前的位置，也不会把前面的指令排到内存屏障的后面；即在执行到内存屏障这句指令时，在它前面的操作已经全部完成；</li>
-<li>它会强制将对缓存的修改操作立即写入主存；</li>
-<li>如果是写操作，它会导致其他CPU中对应的缓存行无效。</li>
-</ol>
-<h3 id="使用volatile关键字的场景"><a href="#使用volatile关键字的场景" class="headerlink" title="使用volatile关键字的场景"></a>使用volatile关键字的场景</h3><p>synchronized关键字是防止多个线程同时执行一段代码，那么就会很影响程序执行效率，而volatile关键字在某些情况下性能要优于synchronized，但是要注意volatile关键字是无法替代synchronized关键字的，因为volatile关键字无法保证操作的原子性。通常来说，使用volatile必须具备以下2个条件：</p>
-<ol>
-<li>对变量的写操作不依赖于当前值；</li>
-<li>该变量没有包含在具有其他变量的不变式中。</li>
-</ol>
-<p>实际上，这些条件表明，可以被写入 volatile 变量的这些有效值独立于任何程序的状态，包括变量的当前状态。</p>
-<p>事实上，我的理解就是上面的2个条件需要保证操作是原子性操作，才能保证使用volatile关键字的程序在并发时能够正确执行。</p>
-<p>下面列举几个Java中使用volatile的几个场景。</p>
-<h4 id="状态标记量"><a href="#状态标记量" class="headerlink" title="状态标记量"></a>状态标记量</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">volatile</span> <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</div><div class="line"> </div><div class="line"><span class="keyword">while</span>(!flag)&#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFlag</span><span class="params">()</span> </span>&#123;</div><div class="line">    flag = <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">volatile</span> <span class="keyword">boolean</span> inited = <span class="keyword">false</span>;</div><div class="line"><span class="comment">//线程1:</span></div><div class="line">context = loadContext();  </div><div class="line">inited = <span class="keyword">true</span>;            </div><div class="line"> </div><div class="line"><span class="comment">//线程2:</span></div><div class="line"><span class="keyword">while</span>(!inited )&#123;</div><div class="line">sleep()</div><div class="line">&#125;</div><div class="line">doSomethingwithconfig(context);</div></pre></td></tr></table></figure>
-<h4 id="double-check"><a href="#double-check" class="headerlink" title="double check"></a>double check</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</div><div class="line">         </div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(instance==<span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</div><div class="line">                <span class="keyword">if</span>(instance==<span class="keyword">null</span>)</div><div class="line">                    instance = <span class="keyword">new</span> Singleton();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>至于为何需要这么写请参考：<br>《Java 中的双重检查（Double-Check）》<br><a rel="external nofollow" target="_blank" href="http://blog.csdn.net/dl88250/article/details/5439024">http://blog.csdn.net/dl88250/article/details/5439024</a><br><a rel="external nofollow" target="_blank" href="http://www.iteye.com/topic/652440">http://www.iteye.com/topic/652440</a></p>
-<h3 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h3><p><strong>文章转载<a rel="external nofollow" target="_blank" href="http://www.cnblogs.com/dolphin0520/p/3920373.html">Java并发编程：volatile关键字解析</a></strong></p>
-<h3 id="最后附上自己的学习代码"><a href="#最后附上自己的学习代码" class="headerlink" title="最后附上自己的学习代码"></a>最后附上自己的学习代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.wuwii.test.thread;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.concurrent.atomic.AtomicInteger;</div><div class="line"><span class="keyword">import</span> java.util.concurrent.locks.Lock;</div><div class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReentrantLock;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/18 9:20&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VolatileTest</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> inc;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> inc1;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> inc2;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 并发中不适用int， 使用jdk1.5的原子操作类</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> AtomicInteger inc3 = <span class="keyword">new</span> AtomicInteger();</div><div class="line">    <span class="keyword">private</span> Lock lock = <span class="keyword">new</span> ReentrantLock();</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 自增，不保证原子性</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</div><div class="line">        inc++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 使用synchronized保证原子性</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">increase1</span><span class="params">()</span> </span>&#123;</div><div class="line">        inc1++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 使用Lock保证原子性</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">increase2</span><span class="params">()</span> </span>&#123;</div><div class="line">        lock.lock();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            inc2++;</div><div class="line">        &#125; <span class="keyword">finally</span>&#123;</div><div class="line">            lock.unlock();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 使用jdk1.5的原子操作类，保证原子性</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">increase3</span><span class="params">()</span> </span>&#123;</div><div class="line">        inc3.getAndIncrement();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//获取系统运行默认线程数，理论上只有一条主线程，需要注意的是，但是在idea上中默认多了一个monitor ctrlbreak线程。</span></div><div class="line">        <span class="comment">// 可参考 http://blog.csdn.net/xiaolinzi007/article/details/44487851</span></div><div class="line">        <span class="keyword">int</span> defaultActiveCount = Thread.activeCount();</div><div class="line">        <span class="keyword">int</span> threadCount = <span class="number">10</span>;</div><div class="line">        <span class="keyword">int</span> increaseCount = <span class="number">1000</span>;</div><div class="line">        <span class="keyword">final</span> VolatileTest test = <span class="keyword">new</span> VolatileTest();</div><div class="line">        <span class="comment">// 创建10个线程，分别自增1000次。</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; threadCount; i++) &#123;</div><div class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i1 = <span class="number">0</span>; i1 &lt; increaseCount; i1++) &#123;</div><div class="line">                    test.increase();</div><div class="line">                    test.increase1();</div><div class="line">                    test.increase2();</div><div class="line">                    test.increase3();</div><div class="line">                &#125;</div><div class="line">            &#125;).start();</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//保证前面的线程都执行完。</span></div><div class="line">        <span class="keyword">while</span> (Thread.activeCount() &gt; defaultActiveCount) &#123;</div><div class="line">           Thread.yield();</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 打印最终结果，理论结果10 * 1000 = 10000。</span></div><div class="line">        System.out.printf(<span class="string">"自增后inc为：%d%n"</span>, test.inc);</div><div class="line">        System.out.printf(<span class="string">"自增后inc1为：%d%n"</span>, test.inc1);</div><div class="line">        System.out.printf(<span class="string">"自增后inc2为：%d%n"</span>, test.inc2);</div><div class="line">        System.out.printf(<span class="string">"自增后inc3为：%d%n"</span>, test.inc3.get());</div><div class="line"></div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * 状态标记，利用volatile可见性属性，保持线程有序执行</span></div><div class="line"><span class="comment">         * &lt;p&gt;写一个线程做完事情后将标记赋值true，线程二一直阻塞标记为true时执行&lt;p/&gt;</span></div><div class="line"><span class="comment">         */</span></div><div class="line"></div><div class="line">        <span class="keyword">new</span> Thread(() -&gt; &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                Thread.sleep(<span class="number">3000</span>);</div><div class="line">                FlagTest.flag = <span class="keyword">true</span>;</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;).start();</div><div class="line"></div><div class="line">        <span class="keyword">new</span> Thread(() -&gt;&#123;</div><div class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span> (!FlagTest.flag) &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    System.out.printf(<span class="string">"%s s后flag改为true%n"</span>, <span class="number">3</span> - i);</div><div class="line">                    Thread.sleep(<span class="number">1000</span>);</div><div class="line">                    i++;</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            System.out.printf(<span class="string">"flag为true 了"</span>);</div><div class="line">        &#125;).start();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 使用volatile场景&lt;/br&gt;</span></div><div class="line"><span class="comment"> * 1. 状态标记量: 并发时候保证程序按照有序运行&lt;/br&gt;</span></div><div class="line"><span class="comment"> * 2. double check：并发中为了减少同步的开销，于是有了双重检查模式。</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FlagTest</span> </span>&#123;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 状态标记量</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 双重检查单例模式</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> FlagTest instance = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">FlagTest</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 双重检查double check</span></div><div class="line"><span class="comment">     * &lt;p&gt;并发情况下为了减少同步的开销，于是有了双重检查模式。&lt;/p&gt;</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> FlagTest</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FlagTest <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(instance==<span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">synchronized</span> (FlagTest.class) &#123;</div><div class="line">                <span class="keyword">if</span>(instance==<span class="keyword">null</span>)&#123;</div><div class="line">                    instance = <span class="keyword">new</span> FlagTest();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">自增后inc为：9996</div><div class="line">自增后inc1为：10000</div><div class="line">自增后inc2为：10000</div><div class="line">自增后inc3为：10000</div><div class="line">3 s后flag改为true</div><div class="line">2 s后flag改为true</div><div class="line">1 s后flag改为true</div><div class="line">flag为true</div></pre></td></tr></table></figure></p>
-<p>刚才的inc++操作来说，这个操作其实细分为三步，读inc的值给temp，将temp+1，赋值给inc。</p>
-<ol>
-<li>当线程1将inc读入内存，然后被阻塞。</li>
-<li>线程2也将inc读入内存中，然后执行过第二步，temp+1，然后被阻塞。</li>
-<li>线程1被唤醒，此时并没有对inc执行写操作，所以线程1不需要重新从内存读，所以执行完+1操作被赋值后重新写入主存中。</li>
-<li>线程2被唤醒，由于inc执行了写操作，导致线程2中的inc缓存失效，所以从内存中重新读进来此时的inc值，由于已经执行过第二步了，此时将最新的temp赋值给inc，然后重新写入内存。就在刚才那一步发生了数据不一致性，此时的inc总共被加了一次。</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
-<li>Java内存模型，原子性，可见性，有序性的理解；</li>
-<li>volatile修饰的变量具有什么样的特性：可见性，禁止重排序；</li>
-<li>并发中的使用方法和运用场景。</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;内存模型的相关概念&quot;&gt;&lt;a href=&quot;#内存模型的相关概念&quot; class=&quot;headerlink&quot; title=&quot;内存模型的相关概念&quot;&gt;&lt;/a&gt;内存模型的相关概念&lt;/h3&gt;&lt;p&gt;大家都知道，计算机在执行程序时，每条指令都是在CPU中执行的，而执行指令过程中，势必涉及到数据的读取和写入。由于程序运行过程中的临时数据是存放在主存（物理内存）当中的，这时就存在一个问题，由于CPU执行速度很快，而从内存读取数据和向内存写入数据的过程跟CPU执行指令的速度比起来要慢的多，因此如果任何时候对数据的操作都要通过和内存的交互来进行，会大大降低指令执行的速度。因此在CPU里面就有了高速缓存。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
-    
-      <category term="并发编程" scheme="http://blog.wuwii.com/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
