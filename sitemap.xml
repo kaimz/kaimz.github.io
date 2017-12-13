@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/20171213.html</loc>
+    
+    <lastmod>2017-12-13T15:53:35.134Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/java-no-dialect-mapping.html</loc>
     
     <lastmod>2017-12-11T10:37:36.994Z</lastmod>
@@ -86,14 +93,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/omelette.html</loc>
+    <loc>http://blog.wuwii.com/miss-you.html</loc>
     
     <lastmod>2017-12-04T00:27:53.611Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/miss-you.html</loc>
+    <loc>http://blog.wuwii.com/omelette.html</loc>
     
     <lastmod>2017-12-04T00:27:53.611Z</lastmod>
     
@@ -107,14 +114,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/java-transactional.html</loc>
+    <loc>http://blog.wuwii.com/angels-wear-white.html</loc>
     
     <lastmod>2017-12-04T00:27:53.596Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/angels-wear-white.html</loc>
+    <loc>http://blog.wuwii.com/java-transactional.html</loc>
     
     <lastmod>2017-12-04T00:27:53.596Z</lastmod>
     
@@ -583,14 +590,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
