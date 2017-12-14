@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+    (function(){
+        if(''){
+            if (prompt('不好意思，这篇文章需要密码！') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上,Slience" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="喃声细语" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="关于XSS攻击XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。 XSS漏洞的危害 网络钓鱼，包括盗取各类用户账号；  窃取用户cookies资料，从而获取用户隐私信息，或利用用户身份进一步对网站执行操作；  劫持用户（浏览器）会话，从而执行任意操作，例如进行非法转账、强制发表日志、发送电子邮件等；  强制弹出广告页面、刷流量等；  网">
+<meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上,Slience">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XSS攻击过滤处理">
+<meta property="og:url" content="http://blog.wuwii.com/java-xss-filter.html">
+<meta property="og:site_name" content="喃声细语">
+<meta property="og:description" content="关于XSS攻击XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。 XSS漏洞的危害 网络钓鱼，包括盗取各类用户账号；  窃取用户cookies资料，从而获取用户隐私信息，或利用用户身份进一步对网站执行操作；  劫持用户（浏览器）会话，从而执行任意操作，例如进行非法转账、强制发表日志、发送电子邮件等；  强制弹出广告页面、刷流量等；  网">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-14T02:29:31.449Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XSS攻击过滤处理">
+<meta name="twitter:description" content="关于XSS攻击XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。 XSS漏洞的危害 网络钓鱼，包括盗取各类用户账号；  窃取用户cookies资料，从而获取用户隐私信息，或利用用户身份进一步对网站执行操作；  劫持用户（浏览器）会话，从而执行任意操作，例如进行非法转账、强制发表日志、发送电子邮件等；  强制弹出广告页面、刷流量等；  网">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'TWXZ15WRBL',
+      apiKey: 'c272bd4b810c8b43773a3f1d3c6b8d27',
+      indexName: 'wuwii',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.wuwii.com/java-xss-filter.html"/>
+
+
+
+
+
+  <title>XSS攻击过滤处理 | 喃声细语</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b847762b9271725a63131e554978de0a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63798915";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1264593822&web_id=1264593822" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+  
+  <link href="http://blog.wuwii.com/harlem-shake-style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">喃声细语</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">一个人的独白，成为最好的自己，遇到最好的那个人。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/java-xss-filter.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Slience">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://image.wuwii.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">XSS攻击过滤处理</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T10:28:03+08:00">
+                2017-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,994
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="关于XSS攻击"><a href="#关于XSS攻击" class="headerlink" title="关于XSS攻击"></a>关于XSS攻击</h3><p>XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。</p>
+<h3 id="XSS漏洞的危害"><a href="#XSS漏洞的危害" class="headerlink" title="XSS漏洞的危害"></a>XSS漏洞的危害</h3><ol>
+<li>网络钓鱼，包括盗取各类用户账号； </li>
+<li>窃取用户cookies资料，从而获取用户隐私信息，或利用用户身份进一步对网站执行操作； </li>
+<li>劫持用户（浏览器）会话，从而执行任意操作，例如进行非法转账、强制发表日志、发送电子邮件等； </li>
+<li>强制弹出广告页面、刷流量等； </li>
+<li>网页挂马； </li>
+<li>进行恶意操作，例如任意篡改页面信息、删除文章等；</li>
+<li>进行大量的客户端攻击，如DDoS攻击；</li>
+<li>获取客户端信息，例如用户的浏览历史、真实IP、开放端口等；</li>
+<li>控制受害者机器向其他网站发起攻击；</li>
+<li>结合其他漏洞，如CSRF漏洞，实施进一步作恶；</li>
+<li>提升用户权限，包括进一步渗透网站； </li>
+<li>传播跨站脚本蠕虫等；<br>……</li>
+</ol>
+<h3 id="避免XSS攻击"><a href="#避免XSS攻击" class="headerlink" title="避免XSS攻击"></a>避免XSS攻击</h3><p>XSS类似SQL 注入攻击，都是通过客户端恶意植入，一样也是用过滤器进行过滤。</p>
+<p>框架使用的是SpringMVC。</p>
+<h4 id="XSS过滤器"><a href="#XSS过滤器" class="headerlink" title="XSS过滤器"></a>XSS过滤器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.filter;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.*;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * XSS过滤器</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/12/14 10:00&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XssFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig config)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span></span></div><div class="line"><span class="function">            <span class="keyword">throws</span> IOException, ServletException </span>&#123;</div><div class="line">        XssHttpServletRequestWrapper xssRequest = <span class="keyword">new</span> XssHttpServletRequestWrapper(</div><div class="line">                (HttpServletRequest) request);</div><div class="line">        chain.doFilter(xssRequest, response);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="request进行XSS过滤"><a href="#request进行XSS过滤" class="headerlink" title="request进行XSS过滤"></a>request进行XSS过滤</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.filter;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.commons.io.IOUtils;</div><div class="line"><span class="keyword">import</span> org.springframework.http.HttpHeaders;</div><div class="line"><span class="keyword">import</span> org.springframework.http.MediaType;</div><div class="line"><span class="keyword">import</span> org.springframework.util.StringUtils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.ReadListener;</div><div class="line"><span class="keyword">import</span> javax.servlet.ServletInputStream;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequestWrapper;</div><div class="line"><span class="keyword">import</span> java.io.ByteArrayInputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.util.LinkedHashMap;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * XSS过滤处理</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/12/14 9:33&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XssHttpServletRequestWrapper</span> <span class="keyword">extends</span> <span class="title">HttpServletRequestWrapper</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 没被包装过的HttpServletRequest（特殊场景，需要自己过滤）</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> HttpServletRequest orgRequest;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * html过滤</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> HTMLFilter HTML_FILTER = <span class="keyword">new</span> HTMLFilter();</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * Constructs a request object wrapping the given request.</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> request request</span></div><div class="line"><span class="comment">     * <span class="doctag">@throws</span> IllegalArgumentException if the request is null</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    XssHttpServletRequestWrapper(HttpServletRequest request) <span class="keyword">throws</span> IllegalArgumentException &#123;</div><div class="line">        <span class="keyword">super</span>(request);</div><div class="line">        orgRequest = request;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ServletInputStream <span class="title">getInputStream</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        <span class="comment">//非json类型，直接返回</span></div><div class="line">        <span class="keyword">if</span>(!<span class="keyword">super</span>.getHeader(HttpHeaders.CONTENT_TYPE).equalsIgnoreCase(MediaType.APPLICATION_JSON_VALUE))&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.getInputStream();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//为空，直接返回</span></div><div class="line">        String json = IOUtils.toString(<span class="keyword">super</span>.getInputStream(), <span class="string">"utf-8"</span>);</div><div class="line">        <span class="keyword">if</span> (!StringUtils.hasText(json)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.getInputStream();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//xss过滤</span></div><div class="line">        json = xssEncode(json);</div><div class="line">        <span class="keyword">final</span> ByteArrayInputStream bis = <span class="keyword">new</span> ByteArrayInputStream(json.getBytes(<span class="string">"utf-8"</span>));</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ServletInputStream() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFinished</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isReady</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setReadListener</span><span class="params">(ReadListener readListener)</span> </span>&#123;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> bis.read();</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 过滤参数</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> name 参数name，也要过滤</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> String value</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getParameter</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        String value = <span class="keyword">super</span>.getParameter(xssEncode(name));</div><div class="line">        <span class="keyword">if</span> (StringUtils.hasText(value)) &#123;</div><div class="line">            value = xssEncode(value);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 过滤参数，值为数组</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> name 参数名</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> String[]</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> String[] getParameterValues(String name) &#123;</div><div class="line">        String[] parameters = <span class="keyword">super</span>.getParameterValues(name);</div><div class="line">        <span class="keyword">if</span> (parameters == <span class="keyword">null</span> || parameters.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; parameters.length; i++) &#123;</div><div class="line">            parameters[i] = xssEncode(parameters[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> parameters;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 过滤参数，返回键值对形式的参数类型</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> Map</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> Map&lt;String,String[]&gt; getParameterMap() &#123;</div><div class="line">        Map&lt;String,String[]&gt; map = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</div><div class="line">        Map&lt;String,String[]&gt; parameters = <span class="keyword">super</span>.getParameterMap();</div><div class="line">        <span class="keyword">for</span> (String key : parameters.keySet()) &#123;</div><div class="line">            String[] values = parameters.get(key);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</div><div class="line">                values[i] = xssEncode(values[i]);</div><div class="line">            &#125;</div><div class="line">            map.put(key, values);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> map;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 获取request的头属性，并且进行xss过滤，返回它的值</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> name 属性名</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> String 值</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHeader</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        String value = <span class="keyword">super</span>.getHeader(xssEncode(name));</div><div class="line">        <span class="keyword">if</span> (StringUtils.hasText(value)) &#123;</div><div class="line">            value = xssEncode(value);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">xssEncode</span><span class="params">(String input)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> HTML_FILTER.filter(input);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 获取最原始的request</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> HttpServletRequest 原始的request</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> HttpServletRequest <span class="title">getOrgRequest</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> orgRequest;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 获取最原始的request，明确不进行xss过滤的</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> request request</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> HttpServletRequest 原始request</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HttpServletRequest <span class="title">getOrgRequest</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (request <span class="keyword">instanceof</span> XssHttpServletRequestWrapper) &#123;</div><div class="line">            <span class="keyword">return</span> ((XssHttpServletRequestWrapper) request).getOrgRequest();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> request;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="XSS过滤工具类"><a href="#XSS过滤工具类" class="headerlink" title="XSS过滤工具类"></a>XSS过滤工具类</h4><p>这个是网上看到直接copy过来，肯定比自己写的全面多了，好东西。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div><div class="line">427</div><div class="line">428</div><div class="line">429</div><div class="line">430</div><div class="line">431</div><div class="line">432</div><div class="line">433</div><div class="line">434</div><div class="line">435</div><div class="line">436</div><div class="line">437</div><div class="line">438</div><div class="line">439</div><div class="line">440</div><div class="line">441</div><div class="line">442</div><div class="line">443</div><div class="line">444</div><div class="line">445</div><div class="line">446</div><div class="line">447</div><div class="line">448</div><div class="line">449</div><div class="line">450</div><div class="line">451</div><div class="line">452</div><div class="line">453</div><div class="line">454</div><div class="line">455</div><div class="line">456</div><div class="line">457</div><div class="line">458</div><div class="line">459</div><div class="line">460</div><div class="line">461</div><div class="line">462</div><div class="line">463</div><div class="line">464</div><div class="line">465</div><div class="line">466</div><div class="line">467</div><div class="line">468</div><div class="line">469</div><div class="line">470</div><div class="line">471</div><div class="line">472</div><div class="line">473</div><div class="line">474</div><div class="line">475</div><div class="line">476</div><div class="line">477</div><div class="line">478</div><div class="line">479</div><div class="line">480</div><div class="line">481</div><div class="line">482</div><div class="line">483</div><div class="line">484</div><div class="line">485</div><div class="line">486</div><div class="line">487</div><div class="line">488</div><div class="line">489</div><div class="line">490</div><div class="line">491</div><div class="line">492</div><div class="line">493</div><div class="line">494</div><div class="line">495</div><div class="line">496</div><div class="line">497</div><div class="line">498</div><div class="line">499</div><div class="line">500</div><div class="line">501</div><div class="line">502</div><div class="line">503</div><div class="line">504</div><div class="line">505</div><div class="line">506</div><div class="line">507</div><div class="line">508</div><div class="line">509</div><div class="line">510</div><div class="line">511</div><div class="line">512</div><div class="line">513</div><div class="line">514</div><div class="line">515</div><div class="line">516</div><div class="line">517</div><div class="line">518</div><div class="line">519</div><div class="line">520</div><div class="line">521</div><div class="line">522</div><div class="line">523</div><div class="line">524</div><div class="line">525</div><div class="line">526</div><div class="line">527</div><div class="line">528</div><div class="line">529</div><div class="line">530</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.devframe.filter;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"><span class="keyword">import</span> java.util.concurrent.ConcurrentHashMap;</div><div class="line"><span class="keyword">import</span> java.util.concurrent.ConcurrentMap;</div><div class="line"><span class="keyword">import</span> java.util.logging.Logger;</div><div class="line"><span class="keyword">import</span> java.util.regex.Matcher;</div><div class="line"><span class="keyword">import</span> java.util.regex.Pattern;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * HTML filtering utility for protecting against XSS (Cross Site Scripting).</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * This code is licensed LGPLv3</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * This code is a Java port of the original work in PHP by Cal Hendersen.</span></div><div class="line"><span class="comment"> * http://code.iamcal.com/php/lib_filter/</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * The trickiest part of the translation was handling the differences in regex handling</span></div><div class="line"><span class="comment"> * between PHP and Java.  These resources were helpful in the process:</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html</span></div><div class="line"><span class="comment"> * http://us2.php.net/manual/en/reference.pcre.pattern.modifiers.php</span></div><div class="line"><span class="comment"> * http://www.regular-expressions.info/modifiers.html</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * A note on naming conventions: instance variables are prefixed with a "v"; global</span></div><div class="line"><span class="comment"> * constants are in all caps.</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * Sample use:</span></div><div class="line"><span class="comment"> * String input = ...</span></div><div class="line"><span class="comment"> * String clean = new HTMLFilter().filter( input );</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * The class is not thread safe. Create a new instance if in doubt.</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * If you find bugs or have suggestions on improvement (especially regarding</span></div><div class="line"><span class="comment"> * performance), please contact us.  The latest version of this</span></div><div class="line"><span class="comment"> * source, and our contact details, can be found at http://xss-html-filter.sf.net</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Joseph O'Connell</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Cal Hendersen</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Michael Semb Wever</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">HTMLFilter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/** regex flag union representing /si modifiers in php **/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> REGEX_FLAGS_SI = Pattern.CASE_INSENSITIVE | Pattern.DOTALL;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_COMMENTS = Pattern.compile(<span class="string">"&lt;!--(.*?)--&gt;"</span>, Pattern.DOTALL);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_COMMENT = Pattern.compile(<span class="string">"^!--(.*)--$"</span>, REGEX_FLAGS_SI);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_TAGS = Pattern.compile(<span class="string">"&lt;(.*?)&gt;"</span>, Pattern.DOTALL);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_END_TAG = Pattern.compile(<span class="string">"^/([a-z0-9]+)"</span>, REGEX_FLAGS_SI);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_START_TAG = Pattern.compile(<span class="string">"^([a-z0-9]+)(.*?)(/?)$"</span>, REGEX_FLAGS_SI);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_QUOTED_ATTRIBUTES = Pattern.compile(<span class="string">"([a-z0-9]+)=([\"'])(.*?)\\2"</span>, REGEX_FLAGS_SI);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_UNQUOTED_ATTRIBUTES = Pattern.compile(<span class="string">"([a-z0-9]+)(=)([^\"\\s']+)"</span>, REGEX_FLAGS_SI);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_PROTOCOL = Pattern.compile(<span class="string">"^([^:]+):"</span>, REGEX_FLAGS_SI);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_ENTITY = Pattern.compile(<span class="string">"&amp;#(\\d+);?"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_ENTITY_UNICODE = Pattern.compile(<span class="string">"&amp;#x([0-9a-f]+);?"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_ENCODE = Pattern.compile(<span class="string">"%([0-9a-f]&#123;2&#125;);?"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_VALID_ENTITIES = Pattern.compile(<span class="string">"&amp;([^&amp;;]*)(?=(;|&amp;|$))"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_VALID_QUOTES = Pattern.compile(<span class="string">"(&gt;|^)([^&lt;]+?)(&lt;|$)"</span>, Pattern.DOTALL);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_END_ARROW = Pattern.compile(<span class="string">"^&gt;"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_BODY_TO_END = Pattern.compile(<span class="string">"&lt;([^&gt;]*?)(?=&lt;|$)"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_XML_CONTENT = Pattern.compile(<span class="string">"(^|&gt;)([^&lt;]*?)(?=&gt;)"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_STRAY_LEFT_ARROW = Pattern.compile(<span class="string">"&lt;([^&gt;]*?)(?=&lt;|$)"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_STRAY_RIGHT_ARROW = Pattern.compile(<span class="string">"(^|&gt;)([^&lt;]*?)(?=&gt;)"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_AMP = Pattern.compile(<span class="string">"&amp;"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_QUOTE = Pattern.compile(<span class="string">"&lt;"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_LEFT_ARROW = Pattern.compile(<span class="string">"&lt;"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_RIGHT_ARROW = Pattern.compile(<span class="string">"&gt;"</span>);</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern P_BOTH_ARROWS = Pattern.compile(<span class="string">"&lt;&gt;"</span>);</div><div class="line"></div><div class="line">    <span class="comment">// @xxx could grow large... maybe use sesat's ReferenceMap</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ConcurrentMap&lt;String,Pattern&gt; P_REMOVE_PAIR_BLANKS = <span class="keyword">new</span> ConcurrentHashMap&lt;String, Pattern&gt;();</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ConcurrentMap&lt;String,Pattern&gt; P_REMOVE_SELF_BLANKS = <span class="keyword">new</span> ConcurrentHashMap&lt;String, Pattern&gt;();</div><div class="line"></div><div class="line">    <span class="comment">/** set of allowed html elements, along with allowed attributes for each element **/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, List&lt;String&gt;&gt; vAllowed;</div><div class="line">    <span class="comment">/** counts of open tags for each (allowable) html element **/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Integer&gt; vTagCounts = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</div><div class="line"></div><div class="line">    <span class="comment">/** html elements which must always be self-closing (e.g. "&lt;img /&gt;") **/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String[] vSelfClosingTags;</div><div class="line">    <span class="comment">/** html elements which must always have separate opening and closing tags (e.g. "&lt;b&gt;&lt;/b&gt;") **/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String[] vNeedClosingTags;</div><div class="line">    <span class="comment">/** set of disallowed html elements **/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String[] vDisallowed;</div><div class="line">    <span class="comment">/** attributes which should be checked for valid protocols **/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String[] vProtocolAtts;</div><div class="line">    <span class="comment">/** allowed protocols **/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String[] vAllowedProtocols;</div><div class="line">    <span class="comment">/** tags which should be removed if they contain no content (e.g. "&lt;b&gt;&lt;/b&gt;" or "&lt;b /&gt;") **/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String[] vRemoveBlanks;</div><div class="line">    <span class="comment">/** entities allowed within html markup **/</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String[] vAllowedEntities;</div><div class="line">    <span class="comment">/** flag determining whether comments are allowed in input String. */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">boolean</span> stripComment;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">boolean</span> encodeQuotes;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> vDebug = <span class="keyword">false</span>;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * flag determining whether to try to make tags when presented with "unbalanced"</span></div><div class="line"><span class="comment">     * angle brackets (e.g. "&lt;b text &lt;/b&gt;" becomes "&lt;b&gt; text &lt;/b&gt;").  If set to false,</span></div><div class="line"><span class="comment">     * unbalanced angle brackets will be html escaped.</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">boolean</span> alwaysMakeTags;</div><div class="line"></div><div class="line">    <span class="comment">/** Default constructor.</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HTMLFilter</span><span class="params">()</span> </span>&#123;</div><div class="line">        vAllowed = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line"></div><div class="line">        <span class="keyword">final</span> ArrayList&lt;String&gt; a_atts = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        a_atts.add(<span class="string">"href"</span>);</div><div class="line">        a_atts.add(<span class="string">"target"</span>);</div><div class="line">        vAllowed.put(<span class="string">"a"</span>, a_atts);</div><div class="line"></div><div class="line">        <span class="keyword">final</span> ArrayList&lt;String&gt; img_atts = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        img_atts.add(<span class="string">"src"</span>);</div><div class="line">        img_atts.add(<span class="string">"width"</span>);</div><div class="line">        img_atts.add(<span class="string">"height"</span>);</div><div class="line">        img_atts.add(<span class="string">"alt"</span>);</div><div class="line">        vAllowed.put(<span class="string">"img"</span>, img_atts);</div><div class="line"></div><div class="line">        <span class="keyword">final</span> ArrayList&lt;String&gt; no_atts = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        vAllowed.put(<span class="string">"b"</span>, no_atts);</div><div class="line">        vAllowed.put(<span class="string">"strong"</span>, no_atts);</div><div class="line">        vAllowed.put(<span class="string">"i"</span>, no_atts);</div><div class="line">        vAllowed.put(<span class="string">"em"</span>, no_atts);</div><div class="line"></div><div class="line">        vSelfClosingTags = <span class="keyword">new</span> String[]&#123;<span class="string">"img"</span>&#125;;</div><div class="line">        vNeedClosingTags = <span class="keyword">new</span> String[]&#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"strong"</span>, <span class="string">"i"</span>, <span class="string">"em"</span>&#125;;</div><div class="line">        vDisallowed = <span class="keyword">new</span> String[]&#123;&#125;;</div><div class="line">        vAllowedProtocols = <span class="keyword">new</span> String[]&#123;<span class="string">"http"</span>, <span class="string">"mailto"</span>, <span class="string">"https"</span>&#125;; <span class="comment">// no ftp.</span></div><div class="line">        vProtocolAtts = <span class="keyword">new</span> String[]&#123;<span class="string">"src"</span>, <span class="string">"href"</span>&#125;;</div><div class="line">        vRemoveBlanks = <span class="keyword">new</span> String[]&#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"strong"</span>, <span class="string">"i"</span>, <span class="string">"em"</span>&#125;;</div><div class="line">        vAllowedEntities = <span class="keyword">new</span> String[]&#123;<span class="string">"amp"</span>, <span class="string">"gt"</span>, <span class="string">"lt"</span>, <span class="string">"quot"</span>&#125;;</div><div class="line">        stripComment = <span class="keyword">true</span>;</div><div class="line">        encodeQuotes = <span class="keyword">true</span>;</div><div class="line">        alwaysMakeTags = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/** Set debug flag to true. Otherwise use default settings. See the default constructor.</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> debug turn debug on with a true argument</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HTMLFilter</span><span class="params">(<span class="keyword">final</span> <span class="keyword">boolean</span> debug)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>();</div><div class="line">        vDebug = debug;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/** Map-parameter configurable constructor.</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> conf map containing configuration. keys match field names.</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HTMLFilter</span><span class="params">(<span class="keyword">final</span> Map&lt;String,Object&gt; conf)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">assert</span> conf.containsKey(<span class="string">"vAllowed"</span>) : <span class="string">"configuration requires vAllowed"</span>;</div><div class="line">        <span class="keyword">assert</span> conf.containsKey(<span class="string">"vSelfClosingTags"</span>) : <span class="string">"configuration requires vSelfClosingTags"</span>;</div><div class="line">        <span class="keyword">assert</span> conf.containsKey(<span class="string">"vNeedClosingTags"</span>) : <span class="string">"configuration requires vNeedClosingTags"</span>;</div><div class="line">        <span class="keyword">assert</span> conf.containsKey(<span class="string">"vDisallowed"</span>) : <span class="string">"configuration requires vDisallowed"</span>;</div><div class="line">        <span class="keyword">assert</span> conf.containsKey(<span class="string">"vAllowedProtocols"</span>) : <span class="string">"configuration requires vAllowedProtocols"</span>;</div><div class="line">        <span class="keyword">assert</span> conf.containsKey(<span class="string">"vProtocolAtts"</span>) : <span class="string">"configuration requires vProtocolAtts"</span>;</div><div class="line">        <span class="keyword">assert</span> conf.containsKey(<span class="string">"vRemoveBlanks"</span>) : <span class="string">"configuration requires vRemoveBlanks"</span>;</div><div class="line">        <span class="keyword">assert</span> conf.containsKey(<span class="string">"vAllowedEntities"</span>) : <span class="string">"configuration requires vAllowedEntities"</span>;</div><div class="line"></div><div class="line">        vAllowed = Collections.unmodifiableMap((HashMap&lt;String, List&lt;String&gt;&gt;) conf.get(<span class="string">"vAllowed"</span>));</div><div class="line">        vSelfClosingTags = (String[]) conf.get(<span class="string">"vSelfClosingTags"</span>);</div><div class="line">        vNeedClosingTags = (String[]) conf.get(<span class="string">"vNeedClosingTags"</span>);</div><div class="line">        vDisallowed = (String[]) conf.get(<span class="string">"vDisallowed"</span>);</div><div class="line">        vAllowedProtocols = (String[]) conf.get(<span class="string">"vAllowedProtocols"</span>);</div><div class="line">        vProtocolAtts = (String[]) conf.get(<span class="string">"vProtocolAtts"</span>);</div><div class="line">        vRemoveBlanks = (String[]) conf.get(<span class="string">"vRemoveBlanks"</span>);</div><div class="line">        vAllowedEntities = (String[]) conf.get(<span class="string">"vAllowedEntities"</span>);</div><div class="line">        stripComment =  conf.containsKey(<span class="string">"stripComment"</span>) ? (Boolean) conf.get(<span class="string">"stripComment"</span>) : <span class="keyword">true</span>;</div><div class="line">        encodeQuotes = conf.containsKey(<span class="string">"encodeQuotes"</span>) ? (Boolean) conf.get(<span class="string">"encodeQuotes"</span>) : <span class="keyword">true</span>;</div><div class="line">        alwaysMakeTags = conf.containsKey(<span class="string">"alwaysMakeTags"</span>) ? (Boolean) conf.get(<span class="string">"alwaysMakeTags"</span>) : <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> </span>&#123;</div><div class="line">        vTagCounts.clear();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">debug</span><span class="params">(<span class="keyword">final</span> String msg)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (vDebug) &#123;</div><div class="line">            Logger.getAnonymousLogger().info(msg);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//---------------------------------------------------------------</span></div><div class="line">    <span class="comment">// my versions of some PHP library functions</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">chr</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> decimal)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> String.valueOf((<span class="keyword">char</span>) decimal);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">htmlSpecialChars</span><span class="params">(<span class="keyword">final</span> String s)</span> </span>&#123;</div><div class="line">        String result = s;</div><div class="line">        result = regexReplace(P_AMP, <span class="string">"&amp;amp;"</span>, result);</div><div class="line">        result = regexReplace(P_QUOTE, <span class="string">"&amp;quot;"</span>, result);</div><div class="line">        result = regexReplace(P_LEFT_ARROW, <span class="string">"&amp;lt;"</span>, result);</div><div class="line">        result = regexReplace(P_RIGHT_ARROW, <span class="string">"&amp;gt;"</span>, result);</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//---------------------------------------------------------------</span></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * given a user submitted input String, filter out any invalid or restricted</span></div><div class="line"><span class="comment">     * html.</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> input text (i.e. submitted by a user) than may contain html</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> "clean" version of input, with only valid, whitelisted html elements allowed</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">filter</span><span class="params">(<span class="keyword">final</span> String input)</span> </span>&#123;</div><div class="line">        reset();</div><div class="line">        String s = input;</div><div class="line"></div><div class="line">        debug(<span class="string">"************************************************"</span>);</div><div class="line">        debug(<span class="string">"              INPUT: "</span> + input);</div><div class="line"></div><div class="line">        s = escapeComments(s);</div><div class="line">        debug(<span class="string">"     escapeComments: "</span> + s);</div><div class="line"></div><div class="line">        s = balanceHTML(s);</div><div class="line">        debug(<span class="string">"        balanceHTML: "</span> + s);</div><div class="line"></div><div class="line">        s = checkTags(s);</div><div class="line">        debug(<span class="string">"          checkTags: "</span> + s);</div><div class="line"></div><div class="line">        s = processRemoveBlanks(s);</div><div class="line">        debug(<span class="string">"processRemoveBlanks: "</span> + s);</div><div class="line"></div><div class="line">        s = validateEntities(s);</div><div class="line">        debug(<span class="string">"    validateEntites: "</span> + s);</div><div class="line"></div><div class="line">        debug(<span class="string">"************************************************\n\n"</span>);</div><div class="line">        <span class="keyword">return</span> s;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAlwaysMakeTags</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> alwaysMakeTags;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isStripComments</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> stripComment;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">escapeComments</span><span class="params">(<span class="keyword">final</span> String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> Matcher m = P_COMMENTS.matcher(s);</div><div class="line">        <span class="keyword">final</span> StringBuffer buf = <span class="keyword">new</span> StringBuffer();</div><div class="line">        <span class="keyword">if</span> (m.find()) &#123;</div><div class="line">            <span class="keyword">final</span> String match = m.group(<span class="number">1</span>); <span class="comment">//(.*?)</span></div><div class="line">            m.appendReplacement(buf, Matcher.quoteReplacement(<span class="string">"&lt;!--"</span> + htmlSpecialChars(match) + <span class="string">"--&gt;"</span>));</div><div class="line">        &#125;</div><div class="line">        m.appendTail(buf);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> buf.toString();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">balanceHTML</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (alwaysMakeTags) &#123;</div><div class="line">            <span class="comment">//</span></div><div class="line">            <span class="comment">// try and form html</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            s = regexReplace(P_END_ARROW, <span class="string">""</span>, s);</div><div class="line">            s = regexReplace(P_BODY_TO_END, <span class="string">"&lt;$1&gt;"</span>, s);</div><div class="line">            s = regexReplace(P_XML_CONTENT, <span class="string">"$1&lt;$2"</span>, s);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//</span></div><div class="line">            <span class="comment">// escape stray brackets</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            s = regexReplace(P_STRAY_LEFT_ARROW, <span class="string">"&amp;lt;$1"</span>, s);</div><div class="line">            s = regexReplace(P_STRAY_RIGHT_ARROW, <span class="string">"$1$2&amp;gt;&lt;"</span>, s);</div><div class="line"></div><div class="line">            <span class="comment">//</span></div><div class="line">            <span class="comment">// the last regexp causes '&lt;&gt;' entities to appear</span></div><div class="line">            <span class="comment">// (we need to do a lookahead assertion so that the last bracket can</span></div><div class="line">            <span class="comment">// be used in the next pass of the regexp)</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            s = regexReplace(P_BOTH_ARROWS, <span class="string">""</span>, s);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> s;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">checkTags</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        Matcher m = P_TAGS.matcher(s);</div><div class="line"></div><div class="line">        <span class="keyword">final</span> StringBuffer buf = <span class="keyword">new</span> StringBuffer();</div><div class="line">        <span class="keyword">while</span> (m.find()) &#123;</div><div class="line">            String replaceStr = m.group(<span class="number">1</span>);</div><div class="line">            replaceStr = processTag(replaceStr);</div><div class="line">            m.appendReplacement(buf, Matcher.quoteReplacement(replaceStr));</div><div class="line">        &#125;</div><div class="line">        m.appendTail(buf);</div><div class="line"></div><div class="line">        s = buf.toString();</div><div class="line"></div><div class="line">        <span class="comment">// these get tallied in processTag</span></div><div class="line">        <span class="comment">// (remember to reset before subsequent calls to filter method)</span></div><div class="line">        <span class="keyword">for</span> (String key : vTagCounts.keySet()) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> ii = <span class="number">0</span>; ii &lt; vTagCounts.get(key); ii++) &#123;</div><div class="line">                s += <span class="string">"&lt;/"</span> + key + <span class="string">"&gt;"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> s;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">processRemoveBlanks</span><span class="params">(<span class="keyword">final</span> String s)</span> </span>&#123;</div><div class="line">        String result = s;</div><div class="line">        <span class="keyword">for</span> (String tag : vRemoveBlanks) &#123;</div><div class="line">            <span class="keyword">if</span>(!P_REMOVE_PAIR_BLANKS.containsKey(tag))&#123;</div><div class="line">                P_REMOVE_PAIR_BLANKS.putIfAbsent(tag, Pattern.compile(<span class="string">"&lt;"</span> + tag + <span class="string">"(\\s[^&gt;]*)?&gt;&lt;/"</span> + tag + <span class="string">"&gt;"</span>));</div><div class="line">            &#125;</div><div class="line">            result = regexReplace(P_REMOVE_PAIR_BLANKS.get(tag), <span class="string">""</span>, result);</div><div class="line">            <span class="keyword">if</span>(!P_REMOVE_SELF_BLANKS.containsKey(tag))&#123;</div><div class="line">                P_REMOVE_SELF_BLANKS.putIfAbsent(tag, Pattern.compile(<span class="string">"&lt;"</span> + tag + <span class="string">"(\\s[^&gt;]*)?/&gt;"</span>));</div><div class="line">            &#125;</div><div class="line">            result = regexReplace(P_REMOVE_SELF_BLANKS.get(tag), <span class="string">""</span>, result);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">regexReplace</span><span class="params">(<span class="keyword">final</span> Pattern regex_pattern, <span class="keyword">final</span> String replacement, <span class="keyword">final</span> String s)</span> </span>&#123;</div><div class="line">        Matcher m = regex_pattern.matcher(s);</div><div class="line">        <span class="keyword">return</span> m.replaceAll(replacement);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">processTag</span><span class="params">(<span class="keyword">final</span> String s)</span> </span>&#123;</div><div class="line">        <span class="comment">// ending tags</span></div><div class="line">        Matcher m = P_END_TAG.matcher(s);</div><div class="line">        <span class="keyword">if</span> (m.find()) &#123;</div><div class="line">            <span class="keyword">final</span> String name = m.group(<span class="number">1</span>).toLowerCase();</div><div class="line">            <span class="keyword">if</span> (allowed(name)) &#123;</div><div class="line">                <span class="keyword">if</span> (!inArray(name, vSelfClosingTags)) &#123;</div><div class="line">                    <span class="keyword">if</span> (vTagCounts.containsKey(name)) &#123;</div><div class="line">                        vTagCounts.put(name, vTagCounts.get(name) - <span class="number">1</span>);</div><div class="line">                        <span class="keyword">return</span> <span class="string">"&lt;/"</span> + name + <span class="string">"&gt;"</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// starting tags</span></div><div class="line">        m = P_START_TAG.matcher(s);</div><div class="line">        <span class="keyword">if</span> (m.find()) &#123;</div><div class="line">            <span class="keyword">final</span> String name = m.group(<span class="number">1</span>).toLowerCase();</div><div class="line">            <span class="keyword">final</span> String body = m.group(<span class="number">2</span>);</div><div class="line">            String ending = m.group(<span class="number">3</span>);</div><div class="line"></div><div class="line">            <span class="comment">//debug( "in a starting tag, name='" + name + "'; body='" + body + "'; ending='" + ending + "'" );</span></div><div class="line">            <span class="keyword">if</span> (allowed(name)) &#123;</div><div class="line">                String params = <span class="string">""</span>;</div><div class="line"></div><div class="line">                <span class="keyword">final</span> Matcher m2 = P_QUOTED_ATTRIBUTES.matcher(body);</div><div class="line">                <span class="keyword">final</span> Matcher m3 = P_UNQUOTED_ATTRIBUTES.matcher(body);</div><div class="line">                <span class="keyword">final</span> List&lt;String&gt; paramNames = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">                <span class="keyword">final</span> List&lt;String&gt; paramValues = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">                <span class="keyword">while</span> (m2.find()) &#123;</div><div class="line">                    paramNames.add(m2.group(<span class="number">1</span>)); <span class="comment">//([a-z0-9]+)</span></div><div class="line">                    paramValues.add(m2.group(<span class="number">3</span>)); <span class="comment">//(.*?)</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">while</span> (m3.find()) &#123;</div><div class="line">                    paramNames.add(m3.group(<span class="number">1</span>)); <span class="comment">//([a-z0-9]+)</span></div><div class="line">                    paramValues.add(m3.group(<span class="number">3</span>)); <span class="comment">//([^\"\\s']+)</span></div><div class="line">                &#125;</div><div class="line"></div><div class="line">                String paramName, paramValue;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> ii = <span class="number">0</span>; ii &lt; paramNames.size(); ii++) &#123;</div><div class="line">                    paramName = paramNames.get(ii).toLowerCase();</div><div class="line">                    paramValue = paramValues.get(ii);</div><div class="line"></div><div class="line"><span class="comment">//          debug( "paramName='" + paramName + "'" );</span></div><div class="line"><span class="comment">//          debug( "paramValue='" + paramValue + "'" );</span></div><div class="line"><span class="comment">//          debug( "allowed? " + vAllowed.get( name ).contains( paramName ) );</span></div><div class="line"></div><div class="line">                    <span class="keyword">if</span> (allowedAttribute(name, paramName)) &#123;</div><div class="line">                        <span class="keyword">if</span> (inArray(paramName, vProtocolAtts)) &#123;</div><div class="line">                            paramValue = processParamProtocol(paramValue);</div><div class="line">                        &#125;</div><div class="line">                        params += <span class="string">" "</span> + paramName + <span class="string">"=\""</span> + paramValue + <span class="string">"\""</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (inArray(name, vSelfClosingTags)) &#123;</div><div class="line">                    ending = <span class="string">" /"</span>;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (inArray(name, vNeedClosingTags)) &#123;</div><div class="line">                    ending = <span class="string">""</span>;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (ending == <span class="keyword">null</span> || ending.length() &lt; <span class="number">1</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> (vTagCounts.containsKey(name)) &#123;</div><div class="line">                        vTagCounts.put(name, vTagCounts.get(name) + <span class="number">1</span>);</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        vTagCounts.put(name, <span class="number">1</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    ending = <span class="string">" /"</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="string">"&lt;"</span> + name + params + ending + <span class="string">"&gt;"</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// comments</span></div><div class="line">        m = P_COMMENT.matcher(s);</div><div class="line">        <span class="keyword">if</span> (!stripComment &amp;&amp; m.find()) &#123;</div><div class="line">            <span class="keyword">return</span>  <span class="string">"&lt;"</span> + m.group() + <span class="string">"&gt;"</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">processParamProtocol</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        s = decodeEntities(s);</div><div class="line">        <span class="keyword">final</span> Matcher m = P_PROTOCOL.matcher(s);</div><div class="line">        <span class="keyword">if</span> (m.find()) &#123;</div><div class="line">            <span class="keyword">final</span> String protocol = m.group(<span class="number">1</span>);</div><div class="line">            <span class="keyword">if</span> (!inArray(protocol, vAllowedProtocols)) &#123;</div><div class="line">                <span class="comment">// bad protocol, turn into local anchor link instead</span></div><div class="line">                s = <span class="string">"#"</span> + s.substring(protocol.length() + <span class="number">1</span>, s.length());</div><div class="line">                <span class="keyword">if</span> (s.startsWith(<span class="string">"#//"</span>)) &#123;</div><div class="line">                    s = <span class="string">"#"</span> + s.substring(<span class="number">3</span>, s.length());</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> s;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">decodeEntities</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        StringBuffer buf = <span class="keyword">new</span> StringBuffer();</div><div class="line"></div><div class="line">        Matcher m = P_ENTITY.matcher(s);</div><div class="line">        <span class="keyword">while</span> (m.find()) &#123;</div><div class="line">            <span class="keyword">final</span> String match = m.group(<span class="number">1</span>);</div><div class="line">            <span class="keyword">final</span> <span class="keyword">int</span> decimal = Integer.decode(match).intValue();</div><div class="line">            m.appendReplacement(buf, Matcher.quoteReplacement(chr(decimal)));</div><div class="line">        &#125;</div><div class="line">        m.appendTail(buf);</div><div class="line">        s = buf.toString();</div><div class="line"></div><div class="line">        buf = <span class="keyword">new</span> StringBuffer();</div><div class="line">        m = P_ENTITY_UNICODE.matcher(s);</div><div class="line">        <span class="keyword">while</span> (m.find()) &#123;</div><div class="line">            <span class="keyword">final</span> String match = m.group(<span class="number">1</span>);</div><div class="line">            <span class="keyword">final</span> <span class="keyword">int</span> decimal = Integer.valueOf(match, <span class="number">16</span>).intValue();</div><div class="line">            m.appendReplacement(buf, Matcher.quoteReplacement(chr(decimal)));</div><div class="line">        &#125;</div><div class="line">        m.appendTail(buf);</div><div class="line">        s = buf.toString();</div><div class="line"></div><div class="line">        buf = <span class="keyword">new</span> StringBuffer();</div><div class="line">        m = P_ENCODE.matcher(s);</div><div class="line">        <span class="keyword">while</span> (m.find()) &#123;</div><div class="line">            <span class="keyword">final</span> String match = m.group(<span class="number">1</span>);</div><div class="line">            <span class="keyword">final</span> <span class="keyword">int</span> decimal = Integer.valueOf(match, <span class="number">16</span>).intValue();</div><div class="line">            m.appendReplacement(buf, Matcher.quoteReplacement(chr(decimal)));</div><div class="line">        &#125;</div><div class="line">        m.appendTail(buf);</div><div class="line">        s = buf.toString();</div><div class="line"></div><div class="line">        s = validateEntities(s);</div><div class="line">        <span class="keyword">return</span> s;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">validateEntities</span><span class="params">(<span class="keyword">final</span> String s)</span> </span>&#123;</div><div class="line">        StringBuffer buf = <span class="keyword">new</span> StringBuffer();</div><div class="line"></div><div class="line">        <span class="comment">// validate entities throughout the string</span></div><div class="line">        Matcher m = P_VALID_ENTITIES.matcher(s);</div><div class="line">        <span class="keyword">while</span> (m.find()) &#123;</div><div class="line">            <span class="keyword">final</span> String one = m.group(<span class="number">1</span>); <span class="comment">//([^&amp;;]*)</span></div><div class="line">            <span class="keyword">final</span> String two = m.group(<span class="number">2</span>); <span class="comment">//(?=(;|&amp;|$))</span></div><div class="line">            m.appendReplacement(buf, Matcher.quoteReplacement(checkEntity(one, two)));</div><div class="line">        &#125;</div><div class="line">        m.appendTail(buf);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> encodeQuotes(buf.toString());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">encodeQuotes</span><span class="params">(<span class="keyword">final</span> String s)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(encodeQuotes)&#123;</div><div class="line">            StringBuffer buf = <span class="keyword">new</span> StringBuffer();</div><div class="line">            Matcher m = P_VALID_QUOTES.matcher(s);</div><div class="line">            <span class="keyword">while</span> (m.find()) &#123;</div><div class="line">                <span class="keyword">final</span> String one = m.group(<span class="number">1</span>); <span class="comment">//(&gt;|^)</span></div><div class="line">                <span class="keyword">final</span> String two = m.group(<span class="number">2</span>); <span class="comment">//([^&lt;]+?)</span></div><div class="line">                <span class="keyword">final</span> String three = m.group(<span class="number">3</span>); <span class="comment">//(&lt;|$)</span></div><div class="line">                m.appendReplacement(buf, Matcher.quoteReplacement(one + regexReplace(P_QUOTE, <span class="string">"&amp;quot;"</span>, two) + three));</div><div class="line">            &#125;</div><div class="line">            m.appendTail(buf);</div><div class="line">            <span class="keyword">return</span> buf.toString();</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span> s;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">checkEntity</span><span class="params">(<span class="keyword">final</span> String preamble, <span class="keyword">final</span> String term)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="string">";"</span>.equals(term) &amp;&amp; isValidEntity(preamble)</div><div class="line">                ? <span class="string">'&amp;'</span> + preamble</div><div class="line">                : <span class="string">"&amp;amp;"</span> + preamble;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isValidEntity</span><span class="params">(<span class="keyword">final</span> String entity)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> inArray(entity, vAllowedEntities);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">inArray</span><span class="params">(<span class="keyword">final</span> String s, <span class="keyword">final</span> String[] array)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (String item : array) &#123;</div><div class="line">            <span class="keyword">if</span> (item != <span class="keyword">null</span> &amp;&amp; item.equals(s)) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">allowed</span><span class="params">(<span class="keyword">final</span> String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (vAllowed.isEmpty() || vAllowed.containsKey(name)) &amp;&amp; !inArray(name, vDisallowed);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">allowedAttribute</span><span class="params">(<span class="keyword">final</span> String name, <span class="keyword">final</span> String paramName)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> allowed(name) &amp;&amp; (vAllowed.isEmpty() || vAllowed.get(name).contains(paramName));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="web-xml配置filter"><a href="#web-xml配置filter" class="headerlink" title="web.xml配置filter"></a>web.xml配置filter</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>xssFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.devframe.filter.XssFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>xssFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="不进行过滤的请求"><a href="#不进行过滤的请求" class="headerlink" title="不进行过滤的请求"></a>不进行过滤的请求</h4><p>只能使用servlet 的request获取原始的请求，然后 再获取参数，处理，稍微麻烦一下下。</p>
+
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 🖐 感谢阅读------</div>
+    
+</div>
+
+		
+	</div>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/xss/" rel="tag"><i class="fa fa-tag"></i> xss</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/20171213.html" rel="next" title="某一个安静的寒冷的夜晚">
+                <i class="fa fa-chevron-left"></i> 某一个安静的寒冷的夜晚
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://image.wuwii.com/MTXX_20170504095121_mr1493862851443.jpg"
+               alt="Slience" />
+          <p class="site-author-name" itemprop="name">Slience</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">124</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+			
+			<a title="收藏到书签，偶尔High一下^_^" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+    
+      var songs = [
+          "http://ov62kaxkk.bkt.clouddn.com/%E6%9C%A8%E6%9D%91%E5%BC%93%20-%20%E3%81%84%E3%81%A4%E3%82%82%E4%BD%95%E5%BA%A6%E3%81%A7%E3%82%82.mp3",       
+          "......"
+      ];
+ 
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+    
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> 听音乐</a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kaimz" target="_blank" title="GitHub" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/p/1005053974218109" target="_blank" title="Weibo" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/zhang-kai-89-51-58" target="_blank" title="知乎" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.processon.com/" title="processon" target="_blank" rel="external nofollow">processon</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://asciiflow.com/" title="asciiflow" target="_blank" rel="external nofollow">asciiflow</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://codepen.io/pen" title="codepen.io" target="_blank" rel="external nofollow">codepen.io</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sdll.club" title="闪电拉拉" target="_blank" rel="external nofollow">闪电拉拉</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://stackoverflow.com/" title="stackoverflow" target="_blank" rel="external nofollow">stackoverflow</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.importnew.com/" title="ImportNew" target="_blank" rel="external nofollow">ImportNew</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ifeve.com/" title="ifeve" target="_blank" rel="external nofollow">ifeve</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.720ui.com/" title="梁桂钊的博客" target="_blank" rel="external nofollow">梁桂钊的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://edu.aliyun.com/" title="阿里云大学" target="_blank" rel="external nofollow">阿里云大学</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iocoder.cn/" title="「芋道源码」" target="_blank" rel="external nofollow">「芋道源码」</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://cmsblogs.com" title="cmsblogs" target="_blank" rel="external nofollow">cmsblogs</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+		<!--20170726添加网易云音乐标签 -->
+		<!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=86 src="//music.163.com/outchain/player?type=2&id=356034&auto=0&height=66"></iframe> -->
+        <!--20170726添加网易云音乐标签 end-->
+		
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于XSS攻击"><span class="nav-number">1.</span> <span class="nav-text">关于XSS攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS漏洞的危害"><span class="nav-number">2.</span> <span class="nav-text">XSS漏洞的危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免XSS攻击"><span class="nav-number">3.</span> <span class="nav-text">避免XSS攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS过滤器"><span class="nav-number">3.1.</span> <span class="nav-text">XSS过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#request进行XSS过滤"><span class="nav-number">3.2.</span> <span class="nav-text">request进行XSS过滤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS过滤工具类"><span class="nav-number">3.3.</span> <span class="nav-text">XSS过滤工具类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web-xml配置filter"><span class="nav-number">3.4.</span> <span class="nav-text">web.xml配置filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不进行过滤的请求"><span class="nav-number">3.5.</span> <span class="nav-text">不进行过滤的请求</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Slience</span>
+</div>
+
+
+
+<div class="powered-by">
+Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages</a></div>
+
+<div class="theme-info">
+  <span class="post-count">博客全站共150.1k字</span>
+</div>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+	
+	var src360 = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?f62559b2127396ecb27f4ed4f4652ea1":"https://jspassport.ssl.qhimg.com/11.0.1.js?f62559b2127396ecb27f4ed4f4652ea1";
+	document.write('<script src="' + src360 + '" id="sozz"><\/script>');
+})();
+</script>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
