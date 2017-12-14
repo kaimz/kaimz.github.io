@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/about/index.html</loc>
+    
+    <lastmod>2017-12-14T05:45:22.887Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/java-xss-filter.html</loc>
     
     <lastmod>2017-12-14T05:43:10.267Z</lastmod>
@@ -114,14 +121,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/angels-wear-white.html</loc>
+    <loc>http://blog.wuwii.com/java-transactional.html</loc>
     
     <lastmod>2017-12-04T00:27:53.596Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/java-transactional.html</loc>
+    <loc>http://blog.wuwii.com/angels-wear-white.html</loc>
     
     <lastmod>2017-12-04T00:27:53.596Z</lastmod>
     
@@ -159,13 +166,6 @@
     <loc>http://blog.wuwii.com/love-of-soft.html</loc>
     
     <lastmod>2017-11-30T00:37:33.995Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.wuwii.com/about/index.html</loc>
-    
-    <lastmod>2017-11-29T00:38:11.821Z</lastmod>
     
   </url>
   
