@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-12-14T02:29:31.449Z</updated>
+  <updated>2017-12-14T05:43:10.267Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://blog.wuwii.com/java-xss-filter.html"/>
     <id>http://blog.wuwii.com/java-xss-filter.html</id>
     <published>2017-12-14T02:28:03.000Z</published>
-    <updated>2017-12-14T02:29:31.449Z</updated>
+    <updated>2017-12-14T05:43:10.267Z</updated>
     
     <content type="html"><![CDATA[<h3 id="关于XSS攻击"><a href="#关于XSS攻击" class="headerlink" title="关于XSS攻击"></a>关于XSS攻击</h3><p>XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。</p>
+<a id="more"></a>
 <h3 id="XSS漏洞的危害"><a href="#XSS漏洞的危害" class="headerlink" title="XSS漏洞的危害"></a>XSS漏洞的危害</h3><ol>
 <li>网络钓鱼，包括盗取各类用户账号； </li>
 <li>窃取用户cookies资料，从而获取用户隐私信息，或利用用户身份进一步对网站执行操作； </li>
@@ -48,7 +49,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;关于XSS攻击&quot;&gt;&lt;a href=&quot;#关于XSS攻击&quot; class=&quot;headerlink&quot; title=&quot;关于XSS攻击&quot;&gt;&lt;/a&gt;关于XSS攻击&lt;/h3&gt;&lt;p&gt;XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使
+      &lt;h3 id=&quot;关于XSS攻击&quot;&gt;&lt;a href=&quot;#关于XSS攻击&quot; class=&quot;headerlink&quot; title=&quot;关于XSS攻击&quot;&gt;&lt;/a&gt;关于XSS攻击&lt;/h3&gt;&lt;p&gt;XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。&lt;/p&gt;
     
     </summary>
     
