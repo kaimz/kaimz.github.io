@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-12-21T03:11:45.693Z</updated>
+  <updated>2017-12-21T03:24:57.712Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.wuwii.com/linux-vim.html"/>
     <id>http://blog.wuwii.com/linux-vim.html</id>
     <published>2017-12-21T03:11:03.000Z</published>
-    <updated>2017-12-21T03:11:45.693Z</updated>
+    <updated>2017-12-21T03:24:57.712Z</updated>
     
     <content type="html"><![CDATA[<p><a rel="external nofollow" target="_blank" href="https://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html">原文链接</a></p>
 <h4 id="命令历史"><a href="#命令历史" class="headerlink" title="命令历史"></a>命令历史</h4><p>以:和/开头的命令都有历史纪录，可以首先键入:或/然后按上下箭头来选择某个历史命令。</p>
@@ -29,6 +29,7 @@
 <li>vim 直接启动vim</li>
 <li>vim filename 打开vim并创建名为filename的文件</li>
 </ul>
+<a id="more"></a>
 <h4 id="文件命令"><a href="#文件命令" class="headerlink" title="文件命令"></a>文件命令</h4><ul>
 <li><p>打开单个文件：<code>vim file</code></p>
 </li>
@@ -309,7 +310,12 @@
     <summary type="html">
     
       &lt;p&gt;&lt;a rel=&quot;external nofollow&quot; target=&quot;_blank&quot; href=&quot;https://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
-&lt;h
+&lt;h4 id=&quot;命令历史&quot;&gt;&lt;a href=&quot;#命令历史&quot; class=&quot;headerlink&quot; title=&quot;命令历史&quot;&gt;&lt;/a&gt;命令历史&lt;/h4&gt;&lt;p&gt;以:和/开头的命令都有历史纪录，可以首先键入:或/然后按上下箭头来选择某个历史命令。&lt;/p&gt;
+&lt;h4 id=&quot;启动vim&quot;&gt;&lt;a href=&quot;#启动vim&quot; class=&quot;headerlink&quot; title=&quot;启动vim&quot;&gt;&lt;/a&gt;启动vim&lt;/h4&gt;&lt;p&gt;在命令行窗口中输入以下命令即可&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;vim 直接启动vim&lt;/li&gt;
+&lt;li&gt;vim filename 打开vim并创建名为filename的文件&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     

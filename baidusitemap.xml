@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://blog.wuwii.com/linux-vim.html</loc>
-    <lastmod>2017-12-21T03:11:45.693Z</lastmod>
+    <lastmod>2017-12-21T03:24:57.712Z</lastmod>
     <data>
         <display>
         <title>Vim命令合集</title>
@@ -413,19 +413,21 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/angels-wear-white.html</loc>
+    <loc>http://blog.wuwii.com/java-copyonwrite.html</loc>
     <lastmod>2017-12-04T00:27:53.596Z</lastmod>
     <data>
         <display>
-        <title>《嘉年华》的一点感想</title>
-        <pubTime>2017-11-28T14:08:03.000Z</pubTime>
+        <title>并发容器CopyOnWriteArrayList</title>
+        <pubTime>2017-11-26T13:08:03.000Z</pubTime>
         
-        <tag>电影</tag>
+        <tag>java</tag>
+         
+        <tag>并发编程</tag>
          
          
            
              
-              <breadCrumb title="随随便便" url="http://blog.wuwii.com/categories/%E9%9A%8F%E9%9A%8F%E4%BE%BF%E4%BE%BF/"/>
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -453,21 +455,19 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/java-copyonwrite.html</loc>
+    <loc>http://blog.wuwii.com/angels-wear-white.html</loc>
     <lastmod>2017-12-04T00:27:53.596Z</lastmod>
     <data>
         <display>
-        <title>并发容器CopyOnWriteArrayList</title>
-        <pubTime>2017-11-26T13:08:03.000Z</pubTime>
+        <title>《嘉年华》的一点感想</title>
+        <pubTime>2017-11-28T14:08:03.000Z</pubTime>
         
-        <tag>java</tag>
-         
-        <tag>并发编程</tag>
+        <tag>电影</tag>
          
          
            
              
-              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+              <breadCrumb title="随随便便" url="http://blog.wuwii.com/categories/%E9%9A%8F%E9%9A%8F%E4%BE%BF%E4%BE%BF/"/>
           
         </display>
     </data>
@@ -482,9 +482,9 @@
         <title>redies安装</title>
         <pubTime>2017-09-26T14:08:03.000Z</pubTime>
         
-        <tag>linux</tag>
-         
         <tag>redis</tag>
+         
+        <tag>linux</tag>
          
          
            
@@ -1819,16 +1819,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
-        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
-        <tag>JUnitGenerator</tag>
+        <tag>maven</tag>
          
          
            
@@ -1841,14 +1839,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>Intellij</tag>
+         
+        <tag>JUnitGenerator</tag>
          
          
            
@@ -1901,14 +1901,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/postman-upload.html</loc>
+    <loc>http://blog.wuwii.com/seo.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
-        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
+        <title>关于SEO</title>
+        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
         
-        <tag>postman</tag>
+        <tag>SEO</tag>
          
          
            
@@ -1921,14 +1921,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/seo.html</loc>
+    <loc>http://blog.wuwii.com/postman-upload.html</loc>
     <lastmod>2017-10-12T00:39:51.511Z</lastmod>
     <data>
         <display>
-        <title>关于SEO</title>
-        <pubTime>2017-09-24T14:08:03.000Z</pubTime>
+        <title>如何使用postman测试上传文件接口，正确提交文件数据</title>
+        <pubTime>2017-10-10T13:28:03.000Z</pubTime>
         
-        <tag>SEO</tag>
+        <tag>postman</tag>
          
          
            
