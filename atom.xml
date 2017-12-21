@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-12-17T06:46:16.778Z</updated>
+  <updated>2017-12-21T03:11:45.693Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,313 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vim命令合集</title>
+    <link href="http://blog.wuwii.com/linux-vim.html"/>
+    <id>http://blog.wuwii.com/linux-vim.html</id>
+    <published>2017-12-21T03:11:03.000Z</published>
+    <updated>2017-12-21T03:11:45.693Z</updated>
+    
+    <content type="html"><![CDATA[<p><a rel="external nofollow" target="_blank" href="https://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html">原文链接</a></p>
+<h4 id="命令历史"><a href="#命令历史" class="headerlink" title="命令历史"></a>命令历史</h4><p>以:和/开头的命令都有历史纪录，可以首先键入:或/然后按上下箭头来选择某个历史命令。</p>
+<h4 id="启动vim"><a href="#启动vim" class="headerlink" title="启动vim"></a>启动vim</h4><p>在命令行窗口中输入以下命令即可</p>
+<ul>
+<li>vim 直接启动vim</li>
+<li>vim filename 打开vim并创建名为filename的文件</li>
+</ul>
+<h4 id="文件命令"><a href="#文件命令" class="headerlink" title="文件命令"></a>文件命令</h4><ul>
+<li><p>打开单个文件：<code>vim file</code></p>
+</li>
+<li><p>同时打开多个文件：<code>vim file1 file2 file3 ...</code></p>
+</li>
+<li><p>在vim窗口中打开一个新文件：<code>:open file</code></p>
+</li>
+<li><p>在新窗口中打开文件：<code>:split file</code></p>
+</li>
+<li><p>切换到下一个文件<code>:bn</code></p>
+</li>
+<li><p>切换到上一个文件<code>:bp</code></p>
+</li>
+<li><p>查看当前打开的文件列表，当前正在编辑的文件会用[]括起来。<code>:args</code></p>
+</li>
+<li><p>打开远程文件，比如ftp或者share folder</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:e ftp://192.168.10.76/abc.txt</div><div class="line"></div><div class="line">:e \\qadrive\<span class="built_in">test</span>\1.txt</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="vim的模式"><a href="#vim的模式" class="headerlink" title="vim的模式"></a>vim的模式</h4><ul>
+<li>正常模式（按Esc或Ctrl+[进入） 左下角显示文件名或为空</li>
+<li>插入模式（按i键进入） 左下角显示<code>--INSERT--</code></li>
+<li>可视模式（正常模式下 按v进入） 左下角显示<code>--VISUAL--</code></li>
+</ul>
+<h4 id="导航命令"><a href="#导航命令" class="headerlink" title="导航命令"></a>导航命令</h4><ul>
+<li>% 括号匹配</li>
+</ul>
+<h4 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h4><ul>
+<li><p>i 在当前位置生前插入</p>
+</li>
+<li><p>I 在当前行首插入</p>
+</li>
+<li><p>a 在当前位置后插入</p>
+</li>
+<li><p>A 在当前行尾插入</p>
+</li>
+<li><p>o 在当前行之后插入一行</p>
+</li>
+<li><p>O 在当前行之前插入一行</p>
+</li>
+</ul>
+<h4 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h4><ul>
+<li><p><code>/text</code>　　查找text，按n健查找下一个，按N健查找前一个。</p>
+</li>
+<li><p><code>?text</code>　　查找text，反向查找，按n健查找下一个，按N健查找前一个。</p>
+</li>
+<li><p>vim中有一些特殊字符在查找时需要转义　　.*[]^%/?~$</p>
+</li>
+<li><p>:set ignorecase　　忽略大小写的查找</p>
+</li>
+<li><p>:set noignorecase　　不忽略大小写的查找</p>
+</li>
+<li><p>查找很长的词，如果一个词很长，键入麻烦，可以将光标移动到该词上，按*或#键即可以该单词进行搜索，相当于/搜索。而#命令相当于?搜索。</p>
+</li>
+<li><p>:set hlsearch　　高亮搜索结果，所有结果都高亮显示，而不是只显示一个匹配。</p>
+</li>
+<li><p>:set nohlsearch　　关闭高亮搜索显示</p>
+</li>
+<li><p>:nohlsearch　　关闭当前的高亮显示，如果再次搜索或者按下n或N键，则会再次高亮。</p>
+</li>
+<li><p>:set incsearch　　逐步搜索模式，对当前键入的字符进行搜索而不必等待键入完成。</p>
+</li>
+<li><p>:set wrapscan　　重新搜索，在搜索到文件头或尾时，返回继续搜索，默认开启。</p>
+</li>
+</ul>
+<h4 id="替换命令"><a href="#替换命令" class="headerlink" title="替换命令"></a>替换命令</h4><ul>
+<li><p>ra 将当前字符替换为a，当期字符即光标所在字符。</p>
+</li>
+<li><p><code>s/old/new/</code> 用old替换new，替换当前行的第一个匹配</p>
+</li>
+<li><p><code>s/old/new/g</code> 用old替换new，替换当前行的所有匹配</p>
+</li>
+<li><p><code>:%s/old/new/</code> 用old替换new，替换所有行的第一个匹配</p>
+</li>
+<li><p><code>:%s/old/new/g</code> 用old替换new，替换整个文件的所有匹配</p>
+</li>
+<li><p><code>:10,20 s/^/</code>    /g 在第10行知第20行每行前面加四个空格，用于缩进。</p>
+</li>
+<li><p>ddp 交换光标所在行和其下紧邻的一行。</p>
+</li>
+</ul>
+<h4 id="移动命令"><a href="#移动命令" class="headerlink" title="移动命令"></a>移动命令</h4><ul>
+<li>h 左移一个字符</li>
+<li>l 右移一个字符，这个命令很少用，一般用w代替。</li>
+<li>k 上移一个字符</li>
+<li><p>j 下移一个字符<br>以上四个命令可以配合数字使用，比如20j就是向下移动20行，5h就是向左移动5个字符，在Vim中，很多命令都可以配合数字使用，比如删除10个字符10x，在当前位置后插入3个！，3a！<esc>，这里的Esc是必须的，否则命令不生效。</esc></p>
+</li>
+<li><p>w 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。</p>
+</li>
+<li><p>b 向后移动一个单词 2b 向后移动2个单词</p>
+</li>
+<li><p>e，同w，只不过是光标停在单词尾部</p>
+</li>
+<li><p>ge，同b，光标停在单词尾部。</p>
+</li>
+<li><p>^ 移动到本行第一个非空白字符上。</p>
+</li>
+<li><p>0（数字0）移动到本行第一个字符上，</p>
+</li>
+<li><p><home> 移动到本行第一个字符。同0健。</home></p>
+</li>
+<li><p>$ 移动到行尾 3$ 移动到下面3行的行尾</p>
+</li>
+<li><p>gg 移动到文件头。 = [[</p>
+</li>
+<li><p>G（shift + g） 移动到文件尾。 = ]]</p>
+</li>
+<li><p>f（find）命令也可以用于移动，fx将找到光标后第一个为x的字符，3fd将找到第三个为d的字符。</p>
+</li>
+<li><p>F 同f，反向查找。</p>
+</li>
+<li><p>跳到指定行，冒号+行号，回车，比如跳到240行就是 :240回车。另一个方法是行号+G，比如230G跳到230行。</p>
+</li>
+<li><p>Ctrl + e 向下滚动一行</p>
+</li>
+<li><p>Ctrl + y 向上滚动一行</p>
+</li>
+<li><p>Ctrl + d 向下滚动半屏</p>
+</li>
+<li><p>Ctrl + u 向上滚动半屏</p>
+</li>
+<li><p>Ctrl + f 向下滚动一屏</p>
+</li>
+<li><p>Ctrl + b 向上滚动一屏</p>
+</li>
+</ul>
+<h4 id="撤销和重做"><a href="#撤销和重做" class="headerlink" title="撤销和重做"></a>撤销和重做</h4><ul>
+<li>u 撤销（Undo）</li>
+<li>U 撤销对整行的操作</li>
+<li>Ctrl + r 重做（Redo），即撤销的撤销。</li>
+</ul>
+<h4 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h4><ul>
+<li><p>x 删除当前字符</p>
+</li>
+<li><p>3x 删除当前光标开始向后三个字符</p>
+</li>
+<li><p>X 删除当前字符的前一个字符。X=dh</p>
+</li>
+<li><p>dl 删除当前字符， dl=x</p>
+</li>
+<li><p>dh 删除前一个字符</p>
+</li>
+<li><p>dd 删除当前行</p>
+</li>
+<li><p>dj 删除本行及下一行</p>
+</li>
+<li><p>dk 删除本行及上一行</p>
+</li>
+<li><p>10d 删除当前行开始的10行。</p>
+</li>
+<li><p>D 删除当前字符至行尾。D=d$</p>
+</li>
+<li><p>d$ 删除当前字符之后的所有字符（本行）</p>
+</li>
+<li><p>kdgg 删除当前行之前所有行（不包括当前行）</p>
+</li>
+<li><p>jdG（jd shift + g）   删除当前行之后所有行（不包括当前行）</p>
+</li>
+<li><p>:1,10d 删除1-10行</p>
+</li>
+<li><p>:11,$d 删除11行及以后所有的行</p>
+</li>
+<li><p>:1,$d 删除所有行</p>
+</li>
+<li><p><code>J(shift + j)</code>　　删除两行之间的空行，实际上是合并两行。</p>
+</li>
+</ul>
+<h4 id="拷贝和粘贴"><a href="#拷贝和粘贴" class="headerlink" title="拷贝和粘贴"></a>拷贝和粘贴</h4><ul>
+<li><p>yy 拷贝当前行</p>
+</li>
+<li><p>nyy 拷贝当前后开始的n行，比如2yy拷贝当前行及其下一行。</p>
+</li>
+<li><p>p  在当前光标后粘贴,如果之前使用了yy命令来复制一行，那么就在当前行的下一行粘贴。</p>
+</li>
+<li><p>shift+p 在当前行前粘贴</p>
+</li>
+<li><p><code>:1,10 co 20</code> 将1-10行插入到第20行之后。</p>
+</li>
+<li><p><code>:1,$ co $</code> 将整个文件复制一份并添加到文件尾部。</p>
+</li>
+<li><p>正常模式下按v（逐字）或V（逐行）进入可视模式，然后用jklh命令移动即可选择某些行或字符，再按y即可复制</p>
+</li>
+<li><p>ddp交换当前行和其下一行</p>
+</li>
+</ul>
+<p>*xp交换当前字符和其后一个字符</p>
+<h4 id="剪切命令"><a href="#剪切命令" class="headerlink" title="剪切命令"></a>剪切命令</h4><ul>
+<li><p>正常模式下按v（逐字）或V（逐行）进入可视模式，然后用jklh命令移动即可选择某些行或字符，再按d即可剪切</p>
+</li>
+<li><p>ndd 剪切当前行之后的n行。利用p命令可以对剪切的内容进行粘贴</p>
+</li>
+<li><p>:1,10d 将1-10行剪切。利用p命令可将剪切后的内容进行粘贴。</p>
+</li>
+<li><p>:1, 10 m 20 将第1-10行移动到第20行之后。</p>
+</li>
+</ul>
+<h4 id="退出命令"><a href="#退出命令" class="headerlink" title="退出命令"></a>退出命令</h4><ul>
+<li><p>:wq 保存并退出</p>
+</li>
+<li><p>ZZ 保存并退出</p>
+</li>
+<li><p>:q! 强制退出并忽略所有更改</p>
+</li>
+<li><p>:e! 放弃所有修改，并打开原来文件。</p>
+</li>
+</ul>
+<h4 id="窗口命令"><a href="#窗口命令" class="headerlink" title="窗口命令"></a>窗口命令</h4><ul>
+<li><p>:split或new 打开一个新窗口，光标停在顶层的窗口上</p>
+</li>
+<li><p>:split file或:new file 用新窗口打开文件</p>
+</li>
+<li><p>split打开的窗口都是横向的，使用vsplit可以纵向打开窗口。</p>
+</li>
+<li><p>Ctrl+ww 移动到下一个窗口</p>
+</li>
+<li><p>Ctrl+wj 移动到下方的窗口</p>
+</li>
+<li><p>Ctrl+wk 移动到上方的窗口</p>
+</li>
+</ul>
+<h5 id="关闭窗口"><a href="#关闭窗口" class="headerlink" title="关闭窗口"></a>关闭窗口</h5><ul>
+<li><p>:close 最后一个窗口不能使用此命令，可以防止意外退出vim。</p>
+</li>
+<li><p>:q 如果是最后一个被关闭的窗口，那么将退出vim。</p>
+</li>
+<li><p>ZZ 保存并退出。</p>
+</li>
+<li><p>:only 关闭所有窗口，只保留当前窗口 </p>
+<h5 id="录制宏"><a href="#录制宏" class="headerlink" title="录制宏"></a>录制宏</h5></li>
+<li>录制宏：按q键加任意字母开始录制，再按q键结束录制（这意味着vim中的宏不可嵌套），使用的时候@加宏名，比如qa。。。q录制名为a的宏，@a使用这个宏。</li>
+</ul>
+<h4 id="执行shell命令"><a href="#执行shell命令" class="headerlink" title="执行shell命令"></a>执行shell命令</h4><ul>
+<li><p><code>:!command</code></p>
+</li>
+<li><p><code>:!ls</code> 列出当前目录下文件</p>
+</li>
+<li><p><code>:!perl -c script.pl</code> 检查perl脚本语法，可以不用退出vim，非常方便。</p>
+</li>
+<li><p><code>:!perl script.pl</code> 执行perl脚本，可以不用退出vim，非常方便。</p>
+</li>
+<li><p><code>:suspend或Ctrl - Z</code> 挂起vim，回到shell，按fg可以返回vim。</p>
+</li>
+</ul>
+<h4 id="注释命令"><a href="#注释命令" class="headerlink" title="注释命令"></a>注释命令</h4><ul>
+<li><p>perl程序中#开始的行为注释，所以要注释某些行，只需在行首加入#</p>
+</li>
+<li><p><code>3,5 s/^/#/g</code> 注释第3-5行</p>
+</li>
+<li><p><code>3,5 s/^#//g</code> 解除3-5行的注释</p>
+</li>
+<li><p><code>1,$ s/^/#/g</code> 注释整个文档。</p>
+</li>
+<li><p><code>:%s/^/#/g</code>注释整个文档，此法更快。</p>
+</li>
+</ul>
+<h4 id="其他非编辑命令"><a href="#其他非编辑命令" class="headerlink" title="其他非编辑命令"></a>其他非编辑命令</h4><ul>
+<li><p>. 重复前一次命令</p>
+</li>
+<li><p><code>:set ruler?</code>　　查看是否设置了ruler，在.vimrc中，使用set命令设制的选项都可以通过这个命令查看</p>
+</li>
+<li><p>:scriptnames　　查看vim脚本文件的位置，比如.vimrc文件，语法文件及plugin等。</p>
+</li>
+<li><p>:set list 显示非打印字符，如tab，空格，行尾等。如果tab无法显示，请确定用<code>set lcs=tab:&gt;-</code>命令设置了.vimrc文件，并确保你的文件中的确有tab，如果开启了expandtab，那么tab将被扩展为空格。</p>
+</li>
+</ul>
+<h5 id="Vim教程"><a href="#Vim教程" class="headerlink" title="Vim教程"></a>Vim教程</h5><ul>
+<li>在Unix系统上 <code>$ vimtutor</code></li>
+<li><p>在Windows系统上 <code>:help tutor</code></p>
+</li>
+<li><p>:syntax 列出已经定义的语法项</p>
+</li>
+<li>:syntax clear 清除已定义的语法规则</li>
+<li>:syntax case match 大小写敏感，int和Int将视为不同的语法元素</li>
+<li>:syntax case ignore 大小写无关，int和Int将视为相同的语法元素，并使用同样的配色方案</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a rel=&quot;external nofollow&quot; target=&quot;_blank&quot; href=&quot;https://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
+&lt;h
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="linux" scheme="http://blog.wuwii.com/tags/linux/"/>
+    
+      <category term="vim" scheme="http://blog.wuwii.com/tags/vim/"/>
+    
+  </entry>
   
   <entry>
     <title>Java中队列</title>
@@ -1548,92 +1855,6 @@
       <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
     
       <category term="并发编程" scheme="http://blog.wuwii.com/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用一生的时光去守护你</title>
-    <link href="http://blog.wuwii.com/a-living-time.html"/>
-    <id>http://blog.wuwii.com/a-living-time.html</id>
-    <published>2017-11-23T14:08:03.000Z</published>
-    <updated>2017-11-24T09:22:07.481Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天听电台上逛到了这篇文章，首先想到的应该是爸妈那一代人，是我们比较熟悉的，那缝纫机，我家里现在还能用了；我小时候学习骑车的时候，用的就是当初爸妈结婚的时候自行车；还有当时的小彩电，被我拿来打游戏机了……现在想起来，惭愧的很，没能好好珍惜，那是属于父母的美好记忆的一部分。当然都过去好久了，我的记忆力还是不错的，虽然大多数东西已经不存在了，但是能一直存在我的记忆里，我想爸妈也是一直记得的，而且现在家庭幸福，就足够了。</p>
-<p>文章来自网上，百度标题就有，读起来可以细细品尝，喝杯水，别是一番风味。</p>
-<p>记录到博客（图片都是偷的……<br><a id="more"></a></p>
-<hr>
-<p><img src="http://p3.pstatp.com/large/6d100072fd427166ee8" alt="image"></p>
-<p><strong>五六十年代的爱情，没有绚烂的色彩，却有着耐人寻味的真情。</strong></p>
-<p><img src="http://p9.pstatp.com/large/71e00034b657f43e581" alt="image"></p>
-<p><strong>那个时候，总有做不完的农活，苦中作乐就是甜蜜的爱情。</strong></p>
-<p><img src="http://p3.pstatp.com/large/6d100072fd55d030dc9" alt="image"></p>
-<p><strong>在当时，为心爱的女人戴上一朵红花，是爱情的见证，更是一种矢志不渝的承诺。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/5ce0edf0e5cb48349c356321d86143f4_th.jpg" alt="image"></p>
-<p><strong>结婚前不需贵重的礼品，一支钢笔就是一个深刻的纪念。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/00208259a24e47e3ac983be8d1b478b3_th.jpg" alt="image"></p>
-<p><strong>那时候结婚，还需要组织上开个介绍信。接过结婚证书的时候，开心到说不出话来。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/255bedb9b6fa44f1a456851c89e3cf34_th.jpg" alt="image"></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/46d488275a0e4b5ea018a421e609788c_th.jpg" alt="image"></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/0b1bd30a0f624ffab5df7bd8c338ac6c_th.jpg" alt="image"></p>
-<p><strong>那时候的爱情，总是有众人的见证。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/9c81860520044b9aaf0cae637d370a13_th.jpg" alt="image"></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/16c9b7f033c3440191d7405f39384f44_th.jpg" alt="image"></p>
-<p><strong>到了七十年代，爱情故事也随着时代而发生改变。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/1077aaf711ac41ecb555bc662085cd42_th.jpg" alt="image"></p>
-<p><strong>在那个特殊的年代，爱情是被禁止的羞涩。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/c1ebcfd1f6dd4e9ba01d934b74b467a3_th.jpg" alt="image"></p>
-<p><strong>“恋爱”“结婚”，是资产阶级思想的自由化产物，“男女关系”是绝对要划清界限的个人守则。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/527e2229d3f54a9d9b9402ede6a842ec_th.jpg" alt="image"></p>
-<p><strong>那个时代的人们单纯，生怕别人误会自己有不正当男女关系，生怕别人误会老家来的表哥是自己的汉子。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/a0ea7bc642844de3b6b91408136a2bc0_th.jpg" alt="image"></p>
-<p><strong>那时候，连牵个小手都得偷偷摸摸的，一根小小的竹竿连接着他们青涩的爱情。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/b2eb2ef274454388957f69b23f3106db_th.jpg" alt="image"></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/061b45c9946b43708f3f8ceaa25ecc5d_th.jpg" alt="image"></p>
-<p><strong>那时候的爱情，也是政治。身穿军装、手捧毛主席语录照相，是那个年代最独特的记忆。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/88071ca9faa34ebdb452aa21b868974e_th.jpg" alt="image"></p>
-<p><strong>80年代，有了一种独特的恋爱方式，叫做联谊。说说笑笑，感情自然而然地发生。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/8e1e1034d8494186b87f7c9197deb69f_th.jpg" alt="image"></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/c4cdf0604fc64f21a78403396b53bc4a_th.jpg" alt="image"></p>
-<p><strong>在没有电话、电脑的年代，写信寄照片是唯一联系情感的方式。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/54c2769ec19947e3b9a4ef22abd85d82_th.jpg" alt="image"></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/99aefc436e9647ba9a98634a0ba44d53_th.jpg" alt="image"></p>
-<p><strong>那时候的约会很简单，坐趟公交车到郊外走走，到湖边划划小船。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/b5138d92ebe849a1b74009a3e711f0c8_th.jpg" alt="image"></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/393d7c957d014d5e90474250d7ebe211_th.jpg" alt="image"></p>
-<p><strong>只要两个人在一起，在公园的长椅上坐上一个下午也不会觉得无聊。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/332b5900b72d4fc1a1bf3635a9ee2631_th.jpg" alt="image"></p>
-<p><strong>骑着自行车，载着心爱的那个她，真希望时光就停留在这一刻。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/101a7ea965a24e52b398902c74115828_th.jpg" alt="image"></p>
-<p><strong>带上礼物，和心爱的人穿戴整齐，一起回家里看看爸妈。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/619406bd3a99447abe2b8a97683272e3_th.jpg" alt="image"></p>
-<p><strong>一台缝纫机，一辆自行车，一台收音机，加上母亲准备的花棉被，就是全部的嫁妆。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/3066796109054dceb217c06419be6b37_th.jpg" alt="image"></p>
-<p><strong>那个年代，爱情有着纯粹的颜色，神圣不容亵渎。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/94a5274509284b209227b242f4088d06_th.jpg" alt="image"></p>
-<p><strong>那个年代，车马很慢，书信很远，一生只够爱一人。</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/a1120031cd624a76a3887f1b26bdb7eb_th.jpg" alt="image"></p>
-<p><strong>30年前的我爱你，不是嘴上说说，</strong></p>
-<p><strong>而是用一生的时光去守护你！</strong></p>
-<p><img src="http://img.mp.itc.cn/upload/20160528/bf016bb8559c4e4aae0a8e101ba191d3_th.jpg" alt="image"></p>
-<hr>
-<blockquote>
-<p>“两姓联姻，一堂缔约，良缘永结，匹配同称。看此日桃花灼灼，宜室宜家，卜他年瓜瓞绵绵，尔昌尔炽。谨以白头之约，书向鸿笺，好将红叶之盟，载明鸳谱。此证。” </p>
-<p>张爱玲说过：“于千万人之中遇见你所要遇见的人,于千万年之中,时间的无涯的荒野里,没有早一步,也没有晚一步,刚巧赶上了,没有别的话可说,唯有轻轻地问一声:“原来你也在这里 ”</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天听电台上逛到了这篇文章，首先想到的应该是爸妈那一代人，是我们比较熟悉的，那缝纫机，我家里现在还能用了；我小时候学习骑车的时候，用的就是当初爸妈结婚的时候自行车；还有当时的小彩电，被我拿来打游戏机了……现在想起来，惭愧的很，没能好好珍惜，那是属于父母的美好记忆的一部分。当然都过去好久了，我的记忆力还是不错的，虽然大多数东西已经不存在了，但是能一直存在我的记忆里，我想爸妈也是一直记得的，而且现在家庭幸福，就足够了。&lt;/p&gt;
-&lt;p&gt;文章来自网上，百度标题就有，读起来可以细细品尝，喝杯水，别是一番风味。&lt;/p&gt;
-&lt;p&gt;记录到博客（图片都是偷的……&lt;br&gt;
-    
-    </summary>
-    
-      <category term="分享" scheme="http://blog.wuwii.com/categories/%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="故事" scheme="http://blog.wuwii.com/tags/%E6%95%85%E4%BA%8B/"/>
     
   </entry>
   

@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+    (function(){
+        if(''){
+            if (prompt('不好意思，这篇文章需要密码！') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上,Slience" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="喃声细语" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="原文链接 命令历史以:和/开头的命令都有历史纪录，可以首先键入:或/然后按上下箭头来选择某个历史命令。 启动vim在命令行窗口中输入以下命令即可  vim 直接启动vim vim filename 打开vim并创建名为filename的文件  文件命令 打开单个文件：vim file  同时打开多个文件：vim file1 file2 file3 ...  在vim窗口中打开一个新文件：:open">
+<meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上,Slience">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim命令合集">
+<meta property="og:url" content="http://blog.wuwii.com/linux-vim.html">
+<meta property="og:site_name" content="喃声细语">
+<meta property="og:description" content="原文链接 命令历史以:和/开头的命令都有历史纪录，可以首先键入:或/然后按上下箭头来选择某个历史命令。 启动vim在命令行窗口中输入以下命令即可  vim 直接启动vim vim filename 打开vim并创建名为filename的文件  文件命令 打开单个文件：vim file  同时打开多个文件：vim file1 file2 file3 ...  在vim窗口中打开一个新文件：:open">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-21T03:11:45.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim命令合集">
+<meta name="twitter:description" content="原文链接 命令历史以:和/开头的命令都有历史纪录，可以首先键入:或/然后按上下箭头来选择某个历史命令。 启动vim在命令行窗口中输入以下命令即可  vim 直接启动vim vim filename 打开vim并创建名为filename的文件  文件命令 打开单个文件：vim file  同时打开多个文件：vim file1 file2 file3 ...  在vim窗口中打开一个新文件：:open">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'TWXZ15WRBL',
+      apiKey: 'c272bd4b810c8b43773a3f1d3c6b8d27',
+      indexName: 'wuwii',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.wuwii.com/linux-vim.html"/>
+
+
+
+
+
+  <title>Vim命令合集 | 喃声细语</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b847762b9271725a63131e554978de0a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=63798915";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1264593822&web_id=1264593822" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+  
+  <link href="http://blog.wuwii.com/harlem-shake-style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">喃声细语</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">一个人的独白，成为最好的自己，遇到最好的那个人。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.wuwii.com/linux-vim.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Slience">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://image.wuwii.com/MTXX_20170504095121_mr1493862851443.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喃声细语">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Vim命令合集</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T11:11:03+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2,306
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a rel="external nofollow" target="_blank" href="https://www.cnblogs.com/softwaretesting/archive/2011/07/12/2104435.html">原文链接</a></p>
+<h4 id="命令历史"><a href="#命令历史" class="headerlink" title="命令历史"></a>命令历史</h4><p>以:和/开头的命令都有历史纪录，可以首先键入:或/然后按上下箭头来选择某个历史命令。</p>
+<h4 id="启动vim"><a href="#启动vim" class="headerlink" title="启动vim"></a>启动vim</h4><p>在命令行窗口中输入以下命令即可</p>
+<ul>
+<li>vim 直接启动vim</li>
+<li>vim filename 打开vim并创建名为filename的文件</li>
+</ul>
+<h4 id="文件命令"><a href="#文件命令" class="headerlink" title="文件命令"></a>文件命令</h4><ul>
+<li><p>打开单个文件：<code>vim file</code></p>
+</li>
+<li><p>同时打开多个文件：<code>vim file1 file2 file3 ...</code></p>
+</li>
+<li><p>在vim窗口中打开一个新文件：<code>:open file</code></p>
+</li>
+<li><p>在新窗口中打开文件：<code>:split file</code></p>
+</li>
+<li><p>切换到下一个文件<code>:bn</code></p>
+</li>
+<li><p>切换到上一个文件<code>:bp</code></p>
+</li>
+<li><p>查看当前打开的文件列表，当前正在编辑的文件会用[]括起来。<code>:args</code></p>
+</li>
+<li><p>打开远程文件，比如ftp或者share folder</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:e ftp://192.168.10.76/abc.txt</div><div class="line"></div><div class="line">:e \\qadrive\<span class="built_in">test</span>\1.txt</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="vim的模式"><a href="#vim的模式" class="headerlink" title="vim的模式"></a>vim的模式</h4><ul>
+<li>正常模式（按Esc或Ctrl+[进入） 左下角显示文件名或为空</li>
+<li>插入模式（按i键进入） 左下角显示<code>--INSERT--</code></li>
+<li>可视模式（正常模式下 按v进入） 左下角显示<code>--VISUAL--</code></li>
+</ul>
+<h4 id="导航命令"><a href="#导航命令" class="headerlink" title="导航命令"></a>导航命令</h4><ul>
+<li>% 括号匹配</li>
+</ul>
+<h4 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h4><ul>
+<li><p>i 在当前位置生前插入</p>
+</li>
+<li><p>I 在当前行首插入</p>
+</li>
+<li><p>a 在当前位置后插入</p>
+</li>
+<li><p>A 在当前行尾插入</p>
+</li>
+<li><p>o 在当前行之后插入一行</p>
+</li>
+<li><p>O 在当前行之前插入一行</p>
+</li>
+</ul>
+<h4 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h4><ul>
+<li><p><code>/text</code>　　查找text，按n健查找下一个，按N健查找前一个。</p>
+</li>
+<li><p><code>?text</code>　　查找text，反向查找，按n健查找下一个，按N健查找前一个。</p>
+</li>
+<li><p>vim中有一些特殊字符在查找时需要转义　　.*[]^%/?~$</p>
+</li>
+<li><p>:set ignorecase　　忽略大小写的查找</p>
+</li>
+<li><p>:set noignorecase　　不忽略大小写的查找</p>
+</li>
+<li><p>查找很长的词，如果一个词很长，键入麻烦，可以将光标移动到该词上，按*或#键即可以该单词进行搜索，相当于/搜索。而#命令相当于?搜索。</p>
+</li>
+<li><p>:set hlsearch　　高亮搜索结果，所有结果都高亮显示，而不是只显示一个匹配。</p>
+</li>
+<li><p>:set nohlsearch　　关闭高亮搜索显示</p>
+</li>
+<li><p>:nohlsearch　　关闭当前的高亮显示，如果再次搜索或者按下n或N键，则会再次高亮。</p>
+</li>
+<li><p>:set incsearch　　逐步搜索模式，对当前键入的字符进行搜索而不必等待键入完成。</p>
+</li>
+<li><p>:set wrapscan　　重新搜索，在搜索到文件头或尾时，返回继续搜索，默认开启。</p>
+</li>
+</ul>
+<h4 id="替换命令"><a href="#替换命令" class="headerlink" title="替换命令"></a>替换命令</h4><ul>
+<li><p>ra 将当前字符替换为a，当期字符即光标所在字符。</p>
+</li>
+<li><p><code>s/old/new/</code> 用old替换new，替换当前行的第一个匹配</p>
+</li>
+<li><p><code>s/old/new/g</code> 用old替换new，替换当前行的所有匹配</p>
+</li>
+<li><p><code>:%s/old/new/</code> 用old替换new，替换所有行的第一个匹配</p>
+</li>
+<li><p><code>:%s/old/new/g</code> 用old替换new，替换整个文件的所有匹配</p>
+</li>
+<li><p><code>:10,20 s/^/</code>    /g 在第10行知第20行每行前面加四个空格，用于缩进。</p>
+</li>
+<li><p>ddp 交换光标所在行和其下紧邻的一行。</p>
+</li>
+</ul>
+<h4 id="移动命令"><a href="#移动命令" class="headerlink" title="移动命令"></a>移动命令</h4><ul>
+<li>h 左移一个字符</li>
+<li>l 右移一个字符，这个命令很少用，一般用w代替。</li>
+<li>k 上移一个字符</li>
+<li><p>j 下移一个字符<br>以上四个命令可以配合数字使用，比如20j就是向下移动20行，5h就是向左移动5个字符，在Vim中，很多命令都可以配合数字使用，比如删除10个字符10x，在当前位置后插入3个！，3a！<esc>，这里的Esc是必须的，否则命令不生效。</esc></p>
+</li>
+<li><p>w 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。</p>
+</li>
+<li><p>b 向后移动一个单词 2b 向后移动2个单词</p>
+</li>
+<li><p>e，同w，只不过是光标停在单词尾部</p>
+</li>
+<li><p>ge，同b，光标停在单词尾部。</p>
+</li>
+<li><p>^ 移动到本行第一个非空白字符上。</p>
+</li>
+<li><p>0（数字0）移动到本行第一个字符上，</p>
+</li>
+<li><p><home> 移动到本行第一个字符。同0健。</home></p>
+</li>
+<li><p>$ 移动到行尾 3$ 移动到下面3行的行尾</p>
+</li>
+<li><p>gg 移动到文件头。 = [[</p>
+</li>
+<li><p>G（shift + g） 移动到文件尾。 = ]]</p>
+</li>
+<li><p>f（find）命令也可以用于移动，fx将找到光标后第一个为x的字符，3fd将找到第三个为d的字符。</p>
+</li>
+<li><p>F 同f，反向查找。</p>
+</li>
+<li><p>跳到指定行，冒号+行号，回车，比如跳到240行就是 :240回车。另一个方法是行号+G，比如230G跳到230行。</p>
+</li>
+<li><p>Ctrl + e 向下滚动一行</p>
+</li>
+<li><p>Ctrl + y 向上滚动一行</p>
+</li>
+<li><p>Ctrl + d 向下滚动半屏</p>
+</li>
+<li><p>Ctrl + u 向上滚动半屏</p>
+</li>
+<li><p>Ctrl + f 向下滚动一屏</p>
+</li>
+<li><p>Ctrl + b 向上滚动一屏</p>
+</li>
+</ul>
+<h4 id="撤销和重做"><a href="#撤销和重做" class="headerlink" title="撤销和重做"></a>撤销和重做</h4><ul>
+<li>u 撤销（Undo）</li>
+<li>U 撤销对整行的操作</li>
+<li>Ctrl + r 重做（Redo），即撤销的撤销。</li>
+</ul>
+<h4 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h4><ul>
+<li><p>x 删除当前字符</p>
+</li>
+<li><p>3x 删除当前光标开始向后三个字符</p>
+</li>
+<li><p>X 删除当前字符的前一个字符。X=dh</p>
+</li>
+<li><p>dl 删除当前字符， dl=x</p>
+</li>
+<li><p>dh 删除前一个字符</p>
+</li>
+<li><p>dd 删除当前行</p>
+</li>
+<li><p>dj 删除本行及下一行</p>
+</li>
+<li><p>dk 删除本行及上一行</p>
+</li>
+<li><p>10d 删除当前行开始的10行。</p>
+</li>
+<li><p>D 删除当前字符至行尾。D=d$</p>
+</li>
+<li><p>d$ 删除当前字符之后的所有字符（本行）</p>
+</li>
+<li><p>kdgg 删除当前行之前所有行（不包括当前行）</p>
+</li>
+<li><p>jdG（jd shift + g）   删除当前行之后所有行（不包括当前行）</p>
+</li>
+<li><p>:1,10d 删除1-10行</p>
+</li>
+<li><p>:11,$d 删除11行及以后所有的行</p>
+</li>
+<li><p>:1,$d 删除所有行</p>
+</li>
+<li><p><code>J(shift + j)</code>　　删除两行之间的空行，实际上是合并两行。</p>
+</li>
+</ul>
+<h4 id="拷贝和粘贴"><a href="#拷贝和粘贴" class="headerlink" title="拷贝和粘贴"></a>拷贝和粘贴</h4><ul>
+<li><p>yy 拷贝当前行</p>
+</li>
+<li><p>nyy 拷贝当前后开始的n行，比如2yy拷贝当前行及其下一行。</p>
+</li>
+<li><p>p  在当前光标后粘贴,如果之前使用了yy命令来复制一行，那么就在当前行的下一行粘贴。</p>
+</li>
+<li><p>shift+p 在当前行前粘贴</p>
+</li>
+<li><p><code>:1,10 co 20</code> 将1-10行插入到第20行之后。</p>
+</li>
+<li><p><code>:1,$ co $</code> 将整个文件复制一份并添加到文件尾部。</p>
+</li>
+<li><p>正常模式下按v（逐字）或V（逐行）进入可视模式，然后用jklh命令移动即可选择某些行或字符，再按y即可复制</p>
+</li>
+<li><p>ddp交换当前行和其下一行</p>
+</li>
+</ul>
+<p>*xp交换当前字符和其后一个字符</p>
+<h4 id="剪切命令"><a href="#剪切命令" class="headerlink" title="剪切命令"></a>剪切命令</h4><ul>
+<li><p>正常模式下按v（逐字）或V（逐行）进入可视模式，然后用jklh命令移动即可选择某些行或字符，再按d即可剪切</p>
+</li>
+<li><p>ndd 剪切当前行之后的n行。利用p命令可以对剪切的内容进行粘贴</p>
+</li>
+<li><p>:1,10d 将1-10行剪切。利用p命令可将剪切后的内容进行粘贴。</p>
+</li>
+<li><p>:1, 10 m 20 将第1-10行移动到第20行之后。</p>
+</li>
+</ul>
+<h4 id="退出命令"><a href="#退出命令" class="headerlink" title="退出命令"></a>退出命令</h4><ul>
+<li><p>:wq 保存并退出</p>
+</li>
+<li><p>ZZ 保存并退出</p>
+</li>
+<li><p>:q! 强制退出并忽略所有更改</p>
+</li>
+<li><p>:e! 放弃所有修改，并打开原来文件。</p>
+</li>
+</ul>
+<h4 id="窗口命令"><a href="#窗口命令" class="headerlink" title="窗口命令"></a>窗口命令</h4><ul>
+<li><p>:split或new 打开一个新窗口，光标停在顶层的窗口上</p>
+</li>
+<li><p>:split file或:new file 用新窗口打开文件</p>
+</li>
+<li><p>split打开的窗口都是横向的，使用vsplit可以纵向打开窗口。</p>
+</li>
+<li><p>Ctrl+ww 移动到下一个窗口</p>
+</li>
+<li><p>Ctrl+wj 移动到下方的窗口</p>
+</li>
+<li><p>Ctrl+wk 移动到上方的窗口</p>
+</li>
+</ul>
+<h5 id="关闭窗口"><a href="#关闭窗口" class="headerlink" title="关闭窗口"></a>关闭窗口</h5><ul>
+<li><p>:close 最后一个窗口不能使用此命令，可以防止意外退出vim。</p>
+</li>
+<li><p>:q 如果是最后一个被关闭的窗口，那么将退出vim。</p>
+</li>
+<li><p>ZZ 保存并退出。</p>
+</li>
+<li><p>:only 关闭所有窗口，只保留当前窗口 </p>
+<h5 id="录制宏"><a href="#录制宏" class="headerlink" title="录制宏"></a>录制宏</h5></li>
+<li>录制宏：按q键加任意字母开始录制，再按q键结束录制（这意味着vim中的宏不可嵌套），使用的时候@加宏名，比如qa。。。q录制名为a的宏，@a使用这个宏。</li>
+</ul>
+<h4 id="执行shell命令"><a href="#执行shell命令" class="headerlink" title="执行shell命令"></a>执行shell命令</h4><ul>
+<li><p><code>:!command</code></p>
+</li>
+<li><p><code>:!ls</code> 列出当前目录下文件</p>
+</li>
+<li><p><code>:!perl -c script.pl</code> 检查perl脚本语法，可以不用退出vim，非常方便。</p>
+</li>
+<li><p><code>:!perl script.pl</code> 执行perl脚本，可以不用退出vim，非常方便。</p>
+</li>
+<li><p><code>:suspend或Ctrl - Z</code> 挂起vim，回到shell，按fg可以返回vim。</p>
+</li>
+</ul>
+<h4 id="注释命令"><a href="#注释命令" class="headerlink" title="注释命令"></a>注释命令</h4><ul>
+<li><p>perl程序中#开始的行为注释，所以要注释某些行，只需在行首加入#</p>
+</li>
+<li><p><code>3,5 s/^/#/g</code> 注释第3-5行</p>
+</li>
+<li><p><code>3,5 s/^#//g</code> 解除3-5行的注释</p>
+</li>
+<li><p><code>1,$ s/^/#/g</code> 注释整个文档。</p>
+</li>
+<li><p><code>:%s/^/#/g</code>注释整个文档，此法更快。</p>
+</li>
+</ul>
+<h4 id="其他非编辑命令"><a href="#其他非编辑命令" class="headerlink" title="其他非编辑命令"></a>其他非编辑命令</h4><ul>
+<li><p>. 重复前一次命令</p>
+</li>
+<li><p><code>:set ruler?</code>　　查看是否设置了ruler，在.vimrc中，使用set命令设制的选项都可以通过这个命令查看</p>
+</li>
+<li><p>:scriptnames　　查看vim脚本文件的位置，比如.vimrc文件，语法文件及plugin等。</p>
+</li>
+<li><p>:set list 显示非打印字符，如tab，空格，行尾等。如果tab无法显示，请确定用<code>set lcs=tab:&gt;-</code>命令设置了.vimrc文件，并确保你的文件中的确有tab，如果开启了expandtab，那么tab将被扩展为空格。</p>
+</li>
+</ul>
+<h5 id="Vim教程"><a href="#Vim教程" class="headerlink" title="Vim教程"></a>Vim教程</h5><ul>
+<li>在Unix系统上 <code>$ vimtutor</code></li>
+<li><p>在Windows系统上 <code>:help tutor</code></p>
+</li>
+<li><p>:syntax 列出已经定义的语法项</p>
+</li>
+<li>:syntax clear 清除已定义的语法规则</li>
+<li>:syntax case match 大小写敏感，int和Int将视为不同的语法元素</li>
+<li>:syntax case ignore 大小写无关，int和Int将视为相同的语法元素，并使用同样的配色方案</li>
+</ul>
+
+      
+    </div>
+	<!--20170827添加全文结束-->
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束 🖐 感谢阅读------</div>
+    
+</div>
+
+		
+	</div>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+            <a href="/tags/vim/" rel="tag"><i class="fa fa-tag"></i> vim</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/java-queue.html" rel="next" title="Java中队列">
+                <i class="fa fa-chevron-left"></i> Java中队列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://image.wuwii.com/MTXX_20170504095121_mr1493862851443.jpg"
+               alt="Slience" />
+          <p class="site-author-name" itemprop="name">Slience</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">127</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+			
+			<a title="收藏到书签，偶尔High一下^_^" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(
+    /*
+     * Copyright (C) 2015 Rocko (rocko.xyz) <rocko.zxp@gmail.com>
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+    function go() {
+    
+      var songs = [
+          "http://ov62kaxkk.bkt.clouddn.com/%E6%9C%A8%E6%9D%91%E5%BC%93%20-%20%E3%81%84%E3%81%A4%E3%82%82%E4%BD%95%E5%BA%A6%E3%81%A7%E3%82%82.mp3",       
+          "......"
+      ];
+ 
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+    
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="fa fa-music"></i> 听音乐</a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kaimz" target="_blank" title="GitHub" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/p/1005053974218109" target="_blank" title="Weibo" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/zhang-kai-89-51-58" target="_blank" title="知乎" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.processon.com/" title="processon" target="_blank" rel="external nofollow">processon</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://asciiflow.com/" title="asciiflow" target="_blank" rel="external nofollow">asciiflow</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://codepen.io/pen" title="codepen.io" target="_blank" rel="external nofollow">codepen.io</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://sdll.club" title="闪电拉拉" target="_blank" rel="external nofollow">闪电拉拉</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://leetcode.com/" title="leetcode" target="_blank" rel="external nofollow">leetcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.lintcode.com/" title="lintcode" target="_blank" rel="external nofollow">lintcode</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://stackoverflow.com/" title="stackoverflow" target="_blank" rel="external nofollow">stackoverflow</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.importnew.com/" title="ImportNew" target="_blank" rel="external nofollow">ImportNew</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ifeve.com/" title="ifeve" target="_blank" rel="external nofollow">ifeve</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.720ui.com/" title="梁桂钊的博客" target="_blank" rel="external nofollow">梁桂钊的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://edu.aliyun.com/" title="阿里云大学" target="_blank" rel="external nofollow">阿里云大学</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iocoder.cn/" title="「芋道源码」" target="_blank" rel="external nofollow">「芋道源码」</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://cmsblogs.com" title="cmsblogs" target="_blank" rel="external nofollow">cmsblogs</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://36kr.com/" title="36氪" target="_blank" rel="external nofollow">36氪</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+		<!--20170726添加网易云音乐标签 -->
+		<!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=86 src="//music.163.com/outchain/player?type=2&id=356034&auto=0&height=66"></iframe> -->
+        <!--20170726添加网易云音乐标签 end-->
+		
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令历史"><span class="nav-number">1.</span> <span class="nav-text">命令历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动vim"><span class="nav-number">2.</span> <span class="nav-text">启动vim</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件命令"><span class="nav-number">3.</span> <span class="nav-text">文件命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vim的模式"><span class="nav-number">4.</span> <span class="nav-text">vim的模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航命令"><span class="nav-number">5.</span> <span class="nav-text">导航命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入命令"><span class="nav-number">6.</span> <span class="nav-text">插入命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找命令"><span class="nav-number">7.</span> <span class="nav-text">查找命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#替换命令"><span class="nav-number">8.</span> <span class="nav-text">替换命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动命令"><span class="nav-number">9.</span> <span class="nav-text">移动命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤销和重做"><span class="nav-number">10.</span> <span class="nav-text">撤销和重做</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除命令"><span class="nav-number">11.</span> <span class="nav-text">删除命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝和粘贴"><span class="nav-number">12.</span> <span class="nav-text">拷贝和粘贴</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#剪切命令"><span class="nav-number">13.</span> <span class="nav-text">剪切命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出命令"><span class="nav-number">14.</span> <span class="nav-text">退出命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#窗口命令"><span class="nav-number">15.</span> <span class="nav-text">窗口命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关闭窗口"><span class="nav-number">15.1.</span> <span class="nav-text">关闭窗口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#录制宏"><span class="nav-number">15.2.</span> <span class="nav-text">录制宏</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行shell命令"><span class="nav-number">16.</span> <span class="nav-text">执行shell命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注释命令"><span class="nav-number">17.</span> <span class="nav-text">注释命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他非编辑命令"><span class="nav-number">18.</span> <span class="nav-text">其他非编辑命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Vim教程"><span class="nav-number">18.1.</span> <span class="nav-text">Vim教程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Slience</span>
+</div>
+
+
+
+<div class="powered-by">
+Hosted by <a href="https://pages.coding.me" rel="external nofollow">Coding Pages</a></div>
+
+<div class="theme-info">
+  <span class="post-count">博客全站共155.5k字</span>
+</div>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+	
+	var src360 = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?f62559b2127396ecb27f4ed4f4652ea1":"https://jspassport.ssl.qhimg.com/11.0.1.js?f62559b2127396ecb27f4ed4f4652ea1";
+	document.write('<script src="' + src360 + '" id="sozz"><\/script>');
+})();
+</script>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
