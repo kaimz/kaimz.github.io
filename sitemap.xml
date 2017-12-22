@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wuwii.com/system-design.html</loc>
+    
+    <lastmod>2017-12-22T01:11:21.008Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.wuwii.com/linux-vim.html</loc>
     
     <lastmod>2017-12-21T03:24:57.712Z</lastmod>
@@ -128,14 +135,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/omelette.html</loc>
+    <loc>http://blog.wuwii.com/miss-you.html</loc>
     
     <lastmod>2017-12-04T00:27:53.611Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/miss-you.html</loc>
+    <loc>http://blog.wuwii.com/omelette.html</loc>
     
     <lastmod>2017-12-04T00:27:53.611Z</lastmod>
     
@@ -618,14 +625,14 @@
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     

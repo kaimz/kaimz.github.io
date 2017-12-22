@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.wuwii.com/"/>
-  <updated>2017-12-21T03:24:57.712Z</updated>
+  <updated>2017-12-22T01:11:21.008Z</updated>
   <id>http://blog.wuwii.com/</id>
   
   <author>
@@ -14,6 +14,264 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>System Design</title>
+    <link href="http://blog.wuwii.com/system-design.html"/>
+    <id>http://blog.wuwii.com/system-design.html</id>
+    <published>2017-12-22T02:08:03.000Z</published>
+    <updated>2017-12-22T01:11:21.008Z</updated>
+    
+    <content type="html"><![CDATA[<p>This document is to document the learning process for <strong>System Design</strong>.<br>A few concepts to research:<br>How to split data between servers? How do multiple server communicate? MapReduce?<br>How does server process heavy calculation in background? Threading? NodeJS threading?</p>
+<a id="more"></a>
+<h2 id="Good-Concepts"><a href="#Good-Concepts" class="headerlink" title="Good Concepts:"></a>Good Concepts:</h2><ul>
+<li>For any system, consider: how much data does the system handle? how much data does the system need to store?</li>
+<li>Popular hashing algorithm: like 35.      What about md5?</li>
+<li>Scalibility</li>
+</ul>
+<h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps:"></a>Steps:</h2><ol>
+<li><strong>Scope</strong> the problem: Don’t make assumptions; Ask questions; Understand the constraints and use cases.</li>
+<li>Sketch up an <strong>abstract design</strong> that illustrates the basic components of the system and the relationships between them.</li>
+<li>Think about the <strong>bottlenecks</strong> these components face when the system scales.</li>
+<li>Address these bottlenecks by using the fundamentals principles of <strong>scalable</strong> system design.</li>
+</ol>
+<ul>
+<li>Mine Usual steps: might be too much details on scoping but less efforts onto bottlenecks and scalibility issues.</li>
+</ul>
+<ol>
+<li>Identify the key requirements &amp;&amp; constraints</li>
+<li>Identify the users &amp;&amp; Server</li>
+<li>Identify inputs/ouputs from different users<br><em>*</em> Calculate the bandwidth and storage: the amount of data the server handles, and the amount of data server stores.</li>
+<li>Based on (1~3), list out the potential features that needs to be implemented</li>
+<li>Pick technologies that will be able to implement the features above: <ul>
+<li>backend server</li>
+<li>user client</li>
+<li>method of storage</li>
+<li>method of data trasmissio</li>
+</ul>
+</li>
+<li>How does the system scale? What are the limits and trade-off in current design? What improvmenet can be done to design it differently?</li>
+</ol>
+<h2 id="Scalibility-lecture"><a href="#Scalibility-lecture" class="headerlink" title="Scalibility lecture"></a>Scalibility lecture</h2><ul>
+<li><p>key concepts:<br>  Vertical scaling: add more cpu,ram,hard-drive<br>  Horizontal scaling:add more cheaper computer, distribute traffice &amp;&amp; storage into these machiens.<br>  Caching: save some pre-processed data, like sticky session, pre-quried sqls<br>  Load balancing: determine which web server to hit; determine which db to hit if having multiple db<br>  Database replication: for faster read; for reduancy safety<br>  Database partitioning: for faster performance for some contents, or distributed storage<br>  Using NoSQL instead of scaling a relational database<br>  Being asynchronous   </p>
+</li>
+<li><p>Load Balancer?<br>  load balancer is even good to protect server: now backend server can be on LAN with load balancer, so they are protected; and we just expose load balancer to clients.<br>  How does load balancer work?<br>  There are lots of trade-offs: look at 30:00 of the video. That’s all the tradeoffs (<a href="http://www.hiredintech.com/system-design/scalability-fundamentals/" target="_blank" rel="external">http://www.hiredintech.com/system-design/scalability-fundamentals/</a>)</p>
+<pre><code>- round robin: the load balancer works as a fancy DNS machine, take turns to assign task/request to machine 1,2,3,4...etc. (if we do `nsloopup google.com` on google.com, we can see google does that)
+- store states/sessions into a dedicated server. but it indroduces server-failure issue. -use RAID, raplication
+    RAID0: strip data at two hardrives, little on each
+    RAID1: mirror data. store at both places
+    RAID10: combination of RAID0 &amp;&amp; RAID1.
+    RAID5: 3 drives only 1 of them is used for reduendency.
+    RAID6: multiple drives. any drive can die, then replace, and no data lost.
+- split by the type of files request: html server, image server; load balancer
+- split based on actual load (less possible), send package to less busy server
+</code></pre><p>  Options:<br>  Software:</p>
+<pre><code>ELB: elastic load balancer
+HAProxy
+LVS 
+</code></pre><p>  hardware:</p>
+<pre><code>Barracuda
+Cisco
+Citrix: over-priced, $20k 
+F5
+</code></pre><p>  Problem: sticky session (if you revisit the site multiple times seprately, you will still hit the same server)</p>
+<pre><code>- can store serverID in the cookie (one downside: safety, showed the whole world about server IP). So again, can store a random number/hashed value on Load Balancer. It shows which serverID to hit once revisiting. Remember which back-end server to send cookie to.
+</code></pre></li>
+<li><p>Caching:<br>  file-based caching approach: send .html out.</p>
+<pre><code>down-side: 1. space. 2. old generated files are really hard to change.
+</code></pre><p>  mysqul-query cashed: for identical sql request<br>  memcached: store in memory of the idetical query. Like a table. store <key, value="">.</key,></p>
+<pre><code>next time when checking, try look up key.
+Down-side: run out of ram. Solution: LRUCahe, remove old records(double-linked-list)
+</code></pre></li>
+<li><p>Replication:<br>  Master &amp;&amp; multiple Slaves</p>
+<pre><code>advantage: 1. Same request/query will be paste to all slaves, so master fail, just put up one salve; 2. If READ heavy, they are redundant server to lots readings.
+disadvantage:
+</code></pre><p>  Must have at least load balancer: that is one-point-failure if just one load balancer</p>
+</li>
+<li><p>Partitioning:<br>  based on user informaiton, like name. Put common user (same last name) into certain servers.</p>
+</li>
+<li><p>Bottleneck: data traffice and data storage</p>
+</li>
+<li>——Example</li>
+<li>1:26:00 of the video (<a href="http://www.hiredintech.com/system-design/scalability-fundamentals/" target="_blank" rel="external">http://www.hiredintech.com/system-design/scalability-fundamentals/</a>)<br>We have backend web server<br>Sticky session: use cookie and store server ID<br>Use load balancer that two web server connects:<br>Use load balancer to link to the two master db:<br>  Two master db that talks to each other: master-master replication<br>Now we need 2 load balancer to prevent one-point-failure at the webServer-db connection.<br>Now we also need 2 load balancers at the (which web server to hit) level, that is another 1-pointer-failure<br>Switch for the complex connections:<br>  Now we have so many connections: we need switches to handle the connections.<br>  We need at least two ports on each device to: go to the correct switch. Becareful with loop.</li>
+<li><p>Eventually we will handle: (1:34:00)<br>  Scalibility<br>  Redundancy<br>  High probablity of up time<br>  Resolution against failure</p>
+</li>
+<li><p>Another big issue:<br>  What is ISP goes down? The whole package mentioned above go down?</p>
+<pre><code>Amazon solution, another ISP, called avalibility zone: like west, asia, south american.
+How to distribute IP on different data center? Load Balancer at the DNS level, global Load Balancer.  (Note, if in one building, could be staying at this building)
+    Well, if a building is gone, once your TTL(Time to live) is expired, you will be re-route to another ISP building.
+</code></pre></li>
+<li><p>Before getting into building:<br>  Firewall, only a few ports are open: like tcp80, 443, 22 (ssh)<br>  can allow https before first load balancer inside building, and decrypt it after first load balancer<br>  at db lever, only 3306 is allowed.<br>Reason to lock, for example, 3306 not allowed at entering building? Because no one needs to inject query to db from outside of building; sql query usually only need to be done within the building, so lock the building up, don’t allow bad sql injection : )</p>
+</li>
+</ul>
+<h3 id="URL-convention-Example-Final-http-www-hiredintech-com-system-design-final-thoughts"><a href="#URL-convention-Example-Final-http-www-hiredintech-com-system-design-final-thoughts" class="headerlink" title="URL convention Example Final (http://www.hiredintech.com/system-design/final-thoughts/)"></a>URL convention Example Final (<a href="http://www.hiredintech.com/system-design/final-thoughts/" target="_blank" rel="external">http://www.hiredintech.com/system-design/final-thoughts/</a>)</h3><ul>
+<li><p>simple rules:<br>  Always start a single machine<br>  Benchmark the bottle necks, where it indroduces complexity. (No need to add extra complexity)<br>  Think about the questions like: why sql vs. non-sql?</p>
+</li>
+<li><p>Scalable design:</p>
+<ol>
+<li><p>Application, web server, handle requests/traffic</p>
+<ul>
+<li>start with 1 server</li>
+<li>it’s better to measure the spark traffic (highest we get)</li>
+<li>add load balancer, and a cluster of servers. (could use amazon elastic load balancer, to automatically add more servers)</li>
+</ul>
+</li>
+<li><p>Data Storage<br> 1) Billions of object,  2) each object is small, 3) no relationship between object, 4) read 9x more than write (360read/s, 40writes/s), 5) 3TB urls, 36GB of hashes<br> We can use sql or non-sql<br> In example, go with MySQL</p>
+<pre><code>widely used
+Mature tech
+Clear scaling paradiams(sharding, master/slave replication, master/master replication)
+Used by fb, twitter, google.
+* index lookups are very fast (as fast as non-sql)
+</code></pre><p> mappings:</p>
+<pre><code>hash: varchar(6)
+original_url: varchar(512)
+</code></pre><p> Over years, it holds 3TB data. Storage-wise, it’s okay. However, how to serve up quickly?</p>
+<ul>
+<li>First, Use one MySQL table with two varchar fields</li>
+<li>Create uinique index on the hash(36GB+). We want to hold it in memory. However, we need to look up fast.</li>
+<li>For 1st stemp, vertical scaling of the MySQL machine, adding more RAM (nowadays ram are cheaper too : )</li>
+<li>Eventually need to partition the data, into 5 partitions: 600GB of data, 8GB of indexes on each machine. (Partitioning early on, it helps to scale later, just add more nodes)</li>
+<li>One day, if read/write are super different, Master-Slave, …<br>  write to master, and read from slaves.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Design-UBER"><a href="#Design-UBER" class="headerlink" title="Design UBER"></a>Design UBER</h2><ol>
+<li><p>Requirements<br>Same requirements between user &amp;&amp; driver: GPS tracking, detect pickup/drop off, cost calculation<br>Design a web app (or mobile app) for end user to make/cancel car reservation, make payment, rate driver.<br>Design a web app (or mobile app) for driver to accept/decline car reservation, accept payment, rate passenger.<br>Extra features beyond basics: car pool, split cost, rush-hour rate calculation.</p>
+</li>
+<li><p>Identify the end systems:<br>Backend server that handles communication, data tracking, payment trasaction…etc<br>Passenger user app<br>Driver user app</p>
+</li>
+<li><p>Inputs and outputs of each end system:<br><strong>Server should store every piece of information received or change to database during this process</strong><br>Server-input:</p>
+<ul>
+<li>Passenger create account, login, log off</li>
+<li>Driver create account, login, log off</li>
+<li>Passenger/Driver payment information</li>
+<li>driver locations</li>
+<li>passenger locations</li>
+<li>GPS location data before &amp;&amp; during the trip</li>
+<li>request to pair driver &amp;&amp; passenger</li>
+<li>request to start trip</li>
+<li>request to end trip</li>
+<li>request to drop reservation from driver</li>
+<li>request to drop reservation from passenger</li>
+<li>request to calculate cost per trip</li>
+<li>accept rating, comment, report … </li>
+</ul>
+<p>Server-output: </p>
+<pre><code>* ack passenger account generation, login, logoff
+* ack driver account generation, login, logoff
+* ack driver/passenger payment info and store to db
+</code></pre><ul>
+<li>broadcast driver locations to passenger</li>
+<li>broadcast passenger locations to driver</li>
+<li>response pair confirmation to driver &amp;&amp; passenger with contact information of driver&amp;&amp;passenger</li>
+<li>start a trip between driver &amp;&amp; passenger</li>
+<li>end a trip between driver &amp;&amp; passenger</li>
+<li>calculate recommended route and send to driver&amp;&amp;passenger</li>
+<li>response reservation dropped from driver with panelty</li>
+<li>response reservation dropped from passenger with panelty</li>
+<li>response cost calculated to passenger and intiate payment charge to passenger</li>
+<li>response cost calculated to driver and initiate payment to driver</li>
+<li>store rating, comment, report into database. Trigger messages to coresponding party.</li>
+</ul>
+<p>Passenger-input: data that passenger receives</p>
+<ul>
+<li>ack of login and ready to pick driver</li>
+<li>status of drivers around current location</li>
+<li>auto-matched driver and related information about driver, car condition, price rate</li>
+<li>confirmation of car reservation with driver’s info</li>
+<li>trip route and estimated time</li>
+<li>GPS tracking of car arriving or GPS tracking during the trip</li>
+<li>notification of payment</li>
+<li>notification of canceled trip</li>
+<li>prompt to rate and comment</li>
+<li>phone call from driver (extenal)</li>
+</ul>
+<p>Passenger-output: action that passenger takes</p>
+<ul>
+<li>create account</li>
+<li>login</li>
+<li>add payment information</li>
+<li>put current location and destination location</li>
+<li>select type of uber car, and start searching(matching)</li>
+<li>accept/decline auto-matched driver</li>
+<li>call driver (extenal)</li>
+<li>cancel reservation</li>
+<li>put comment, rating, or report to the system</li>
+<li>automatically pay (be charged) of the trip cost from server</li>
+</ul>
+<p>Driver-input:</p>
+<ul>
+<li>ack of login and ready to start driving</li>
+<li>auto-recommended passenger’s information: location, passenger rating</li>
+<li>confirmation of reservation &amp;&amp; current waiting location</li>
+<li>trip route and estimated time</li>
+<li>GPS tracking of car arriving or GPS tracking during the trip</li>
+<li>notification of payment</li>
+<li>notification of trip cancelation from passenger</li>
+<li>prompt to rate and comment passenger</li>
+<li>phone call from passenger (extenal)</li>
+<li>receive payment from server</li>
+</ul>
+<p>Driver-output:</p>
+<ul>
+<li>create account</li>
+<li>login and set status avaialbe</li>
+<li>add payment info</li>
+<li>accept/decline recommended match</li>
+<li>call passenger (extenal)</li>
+<li>cancel reservation</li>
+<li>put comment &amp;&amp; rating of passenger</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>Summarize core features and tools to implement</p>
+<ul>
+<li>account management: </li>
+<li>payment integration: paypal integration? some other credicar processing tools</li>
+<li>matching algorithm: core problem to solve. Figure out the cheapest match for passenger, and time&amp;&amp;cost efficient match for driver. There might be lots of constraints to think about for the matching algorithm: cost&amp;&amp;time to pick up passenger around multiple driver, based on driver preference to filter type of trip (farest distance to travel)</li>
+<li>trip process monitoring, notification: RESTful calls between server &amp;&amp; driver &amp;&amp; passenger. </li>
+<li>GPS location tracking and route calculation: Google map?</li>
+<li>trip cost calculation: calculated based on route length, trip time, rate at specific time, complains filed by passenger</li>
+<li>rating &amp;&amp; comment system: RESTful post from driver/passenger</li>
+</ul>
+</li>
+<li><p>Technologies potentially needed:<br>Tools:A server to handle RESTful calls, support live connection between nodes, handle trip matching algorithm, handle cost calculation.</p>
+<ul>
+<li>Node.js with expressJS: provide RESTful API </li>
+<li>Socket.io for concurrent communication between server, user, driver in the same socket room.</li>
+<li>Data storag: Sql or non-sql? Why? Later on, it seems easy to split data by region, so non-sql db seems okay to use.</li>
+<li>Algorithm: How does heavy calculation handled on Nodejs? Should it be something to do with multi-threading?</li>
+</ul>
+</li>
+<li><p>How does the system scale? What are the limits and trade-off in current design? What improvmenet can be done to design it differently?<br>First, assume everything is running based off one giant server: all conversations and calculation are handled via this server.<br>Second, the size of data might be too costly to search, calculate, and it’s not practical to store everything on one machine:</p>
+<ul>
+<li>user/driver account info might be too large</li>
+<li>concurrent calculation for trip matching</li>
+<li>number concurrent trip monitoring and conversation</li>
+<li>concurrent calculation for trip cost<br>Therefore, it seems wiser to split onto multiple servers.<br>Third question: in which way to split the data? It seems we need to treat different type of data separately</li>
+<li>For actively moving driver and user: we can store their location data dynamically by region. Once moved into/out of one regin, poll the information from one server into another server. Here, it’s wise to use HashTable to store as <userid, everything="" about="" this="" user="">. Calculation algorithm may also happen on this server, because both driver &amp;&amp; passenger are on this server, defined by region. </userid,></li>
+<li>Now we’ve splitted data into servers by region. However, for same region, it might be too much work for one machine. We need to split data aross different machines for same region. Here, use another Hash lookup table to store <live tripid,="" server="" id=""> to split data into even smaller sections to fit in different server. Now we can have more <strong>regionServer</strong>.</live></li>
+<li>A improvement that can be done: for relative static information account,payment,rating, they are only used once or twice during a trip. It might be okay to store these information on a type of server that specifically handles account look up, let’s call it <strong>accountServer</strong>. Again, there might be too much account info to store, we can build lookup tables to store <accountid, serverid="">. Double again, do MapReduce to hash the keys so that we can split the look up table if the table is too big to store on one server.</accountid,></li>
+</ul>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This document is to document the learning process for &lt;strong&gt;System Design&lt;/strong&gt;.&lt;br&gt;A few concepts to research:&lt;br&gt;How to split data between servers? How do multiple server communicate? MapReduce?&lt;br&gt;How does server process heavy calculation in background? Threading? NodeJS threading?&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="system" scheme="http://blog.wuwii.com/tags/system/"/>
+    
+  </entry>
   
   <entry>
     <title>Vim命令合集</title>
@@ -1800,67 +2058,6 @@
     
     
       <category term="心情" scheme="http://blog.wuwii.com/tags/%E5%BF%83%E6%83%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java并发编程中ThreadLocal</title>
-    <link href="http://blog.wuwii.com/java-threadlocal.html"/>
-    <id>http://blog.wuwii.com/java-threadlocal.html</id>
-    <published>2017-11-24T17:08:03.000Z</published>
-    <updated>2017-11-27T00:50:14.252Z</updated>
-    
-    <content type="html"><![CDATA[<p>没写完，头痛，到凌晨了，先占个坑，先睡个觉，明天再补。</p>
-<hr>
-<p>ThreadLocal，很多地方叫做线程本地变量，也有些地方叫做线程本地存储。ThreadLocal为变量在每个线程中都创建了一个副本，那么每个线程可以访问自己内部的副本变量。</p>
-<p>但是要注意，虽然ThreadLocal能够解决上面说的问题，但是由于在每个线程中都创建了副本，所以要考虑它对资源的消耗，比如内存的占用会比不使用ThreadLocal要大。<br><a id="more"></a></p>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><h4 id="拥有方法"><a href="#拥有方法" class="headerlink" title="拥有方法"></a>拥有方法</h4><p><img src="http://image.wuwii.com/ThreadLocal1.png" alt="image"><br>下面看下几个怎么设计实现ThreadLocal的方法：</p>
-<h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">     * Returns the value in the current thread's copy of this</span></div><div class="line"><span class="comment">     * thread-local variable.  If the variable has no value for the</span></div><div class="line"><span class="comment">     * current thread, it is first initialized to the value returned</span></div><div class="line"><span class="comment">     * by an invocation of the &#123;<span class="doctag">@link</span> #initialValue&#125; method.</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> the current thread's value of this thread-local</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">        Thread t = Thread.currentThread();</div><div class="line">        ThreadLocalMap map = getMap(t);</div><div class="line">        <span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</div><div class="line">            ThreadLocalMap.Entry e = map.getEntry(<span class="keyword">this</span>);</div><div class="line">            <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">                T result = (T)e.value;</div><div class="line">                <span class="keyword">return</span> result;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> setInitialValue();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>获取当前线程；</li>
-<li>然后通过getMap 获取Map；</li>
-<li>获取到Map的键值对；</li>
-<li>传入<code>this</code> 当前ThreadLocal获取当前的键值对；</li>
-<li>根据获取到的entry 返回值，为null 的话调用<code>setInitialValue</code>方法；<h4 id="getMap"><a href="#getMap" class="headerlink" title="getMap"></a>getMap</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">     * Get the map associated with a ThreadLocal. Overridden in</span></div><div class="line"><span class="comment">     * InheritableThreadLocal.</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span>  t the current thread</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> the map</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function">ThreadLocalMap <span class="title">getMap</span><span class="params">(Thread t)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> t.threadLocals;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>返回线程中的threadLocals变量，继续看threadLocals的实现；</p>
-<h4 id="threadLocals"><a href="#threadLocals" class="headerlink" title="threadLocals"></a>threadLocals</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* ThreadLocal values pertaining to this thread. This map is maintained</span></div><div class="line"><span class="comment">     * by the ThreadLocal class. */</span></div><div class="line">    ThreadLocal.ThreadLocalMap threadLocals = <span class="keyword">null</span>;</div></pre></td></tr></table></figure>
-<p>它是ThreadLocal中的静态内部类ThreadLocalMap：</p>
-<h4 id="ThreadLocalMap"><a href="#ThreadLocalMap" class="headerlink" title="ThreadLocalMap"></a>ThreadLocalMap</h4><h5 id="Entry"><a href="#Entry" class="headerlink" title="Entry"></a>Entry</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span> <span class="keyword">extends</span> <span class="title">WeakReference</span>&lt;<span class="title">ThreadLocal</span>&lt;?&gt;&gt; </span>&#123;</div><div class="line">            <span class="comment">/** The value associated with this ThreadLocal. */</span></div><div class="line">            Object value;</div><div class="line"></div><div class="line">            Entry(ThreadLocal&lt;?&gt; k, Object v) &#123;</div><div class="line">                <span class="keyword">super</span>(k);</div><div class="line">                value = v;</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<p>ThreadLocalMap的Entry继承了WeakReference，并且使用ThreadLocal作为键值。</p>
-<h4 id="setInitialValue"><a href="#setInitialValue" class="headerlink" title="setInitialValue"></a>setInitialValue</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">     * Variant of set() to establish initialValue. Used instead</span></div><div class="line"><span class="comment">     * of set() in case user has overridden the set() method.</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> the initial value</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> T <span class="title">setInitialValue</span><span class="params">()</span> </span>&#123;</div><div class="line">        T value = initialValue();</div><div class="line">        Thread t = Thread.currentThread();</div><div class="line">        ThreadLocalMap map = getMap(t);</div><div class="line">        <span class="keyword">if</span> (map != <span class="keyword">null</span>)</div><div class="line">            map.set(<span class="keyword">this</span>, value);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            createMap(t, value);</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>如果map不为空，就设置键值对，为空，再创建Map，看一下createMap的实现;</p>
-<h4 id="createMap"><a href="#createMap" class="headerlink" title="createMap"></a>createMap</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">     * Create the map associated with a ThreadLocal. Overridden in</span></div><div class="line"><span class="comment">     * InheritableThreadLocal.</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> t the current thread</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> firstValue value for the initial entry of the map</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">createMap</span><span class="params">(Thread t, T firstValue)</span> </span>&#123;</div><div class="line">        t.threadLocals = <span class="keyword">new</span> ThreadLocalMap(<span class="keyword">this</span>, firstValue);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>这样为当前线程创建副本变量就完毕了。</p>
-<h4 id="怎么创建副本变量"><a href="#怎么创建副本变量" class="headerlink" title="怎么创建副本变量"></a>怎么创建副本变量</h4><p>首先，在每个线程Thread内部有一个ThreadLocal.ThreadLocalMap类型的成员变量threadLocals，这个threadLocals就是用来存储实际的变量副本的，键值为当前ThreadLocal变量，value为变量副本（即T类型的变量）。</p>
-<p>初始时，在Thread里面，threadLocals为空，当通过ThreadLocal变量调用get()方法或者set()方法，就会对Thread类中的threadLocals进行初始化，并且以当前ThreadLocal变量为键值，以ThreadLocal要保存的副本变量为value，存到threadLocals。</p>
-<p>然后在当前线程里面，如果要使用副本变量，就可以通过get方法在threadLocals里面查找。</p>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ol>
-<li>各种连接池获取连接（如，数据库连接，redis连接）；</li>
-<li>session管理。</li>
-</ol>
-<h3 id="学习代码"><a href="#学习代码" class="headerlink" title="学习代码"></a>学习代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.wuwii.test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> Zhang Kai</span></div><div class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></div><div class="line"><span class="comment"> * <span class="doctag">@since</span> &lt;pre&gt;2017/11/24 20:32&lt;/pre&gt;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThreadLocal</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 声明一个ThreadLocal变量</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> ThreadLocal&lt;String&gt; local1 = <span class="keyword">new</span> ThreadLocal&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 为ThreadLocal赋值</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">()</span> </span>&#123;</div><div class="line">        local1.set(Thread.currentThread().getName());</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">         Thread thread1 = <span class="keyword">new</span> Thread(() -&gt; &#123;</div><div class="line">             <span class="comment">/*</span></div><div class="line"><span class="comment">              * 每次调用get方法前，必须要set，不然会抛出NPE</span></div><div class="line"><span class="comment">              */</span></div><div class="line">            setValue();</div><div class="line">            System.out.printf(<span class="string">"线程一的localValue为: %s%n"</span>, local1.get());</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">new</span> Thread(() -&gt; &#123;</div><div class="line">            <span class="comment">//先给线程二的threadLocal赋值，然后运行线程一，最后打印线程二的threadLocal</span></div><div class="line">            setValue();</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="comment">/*</span></div><div class="line"><span class="comment">                 * 在线程二中添加运行线程一，证明了每个线程保存的ThreadLocal的副本变量是不同的</span></div><div class="line"><span class="comment">                 */</span></div><div class="line">                thread1.start();</div><div class="line">                thread1.join();</div><div class="line">                <span class="comment">// 运行完线程一，再输出线程二</span></div><div class="line">                System.out.printf(<span class="string">"线程二的localValue为: %s%n"</span>, local1.get());</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;).start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>输出结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">线程一的localValue为: Thread-0</div><div class="line">线程二的localValue为: Thread-1</div></pre></td></tr></table></figure></p>
-<p>可以看出，线程二并没有被影响。</p>
-<p><strong>参考博客：<a rel="external nofollow" target="_blank" href="http://www.cnblogs.com/dolphin0520/p/3920407.html">Java并发编程：深入剖析ThreadLocal</a></strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;没写完，头痛，到凌晨了，先占个坑，先睡个觉，明天再补。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;ThreadLocal，很多地方叫做线程本地变量，也有些地方叫做线程本地存储。ThreadLocal为变量在每个线程中都创建了一个副本，那么每个线程可以访问自己内部的副本变量。&lt;/p&gt;
-&lt;p&gt;但是要注意，虽然ThreadLocal能够解决上面说的问题，但是由于在每个线程中都创建了副本，所以要考虑它对资源的消耗，比如内存的占用会比不使用ThreadLocal要大。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="java" scheme="http://blog.wuwii.com/tags/java/"/>
-    
-      <category term="并发编程" scheme="http://blog.wuwii.com/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   

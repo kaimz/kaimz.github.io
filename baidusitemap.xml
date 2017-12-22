@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://blog.wuwii.com/system-design.html</loc>
+    <lastmod>2017-12-22T01:11:21.008Z</lastmod>
+    <data>
+        <display>
+        <title>System Design</title>
+        <pubTime>2017-12-22T02:08:03.000Z</pubTime>
+        
+        <tag>system</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习笔记" url="http://blog.wuwii.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.wuwii.com/linux-vim.html</loc>
     <lastmod>2017-12-21T03:24:57.712Z</lastmod>
     <data>
@@ -373,12 +393,12 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/omelette.html</loc>
+    <loc>http://blog.wuwii.com/miss-you.html</loc>
     <lastmod>2017-12-04T00:27:53.611Z</lastmod>
     <data>
         <display>
-        <title>20171203</title>
-        <pubTime>2017-12-03T12:08:03.000Z</pubTime>
+        <title>我想她，是那么的美好吧</title>
+        <pubTime>2017-10-04T04:15:03.000Z</pubTime>
         
         <tag>心情</tag>
          
@@ -393,12 +413,12 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/miss-you.html</loc>
+    <loc>http://blog.wuwii.com/omelette.html</loc>
     <lastmod>2017-12-04T00:27:53.611Z</lastmod>
     <data>
         <display>
-        <title>我想她，是那么的美好吧</title>
-        <pubTime>2017-10-04T04:15:03.000Z</pubTime>
+        <title>20171203</title>
+        <pubTime>2017-12-03T12:08:03.000Z</pubTime>
         
         <tag>心情</tag>
          
@@ -482,9 +502,9 @@
         <title>redies安装</title>
         <pubTime>2017-09-26T14:08:03.000Z</pubTime>
         
-        <tag>redis</tag>
-         
         <tag>linux</tag>
+         
+        <tag>redis</tag>
          
          
            
@@ -1819,14 +1839,16 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
+    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
-        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
+        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
+        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
         
-        <tag>maven</tag>
+        <tag>Intellij</tag>
+         
+        <tag>JUnitGenerator</tag>
          
          
            
@@ -1839,16 +1861,14 @@
 
     
   <url>
-    <loc>http://blog.wuwii.com/junitgenerator.html</loc>
+    <loc>http://blog.wuwii.com/install-skip-test.html</loc>
     <lastmod>2017-10-16T00:44:51.451Z</lastmod>
     <data>
         <display>
-        <title>Intellij使用JUnitGenerator V2.0自动生成单元测试代码</title>
-        <pubTime>2017-10-15T11:19:03.000Z</pubTime>
+        <title>使用Intellij 打包maven 项目，忽略单元测试代码</title>
+        <pubTime>2017-10-15T07:40:03.000Z</pubTime>
         
-        <tag>Intellij</tag>
-         
-        <tag>JUnitGenerator</tag>
+        <tag>maven</tag>
          
          
            
