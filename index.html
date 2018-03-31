@@ -1,87 +1,83 @@
-<html><head>
-    <title>Welcome</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="1075199251,张凯,18772383543,wuwii,追光者w,有梦想的咸鱼,一棵树站在原野上,Slience">
     <link rel="icon" href="http://blog.wuwii.com/images/favicon.ico?v=5.1.1" type="image/x-icon">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
-    <style>
-        html, body {
-            overflow: hidden;
-            margin: 0;
-        }
-        body {
-            font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
-            color: #333;
-        }
-        #wrapper {
-            position: absolute;
-            left: 0;
-            width: 320px;
-            text-align: center;
-            top: 50%;
-            left: 50%;
-            margin-left: -160px;
-            margin-top: -160px;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-        h1 {
-            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 700;
-            font-size: 30px;
-            letter-spacing: 9px;
-            text-transform: uppercase;
-            margin: 12px 0;
-            left: 4px;
-        }
-        h2 {
-            color: #999;
-            font-weight: normal;
-            font-size: 15px;
-            letter-spacing: .12em;
-            margin-bottom: 30px;
-            left: 3px;
-        }
-        h1, h2 {
-            position: relative;
-        }
-        p {
-            font-size: 14px;
-            line-height: 2em;
-            margin: 0;
-            letter-spacing: 2px;
-        }
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        a {
-            color: #999;
-            text-decoration: none;
-            transition: color .2s ease;
-        }
-        a:hover {
-            color: #f33;
-        }
-    </style>
+    <title>Wu - Home page of wuwii</title>
+    <link rel="stylesheet" type="text/css" href="js/main.css"/>
 </head>
+
 <body>
-<div id="wrapper">
-    <h1>KronChan</h1>
-    <h2>Good, better, best. Never let it rest. </h2>
-    <p><a href="http://blog.wuwii.com" target="_blank">Blog</a></p>
-    <p><a href="https://github.com/kaimz" target="_blank" rel="external nofollow noopener noreferrer">Github</a></p>
-    <p><a href="mailto:k@wuwii.com" target="_blank" rel="external nofollow noopener noreferrer">Email</a></p>
+<div class="vi">
+    <div class="sidebar">
+        <div class="header">
+            <h1>Wu</h1>
+            <div class="quote">
+                <p class="quote-text animate-init">
+                    <span class="animate-init">Good,</span>
+                    <span class="animate-init"> better,</span>
+                    <span class="animate-init">best.</span>
+                    <span class="animate-init"> Never let it rest.</span>
+                </p>
+            </div>
+        </div>
+        <div class="menu">
+            <p><a href="http://blog.wuwii.com" class="animate-init" rel="noopener noreferrer">Blog</a></p>
+            <p><a href="https://github.com/kaimz" class="animate-init" rel="external nofollow noopener noreferrer">Github</a></p>
+            <p><a href="mailto:k@wuwii.com" class="animate-init" rel="external nofollow noopener noreferrer">Email</a></p>
+        </div>
+        <div class="location">
+            <i class="location-icon"></i>
+            <span class="location-text animate-init">Wuhan - China</span>
+        </div>
+        <div class="relocating">
+            Navigating to: <span class="relocate-location"></span>...
+        </div>
+    </div>
+
+    <div class="content">
+        <span class="close">close</span>
+    </div>
 </div>
 <canvas width="1920" height="949"></canvas>
+<script type="text/javascript" src="js/index.js"></script>
 <script>
+    $(document).ready(function () {
+        var delay = 1;
+        var DELAY_STEP = 200;
+        var animationOptions = { opacity: 1, top: 0};
+
+        $('h1').animate(animationOptions).promise()
+            .pipe(animateMain)
+            .pipe(animateLocationIcon);
+
+        function animateMain() {
+            var dfd = $.Deferred();
+            var els = $('.animate-init');
+            var size = els.size();
+
+            els.each(function (index, el) {
+                delay++;
+                $(el).delay(index * DELAY_STEP)
+                    .animate(animationOptions);
+                (size - 1 === index) && dfd.resolve();
+            });
+            return dfd.promise();
+        }
+
+        function animateLocationIcon() {
+            $('.location-icon').delay(delay * DELAY_STEP).animate({
+                opacity: 1,
+                top: 0
+            }).promise().done(animationQuote);
+        }
+
+        function animationQuote() {}
+    });
+
     document.addEventListener('touchmove', function (e) {
         e.preventDefault()
     })
@@ -128,4 +124,5 @@
     document.ontouchstart = i
     i()
 </script>
-</body></html>
+</body>
+</html>
