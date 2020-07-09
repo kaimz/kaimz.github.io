@@ -61,6 +61,8 @@ text-align: center;
     </div>
 </div>
 <div id="footer">
+    <a target="_blank" href="http://www.miibeian.gov.cn/publish/query/indexFirst.action" style="display:inline-block;text-decoration:none;height:12px;line-height:12px; text-align: center;"><img src="" style="float:left;"/><p style="float:left;font-size: 12px; height:12px;line-height:12px;margin: 0px 0px 0px 5px; color:#939393;">鄂ICP备16023400号-1</p></a>
+    <br>
     <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010402004114" style="display:inline-block;text-decoration:none;height:12px;line-height:12px; text-align: center;"><img src="https://10e2tf.coding-pages.com/image/tool/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" height="15" width="15" style="float:left;"/><p style="float:left;font-size: 12px; height:12px;line-height:12px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010402004114号</p></a>
     </div>
 <canvas width="1920" height="949"></canvas>
@@ -101,7 +103,7 @@ text-align: center;
 
     document.addEventListener('touchmove', function (e) {
         e.preventDefault()
-    })
+    });
     var c = document.getElementsByTagName('canvas')[0],
         x = c.getContext('2d'),
         pr = window.devicePixelRatio || 1,
@@ -138,11 +140,11 @@ text-align: center;
         q[1] = {x:k,y:n}
     }
     function y(p){
-        var t = p + (z()*2-1.1)*f
+        var t = p + (z()*2-1.1)*f;
         return (t>h||t<0) ? y(p) : t
     }
-    document.onclick = i
-    document.ontouchstart = i
+    document.onclick = i;
+    document.ontouchstart = i;
     i()
 </script>
 </body>
